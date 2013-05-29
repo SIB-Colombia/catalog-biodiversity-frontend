@@ -132,6 +132,13 @@ function Departamento(data) {
 	this.nombre = data.nombre;
 }
 
+// Filter data
+function Filter(data) {
+	this.subject = data.subject;
+	this.predicate = data.predicate;
+	this.objectName = data.objectName;
+}
+
 function FichasCarruselViewModel() {
 	var self = this;
 	self.fichasCarrusel = ko.observableArray([]);
@@ -181,25 +188,140 @@ function RecordsWallViewModel() {
 	self.currentPage = ko.observable(2);
 	self.recordsWall = ko.observableArray([]);
 
-	self.removeFichaMuro = function(record) {
-		self.recordsWall.remove(record);
+	// FichaCarrusel variables
+	self.fichasCarrusel = ko.observableArray([]);
+	self.newFichaCarruselNombreCientifico = ko.observable();
+	self.numeroFichaCarrusel = 0;
+
+	// FichaCarrusel operations
+	self.addFichaCarrusel = function() {
+		self.numeroFichaCarrusel++;
+		self.fichasCarrusel.push(new Ficha({taxonnombre: this.newFichaCarruselNombreCientifico(), numero: this.numeroFichaCarrusel}));
+		$("a[data-toggle=popover]").popover();
 	};
 
-	self.updateWall = function(elem) {
-		//$container.isotope('reloadItems');
-		/*console.log($('#container').children().length);
-		console.log(self.recordsWall().length);
-		if($('#container').children().length === self.recordsWall().length) {
-			console.log("son iguales");
-		}*/
-		//$container.isotope('reLayout');
-		//$container.isotope('reLayout');
+	self.removeFichaCarrusel = function(ficha) {
+		self.fichasCarrusel.remove(ficha);
+	};
+
+	self.showFichaElement = function(elem) {
+		if (elem.nodeType === 1)
+			$(elem).fadeIn();
+	};
+
+	$.ajax({
+		url: "http://admin.catalogo.local/index.php/api/fichas/carrusel?count=6",
+		type: 'GET',
+		dataType: "jsonp",
+		success: function(data) {
+			for(var i in data) {
+				self.numeroFichaCarrusel++;
+				this.imagenes = ko.observableArray([]);
+				for(var imagen in data[i].atributos.ImagenThumb140) {
+					this.imagenes.push(new Imagen({urlImagen140: data[i].atributos.ImagenThumb140[imagen]}));
+				}
+				this.nombresComunes = ko.observableArray([]);
+				for(var nombreComun in data[i].nombres_comunes) {
+					this.nombresComunes.push(new NombreComun({tesauroNombre: data[i].nombres_comunes[nombreComun].tesauronombre}));
+				}
+				this.departamentos = ko.observableArray([]);
+				self.fichasCarrusel.push(new Ficha({taxonnombre: data[i].info_taxonomica.taxonnombre, idCatalogo: data[i].catalogoespecies_id, numero: self.numeroFichaCarrusel, imagenes: this.imagenes, nombresComunes: this.nombresComunes, departamentos: this.departamentos}));
+				$("a[data-toggle=popover]").popover();
+			}
+		}
+	});
+	// End fichascarrusel operations
+	
+	// Filter status variables
+	self.currentGroupActive = ko.observable("Todos");
+	self.currentGeneralFilter = ko.observable("Todas");
+	self.currentOrderBy = ko.observable("Fecha publicación");
+	self.currentOrderDirection = ko.observable("Descendente");
+
+	self.changeSearchCondition = function(data, event) {
+		switch (event.currentTarget.innerText) {
+			case "Todos":
+				self.currentGroupActive("Todos");
+				break;
+			case "Insectos":
+				self.currentGroupActive("Insectos");
+				break;
+			case "Aves":
+				self.currentGroupActive("Aves");
+				break;
+			case "Plantas":
+				self.currentGroupActive("Plantas");
+				break;
+			case "Mamíferos":
+				self.currentGroupActive("Mamíferos");
+				break;
+			case "Reptiles":
+				self.currentGroupActive("Reptiles");
+				break;
+			case "Peces":
+				self.currentGroupActive("Peces");
+				break;
+			case "Hongos":
+				self.currentGroupActive("Hongos");
+				break;
+			case "Todas":
+				self.currentGeneralFilter("Todas");
+				break;
+			case "Solo fichas con imagenes":
+				self.currentGeneralFilter("Solo fichas con imagenes");
+				break;
+			case "Fecha publicación":
+				self.currentOrderBy("Fecha publicación");
+				break;
+			case "Nombre científico":
+				self.currentOrderBy("Nombre científico");
+				break;
+			case "Autor":
+				self.currentOrderBy("Autor");
+				break;
+			case "Ascendente":
+				self.currentOrderDirection("Ascendente");
+				break;
+			case "Descendente":
+				self.currentOrderDirection("Descendente");
+				break;
+		}
+	}
+
+	self.removeFichaMuro = function(record) {
+		self.recordsWall.remove(record);
 	};
 
 	self.urlSearch = ko.computed(function() {
 		var url = "http://admin.catalogo.local/index.php/api/fichas?";
 		// Add page to search
 		url = url+"page="+self.currentPage();
+		if(self.currentGroupActive() == "Insectos") {
+			url = url+"&taxon=insecta";
+		} else if(self.currentGroupActive() == "Aves") {
+			url = url+"&taxon=aves";
+		} else if(self.currentGroupActive() == "Plantas") {
+			url = url+"&taxon=plantae";
+		} else if(self.currentGroupActive() == "Mamíferos") {
+			url = url+"&taxon=mammalia";
+		} else if(self.currentGroupActive() == "Reptiles") {
+			url = url+"&taxon=reptilia";
+		} else if(self.currentGroupActive() == "Peces") {
+			url = url+"&taxon=amphibia";
+		} else if(self.currentGroupActive() == "Hongos") {
+			url = url+"&taxon=fungi";
+		}
+		if(self.currentGeneralFilter() == "Solo fichas con imagenes") {
+			url = url+"&onlyimages=true";
+		}
+		if(self.currentOrderBy() == "Nombre científico") {
+			url = url+"&order=scientificname";
+		} else if(self.currentOrderBy() == "Autor") {
+			url = url+"&order=author";
+		}
+		if(self.currentOrderDirection() == "Ascendente") {
+			url = url+"&orderdirection=asc";
+		}
 		return url;
 	}, this);
 
@@ -369,8 +491,8 @@ function RecordsWallViewModel() {
 	});
 }
 
-ko.applyBindings(new FichasCarruselViewModel(), $("#carruselSection")[0]);
-ko.applyBindings(new RecordsWallViewModel(), $("#catalogWallSection")[0]);
+//ko.applyBindings(new FichasCarruselViewModel(), $("#carruselSection")[0]);
+ko.applyBindings(new RecordsWallViewModel(), $("#top-zone")[0]);
 
 // Enable Isotope fluid layout
 /*$(function(){

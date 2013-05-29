@@ -23,51 +23,47 @@ block header
 								a(href="#", class="dropdown-toggle", data-toggle="dropdown") GRUPOS: todos
 									b.caret
 								ul.dropdown-menu
-									li.active
-										a(href="#") Todos
-									li
-										a(href="#") Insectos
-									li
-										a(href="#") Aves
-									li
-										a(href="#") Plantas
-									li
-										a(href="#") Mamíferos
-									li
-										a(href="#") Reptiles
-									li
-										a(href="#") Peces
-									li
-										a(href="#") Hongos
-									li
-										a(href="#") Invasoras
+									li(data-bind="css: { active: currentGroupActive() == 'Todos' }")
+										a(href="#", data-bind="click: changeSearchCondition") Todos
+									li(data-bind="css: { active: currentGroupActive() == 'Insectos' }")
+										a(href="#", data-bind="click: changeSearchCondition") Insectos
+									li(data-bind="css: { active: currentGroupActive() == 'Aves' }")
+										a(href="#", data-bind="click: changeSearchCondition") Aves
+									li(data-bind="css: { active: currentGroupActive() == 'Plantas' }")
+										a(href="#", data-bind="click: changeSearchCondition") Plantas
+									li(data-bind="css: { active: currentGroupActive() == 'Mamíferos' }")
+										a(href="#", data-bind="click: changeSearchCondition") Mamíferos
+									li(data-bind="css: { active: currentGroupActive() == 'Reptiles' }")
+										a(href="#", data-bind="click: changeSearchCondition") Reptiles
+									li(data-bind="css: { active: currentGroupActive() == 'Peces' }")
+										a(href="#", data-bind="click: changeSearchCondition") Peces
+									li(data-bind="css: { active: currentGroupActive() == 'Hongos' }")
+										a(href="#", data-bind="click: changeSearchCondition") Hongos
 							li.divider-vertical
 							li.dropdown
 								a(href="#", class="dropdown-toggle", data-toggle="dropdown") FILTRAR POR: todas
 									b.caret
 								ul.dropdown-menu
-									li.active
-										a(href="#") Todas
-									li
-										a(href="#") Solo fichas con imagenes
+									li(data-bind="css: { active: currentGeneralFilter() == 'Todas' }")
+										a(href="#", data-bind="click: changeSearchCondition") Todas
+									li(data-bind="css: { active: currentGeneralFilter() == 'Solo fichas con imagenes' }")
+										a(href="#", data-bind="click: changeSearchCondition") Solo fichas con imagenes
 							li.divider-vertical
 							li.dropdown
 								a(href="#", class="dropdown-toggle", data-toggle="dropdown") ORDENAR POR: fecha publicación, descendente
 									b.caret
 								ul.dropdown-menu
-									li.active
-										a(href="#") Fecha publicación
-									li
-										a(href="#") Nombre científico
-									li
-										a(href="#") Nombre común
-									li
-										a(href="#") Autor
+									li(data-bind="css: { active: currentOrderBy() == 'Fecha publicación' }")
+										a(href="#", data-bind="click: changeSearchCondition") Fecha publicación
+									li(data-bind="css: { active: currentOrderBy() == 'Nombre científico' }")
+										a(href="#", data-bind="click: changeSearchCondition") Nombre científico
+									li(data-bind="css: { active: currentOrderBy() == 'Autor' }")
+										a(href="#", data-bind="click: changeSearchCondition") Autor
 									li.divider
-									li
-										a(href="#") Ascendente
-									li.active
-										a(href="#") Descendente
+									li(data-bind="css: { active: currentOrderDirection() == 'Ascendente' }")
+										a(href="#", data-bind="click: changeSearchCondition") Ascendente
+									li(data-bind="css: { active: currentOrderDirection() == 'Descendente' }")
+										a(href="#", data-bind="click: changeSearchCondition") Descendente
 						form.navbar-search.pull-left
 							.buscar
 								fieldset
