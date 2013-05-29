@@ -1,0 +1,53 @@
+{
+  "name": "CatalogOfBiodiversity-SIBColombia",
+  "description": "Front end code for the Catalog of Biodiversity of SIB Colombia.",
+  "version": "1.2.0",
+  "private": true,
+  "author": "Valentinilla <valegrajales@gmail.com>",
+  "contributors": [ 
+    {
+      "name": "Daniel Amariles",
+      "email": "damariles@humboldt.org.co"
+    },
+    {
+      "name": "Oscar Duque",
+      "email": "oduque@humboldt.org.co"
+    }
+  ],
+  "scripts": {
+    "start": ".\\node_modules\\.bin\\nodemon app.js",
+    "test": "set NODE_ENV=test; ./node_modules/.bin/mocha --reporter spec test/test-*.js"
+  },
+  "keywords": [
+    "sib-colombia",
+    "catalogOfBiodiversity",
+    "Catalog of Biodiversity",
+    "frontend"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "express": "3.2.2",
+    "async": "0.2.8",
+    "stylus": "0.32.1",
+    "jade": "0.30.0",
+    "request": "2.21.0",
+    "q": "0.9.3",
+    "winston": "0.7.1",
+    "underscore": "1.4.4",
+    "express-uglify": "0.3.1"
+  },
+  "devDependencies": {
+    "supertest": "latest",
+    "should": "latest",
+    "mocha": "latest",
+    "nodemon": "latest"
+  },
+  "engines": {
+    "node": ">=0.10.4"
+  }
+}

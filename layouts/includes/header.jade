@@ -1,0 +1,75 @@
+block header
+	header
+		nav
+			.navbar.no-bottom-margin
+				.navbar-inner
+					.container-fluid
+						a(class="brand", alt="Logo Catalogo de la Biodiversidad", href="#")
+							img(src="images/logo_catalogo_60px_fondo_blanco.png")
+						.pull-right.hidden-phone
+							a(class="brand", alt="Logo SIB Colombia", href="http://www.sibcolombia.net")
+								img(src="images/logo_sib_80px_fondo_papel.png", style="height:60px;")
+						#flower
+			.navbar.menu-opciones
+				.navbar-inner
+					.container-fluid
+						a(class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+					.nav-collapse.collaps.navbar-responsive-collapse
+						ul.nav.pull-right
+							li.dropdown
+								a(href="#", class="dropdown-toggle", data-toggle="dropdown") GRUPOS: todos
+									b.caret
+								ul.dropdown-menu
+									li.active
+										a(href="#") Todos
+									li
+										a(href="#") Insectos
+									li
+										a(href="#") Aves
+									li
+										a(href="#") Plantas
+									li
+										a(href="#") Mamíferos
+									li
+										a(href="#") Reptiles
+									li
+										a(href="#") Peces
+									li
+										a(href="#") Hongos
+									li
+										a(href="#") Invasoras
+							li.divider-vertical
+							li.dropdown
+								a(href="#", class="dropdown-toggle", data-toggle="dropdown") FILTRAR POR: todas
+									b.caret
+								ul.dropdown-menu
+									li.active
+										a(href="#") Todas
+									li
+										a(href="#") Solo fichas con imagenes
+							li.divider-vertical
+							li.dropdown
+								a(href="#", class="dropdown-toggle", data-toggle="dropdown") ORDENAR POR: fecha publicación, descendente
+									b.caret
+								ul.dropdown-menu
+									li.active
+										a(href="#") Fecha publicación
+									li
+										a(href="#") Nombre científico
+									li
+										a(href="#") Nombre común
+									li
+										a(href="#") Autor
+									li.divider
+									li
+										a(href="#") Ascendente
+									li.active
+										a(href="#") Descendente
+						form.navbar-search.pull-left
+							.buscar
+								fieldset
+									input.search-query.span2(type="text", placeholder="Buscar por nombre científico o nombre común")
+									button.btn.hidden-phone.hidden-tablet(type="button")
