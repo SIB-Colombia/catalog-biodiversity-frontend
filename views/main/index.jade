@@ -9,7 +9,7 @@ block content
 		.container-fluid-withoutmargin.hidden-phone
 			#fichas_muestra(data-bind="template: { foreach: fichasCarrusel, afterRender: showFichaElement, visible: fichasCarrusel().length > 0}")
 				.foto_muestra(data-bind="css: { 'hidden-tablet': numeroFichaCarrusel > 5 }")
-					a.thumbnail(data-toggle="popover", data-placement="bottom", data-bind="attr: { title: taxonnombre, 'data-content': textoNombresComunes }", data-trigger="hover")
+					a.thumbnail(data-toggle="popover", data-placement="bottom", data-bind="attr: { title: taxonnombre, 'data-content': textoNombresComunes, href: recordURL }", data-trigger="hover")
 						img(data-bind="attr: { src: imagenThumb140().urlImagen140 }")
 					span.carousel-taxonnombre(data-bind="text: taxonnombre")
 	// Wall records
@@ -20,4 +20,4 @@ block content
 		#wall-container-wrapper
 			#container
 		.navigation
-			a(data-bind="attr: { href: urlSearch }")
+			a(data-bind="attr: { href: urlSearch() }")

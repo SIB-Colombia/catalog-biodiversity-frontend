@@ -368,6 +368,57 @@ body {
   color: #000;
   text-decoration: underline;
 }
+#catalogRecord #record-wrapper {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+#catalogRecord #record-wrapper #recordPictures {
+  float: left;
+}
+#catalogRecord #record-wrapper #recordPictures img {
+  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+#catalogRecord #record-wrapper #recordHeader {
+  background: rgba(251,180,29,0.1);
+  padding-top: 1px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#catalogRecord #record-wrapper #recordHeader #recordTitles h1.taxonName {
+  font-family: "Economica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #2288c9;
+}
+#catalogRecord #record-wrapper #recordHeader #recordTitles h6.author {
+  margin-bottom: 0px;
+}
+#catalogRecord #record-wrapper #recordContent {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+#catalogRecord #record-wrapper #recordContent .descriptionTitle,
+#catalogRecord #record-wrapper #recordContent .commonNamesTitle,
+#catalogRecord #record-wrapper #recordContent .distributionTitle {
+  background-color: #a5b562;
+  color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#catalogRecord #record-wrapper #recordContent ul {
+  list-style-position: inside;
+}
 @media (min-width: 980px) {
   #top-zone .menu-opciones .navbar-search .buscar input {
     width: 290px;

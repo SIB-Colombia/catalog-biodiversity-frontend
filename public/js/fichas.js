@@ -100,6 +100,10 @@ function Ficha(data) {
 		return this.imagenes()[Math.floor(Math.random()*this.imagenes().length)];
 	}, this);
 
+	this.recordURL = ko.computed(function() {
+		return "/ficha/id/"+this.idCatalogo;
+	}, this);
+
 	this.imagenThumb270 = ko.computed(function() {
 		return this.imagenes()[Math.floor(Math.random()*this.imagenes().length)];
 	}, this);
@@ -187,6 +191,7 @@ function RecordsWallViewModel() {
 	var self = this;
 	self.currentPage = ko.observable(2);
 	self.recordsWall = ko.observableArray([]);
+	self.simpleSearchBox = ko.observable("");
 
 	// FichaCarrusel variables
 	self.fichasCarrusel = ko.observableArray([]);
@@ -258,8 +263,8 @@ function RecordsWallViewModel() {
 			case "Reptiles":
 				self.currentGroupActive("Reptiles");
 				break;
-			case "Peces":
-				self.currentGroupActive("Peces");
+			case "Anfibios":
+				self.currentGroupActive("Anfibios");
 				break;
 			case "Hongos":
 				self.currentGroupActive("Hongos");
@@ -286,7 +291,32 @@ function RecordsWallViewModel() {
 				self.currentOrderDirection("Descendente");
 				break;
 		}
-	}
+		self.startSearch();
+	};
+
+	self.startSearch = function() {
+		self.currentPage(2);
+		$('#container').empty();
+		$container.isotope('destroy');
+		$container.infinitescroll("destroy");
+		$container.isotope({
+			itemSelector : '.element',
+			masonry : {
+				columnWidth : 270
+			}
+		});
+		self.getServerData();
+	};
+
+	self.startSearchOnEnter = function(data, event) {
+		var keyCode = (event.which ? event.which : event.keyCode);
+		if (keyCode === 13) {
+			if(self.simpleSearchBox() != "")
+				self.startSearch();
+			return false;
+		}
+		return true;
+	};
 
 	self.removeFichaMuro = function(record) {
 		self.recordsWall.remove(record);
@@ -306,7 +336,7 @@ function RecordsWallViewModel() {
 			url = url+"&taxon=mammalia";
 		} else if(self.currentGroupActive() == "Reptiles") {
 			url = url+"&taxon=reptilia";
-		} else if(self.currentGroupActive() == "Peces") {
+		} else if(self.currentGroupActive() == "Anfibios") {
 			url = url+"&taxon=amphibia";
 		} else if(self.currentGroupActive() == "Hongos") {
 			url = url+"&taxon=fungi";
@@ -321,6 +351,9 @@ function RecordsWallViewModel() {
 		}
 		if(self.currentOrderDirection() == "Ascendente") {
 			url = url+"&orderdirection=asc";
+		}
+		if(self.simpleSearchBox() != "") {
+			url = url+"&commonname="+self.simpleSearchBox()+"&scientificname="+self.simpleSearchBox();
 		}
 		return url;
 	}, this);
@@ -399,7 +432,7 @@ function RecordsWallViewModel() {
 			} else if(taxonKingdom == "Fungi") {
 				image.urlImagen270 = "/images/taxon_icons/hongos2.png";
 			} else if(taxonKingdom == "Animalia" && taxonClass == "Amphibia") {
-				image.urlImagen270 = "/images/taxon_icons/peces2.png";
+				image.urlImagen270 = "/images/taxon_icons/anfibios2.png";
 			} else {
 				image.urlImagen270 = 'data:image/png;base64,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';
 			}
@@ -409,86 +442,93 @@ function RecordsWallViewModel() {
 		}
 	};
 
-	$.ajax({
-		url: "http://admin.catalogo.local/index.php/api/fichas?page=1",
-		type: 'GET',
-		dataType: "jsonp",
-		beforeSend: function() {
-			$('#messageAndAlert').css({display: 'block'});
-			$("#messageAndAlert").addClass("loading");
-		},
-		complete: function() {
-			$("#messageAndAlert").removeClass("loading");
-			$('#messageAndAlert').css({display: 'none'});
-			setTimeout(function() {
-				$container.isotope('reLayout');
-				$container.infinitescroll({
-					dataType: "json",
-					debug: false,
-					appendCallback: false,
-					navSelector  : '.navigation',
-					nextSelector : '.navigation a'
-				},	function(data, opts) {
-						var page = opts.state.currPage;
-						self.currentPage(page+1);
-						for(var i in data) {
-							this.imagenes = ko.observableArray([]);
-							if(data[i].atributos !== undefined) {
-								for(var imagen in data[i].atributos.ImagenThumb270) {
-									this.imagenes.push(new Imagen({urlImagen270: data[i].atributos.ImagenThumb270[imagen]}));
+	self.getServerData = function() {
+		$.ajax({
+			url: self.urlSearch().replace(/page=\d+/i, "page=1"),
+			type: 'GET',
+			dataType: "jsonp",
+			beforeSend: function() {
+				$('#messageAndAlert').css({display: 'block'});
+				$("#messageAndAlert").addClass("loading");
+			},
+			complete: function() {
+				$("#messageAndAlert").removeClass("loading");
+				$('#messageAndAlert').css({display: 'none'});
+				setTimeout(function() {
+					$container.isotope('reLayout');
+					$container.infinitescroll({
+						dataType: "json",
+						debug: false,
+						appendCallback: false,
+						navSelector  : '.navigation',
+						nextSelector : '.navigation a'
+					},	function(data, opts) {
+							var page = opts.state.currPage;
+							self.currentPage(page+1);
+							for(var i in data) {
+								this.imagenes = ko.observableArray([]);
+								if(data[i].atributos !== undefined) {
+									for(var imagen in data[i].atributos.ImagenThumb270) {
+										this.imagenes.push(new Imagen({urlImagen270: data[i].atributos.ImagenThumb270[imagen]}));
+									}
 								}
-							}
-							this.nombresComunes = ko.observableArray([]);
-							for(var nombreComun in data[i].nombres_comunes) {
-								this.nombresComunes.push(new NombreComun({tesauroNombre: data[i].nombres_comunes[nombreComun].tesauronombre}));
-							}
-							this.departamentos = ko.observableArray([]);
-							if(data[i].distribucion_geografica !== undefined) {
-								for(var departamento in data[i].distribucion_geografica.departamentos) {
-									this.departamentos.push(new Departamento({nombre: data[i].distribucion_geografica.departamentos[departamento]}));
+								this.nombresComunes = ko.observableArray([]);
+								for(var nombreComun in data[i].nombres_comunes) {
+									this.nombresComunes.push(new NombreComun({tesauroNombre: data[i].nombres_comunes[nombreComun].tesauronombre}));
 								}
-								this.organizaciones = ko.observableArray([]);
-								for(var organizacion in data[i].distribucion_geografica.organizaciones) {
-									this.organizaciones.push(new Organizacion({nombre: data[i].distribucion_geografica.organizaciones[organizacion]}));
+								this.departamentos = ko.observableArray([]);
+								if(data[i].distribucion_geografica !== undefined) {
+									for(var departamento in data[i].distribucion_geografica.departamentos) {
+										this.departamentos.push(new Departamento({nombre: data[i].distribucion_geografica.departamentos[departamento]}));
+									}
+									this.organizaciones = ko.observableArray([]);
+									for(var organizacion in data[i].distribucion_geografica.organizaciones) {
+										this.organizaciones.push(new Organizacion({nombre: data[i].distribucion_geografica.organizaciones[organizacion]}));
+									}
 								}
+								self.recordsWall.push(new Ficha({idCatalogo: data[i].catalogoespecies_id, taxonnombre: data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, ''), autor: data[i].info_taxonomica.autor, taxoncompleto: data[i].info_taxonomica.taxoncompleto, imagenes: this.imagenes, nombresComunes: this.nombresComunes, organizaciones: this.organizaciones, departamentos: this.departamentos}));
+								$container.isotope('insert', $('<div class="element ficha"><a href="/ficha/id/'+data[i].catalogoespecies_id+'"><img src="'+self.imageToUse(this.imagenes(), data[i].info_taxonomica.taxoncompleto).urlImagen270+'"></a><div class="ficha-muro-datos"><div class="ficha-muro-taxonnombre"><span>'+data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, '')+'</span></div><div class="ficha-muro-autor"><span>'+data[i].info_taxonomica.autor+'</span></div><div class="ficha-muro-taxoncompleto"><span>'+data[i].info_taxonomica.taxoncompleto+'</span></div><div class="ficha-muro-nombrescomunes"><strong>Nombres comunes:</strong> <span>'+self.textCommonName(this.nombresComunes())+'</span></div><div class="ficha-muro-departamentos"><strong>Departamentos:</strong> <span>'+self.textDepartments(this.departamentos())+'</span></div></div></div>'));
+								setTimeout(function() {
+									$container.isotope('reLayout');
+								}, 300);
 							}
-							self.recordsWall.push(new Ficha({idCatalogo: data[i].catalogoespecies_id, taxonnombre: data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, ''), autor: data[i].info_taxonomica.autor, taxoncompleto: data[i].info_taxonomica.taxoncompleto, imagenes: this.imagenes, nombresComunes: this.nombresComunes, organizaciones: this.organizaciones, departamentos: this.departamentos}));
-							$container.isotope('insert', $('<div class="element ficha"><a href="#"><img src="'+self.imageToUse(this.imagenes(), data[i].info_taxonomica.taxoncompleto).urlImagen270+'"></a><div class="ficha-muro-datos"><div class="ficha-muro-taxonnombre"><span>'+data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, '')+'</span></div><div class="ficha-muro-autor"><span>'+data[i].info_taxonomica.autor+'</span></div><div class="ficha-muro-taxoncompleto"><span>'+data[i].info_taxonomica.taxoncompleto+'</span></div><div class="ficha-muro-nombrescomunes"><strong>Nombres comunes:</strong> <span>'+self.textCommonName(this.nombresComunes())+'</span></div><div class="ficha-muro-departamentos"><strong>Departamentos:</strong> <span>'+self.textDepartments(this.departamentos())+'</span></div></div></div>'));
-							setTimeout(function() {
-								$container.isotope('reLayout');
-							}, 0);
+						}
+					);
+					// Re-initialize
+					//$container.infinitescroll('bind');
+				}, 300);
+			},
+			success: function(data) {
+				for(var i in data) {
+					this.imagenes = ko.observableArray([]);
+					this.departamentos = ko.observableArray([]);
+					this.organizaciones = ko.observableArray([]);
+					if(data[i].atributos !== undefined) {
+						for(var imagen in data[i].atributos.ImagenThumb270) {
+							this.imagenes.push(new Imagen({urlImagen270: data[i].atributos.ImagenThumb270[imagen]}));
 						}
 					}
-				);
-			}, 300);
-		},
-		success: function(data) {
-			for(var i in data) {
-				this.imagenes = ko.observableArray([]);
-				if(data[i].atributos !== undefined) {
-					for(var imagen in data[i].atributos.ImagenThumb270) {
-						this.imagenes.push(new Imagen({urlImagen270: data[i].atributos.ImagenThumb270[imagen]}));
+					this.nombresComunes = ko.observableArray([]);
+					for(var nombreComun in data[i].nombres_comunes) {
+						this.nombresComunes.push(new NombreComun({tesauroNombre: data[i].nombres_comunes[nombreComun].tesauronombre}));
 					}
-				}
-				this.nombresComunes = ko.observableArray([]);
-				for(var nombreComun in data[i].nombres_comunes) {
-					this.nombresComunes.push(new NombreComun({tesauroNombre: data[i].nombres_comunes[nombreComun].tesauronombre}));
-				}
-				if(data[i].distribucion_geografica !== undefined) {
-					this.departamentos = ko.observableArray([]);
-					for(var departamento in data[i].distribucion_geografica.departamentos) {
-						this.departamentos.push(new Departamento({nombre: data[i].distribucion_geografica.departamentos[departamento]}));
+					if(data[i].distribucion_geografica !== undefined) {
+						for(var departamento in data[i].distribucion_geografica.departamentos) {
+							this.departamentos.push(new Departamento({nombre: data[i].distribucion_geografica.departamentos[departamento]}));
+						}
+						for(var organizacion in data[i].distribucion_geografica.organizaciones) {
+							this.organizaciones.push(new Organizacion({nombre: data[i].distribucion_geografica.organizaciones[organizacion]}));
+						}	
 					}
-					this.organizaciones = ko.observableArray([]);
-					for(var organizacion in data[i].distribucion_geografica.organizaciones) {
-						this.organizaciones.push(new Organizacion({nombre: data[i].distribucion_geografica.organizaciones[organizacion]}));
-					}
+					self.recordsWall.push(new Ficha({idCatalogo: data[i].catalogoespecies_id, taxonnombre: data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, ''), autor: data[i].info_taxonomica.autor, taxoncompleto: data[i].info_taxonomica.taxoncompleto, imagenes: this.imagenes, nombresComunes: this.nombresComunes, organizaciones: this.organizaciones, departamentos: this.departamentos}));
+					$container.isotope('insert', $('<div class="element ficha"><a href="/ficha/id/'+data[i].catalogoespecies_id+'"><img src="'+self.imageToUse(this.imagenes(), data[i].info_taxonomica.taxoncompleto).urlImagen270+'"></a><div class="ficha-muro-datos"><div class="ficha-muro-taxonnombre"><span>'+data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, '')+'</span></div><div class="ficha-muro-autor"><span>'+data[i].info_taxonomica.autor+'</span></div><div class="ficha-muro-taxoncompleto"><span>'+data[i].info_taxonomica.taxoncompleto+'</span></div><div class="ficha-muro-nombrescomunes"><strong>Nombres comunes:</strong> <span>'+self.textCommonName(this.nombresComunes())+'</span></div><div class="ficha-muro-departamentos"><strong>Departamentos:</strong> <span>'+self.textDepartments(this.departamentos())+'</span></div></div></div>'));
 				}
-				self.recordsWall.push(new Ficha({idCatalogo: data[i].catalogoespecies_id, taxonnombre: data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, ''), autor: data[i].info_taxonomica.autor, taxoncompleto: data[i].info_taxonomica.taxoncompleto, imagenes: this.imagenes, nombresComunes: this.nombresComunes, organizaciones: this.organizaciones, departamentos: this.departamentos}));
-				$container.isotope('insert', $('<div class="element ficha"><a href="#"><img src="'+self.imageToUse(this.imagenes(), data[i].info_taxonomica.taxoncompleto).urlImagen270+'"></a><div class="ficha-muro-datos"><div class="ficha-muro-taxonnombre"><span>'+data[i].info_taxonomica.taxonnombre.replace(/<[^>]*>?/gm, '')+'</span></div><div class="ficha-muro-autor"><span>'+data[i].info_taxonomica.autor+'</span></div><div class="ficha-muro-taxoncompleto"><span>'+data[i].info_taxonomica.taxoncompleto+'</span></div><div class="ficha-muro-nombrescomunes"><strong>Nombres comunes:</strong> <span>'+self.textCommonName(this.nombresComunes())+'</span></div><div class="ficha-muro-departamentos"><strong>Departamentos:</strong> <span>'+self.textDepartments(this.departamentos())+'</span></div></div></div>'));
 			}
-		}
-	});
+		});
+	};
+
+	self.getServerData();
+
 }
 
 //ko.applyBindings(new FichasCarruselViewModel(), $("#carruselSection")[0]);

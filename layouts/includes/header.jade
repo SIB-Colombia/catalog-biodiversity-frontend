@@ -20,7 +20,8 @@ block header
 					.nav-collapse.collaps.navbar-responsive-collapse
 						ul.nav.pull-right
 							li.dropdown
-								a(href="#", class="dropdown-toggle", data-toggle="dropdown") GRUPOS: todos
+								a(href="#", class="dropdown-toggle", data-toggle="dropdown") GRUPOS: 
+									span(data-bind="text: currentGroupActive()", style="text-transform: lowercase;")
 									b.caret
 								ul.dropdown-menu
 									li(data-bind="css: { active: currentGroupActive() == 'Todos' }")
@@ -35,13 +36,14 @@ block header
 										a(href="#", data-bind="click: changeSearchCondition") Mamíferos
 									li(data-bind="css: { active: currentGroupActive() == 'Reptiles' }")
 										a(href="#", data-bind="click: changeSearchCondition") Reptiles
-									li(data-bind="css: { active: currentGroupActive() == 'Peces' }")
-										a(href="#", data-bind="click: changeSearchCondition") Peces
+									li(data-bind="css: { active: currentGroupActive() == 'Anfibios' }")
+										a(href="#", data-bind="click: changeSearchCondition") Anfibios
 									li(data-bind="css: { active: currentGroupActive() == 'Hongos' }")
 										a(href="#", data-bind="click: changeSearchCondition") Hongos
 							li.divider-vertical
 							li.dropdown
-								a(href="#", class="dropdown-toggle", data-toggle="dropdown") FILTRAR POR: todas
+								a(href="#", class="dropdown-toggle", data-toggle="dropdown") FILTRAR POR: 
+									span(data-bind="text: currentGeneralFilter()", style="text-transform: lowercase;")
 									b.caret
 								ul.dropdown-menu
 									li(data-bind="css: { active: currentGeneralFilter() == 'Todas' }")
@@ -50,7 +52,10 @@ block header
 										a(href="#", data-bind="click: changeSearchCondition") Solo fichas con imagenes
 							li.divider-vertical
 							li.dropdown
-								a(href="#", class="dropdown-toggle", data-toggle="dropdown") ORDENAR POR: fecha publicación, descendente
+								a(href="#", class="dropdown-toggle", data-toggle="dropdown") ORDENAR POR: 
+									span(data-bind="text: currentOrderBy()", style="text-transform: lowercase;")
+									span , 
+									span(data-bind="text: currentOrderDirection()", style="text-transform: lowercase;")
 									b.caret
 								ul.dropdown-menu
 									li(data-bind="css: { active: currentOrderBy() == 'Fecha publicación' }")
@@ -64,8 +69,8 @@ block header
 										a(href="#", data-bind="click: changeSearchCondition") Ascendente
 									li(data-bind="css: { active: currentOrderDirection() == 'Descendente' }")
 										a(href="#", data-bind="click: changeSearchCondition") Descendente
-						form.navbar-search.pull-left
+						.navbar-search.pull-left
 							.buscar
 								fieldset
-									input.search-query.span2(type="text", placeholder="Buscar por nombre científico o nombre común")
-									button.btn.hidden-phone.hidden-tablet(type="button")
+									input.search-query.span2(type="text", placeholder="Buscar por nombre científico o nombre común", data-bind="value: simpleSearchBox, valueUpdate: 'afterkeydown', event: { keypress: startSearchOnEnter }")
+									button.btn.hidden-phone.hidden-tablet(type="button", data-bind="click: startSearch")

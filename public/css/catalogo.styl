@@ -309,6 +309,48 @@ body
 						&:hover
 							color #000
 							text-decoration underline
+#catalogRecord
+	#record-wrapper
+		margin-left 2%
+		margin-right 2%
+		#recordPictures
+			float left
+			img
+				-webkit-box-shadow 0 1px 3px rgba(34,25,25,0.4)
+				-moz-box-shadow 0 1px 3px rgba(34,25,25,0.4)
+				box-shadow 0 1px 3px rgba(34,25,25,0.4)
+				-webkit-transition all 0.6s
+				-moz-transition all 0.6s
+				-ms-transition all 0.6s
+				-o-transition all 0.6s
+				transition all 0.6s
+				margin-right: 30px;
+				margin-bottom: 30px;
+		#recordHeader
+			background rgba(251,180,29,0.1)
+			padding-top 1px
+			padding-bottom 20px
+			padding-left 10px
+			padding-right 10px
+			#recordTitles
+				h1.taxonName
+					font-family "Economica","Helvetica Neue",Helvetica,Arial,sans-serif
+					color #2288C9
+				h6.author
+					margin-bottom 0px
+		#recordContent
+			padding-right 20px
+			padding-left 20px
+			.descriptionTitle, .commonNamesTitle, .distributionTitle
+				background-color #A5B562
+				color white
+				padding-top 5px
+				padding-bottom 5px
+				font-weight bold
+				margin-top 20px
+				margin-bottom 10px
+			ul
+				list-style-position inside
 @media (min-width: 980px)
 	#top-zone
 		.menu-opciones
