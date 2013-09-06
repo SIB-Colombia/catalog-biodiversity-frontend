@@ -165,7 +165,7 @@ function FichasCarruselViewModel() {
 	};
 
 	$.ajax({
-		url: "http://admin.catalogo.local/index.php/api/fichas/carrusel?count=6",
+		url: "http://ec2-174-129-41-104.compute-1.amazonaws.com/index.php/api/fichas/carrusel?count=6",
 		type: 'GET',
 		dataType: "jsonp",
 		success: function(data) {
@@ -215,7 +215,7 @@ function RecordsWallViewModel() {
 	};
 
 	$.ajax({
-		url: "http://admin.catalogo.local/index.php/api/fichas/carrusel?count=6",
+		url: "http://ec2-174-129-41-104.compute-1.amazonaws.com/index.php/api/fichas/carrusel?count=6",
 		type: 'GET',
 		dataType: "jsonp",
 		success: function(data) {
@@ -323,7 +323,7 @@ function RecordsWallViewModel() {
 	};
 
 	self.urlSearch = ko.computed(function() {
-		var url = "http://admin.catalogo.local/index.php/api/fichas?";
+		var url = "http://ec2-174-129-41-104.compute-1.amazonaws.com/index.php/api/fichas?";
 		// Add page to search
 		url = url+"page="+self.currentPage();
 		if(self.currentGroupActive() == "Insectos") {
@@ -383,37 +383,37 @@ function RecordsWallViewModel() {
 			} else {
 				var taxonKingdom = "";
 			}
-			var pattern = /Phylum\s\w*/i;
+			pattern = /Phylum\s\w*/i;
 			if(pattern.exec(taxon) !== null) {
 				var taxonPhylum = pattern.exec(taxon)[0].replace("Phylum","").replace(" ", "");
 			} else {
 				var taxonPhylum = "";
 			}
-			var pattern = /Clase\s\w*/i;
+			pattern = /Clase\s\w*/i;
 			if(pattern.exec(taxon) !== null) {
 				var taxonClass = pattern.exec(taxon)[0].replace("Clase","").replace(" ", "");
 			} else {
 				var taxonClass = "";
 			}
-			var pattern = /Orden\s\w*/i;
+			pattern = /Orden\s\w*/i;
 			if(pattern.exec(taxon) !== null) {
 				var taxonOrder = pattern.exec(taxon)[0].replace("Orden","").replace(" ", "");
 			} else {
 				var taxonOrder = "";
 			}
-			var pattern = /Familia\s\w*/i;
+			pattern = /Familia\s\w*/i;
 			if(pattern.exec(taxon) !== null) {
 				var taxonFamily = pattern.exec(taxon)[0].replace("Familia","").replace(" ", "");
 			} else {
 				var taxonFamily = "";
 			}
-			var pattern = /Género\s\w*/i;
+			pattern = /Género\s\w*/i;
 			if(pattern.exec(taxon) !== null) {
 				var taxonGenus = pattern.exec(taxon)[0].replace("Género","").replace(" ", "");
 			} else {
 				var taxonGenus = "";
 			}
-			var pattern = /Especie\s\w*/i;
+			pattern = /Especie\s\w*/i;
 			if(pattern.exec(taxon) !== null) {
 				var taxonSpecie = pattern.exec(taxon)[0].replace("Especie","").replace(" ", "");
 			} else {
