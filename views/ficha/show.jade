@@ -25,13 +25,61 @@ block content
 							h6.author(data-bind="text: regData.info_taxonomica.autor")
 						.fullTaxonContainer
 							span.taxonComplete(data-bind="text: regData.info_taxonomica.taxoncompleto")
+
 				#recordContent
-					.descriptionTitle(data-bind="visible: regData.atributos['Descripción taxonómica'] !== undefined") Descripción
-					span.atributeDescription(data-bind="html: regData.atributos['Descripción taxonómica'], visible: regData.atributos['Descripción taxonómica'] !== undefined")
+					.descriptionTitle(data-bind="visible: regData.atributos['Descripción taxonómica'] !== undefined") Descripción taxonómica
+						span.atributeDescription(data-bind="html: regData.atributos['Descripción taxonómica'], visible: regData.atributos['Descripción taxonómica'] !== undefined")
+					.generalDescription(data-bind="visible: regData.atributos['Descripción general'] !== undefined") Descripción general
+						span.atributeDescription(data-bind="html: regData.atributos['Descripción general'], visible: regData.atributos['Descripción general'] !== undefined")						
 					.commonNamesTitle(data-bind="visible: regData['nombres_comunes'] !== undefined") Nombres comunes
-					ul(data-bind="foreach: regData['nombres_comunes'], visible: regData['nombres_comunes'] !== undefined")
-						li(data-bind="html: $parent.commonNameWithRegion(tesauronombre, regionesgeograficas)")
+						ul(data-bind="foreach: regData['nombres_comunes'], visible: regData['nombres_comunes'] !== undefined")
+							li(data-bind="html: $parent.commonNameWithRegion(tesauronombre, regionesgeograficas)")
 					.distributionTitle(data-bind="visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined || regData.atributos['Distribución geográfica en el mundo'] !== undefined || regData.atributos['Registros biológicos'] !== undefined") Distribución
 					.distributionColombia(data-bind="visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined") Distribución geográfica en Colombia
+						span.atributeDescription(data-bind="html: regData.atributos['Distribución geográfica en Colombia'], visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined")
 					.distributionWorld(data-bind="visible: regData.atributos['Distribución geográfica en el mundo'] !== undefined") Distribución geográfica en el mundo
+						span.atributeDescription(data-bind="html: regData.atributos['Distribución geográfica en el mundo'], visible: regData.atributos['Distribución geográfica en el mundo'] !== undefined")
 					.biologicOccurrences(data-bind="visible: regData.atributos['Registros biológicos'] !== undefined") Registros biológicos
+						span.atributeDescription(data-bind="html: regData.atributos['Registros biológicos'], visible: regData.atributos['Registros biológicos'] !== undefined")
+					.ecosystem(data-bind="visible: regData.atributos['Ecosistema'] !== undefined") Ecosistema
+						span.atributeDescription(data-bind="html: regData.atributos['Ecosistema'], visible: regData.atributos['Ecosistema'] !== undefined")
+					.altitudinalDistribution(data-bind="visible: regData.atributos['Distribución altitudinal'] !== undefined") Distribución altitudinal
+						span.atributeDescription(data-bind="html: regData.atributos['Distribución altitudinal'], visible: regData.atributos['Distribución altitudinal'] !== undefined")
+					.habitat(data-bind="visible: regData.atributos['Hábitat'] !== undefined") Hábitat
+						span.atributeDescription(data-bind="html: regData.atributos['Hábitat'], visible: regData.atributos['Hábitat'] !== undefined")
+					.alimentation(data-bind="visible: regData.atributos['Alimentación'] !== undefined") Alimentación
+						span.atributeDescription(data-bind="html: regData.atributos['Alimentación'], visible: regData.atributos['Alimentación'] !== undefined")
+					.behavior(data-bind="visible: regData.atributos['Comportamiento'] !== undefined") Comportamiento
+						span.atributeDescription(data-bind="html: regData.atributos['Comportamiento'], visible: regData.atributos['Comportamiento'] !== undefined")
+					.reproduction(data-bind="visible: regData.atributos['Reproducción'] !== undefined") Reproducción
+						span.atributeDescription(data-bind="html: regData.atributos['Reproducción'], visible: regData.atributos['Reproducción'] !== undefined")
+					.reproduction(data-bind="visible: regData.atributos['Reproducción'] !== undefined") Reproducción
+						span.atributeDescription(data-bind="html: regData.atributos['Reproducción'], visible: regData.atributos['Reproducción'] !== undefined")
+					.uicnStatus(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN'] !== undefined") Estado de amenaza según categorías UICN
+						.uicnStatusColombia(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'] !== undefined") En Colombia
+							span.atributeDescription(data-bind="html: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'], visible: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'] !== undefined")
+						.uicnStatusWorld(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'] !== undefined") En el mundo
+							span.atributeDescription(data-bind="html: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'], visible: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'] !== undefined")
+					.citesStatus(data-bind="visible: regData.atributos['Estado CITES'] !== undefined") Estado CITES
+						span.atributeDescription(data-bind="html: regData.atributos['Estado CITES'], visible: regData.atributos['Estado CITES'] !== undefined")
+					.riskFactors(data-bind="visible: regData.atributos['Factores de amenaza'] !== undefined") Factores de amenaza
+						span.atributeDescription(data-bind="html: regData.atributos['Factores de amenaza'], visible: regData.atributos['Factores de amenaza'] !== undefined")
+					.populationStatus(data-bind="visible: regData.atributos['Estado actual de la población'] !== undefined") Estado actual de la población
+						span.atributeDescription(data-bind="html: regData.atributos['Estado actual de la población'], visible: regData.atributos['Estado actual de la población'] !== undefined")
+					.naturalRegion(data-bind="visible: regData.atributos['Región natural'] !== undefined") Región natural
+						span.atributeDescription(data-bind="html: regData.atributos['Región natural'], visible: regData.atributos['Región natural'] !== undefined")
+					.useInformation(data-bind="visible: regData.atributos['Información de usos'] !== undefined") Información de usos
+						span.atributeDescription(data-bind="html: regData.atributos['Información de usos'], visible: regData.atributos['Información de usos'] !== undefined")
+					.alertInformation(data-bind="visible: regData.atributos['Información de alerta'] !== undefined") Información de alerta
+						span.atributeDescription(data-bind="html: regData.atributos['Información de alerta'], visible: regData.atributos['Información de alerta'] !== undefined")
+					.conservationMeasures(data-bind="visible: regData.atributos['Medidas de conservación'] !== undefined") Medidas de conservación
+						span.atributeDescription(data-bind="html: regData.atributos['Medidas de conservación'], visible: regData.atributos['Medidas de conservación'] !== undefined")
+					.ecology(data-bind="visible: regData.atributos['Ecología'] !== undefined") Ecología
+						span.atributeDescription(data-bind="html: regData.atributos['Ecología'], visible: regData.atributos['Ecología'] !== undefined")
+					.otherInternetResources(data-bind="visible: regData.atributos['Otros recursos en Internet'] !== undefined") Otros recursos en Internet
+						span.atributeDescription(data-bind="html: regData.atributos['Otros recursos en Internet'], visible: regData.atributos['Otros recursos en Internet'] !== undefined")
+					.multimediaResources(data-bind="visible: regData.atributos['Recursos multimedia'] !== undefined") Recursos multimedia
+						span.atributeDescription(data-bind="html: regData.atributos['Recursos multimedia'], visible: regData.atributos['Recursos multimedia'] !== undefined")
+					.bibliographicReferences(data-bind="visible: regData.atributos['Referencias bibliográficas'] !== undefined") Referencias bibliográficas
+						ul(data-bind="foreach: regData.atributos['Referencias bibliográficas'], visible: regData.atributos['Referencias bibliográficas'] !== undefined")
+							li(data-bind="html: $parent.bibliographicReference(autor, documento_titulo, fecha, lugar_publicacion)")

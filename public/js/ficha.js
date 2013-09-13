@@ -102,6 +102,15 @@ function CatalogRecordViewModel() {
 		}
 		return text
 	};
+
+	self.bibliographicReference = function(autor, documento_titulo, fecha, lugar_publicacion) {
+		var text = autor;
+		if(fecha != "") {
+			text = text + " (" + autor + ") ";
+		}
+		text = text + documento_titulo + " " + lugar_publicacion;
+		return text;
+	};
 }
 
 ko.applyBindings(new CatalogRecordViewModel(), $("#top-zone")[0]);

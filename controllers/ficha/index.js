@@ -11,7 +11,7 @@ exports.show = function(req, res) {
 		{
 			registerData: function(callback) {
 				request({
-					url: 'http://admin.catalogo.local/index.php/api/ficha/'+registerID,
+					url: 'http://ec2-174-129-41-104.compute-1.amazonaws.com/index.php/api/ficha/'+registerID,
 					method: 'GET',
 					json: true
 				}, function(error, response, body) {
