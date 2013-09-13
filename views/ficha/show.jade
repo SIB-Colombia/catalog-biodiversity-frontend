@@ -7,16 +7,16 @@ block content
 	ul.breadcrumb
 		li 
 			a(href="/") Principal
-			span.divider /
+			//- span.divider /
 		li 
 			a(href="/") Ficha
-			span.divider /
+			//- span.divider /
 		li.active(data-bind="text: regData.catalogoespecies_id")
 	section#catalogRecord
 		#record-wrapper
 			.container-fluid
 				#recordPictures
-					img(data-bind="attr: { src: imageToUse }", style="width: 600px;")
+					img(data-bind="attr: { src: imageToUse }")
 				#recordHeader
 					#recordTitles
 						.taxonNameContainer
@@ -27,11 +27,11 @@ block content
 							span.taxonComplete(data-bind="text: regData.info_taxonomica.taxoncompleto")
 				#recordContent
 					.descriptionTitle(data-bind="visible: regData.atributos['Descripción taxonómica'] !== undefined") Descripción
-					span.atributeDescription(data-bind="html: regData.atributos['Descripción taxonómica'], visible: regData.atributos['Descripción taxonómica'] !== undefined")
+					p.atributeDescription(data-bind="html: regData.atributos['Descripción taxonómica'], visible: regData.atributos['Descripción taxonómica'] !== undefined")
 					.commonNamesTitle(data-bind="visible: regData['nombres_comunes'] !== undefined") Nombres comunes
 					ul(data-bind="foreach: regData['nombres_comunes'], visible: regData['nombres_comunes'] !== undefined")
 						li(data-bind="html: $parent.commonNameWithRegion(tesauronombre, regionesgeograficas)")
 					.distributionTitle(data-bind="visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined || regData.atributos['Distribución geográfica en el mundo'] !== undefined || regData.atributos['Registros biológicos'] !== undefined") Distribución
-					.distributionColombia(data-bind="visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined") Distribución geográfica en Colombia
+					p.distributionColombia(data-bind="visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined") Distribución geográfica en Colombia
 					.distributionWorld(data-bind="visible: regData.atributos['Distribución geográfica en el mundo'] !== undefined") Distribución geográfica en el mundo
-					.biologicOccurrences(data-bind="visible: regData.atributos['Registros biológicos'] !== undefined") Registros biológicos
+					p.biologicOccurrences(data-bind="visible: regData.atributos['Registros biológicos'] !== undefined") Registros biológicos
