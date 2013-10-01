@@ -1,5 +1,5 @@
-@import url("http://fonts.googleapis.com/css?family=Economica");
-@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+@import url(http://fonts.googleapis.com/css?family=Economica:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,300italic,400italic);
 * {
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -19,8 +19,8 @@ a {
 -o-transition all 0.5sease-in-out {
   transition: all 0.5s ease-in-out;
 }
--ms-transition all 0.5sease-in-out :hover,
--o-transition all 0.5sease-in-out :hover {
+-ms-transition all 0.5sease-in-out:hover,
+-o-transition all 0.5sease-in-out:hover {
   color: #00a0ff;
   text-decoration: none;
 }
@@ -207,6 +207,7 @@ a {
   font-size: 0.8em;
   text-shadow: none;
   text-transform: uppercase;
+  position: absolute;
 }
 #content-wrapper .breadcrumb li {
   background: #fffff5 url("/images/separator.png") no-repeat center right;
@@ -528,6 +529,7 @@ footer section span {
   margin-right: 30px;
   margin-bottom: 30px;
   max-width: 100%;
+  float: left;
 }
 #catalogRecord .container-fluid #recordContent li {
   width: 210px;
@@ -546,10 +548,13 @@ footer section span {
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 55%;
+  margin-bottom: 20px;
+}
+#catalogRecord .container-fluid #recordHeader .fullTaxonContainer {
+  display: block;
 }
 #catalogRecord .container-fluid #recordHeader .fullTaxonContainer span {
-  font-size: 0.85em;
+  font-size: 1em;
   background: rgba(250,250,235,0.9);
   padding: 6px 12px;
   -webkit-border-radius: 10px;
@@ -562,6 +567,7 @@ footer section span {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #2288c9;
   font-weight: 300;
+  font-style: italic;
 }
 #catalogRecord .container-fluid #recordHeader #recordTitles h6.author {
   margin: 0px;
@@ -573,7 +579,6 @@ footer section span {
   color: #888;
 }
 #catalogRecord .container-fluid #recordContent {
-  width: 55%;
   text-align: left;
   padding-right: 20px;
   padding-left: 20px;
@@ -589,11 +594,58 @@ footer section span {
   text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+#catalogRecord .container-fluid #recordContent h1 {
+  background-color: #a5b562;
+  color: #fff;
+  padding: 10px;
+  font-weight: 300;
+  margin: 10px 0;
+  font-size: 1.7em;
+  line-height: 1em;
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#catalogRecord .container-fluid #recordContent h2 {
+  color: #555;
+  font-weight: 400;
+  font-size: 1.4em;
+  margin: 10px 0 0 0;
+  line-height: 1.3em;
+}
+#catalogRecord .container-fluid #recordContent h3 {
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+#catalogRecord .container-fluid #recordContent .content,
+#catalogRecord .container-fluid #recordContent .tabla {
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+  font-weight: 700;
+}
+#catalogRecord .container-fluid #recordContent .content > div,
+#catalogRecord .container-fluid #recordContent .tabla > div {
+  display: block;
+}
+#catalogRecord .container-fluid #recordContent .content div.title,
+#catalogRecord .container-fluid #recordContent .tabla div.title {
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgba(111,125,75,0.7);
+  padding: 0px;
+  margin-top: 2px;
   display: block;
 }
 #catalogRecord .container-fluid #recordContent ul {
   list-style-position: inside;
-  margin: 0px;
 }
 .slider,
 .collapseSlider,
