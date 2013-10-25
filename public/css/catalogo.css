@@ -76,6 +76,7 @@ a {
 #top-zone .container-fluid div {
   display: inline-block;
   vertical-align: middle;
+  padding: 0 20px;
 }
 #top-zone .container-fluid a {
   opacity: 1;
@@ -336,8 +337,13 @@ a {
   background: url("/images/shadow_top_clear.png") no-repeat top center;
 }
 #catalogWallSection #wall-container-wrapper #container .ficha .ficha-muro-datos .ficha-muro-taxonnombre {
-  font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.5em;
+  font-style: italic;
+  margin: 3px 0;
+  font-weight: 300;
+}
+#catalogWallSection #wall-container-wrapper #container .ficha .ficha-muro-datos .ficha-muro-autor {
+  color: #888;
 }
 #catalogWallSection #wall-container-wrapper #container .ficha .ficha-muro-datos .ficha-muro-taxoncompleto {
   margin-top: 10px;
@@ -349,7 +355,7 @@ a {
   margin-bottom: 15px;
 }
 #catalogWallSection #wall-container-wrapper #container .ficha .ficha-muro-datos .ficha-muro-departamentos {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 .fix_bottom {
   position: fixed;
@@ -368,7 +374,7 @@ footer {
   color: #515254 !important;
   background: rgba(255,255,255,0.9) url("/images/shadow_top_clear.png") no-repeat top center;
   line-height: 1.5em;
-  padding: 0 20px;
+  padding: 0px;
   display: inline-block;
   vertical-align: bottom;
   width: 100%;
@@ -514,8 +520,9 @@ footer section span {
   vertical-align: top;
 }
 #catalogRecord .container-fluid #recordPictures {
-  float: left;
-  max-width: 40%;
+  max-width: 45%;
+  display: inline-block;
+  vertical-align: top;
 }
 #catalogRecord .container-fluid #recordPictures img {
   -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
@@ -530,6 +537,8 @@ footer section span {
   margin-bottom: 30px;
   max-width: 100%;
   float: left;
+  max-width: 300px;
+  max-height: 350px;
 }
 #catalogRecord .container-fluid #recordContent li {
   width: 210px;
@@ -547,8 +556,10 @@ footer section span {
   padding-top: 1px;
   padding-bottom: 5px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 0px;
   margin-bottom: 20px;
+  margin-left: 20px;
+  max-width: 45%;
 }
 #catalogRecord .container-fluid #recordHeader .fullTaxonContainer {
   display: block;
@@ -567,6 +578,7 @@ footer section span {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #2288c9;
   font-weight: 300;
+  text-transform: uppercase;
   font-style: italic;
 }
 #catalogRecord .container-fluid #recordHeader #recordTitles h6.author {
@@ -582,6 +594,15 @@ footer section span {
   text-align: left;
   padding-right: 20px;
   padding-left: 20px;
+  width: 100%;
+}
+#catalogRecord .container-fluid #recordContent span {
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px;
 }
 #catalogRecord .container-fluid #recordContent .descriptionTitle,
 #catalogRecord .container-fluid #recordContent .commonNamesTitle,
@@ -607,13 +628,16 @@ footer section span {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  width: 95%;
+  text-transform: uppercase;
 }
 #catalogRecord .container-fluid #recordContent h2 {
-  color: #555;
+  color: #7d846c;
+  text-transform: uppercase;
   font-weight: 400;
   font-size: 1.4em;
-  margin: 10px 0 0 0;
-  line-height: 1.3em;
+  margin: 13px 0 1px 0;
+  line-height: 1.2em;
 }
 #catalogRecord .container-fluid #recordContent h3 {
   color: #000;
@@ -621,27 +645,35 @@ footer section span {
   font-size: 14px;
   margin-bottom: 2px;
   text-transform: uppercase;
+  line-height: 1.1em;
 }
-#catalogRecord .container-fluid #recordContent .content,
-#catalogRecord .container-fluid #recordContent .tabla {
+#catalogRecord .container-fluid #recordContent .content {
   font-size: 14px;
   margin-bottom: 15px;
   display: inline-block;
-  width: 45%;
   vertical-align: top;
   font-weight: 700;
 }
-#catalogRecord .container-fluid #recordContent .content > div,
-#catalogRecord .container-fluid #recordContent .tabla > div {
-  display: block;
+#catalogRecord .container-fluid #recordContent .tabla {
+  font-size: 14px;
+  margin: 5px 20px 5px 0;
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 700;
+  width: auto;
+  max-width: 170px;
 }
-#catalogRecord .container-fluid #recordContent .content div.title,
+#catalogRecord .container-fluid #recordContent .tabla div {
+  display: block;
+  padding: 0px;
+}
 #catalogRecord .container-fluid #recordContent .tabla div.title {
   font-weight: 400;
   text-transform: uppercase;
   color: rgba(111,125,75,0.7);
   padding: 0px;
-  margin-top: 2px;
+  margin-top: 5px;
+  font-size: 1.1em;
   display: block;
 }
 #catalogRecord .container-fluid #recordContent ul {
@@ -654,6 +686,9 @@ footer section span {
 }
 .sliderExpanded .collapseSlider {
   display: block;
+}
+.share_icons {
+  top: 10px;
 }
 @media (min-width:1055px) {
   .buscar input {

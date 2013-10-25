@@ -7,6 +7,7 @@
 	-ms-transition all 0.4s ease
 	-o-transition all 0.4s ease
 	transition all 0.4s ease
+	//border red 1px solid
 body
 	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
 	font-family "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
@@ -62,6 +63,7 @@ a
 		div
 			display inline-block
 			vertical-align middle
+			padding 0 20px
 		a
 			opacity 1
 		a:hover
@@ -292,8 +294,12 @@ a
 					background-size 90% 8px
 					background url("/images/shadow_top_clear.png") no-repeat top center
 					.ficha-muro-taxonnombre
-						font-weight bold
-						font-size 1.1em
+						font-size 1.5em
+						font-style italic
+						margin 3px 0
+						font-weight 300
+					.ficha-muro-autor
+						color #888
 					.ficha-muro-taxoncompleto
 						margin-top 10px
 						font-size 0.8em
@@ -302,7 +308,7 @@ a
 						font-size 0.9em
 						margin-bottom 15px
 					.ficha-muro-departamentos
-						font-size 0.8em
+						font-size 0.9em
 
 .fix_bottom
 	position fixed
@@ -318,7 +324,7 @@ footer
 	color #515254 !important
 	background rgba(255,255,255,0.9) url("/images/shadow_top_clear.png") no-repeat top center
 	line-height 1.5em
-	padding 0 20px
+	padding 0px
 	display inline-block
 	vertical-align bottom
 	width 100%
@@ -440,8 +446,9 @@ footer
 		display inline-block
 		vertical-align top
 		#recordPictures
-			float left
-			max-width 40%
+			max-width 45%
+			display inline-block
+			vertical-align top
 			img
 				-webkit-box-shadow 0 1px 3px rgba(34,25,25,0.4)
 				-moz-box-shadow 0 1px 3px rgba(34,25,25,0.4)
@@ -455,6 +462,8 @@ footer
 				margin-bottom 30px
 				max-width 100%
 				float left
+				max-width 300px
+				max-height 350px
 		#recordContent li
 			width 210px
 			display inline-block
@@ -469,8 +478,10 @@ footer
 			padding-top 1px
 			padding-bottom 5px
 			padding-left 10px
-			padding-right 10px
+			padding-right 0px
 			margin-bottom 20px
+			margin-left 20px
+			max-width 45%
 			.fullTaxonContainer
 				display block
 				span
@@ -487,6 +498,7 @@ footer
 					font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
 					color #2288C9
 					font-weight 300
+					text-transform uppercase
 					font-style italic
 				h6.author
 					margin 0px
@@ -499,6 +511,14 @@ footer
 			text-align left
 			padding-right 20px
 			padding-left 20px
+			width 100%
+			span
+				-moz-column-count 2
+				-moz-column-gap 20px
+				-webkit-column-count 2
+				-webkit-column-gap 20px
+				column-count 2
+				column-gap 20px
 			.descriptionTitle
 			.commonNamesTitle
 			.distributionTitle
@@ -523,34 +543,46 @@ footer
 				-webkit-border-radius 5px
 				-moz-border-radius 5px
 				border-radius 5px
+				width 95%
+				text-transform uppercase
 			h2
-				color #555
+				color #7D846C
+				text-transform uppercase
 				font-weight 400
 				font-size 1.4em
-				margin 10px 0 0 0
-				line-height 1.3em
+				margin 13px 0 1px 0
+				line-height 1.2em
 			h3
 				color black
 				font-weight bold
 				font-size 14px
 				margin-bottom 2px
 				text-transform uppercase
+				line-height 1.1em
 			.content
-			.tabla
 				font-size 14px
-				margin-bottom: 15px;
+				margin-bottom 15px
 				display inline-block
-				width 45%
 				vertical-align top
 				font-weight 700
-				> div
+			.tabla
+				font-size 14px
+				margin 5px 20px 5px 0
+				display inline-block
+				vertical-align top
+				font-weight 700
+				width auto
+				max-width 170px
+				div
 					display block
+					padding 0px
 				div.title
 					font-weight 400
 					text-transform uppercase
 					color rgba(111,125,75,0.7) 
 					padding 0px
-					margin-top 2px
+					margin-top 5px
+					font-size 1.1em
 					display block
 			ul
 				list-style-position inside
@@ -560,6 +592,8 @@ footer
 	display none
 .sliderExpanded .collapseSlider
 	display block
+.share_icons
+	top 10px
 
 @media (min-width:1055px)
 	.buscar input

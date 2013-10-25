@@ -4,6 +4,8 @@ block content
 	script
 		var regData = !{data};
 		console.log(regData);
+		
+		
 	ul.breadcrumb
 		li 
 			a(href="/") Principal
@@ -15,17 +17,17 @@ block content
 	section#catalogRecord
 		#record-wrapper
 			.container-fluid
-				
-				#recordHeader
-					#recordTitles
-						.taxonNameContainer
-							h1.taxonName(data-bind="text: taxonName")
-						.authorContainer
-							h6.author(data-bind="text: regData.info_taxonomica.autor")
-						.fullTaxonContainer
-							span.taxonComplete(data-bind="text: regData.info_taxonomica.taxoncompleto")
-				#recordPictures
-					img(data-bind="attr: { src: imageToUse }", style="width: 600px;")	
+				div
+					#recordPictures
+						img(data-bind="attr: { src: imageToUse }")	
+					#recordHeader
+						#recordTitles
+							.taxonNameContainer
+								h1.taxonName(data-bind="text: taxonName")
+							.authorContainer
+								h6.author(data-bind="text: regData.info_taxonomica.autor")
+							.fullTaxonContainer
+								span.taxonComplete(data-bind="text: regData.info_taxonomica.taxoncompleto")
 
 				#recordContent
 					h1(data-bind="visible: regData['nombres_comunes'] !== undefined") Nombres comunes
@@ -40,9 +42,8 @@ block content
 							div
 								div.title Región donde se usa
 								div(data-bind="html: regionesgeograficas")
-
-					h1 Distribución
-					div
+					h1.collapse(data-toggle="collapse", data-target=".collapsed")  Distribución
+					div.collapsed
 
 						h2(data-bind="visible: regData.atributos['Distribución altitudinal'] !== undefined") Distribución altitudinal
 						span(data-bind="html: regData.atributos['Distribución altitudinal'], visible: regData.atributos['Distribución altitudinal'] !== undefined")
