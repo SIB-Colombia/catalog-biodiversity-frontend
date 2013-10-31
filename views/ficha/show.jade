@@ -4,145 +4,150 @@ block content
 	script
 		var regData = !{data};
 		console.log(regData);
+		
+		
 	ul.breadcrumb
 		li 
 			a(href="/") Principal
-			span.divider /
+			//-span.divider /
 		li 
 			a(href="/") Ficha
-			span.divider /
+			//-span.divider /
 		li.active(data-bind="text: regData.catalogoespecies_id")
 	section#catalogRecord
 		#record-wrapper
 			.container-fluid
-				#recordPictures
-					img(data-bind="attr: { src: imageToUse }", style="width: 600px;")
-				#recordHeader
-					#recordTitles
-						.taxonNameContainer
-							h1.taxonName(data-bind="text: taxonName")
-						.authorContainer
-							h6.author(data-bind="text: regData.info_taxonomica.autor")
-						.fullTaxonContainer
-							span.taxonComplete(data-bind="text: regData.info_taxonomica.taxoncompleto")
+				div
+					#recordPictures
+						img(data-bind="attr: { src: imageToUse }")	
+					#recordHeader
+						#recordTitles
+							.taxonNameContainer
+								h1.taxonName(data-bind="text: taxonName")
+							.authorContainer
+								h6.author(data-bind="text: regData.info_taxonomica.autor")
+							.fullTaxonContainer
+								span.taxonComplete(data-bind="text: regData.info_taxonomica.taxoncompleto")
 
 				#recordContent
 					h1(data-bind="visible: regData['nombres_comunes'] !== undefined") Nombres comunes
 					.content(data-bind="foreach: regData['nombres_comunes'], visible: regData['nombres_comunes'] !== undefined")
-						table(data-bind="visible: regData['nombres_comunes'] !== undefined")
-							tr
-								td.title Nombre común:
-								td(data-bind="html: tesauronombre")
-							tr
-								td.title Idioma o lengua:
-								td(data-bind="html: idioma")
-							tr
-								td.title Región donde se usa:
-								td(data-bind="html: regionesgeograficas")
+						.tabla(data-bind="visible: regData['nombres_comunes'] !== undefined")
+							div
+								div.title Nombre
+								div(data-bind="html: tesauronombre")
+							div
+								div.title Idioma o lengua
+								div(data-bind="html: idioma")
+							div
+								div.title Región donde se usa
+								div(data-bind="html: regionesgeograficas")
+					h1.collapse(data-toggle="collapse", data-target=".collapsed")  Distribución
+					div.collapsed
 
-					h1 Distribución
+						h2(data-bind="visible: regData.atributos['Distribución altitudinal'] !== undefined") Distribución altitudinal
+						span(data-bind="html: regData.atributos['Distribución altitudinal'], visible: regData.atributos['Distribución altitudinal'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Distribución altitudinal'] !== undefined") Distribución altitudinal
-					span(data-bind="html: regData.atributos['Distribución altitudinal'], visible: regData.atributos['Distribución altitudinal'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined") Distribución geográfica en Colombia
+						span(data-bind="html: regData.atributos['Distribución geográfica en Colombia'], visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined") Distribución geográfica en Colombia
-					span(data-bind="html: regData.atributos['Distribución geográfica en Colombia'], visible: regData.atributos['Distribución geográfica en Colombia'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Ecosistema'] !== undefined") Ecosistema
+						span(data-bind="html: regData.atributos['Ecosistema'], visible: regData.atributos['Ecosistema'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Ecosistema'] !== undefined") Ecosistema
-					span(data-bind="html: regData.atributos['Ecosistema'], visible: regData.atributos['Ecosistema'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Región natural'] !== undefined") Región natural
+						span(data-bind="html: regData.atributos['Región natural'], visible: regData.atributos['Región natural'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Región natural'] !== undefined") Región natural
-					span(data-bind="html: regData.atributos['Región natural'], visible: regData.atributos['Región natural'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Distribución geográfica en el mundo'] !== undefined") Distribución geográfica en el mundo
+						span(data-bind="html: regData.atributos['Distribución geográfica en el mundo'], visible: regData.atributos['Distribución geográfica en el mundo'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Distribución geográfica en el mundo'] !== undefined") Distribución geográfica en el mundo
-					span(data-bind="html: regData.atributos['Distribución geográfica en el mundo'], visible: regData.atributos['Distribución geográfica en el mundo'] !== undefined")
-
-					h2(data-bind="visible: regData.atributos['Registros biológicos'] !== undefined") Registros biológicos
-					span(data-bind="html: regData.atributos['Registros biológicos'], visible: regData.atributos['Registros biológicos'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Registros biológicos'] !== undefined") Registros biológicos
+						span(data-bind="html: regData.atributos['Registros biológicos'], visible: regData.atributos['Registros biológicos'] !== undefined")
 
 					h1 Historia natural
+					div
 
-					h2(data-bind="visible: regData.atributos['Alimentación'] !== undefined") Alimentación
-					span(data-bind="html: regData.atributos['Alimentación'], visible: regData.atributos['Alimentación'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Alimentación'] !== undefined") Alimentación
+						span(data-bind="html: regData.atributos['Alimentación'], visible: regData.atributos['Alimentación'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Comportamiento'] !== undefined") Comportamiento
-					span(data-bind="html: regData.atributos['Comportamiento'], visible: regData.atributos['Comportamiento'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Comportamiento'] !== undefined") Comportamiento
+						span(data-bind="html: regData.atributos['Comportamiento'], visible: regData.atributos['Comportamiento'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Hábitat'] !== undefined") Hábitat
-					span(data-bind="html: regData.atributos['Hábitat'], visible: regData.atributos['Hábitat'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Hábitat'] !== undefined") Hábitat
+						span(data-bind="html: regData.atributos['Hábitat'], visible: regData.atributos['Hábitat'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Vocalizaciones'] !== undefined") Vocalizaciones
-					span(data-bind="html: regData.atributos['Vocalizaciones'], visible: regData.atributos['Vocalizaciones'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Vocalizaciones'] !== undefined") Vocalizaciones
+						span(data-bind="html: regData.atributos['Vocalizaciones'], visible: regData.atributos['Vocalizaciones'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Reproducción'] !== undefined") Reproducción
-					span(data-bind="html: regData.atributos['Reproducción'], visible: regData.atributos['Reproducción'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Reproducción'] !== undefined") Reproducción
+						span(data-bind="html: regData.atributos['Reproducción'], visible: regData.atributos['Reproducción'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Descripción general'] !== undefined") Descripción general
-					span(data-bind="html: regData.atributos['Descripción general'], visible: regData.atributos['Descripción general'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Descripción general'] !== undefined") Descripción general
+						span(data-bind="html: regData.atributos['Descripción general'], visible: regData.atributos['Descripción general'] !== undefined")
 
 					h1 Taxonomía
+					div
+						h2(data-bind="visible: regData.atributos['Descripción taxonómica'] !== undefined") Descripción taxonómica
+						span(data-bind="html: regData.atributos['Descripción taxonómica'], visible: regData.atributos['Descripción taxonómica'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Descripción taxonómica'] !== undefined") Descripción taxonómica
-					span(data-bind="html: regData.atributos['Descripción taxonómica'], visible: regData.atributos['Descripción taxonómica'] !== undefined")
+						h1 Estado de conservación
 
-					h1 Estado de conservación
+						h2(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN'] !== undefined") Estado de amenaza según categorías UICN
+						
+						h3(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'] !== undefined") En el mundo
+						span(data-bind="html: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'], visible: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN'] !== undefined") Estado de amenaza según categorías UICN
-					
-					h3(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'] !== undefined") En el mundo
-					span(data-bind="html: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'], visible: regData.atributos['Estado de amenaza según categorías UICN']['En el mundo'] !== undefined")
+						h3(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'] !== undefined") En Colombia
+						span(data-bind="html: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'], visible: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'] !== undefined")
 
-					h3(data-bind="visible: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'] !== undefined") En Colombia
-					span(data-bind="html: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'], visible: regData.atributos['Estado de amenaza según categorías UICN']['En Colombia'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Factores de amenaza'] !== undefined") Factores de amenaza
+						span(data-bind="html: regData.atributos['Factores de amenaza'], visible: regData.atributos['Factores de amenaza'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Factores de amenaza'] !== undefined") Factores de amenaza
-					span(data-bind="html: regData.atributos['Factores de amenaza'], visible: regData.atributos['Factores de amenaza'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Estado actual de la población'] !== undefined") Estado actual de la población
+						span(data-bind="html: regData.atributos['Estado actual de la población'], visible: regData.atributos['Estado actual de la población'] !== undefined")
 
-					h2(data-bind="visible: regData.atributos['Estado actual de la población'] !== undefined") Estado actual de la población
-					span(data-bind="html: regData.atributos['Estado actual de la población'], visible: regData.atributos['Estado actual de la población'] !== undefined")
-
-					h2(data-bind="visible: regData.atributos['Medidas de conservación'] !== undefined") Medidas de conservación
-					span(data-bind="html: regData.atributos['Medidas de conservación'], visible: regData.atributos['Medidas de conservación'] !== undefined")
+						h2(data-bind="visible: regData.atributos['Medidas de conservación'] !== undefined") Medidas de conservación
+						span(data-bind="html: regData.atributos['Medidas de conservación'], visible: regData.atributos['Medidas de conservación'] !== undefined")
 
 					h1 Más información
-
-					h2(data-bind="visible: regData.atributos['Referencias bibliográficas'] !== undefined") Referencias bibliográficas
-					ul(data-bind="foreach: regData.atributos['Referencias bibliográficas'], visible: regData.atributos['Referencias bibliográficas'] !== undefined")
-						li(data-bind="html: $parent.bibliographicReference(autor, documento_titulo, fecha, lugar_publicacion)")
+					div
+						h2(data-bind="visible: regData.atributos['Referencias bibliográficas'] !== undefined") Referencias bibliográficas
+						ul(data-bind="foreach: regData.atributos['Referencias bibliográficas'], visible: regData.atributos['Referencias bibliográficas'] !== undefined")
+							li(data-bind="html: $parent.bibliographicReference(autor, documento_titulo, fecha, lugar_publicacion)")
 
 					h1 Información básica de la ficha
-
-					table
-						tr(data-bind="visible: regData.fechaelaboracion !== undefined")
-							td.title Fecha de elaboración:
-							td(data-bind="html: regData.fechaelaboracion")
-						tr(data-bind="visible: regData.fechaactualizacion !== undefined")
-							td.title Fecha de actualización:
-							td(data-bind="html: regData.fechaactualizacion")
-						tr(data-bind="visible: regData.info_taxonomica.taxonnombre !== undefined")
-							td.title Nombre científico:
-							td(data-bind="html: regData.info_taxonomica.taxonnombre")
-						tr(data-bind="visible: regData.info_taxonomica.paginaweb !== undefined")
-							td.title Ficha nomenclatural:
-							td
-								a(target="_blank", data-bind="attr: {href: regData.info_taxonomica.paginaweb}")
-									span(data-bind="html: regData.info_taxonomica.paginaweb")
-						tr(data-bind="visible: regData.titulometadato !== undefined")
-							td.title Metadato:
-							td
-								a(target="_blank", data-bind="attr: {href: regData.titulometadato}")
-									span(data-bind="html: regData.titulometadato")
+					div
+						.tabla
+							div(data-bind="visible: regData.fechaelaboracion !== undefined")
+								div.title Fecha de elaboración:
+								div(data-bind="html: regData.fechaelaboracion")
+							div(data-bind="visible: regData.fechaactualizacion !== undefined")
+								div.title Fecha de actualización:
+								div(data-bind="html: regData.fechaactualizacion")
+							div(data-bind="visible: regData.info_taxonomica.taxonnombre !== undefined")
+								div.title Nombre científico:
+								div(data-bind="html: regData.info_taxonomica.taxonnombre")
+							div(data-bind="visible: regData.info_taxonomica.paginaweb !== undefined")
+								div.title Ficha nomenclatural:
+								div
+									a(target="_blank", data-bind="attr: {href: regData.info_taxonomica.paginaweb}")
+										span(data-bind="html: regData.info_taxonomica.paginaweb")
+							div(data-bind="visible: regData.titulometadato !== undefined")
+								div.title Metadato:
+								div
+									a(target="_blank", data-bind="attr: {href: regData.titulometadato}")
+										span(data-bind="html: regData.titulometadato")
 
 					h1 Contacto de la ficha
-
+					div
 					h1 Cómo citar esta ficha
-					table
-						tr(data-bind="visible: regData.citacion.autor !== undefined")
-							td.title Autor:
-							td(data-bind="html: regData.citacion.autor + ', ' + regData.citacion.fecha + ', ' + regData.citacion.documento_titulo + ' ' + regData.info_taxonomica.autor")	
-						tr(data-bind="visible: regData.fechaelaboracion !== undefined")
-							td.title Elaborada:
-							td(data-bind="html: regData.fechaelaboracion")
-						tr(data-bind="visible: regData.fechaactualizacion !== undefined")
-							td.title Actualizada:
-							td(data-bind="html: regData.fechaactualizacion")
+					div
+						.tabla
+							div(data-bind="visible: regData.citacion.autor !== undefined")
+								div.title Autor
+								div(data-bind="html: regData.citacion.autor + ', ' + regData.citacion.fecha + ', ' + regData.citacion.documento_titulo + ' ' + regData.info_taxonomica.autor")	
+							div(data-bind="visible: regData.fechaelaboracion !== undefined")
+								div.title Elaborada
+								div(data-bind="html: regData.fechaelaboracion")
+							div(data-bind="visible: regData.fechaactualizacion !== undefined")
+								div.title Actualizada
+								div(data-bind="html: regData.fechaactualizacion")

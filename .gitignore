@@ -1,3 +1,7 @@
+catalogo_v1.sublime-project
+catalogo_v1.sublime-workspace
+public/.DS_Store
+
 lib-cov
 *.seed
 *.log
@@ -6,6 +10,7 @@ lib-cov
 *.out
 *.pid
 *.gz
+.DS_Store
 
 pids
 logs

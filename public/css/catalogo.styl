@@ -1,13 +1,25 @@
-@import url(http://fonts.googleapis.com/css?family=Economica)
-@import url(http://fonts.googleapis.com/css?family=Open\+Sans)
+@import unquote('url(http://fonts.googleapis.com/css?family=Economica:400,700,400italic)')
+@import unquote('url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,300italic,400italic)')
+
 *
 	-webkit-transition all 0.4s ease
 	-moz-transition all 0.4s ease
 	-ms-transition all 0.4s ease
 	-o-transition all 0.4s ease
+	transition all 0.4s ease
+	//border red 1px solid
 body
 	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
 	font-family "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
+a
+	-webkit-transition all 0.5s ease-in-out
+	-moz-transition all 0.5s ease-in-out
+    -ms-transition all 0.5s ease-in-out
+    -o-transition all 0.5s ease-in-out
+	transition all 0.5s ease-in-out
+	&:hover
+		color #00a0ff
+		text-decoration none
 .wrapper
 	margin 0 auto
 .loading
@@ -20,9 +32,6 @@ body
 		opacity .5
 		-moz-opacity .5
 #flower
-	background-image url("/images/flower_top.png"), url("/images/shadow_top.png")
-	background-repeat no-repeat, no-repeat
-	background-position center -40px, bottom center
 	height 70px
 #top-zone
 	top 0
@@ -32,24 +41,84 @@ body
 	margin-bottom 0
 	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
 	.brand
-		padding 5px 20px 5px
+		-webkit-border-radius 0px 0px 15px 15px
+		border-radius 0px 0px 15px 15px
+		background-color #fffef3
+		padding 10px 13px 13px 13px
+		float left
+		position absolute
+		z-index 15000
+		a:hover
+			opacity 1 !important
+			-moz-opacity 1 !important
+			//alpha(opacity=100)
+			opacity 1 !important
+	.nav
+		font-size 0.9em
 	.navbar-inner
 		background transparent !important
-		min-height 36px
+		min-height 50px
+	.container-fluid
+		text-align center
+		div
+			display inline-block
+			vertical-align middle
+			padding 0 20px
+		a
+			opacity 1
+		a:hover
+			//filter alpha(opacity=60)
+			opacity .6
+			background-color rgba(255,255,255,0.5)
+	.hidden-phone
+		display inline-block
+		right 0px
+		position absolute
+		padding 11px 10px
+		-webkit-transition all 0.5s ease-in-out
+		-moz-transition all 0.5s ease-in-out
+		-ms-transition all 0.5s ease-in-out
+		-o-transition all 0.5s ease-in-out
+		transition all 0.5s ease-in-out
+	.hidden-phone a
+		vertical-align middle !important
+		margin 0
+		padding 21px 11px
+	.hidden-phone span
+		width 0px
+		border-left #9bc2de 1px solid
+		display inline-block
+		height 20px
+		vertical-align middle
+		margin 0 4px
+	nav .navbar:first-child
+		background #2b7fbc
+		height 53px
+		color white
+		text-transform uppercase
+		//position  fixed
+		width  100%
+		z-index  10000
+		top  0px
+		&:after 
+			content " "
+			display block
+			height 20px
+			width 100%
+			background  url("/images/shadow_top.png") no-repeat top center
+			margin-top  1px
 	.menu-opciones
 		margin-bottom 0px
 		li.dropdown.open
 			a.dropdown-toggle
-				background rgba(34, 136, 201, 0.6)
 				color #fff
+				vertical-align middle
 		li.dropdown
-			background none repeat scroll 0 0 rgba(255, 255, 255, 0.3)
 			a.dropdown-toggle
-					padding 8px 10px 8px
-					color #2288C9
+					padding 16px 12px
 					text-shadow none
-					font-family "Economica","Helvetica Neue",Helvetica,Arial,sans-serif
-					font-size 1.3em
+					font-size 1em
+					font-weight 300
 				.dropdown-menu
 					background rgba(255, 255, 255, 0.9)
 					.active
@@ -60,64 +129,91 @@ body
 					border-bottom-color #2288c9
 			&:hover, &:focus
 				a.dropdown-toggle
-					background rgba(34, 136, 201, 0.6)
+					background rgba(255, 255, 255, 0.2)
 					color #fff
 		.divider-vertical
-			margin 0px
-			height 36px
+			margin 15px 0
+			height 18px
 		.navbar-search
 			margin-top 0px
 			.buscar
-				float right
+				display inline-block
 				padding 3px
 				text-align right
-				background-color #1888c9
-				-webkit-border-radius 20px 20px 20px 20px
-				border-radius: 20px 20px 20px 20px
 				input
-					width 230px
-					height 16px
+					width 180px
+					height 20px
 					font-size 1em
-					-webkit-border-radius 15px
-					border-radius 15px
-					background-color #fffff
-					background rgba(255,255,255,0.8)
-					border 0px
-					-webkit-box-shadow inset 3px 3px 2px 0px rgba(0, 0, 0, 0.2)
-					box-shadow inset 3px 3px 2px 0px rgba(0, 0, 0, 0.2)
+					-webkit-border-radius 0px
+					border-radius 0px
+					background-color #2b7fbc
+					border solid 1px white
+					color white
+					// -webkit-box-shadow inset 3px 3px 2px 0px rgba(0, 0, 0, 0.2)
+					// box-shadow inset 3px 3px 2px 0px rgba(0, 0, 0, 0.2)
 					&:focus
-						background #fff
+						background
+				.btn
+					display  inline-block
+					padding  13px
+					color  #FFF
+					right  0px
+					height  32px
+					text-decoration  none
+					width  33px
+					border none 0px transparent
+					box-shadow none
+					background url("/images/ico_search.png") no-repeat center center
+					margin-top 0px
 #content-wrapper
-	padding-top 16px
+	padding-top 0px
 	min-height 658px
 	margin 0 auto
 	//margin-top -50px
 	width 100%
 	position relative
-	background url("/images/content-shadow2.png") center top no-repeat
 	background-size 101.90% 658px
 	.breadcrumb
-		background-color #1775BF
 		margin-left 2%
 		margin-right 2%
 		-webkit-border-radius 0px
 		-moz-border-radius 0px
 		border-radius 0px
-		padding 5px 15px
-		margin-bottom 0px
-		font-size 0.9em
+		padding 5px 0px
+		margin-bottom 10px
+		font-size 0.8em
+		text-shadow none
+		text-transform uppercase
+		position absolute
 		li
+			background rgba(255,255,245,1) url("/images/separator.png") no-repeat center right
+			padding 4px 12px 4px 8px
+			&:first-child
+				-webkit-border-radius 8px 0 0 8px
+				-moz-border-radius 8px 0 0 8px
+				border-radius 8px 0 0 8px
+
+			&:last-child
+				-webkit-border-radius 0 8px 8px 0
+				-moz-border-radius 0 8px 8px 0
+				border-radius 0 8px 8px 0
+				background-image none
+			&:only-child
+				-webkit-border-radius 8px
+				-moz-border-radius 8px
+				border-radius 8px
 			a
-				color white
-				text-decoration underline
+				text-decoration none
 				&:hover, &:focus
-					color white
+					color #2b7fbc
 					text-decoration none
 			.divider
-				color white
+				color #aaa
 		li.active
-			color rgb(211, 211, 211)
-			text-shadow 0 1px 0 rgb(211, 211, 211)
+			color #888
+			//text-shadow 0 1px 0 rgb(211, 211, 211)
+		li:empty
+			display none
 #carruselSection
 	.container-fluid-withoutmargin
 		height auto
@@ -176,7 +272,7 @@ body
 				overflow hidden
 				background #fff
 				font-size 0.9em
-				border: 1px #cccccc solid;
+				border 1px #cccccc solid;
 				-webkit-box-shadow 0 1px 3px rgba(34,25,25,0.4)
 				-moz-box-shadow 0 1px 3px rgba(34,25,25,0.4)
 				box-shadow 0 1px 3px rgba(34,25,25,0.4)
@@ -189,15 +285,21 @@ body
 					box-shadow 0 0 20px rgba(0,0,0,0.5)
 					border 1px #aaa solid
 				.ficha-muro-datos
-					padding-top 5px
+					padding-top 12px
 					padding-bottom 15px
 					padding-left 15px
 					padding-right 15px
 					color #333
 					line-height 1.3em
+					background-size 90% 8px
+					background url("/images/shadow_top_clear.png") no-repeat top center
 					.ficha-muro-taxonnombre
-						font-weight bold
-						font-size 1.1em
+						font-size 1.5em
+						font-style italic
+						margin 3px 0
+						font-weight 300
+					.ficha-muro-autor
+						color #888
 					.ficha-muro-taxoncompleto
 						margin-top 10px
 						font-size 0.8em
@@ -206,115 +308,147 @@ body
 						font-size 0.9em
 						margin-bottom 15px
 					.ficha-muro-departamentos
-						font-size 0.8em
-#messageAndAlertSection
-	#messageAndAlert
-		margin-left 2%
-		margin-right 2%
-		height 100px
-		display none
-#footer-zone
-	.footer
-		clear both
-		margin 0
-		text-shadow 0 1px 0 rgba(255, 255, 255, .6)
-		background-image url("/images/flower_bottom.png"), url("/images/shadow_botom.png")
-		background-repeat no-repeat, no-repeat
-		background-position center bottom, top center
-		padding 20px 30px
-		.sponsor
-			height 101px
-			margin 0 auto
-			padding 5px 0 0
-			text-align center
-			clear both
-			width 1020px
-			#s_one, #s_two, #s_five, #s_six
-				margin 0 3px 0 0 !important
-				padding 10px
-				border-radius: 8px
-				-webkit-border-radius: 8px
-				height 70px !important
-				background-color white
-				background none repeat scroll 0 0 rgba(255, 255, 255, 0.6)
-				display inline-block
-				vertical-align top
-				list-style none
-				width auto
-			ul
-				margin 0
-				padding 0
-				display block
-				vertical-align top
-				li
-					list-style none
-					display inline-block
-					width auto
-					vertical-align top
-					a
-						margin 0 3px
-						&:visited, &:visited, &:link
-							color #007FC9
-							text-decoration none
-						img
-							border none
+						font-size 0.9em
+
+.fix_bottom
+	position fixed
+	bottom 0px
+h3.ui-state-active
+	background url("/images/flecha_down.png") no-repeat top center !important
+h3.ui-state-default
+	background url("/images/flecha_up.png") no-repeat top center
+footer
+	font-size 0.85em
+	clear both
+	margin 0
+	color #515254 !important
+	background rgba(255,255,255,0.9) url("/images/shadow_top_clear.png") no-repeat top center
+	line-height 1.5em
+	padding 0px
+	display inline-block
+	vertical-align bottom
+	width 100%
+	h3
+		margin 6px 0px
+		height 15px
+	h5
+		font-family 'Open Sans'
+		font-size 1.03em
+		padding 0px
+		margin 0px
+		font-weight 700
+	aside
+		float left
+		background rgba(255,255,255,0.6)
+		-webkit-border-radius 15px
+		border-radius 15px
+		padding 7px
+		-webkit-box-shadow  0px 0px 3px 0px rgba(0, 0, 0, 0.2)
+		box-shadow  0px 0px 3px 0px rgba(0, 0, 0, 0.2)
+
+	section
+		margin 0 auto
+		max-width 1100px
+		padding 30px 0 !important
+		text-align center
+		a
+			color #515254 !important
+		div
+			display inline-block
+			vertical-align top
+			text-align left
+			&:nth-child(3)
+				div
+					width 24%
+				div:nth-child(1)
+					width 31%
+				div:nth-child(3)
+					width 19%
+				a
+					color #515254 !important
+				div a
+					display block
+					vertical-align top 
+	section:nth-child(2)
+		background url("/images/shadow_bottom_clear.png") no-repeat bottom center !important
+		text-align left
+	section > div:nth-child(2)
+		width 19%
+		padding 0px 20px 0px 20px
+	section > div:nth-child(3)
+	nav
+		width 66%
+		padding 0 20px 0px 20px !important
+		display inline-block
+		border-left  1px #cfcfcf solid
+	nav
+		border none
+		font-weight bold
+		vertical-align top
+		margin-top  20px
+		padding 0px
+		font-size 1.1em
+		a
+			margin 0 30px 0 3px
+	.redes
+		width 19%
+		padding 0 20px 0px 20px
+		margin 20px 0 0 70px !important
+		a
+			float left
+			margin 0 4px 0 0
+	.barra
+		padding 10px 0 !important
+	section:nth-child(3)
+		span
+			margin 0 10px
+			position relative
+			padding  0 10px
 			p
 				display block
-				width auto
-				line-height 1em
-				font-size 0.7em
-				text-align center
-				padding 8px 0
-				margin 0.33em 0 1em 0
-			.content_footer
-				height 100px
-				margin 0 auto
-				display block
-				width 900px
-				address
-					color #666666
-					float left
-					display inline
-					font 10px/12px Verdana, helvetica, arial
-					margin 20px 0 0
-					text-align left
-				ul
-					margin 22px 0 0
-					float right
-					display inline
-					padding-left 1.15em
-				li
-					margin 0 0 0 18px
-					list-style-type none
-					float left
-					display inline
-					a
-						font bold 11px arial
-						display block
-						padding 2px 0 2px 10px
-						color #272727
-						text-decoration none
-						img
-							border none
-				.creative
-					a
-						background url("/images/cc.png") no-repeat center 0
-						display block
-						font-size 0.7em
-						line-height 1.2em
-						padding 23px 0 0
-						text-align center
-						width 95px
-						color black
-						&:hover
-							color #000
-							text-decoration underline
+				font-weight 700
+				font-size 0.75em
+				margin-top 12px
+				line-height 1.3em
+			&:last-child
+				margin-right 0px
+				padding-right 0px
+			&:first-child
+				margin-left 0px
+				padding-left 0px
+			&:after
+				content " "
+				border-right 1px #cfcfcf solid
+				position absolute
+				top 20px
+				height 30px
+				right -10px
+			&:last-child:after
+					content none
+					border-right none
+					display none
+	section
+		img
+			margin 0 3px
+			display inline-block
+			vertical-align top
+		span
+			display inline-block
+			text-align center
+			vertical-align top
+
 #catalogRecord
 	#record-wrapper
 		margin-left 2%
 		margin-right 2%
+		font-size 90%
+	.container-fluid
+		display inline-block
+		vertical-align top
 		#recordPictures
-			float right
+			max-width 45%
+			display inline-block
+			vertical-align top
 			img
 				-webkit-box-shadow 0 1px 3px rgba(34,25,25,0.4)
 				-moz-box-shadow 0 1px 3px rgba(34,25,25,0.4)
@@ -324,64 +458,160 @@ body
 				-ms-transition all 0.6s
 				-o-transition all 0.6s
 				transition all 0.6s
-				margin-left: 30px;
+				margin-right 30px
+				margin-bottom 30px
+				max-width 100%
+				float left
+				max-width 300px
+				max-height 350px
+		#recordContent li
+			width 210px
+			display inline-block
+			vertical-align top
+			line-height 1.2em
+			margin 0 5px 10px 0
+			em
+				color #999
+				display block
+				line-height 0.9em
 		#recordHeader
-			background rgba(251,180,29,0.1)
 			padding-top 1px
-			padding-bottom 20px
+			padding-bottom 5px
 			padding-left 10px
-			padding-right 10px
+			padding-right 0px
+			margin-bottom 20px
+			margin-left 20px
+			max-width 45%
+			.fullTaxonContainer
+				display block
+				span
+					font-size 1em
+					background rgba(250,250,235,0.9)
+					padding 6px 12px
+					-webkit-border-radius 10px
+					border-radius 10px
+					display block
+					font-weight 700
+					margin-top 10px
 			#recordTitles
 				h1.taxonName
-					font-family "Economica","Helvetica Neue",Helvetica,Arial,sans-serif
+					font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
 					color #2288C9
+					font-weight 300
+					text-transform uppercase
+					font-style italic
 				h6.author
-					margin-bottom 0px
+					margin 0px
+				.authorContainer
+					margin 10px 10px
+					display inline-block
+					vertical-align bottom !important
+					color #888
 		#recordContent
+			text-align left
 			padding-right 20px
 			padding-left 20px
+			width 100%
+			span
+				-moz-column-count 2
+				-moz-column-gap 20px
+				-webkit-column-count 2
+				-webkit-column-gap 20px
+				column-count 2
+				column-gap 20px
+			.descriptionTitle
+			.commonNamesTitle
+			.distributionTitle
+				color #A5B562
+				padding-top 5px
+				padding-bottom 5px
+				font-weight 300
+				font-size 1.6em
+				text-transform uppercase
+				margin-top 20px
+				margin-bottom 10px
 			h1
 				background-color #A5B562
 				color white
-				padding-top 5px
-				padding-bottom 5px
-				font-weight bold
-				margin-top 20px
-				margin-bottom 10px
-				font-size 18px
-				margin-left -20px
-				padding-left 20px
+				padding 10px
+				font-weight 300
+				margin 10px 0
+				font-size 1.7em
+				line-height 1em
+				display block
+				-webkit-border-radius 5px
+				-moz-border-radius 5px
+				border-radius 5px
+				width 95%
+				text-transform uppercase
 			h2
-				color black
-				font-weight bold
-				font-size 14px
-				margin-bottom 2px
+				color #7D846C
+				text-transform uppercase
+				font-weight 400
+				font-size 1.4em
+				margin 13px 0 1px 0
+				line-height 1.2em
 			h3
 				color black
 				font-weight bold
 				font-size 14px
 				margin-bottom 2px
-			table
-				font-family "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
+				text-transform uppercase
+				line-height 1.1em
+			.content
 				font-size 14px
-				margin-bottom: 15px;
-				td
-					padding-right 10px
-					padding-left 10px
-					padding-bottom 3px
-				td.title
-					font-weight bold
-					background-color: #D8E4A9;
-					padding-left 0px
+				margin-bottom 15px
+				display inline-block
+				vertical-align top
+				font-weight 700
+			.tabla
+				font-size 14px
+				margin 5px 20px 5px 0
+				display inline-block
+				vertical-align top
+				font-weight 700
+				width auto
+				max-width 170px
+				div
+					display block
+					padding 0px
+				div.title
+					font-weight 400
+					text-transform uppercase
+					color rgba(111,125,75,0.7) 
+					padding 0px
+					margin-top 5px
+					font-size 1.1em
+					display block
 			ul
 				list-style-position inside
-@media (min-width: 980px)
+.slider
+.collapseSlider
+.sliderExpanded .expandSlider
+	display none
+.sliderExpanded .collapseSlider
+	display block
+.share_icons
+	top 10px
+
+@media (min-width:1055px)
+	.buscar input
+		width 250px
+@media (max-width:1055px)
+	.hidden-phone
+		right -50px
+	.hidden-phone span
+		display none !important
+	.navbar-inner 
+		.nav-collapse 
+			padding-left 30px;
+@media (min-width 930px)
 	#top-zone
 		.menu-opciones
 			.navbar-search
 				.buscar
 					input
-						width 290px
+						width 160px
 					.btn
 						margin-top 0px
 						margin-right 3px
@@ -390,11 +620,23 @@ body
 						box-shadow none
 						width 30px
 						height 30px
-		.container-fluid
-			padding-right 0px
-			padding-left 0px
+	.container-fluid
+		padding-right 0px
+		padding-left 0px
+
 @media (max-width: 979px)
 	#top-zone
 		position static
-.no-bottom-margin
-	margin-bottom 0px
+	.no-bottom-margin
+		margin-bottom 0px
+	#recordHeader
+	#recordContent
+		width 100% !important
+	footer
+	#recordPictures
+		float none !important
+		max-width 100% !important
+		img
+			max-width 100% !important
+	footer section > div:nth-child(3), footer nav
+		width 50%

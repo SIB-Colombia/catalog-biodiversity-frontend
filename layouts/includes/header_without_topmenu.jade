@@ -4,9 +4,27 @@ block header
 			.navbar.no-bottom-margin
 				.navbar-inner
 					.container-fluid
-						a(class="brand", alt="Logo Catalogo de la Biodiversidad", href="#")
-							img(src="/images/logo_catalogo_60px_fondo_blanco.png")
+						a(class="brand", title="Catálogo de la Biodiversidad", href="#")
+							img(src="/images/logo_catalogo_especies.png")
 						.pull-right.hidden-phone
-							a(class="brand", alt="Logo SIB Colombia", href="http://www.sibcolombia.net")
-								img(src="/images/logo_sib_80px_fondo_papel.png", style="height:60px;")
-						#flower
+							a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
+								img(src="/images/ico_portal.png")
+							span
+							a(href="https://twitter.com/sibcolombia", target="_blank", title="Síguenos en Twitter")
+								img(src="/images/ico_twitter.png")
+
+							a(href="https://www.facebook.com/SibColombia", target="_blank", title="Síguenos en facebook")
+								img(src="/images/ico_fb.png")
+
+							a(href="http://www.youtube.com/user/sibcolombia", target="_blank", title="Visita nuestro canal en youtube")
+								img(src="/images/ico_youtube.png")
+						.navbar.menu-opciones
+							.navbar-inner
+								.container-fluid
+									.nav-collapse.collaps.navbar-responsive-collapse
+										.navbar-search
+											.buscar
+												//fieldset
+												//	input.search-query.span2(type="text", placeholder="Buscar especies", data-bind="value: simpleSearchBox, valueUpdate: 'afterkeydown', event: { keypress: startSearchOnEnter }")
+												//	button.btn.hidden-tablet(type="button", data-bind="click: startSearch")
+											
