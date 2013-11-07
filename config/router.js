@@ -3,9 +3,9 @@ var express = require('express')
 
 module.exports = function(parent, options){
   var verbose = options.verbose;
-  fs.readdirSync(__dirname + '/../controllers').forEach(function(name){
+  fs.readdirSync(__dirname + '/../app/controllers').forEach(function(name){
     verbose && console.log('\n %s:', name);
-    var obj = require('./../controllers/' + name)
+    var obj = require('./../app/controllers/' + name)
       , name = obj.name || name
       , prefix = obj.prefix || ''
       , app = express()
@@ -14,7 +14,7 @@ module.exports = function(parent, options){
 
     // allow specifying the view engine
     if (obj.engine) app.set('view engine', obj.engine);
-    app.set('views', __dirname + '/../views/' + name);
+    app.set('views', __dirname + '/../app/views/' + name);
 
     // before middleware support
     if (obj.before) {

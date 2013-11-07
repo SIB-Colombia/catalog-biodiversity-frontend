@@ -615,36 +615,6 @@ footer section span {
   text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 10px;
-  font-size: 18px;
-  margin-left: -20px;
-  padding-left: 20px;
-}
-#catalogRecord #record-wrapper #recordContent h2 {
-  color: #000;
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 2px;
-}
-#catalogRecord #record-wrapper #recordContent h3 {
-  color: #000;
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 2px;
-}
-#catalogRecord #record-wrapper #recordContent table {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-#catalogRecord #record-wrapper #recordContent table td {
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 3px;
-}
-#catalogRecord #record-wrapper #recordContent table td.title {
-  font-weight: bold;
-  background-color: #d8e4a9;
-  padding-left: 0px;
 }
 #catalogRecord .container-fluid #recordContent h1 {
   background-color: #a5b562;
