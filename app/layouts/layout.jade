@@ -1,33 +1,83 @@
-doctype 5
-html
-	head
-		meta(charset="utf-8")
-		meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-		title Catálogo de la Biodiversidad
-		meta(name="description", content="")
-		meta(name="viewport", content="width=device-width")
+!!!5
+//if IE 8
+	|<html class="no-js lt-ie9">
+//if gt IE 8
+	|<!--> <html class="no-js"> <!--
+head
+	meta(charset='utf-8')
+	meta(http-equiv='X-UA-Compatible', content='IE=edge')
+	title Catálogo de la Biodiversidad
+	meta(name='description', content='')
+	meta(name='viewport', content='width=device-width,initial-scale=1')
+	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+	link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+	//link(rel="stylesheet", href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css")
+	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+	//if lt IE 9
+		script(src='http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js')
+		script(src='htpp://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js')
+body
 
-		link(rel='stylesheet', href='/css/bootstrap.min.css')
-		link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
-		link(rel='stylesheet', href='/css/catalogo.css')
-		script(src="js/lib/modernizr.min.js")
-	body
-		<!--[if lt IE 7]>
-		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-		<![endif]-->
-		#wrapper
-			section#top-zone
-				include includes/header
-				#content-wrapper
-					block content
-			section#footer-zone
-				include includes/footer_home
-		script(src="js/lib/jquery.min.js")
-		script(src="js/lib/bootstrap.min.js")
-		script(src="http://code.jquery.com/ui/1.10.1/jquery-ui.js")
-		script(src="js/lib/jquery.isotope.min.js")
-		script(src="js/lib/jquery.infinitescroll.js")
-		script(src="js/lib/knockout.min.js")
-		script(src="tmplib/holder.js")
-		script(src="js/fichas.js")
-		script(src="js/slider.js")
+extend layout
+
+append css
+    style.
+        body {
+            padding-top: 50px;
+        }
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+        
+block main
+    .navbar.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='#') Project name
+            .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li.active
+                        a(href='#') Home
+                    li
+                        a(href='#about') About
+                    li
+                        a(href='#contact') Contact
+    .container
+        .starter-template
+            h1 Bootstrap starter template
+            p.lead
+                | Use this document as a way to quickly start any new project.
+                br
+                | All you get is this text and a mostly barebones HTML document.
+
+!!!5
+//if IE 8
+	|<html class="no-js lt-ie9">
+//if gt IE 8
+	|<!--> <html class="no-js"> <!--
+head
+	//- TODO: Check if it's the good charset
+	meta(charset='utf-8')
+	meta(http-equiv='X-UA-Compatible', content='IE=edge')
+	title 
+	meta(name='description', content='')
+	meta(name='viewport', content='width=device-width,initial-scale=1')
+	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+	link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+	//link(rel="stylesheet", href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css")
+	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+	//if lt IE 9
+		script(src='http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js')
+		script(src='htpp://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js')
+body
+	//- Add your site or application content here
+	
+		
+	script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+	script(src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js")
+	script(src="http://cdnjs.cloudflare.com/ajax/libs/holder/2.0/holder.js")
