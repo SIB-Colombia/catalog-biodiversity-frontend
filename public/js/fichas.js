@@ -344,6 +344,7 @@ function RecordsWallViewModel() {
 		if(self.currentGeneralFilter() == "Solo fichas con imagenes") {
 			url = url+"&onlyimages=true";
 		}
+		url = url+"&onlyimages=true";
 		if(self.currentOrderBy() == "Nombre científico") {
 			url = url+"&order=scientificname";
 		} else if(self.currentOrderBy() == "Autor") {
