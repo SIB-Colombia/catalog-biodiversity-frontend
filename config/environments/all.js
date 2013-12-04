@@ -3,7 +3,7 @@ var express = require('express')
 
 module.exports = function(parent) {
 	var oneMonth = 2592000;
-	parent.set('port', process.env.PORT || 3000);
+	parent.set('port', process.env.PORT || appConfigVars.port);
 	parent.set('view engine', 'jade');
 	parent.set('jsonp callback', true );
 	parent.use(express.compress());

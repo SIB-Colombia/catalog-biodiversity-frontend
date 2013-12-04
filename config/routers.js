@@ -45,6 +45,10 @@ module.exports = function(parent, options){
           method = 'get';
           path = '/' + name + '/id/:' + '_id';
           break;
+        case 'partials':
+          method = 'get';
+          path = '/partials/:name';
+          break;
         default:
           throw new Error('unrecognized route: ' + name + '.' + key);
       }

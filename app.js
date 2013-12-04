@@ -7,6 +7,9 @@ var express = require('express')
 
 var app = express();
 
+// Load runtime vars
+require('./config/runtime_vars');
+
 // Load app configuration
 require('./config/environments/all')(app);
 

@@ -11,7 +11,7 @@ exports.show = function(req, res) {
 		{
 			registerData: function(callback) {
 				request({
-					url: 'http://http://www.biodiversidad.co/index.php/api/ficha/'+registerID,
+					url: 'http://www.biodiversidad.co/index.php/api/ficha/'+registerID,
 					method: 'GET',
 					json: true
 				}, function(error, response, body) {

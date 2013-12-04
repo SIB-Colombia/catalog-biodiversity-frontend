@@ -1,82 +1,65 @@
 block header
 	header
-		nav
-			.navbar.no-bottom-margin
-				.navbar-inner
-					.container-fluid
-						a(class="brand", title="Catálogo de la Biodiversidad", href="#")
-							img(src="images/logo_catalogo_especies.png")
-						.pull-right.hidden-phone.share_icons
-							a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
-								img(src="images/ico_portal.png")
-							span
-							a(href="https://twitter.com/sibcolombia", target="_blank", title="Síguenos en Twitter")
-								img(src="images/ico_twitter.png")
-
-							a(href="https://www.facebook.com/SibColombia", target="_blank", title="Síguenos en facebook")
-								img(src="images/ico_fb.png")
-
-							a(href="http://www.youtube.com/user/sibcolombia", target="_blank", title="Visita nuestro canal en youtube")
-								img(src="images/ico_youtube.png")
-						.navbar.menu-opciones
-							.navbar-inner
-								.container-fluid
-									
-									.nav-collapse.collaps.navbar-responsive-collapse
-										ul.nav
-											li.dropdown
-												a(href="#", class="dropdown-toggle", data-toggle="dropdown") GRUPO BIOLÓGICO
-													//- span(data-bind="text: currentGroupActive()", style="text-transform: lowercase;")
-													//- b.caret
-												ul.dropdown-menu
-													li(data-bind="css: { active: currentGroupActive() == 'Todos' }")
-														a(href="#", data-bind="click: changeSearchCondition") Todos
-													li(data-bind="css: { active: currentGroupActive() == 'Insectos' }")
-														a(href="#", data-bind="click: changeSearchCondition") Insectos
-													li(data-bind="css: { active: currentGroupActive() == 'Aves' }")
-														a(href="#", data-bind="click: changeSearchCondition") Aves
-													li(data-bind="css: { active: currentGroupActive() == 'Plantas' }")
-														a(href="#", data-bind="click: changeSearchCondition") Plantas
-													li(data-bind="css: { active: currentGroupActive() == 'Mamíferos' }")
-														a(href="#", data-bind="click: changeSearchCondition") Mamíferos
-													li(data-bind="css: { active: currentGroupActive() == 'Reptiles' }")
-														a(href="#", data-bind="click: changeSearchCondition") Reptiles
-													li(data-bind="css: { active: currentGroupActive() == 'Anfibios' }")
-														a(href="#", data-bind="click: changeSearchCondition") Anfibios
-													li(data-bind="css: { active: currentGroupActive() == 'Hongos' }")
-														a(href="#", data-bind="click: changeSearchCondition") Hongos
-											//- li.divider-vertical
-											//- li.dropdown
-											//- 	a(href="#", class="dropdown-toggle", data-toggle="dropdown") FILTRAR POR: 
-											//- 		span(data-bind="text: currentGeneralFilter()", style="text-transform: lowercase;")
-											//- 		b.caret
-											//- 	ul.dropdown-menu
-											//- 		li(data-bind="css: { active: currentGeneralFilter() == 'Todas' }")
-											//- 			a(href="#", data-bind="click: changeSearchCondition") Todas
-											//- 		li(data-bind="css: { active: currentGeneralFilter() == 'Solo fichas con imagenes' }")
-											//- 			a(href="#", data-bind="click: changeSearchCondition") Solo fichas con imagenes
-											li.divider-vertical
-											li.dropdown
-												a(href="#", class="dropdown-toggle", data-toggle="dropdown") ORDENAR
-													//- span(data-bind="text: currentOrderBy()", style="text-transform: lowercase;")
-													//- span 
-													//- span(data-bind="text: currentOrderDirection()", style="text-transform: lowercase;")
-													//- b.caret
-												ul.dropdown-menu
-													//-li(data-bind="css: { active: currentOrderBy() == 'Fecha publicación' }")
-														a(href="#", data-bind="click: changeSearchCondition") Fecha publicación
-													li(data-bind="css: { active: currentOrderBy() == 'Nombre científico' }")
-														a(href="#", data-bind="click: changeSearchCondition") Nombre científico
-													//-li(data-bind="css: { active: currentOrderBy() == 'Autor' }")
-														a(href="#", data-bind="click: changeSearchCondition") Autor
-													li.divider
-													li(data-bind="css: { active: currentOrderDirection() == 'Ascendente' }")
-														a(href="#", data-bind="click: changeSearchCondition") Ascendente
-													li(data-bind="css: { active: currentOrderDirection() == 'Descendente' }")
-														a(href="#", data-bind="click: changeSearchCondition") Descendente
-										.navbar-search
-											.buscar
-												fieldset
-													input.search-query.span2(type="text", placeholder="Buscar especies", data-bind="value: simpleSearchBox, valueUpdate: 'afterkeydown', event: { keypress: startSearchOnEnter }")
-													button.btn.hidden-tablet(type="button", data-bind="click: startSearch")
-											
+		nav.navbar(role="navigation")
+			.navbar-header
+				button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-header-catalog-collapse")
+					span.sr-only Toggle navigation
+					span.icon-bar"
+					span.icon-bar"
+					span.icon-bar"
+				a(class="brand", title="Catálogo de la Biodiversidad", href="#")
+					img.img-responsive(src="images/logo_catalogo_especies.png")
+			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
+				.container-center
+					ul.nav.navbar-nav
+						li.dropdown
+							a(class="dropdown-toggle", data-toggle="dropdown") GRUPO BIOLÓGICO
+								b.caret
+							ul.dropdown-menu
+								li(class="active")
+									a(href="#") Todos
+								li
+									a(href="#") Insectos
+								li
+									a(href="#") Aves
+								li
+									a(href="#") Plantas
+								li
+									a(href="#") Mamíferos
+								li
+									a(href="#") Reptiles
+								li
+									a(href="#") Anfibios
+								li
+									a(href="#") Hongos
+						li.divider-vertical.hidden-xs
+							li.dropdown
+								a(class="dropdown-toggle", data-toggle="dropdown") ORDENAR
+									b.caret
+								ul.dropdown-menu
+									li(class="active")
+										a(href="#") Nombre científico
+									li.divider
+									li
+										a(href="#") Ascendente
+									li(class="active")
+										a(href="#") Descendente
+						.navbar-form.navbar-left
+							.form-group
+								input.form-control(type="text", placeholder="Buscar especies")
+							button.visible-large-screen(type="button")
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
+							img.img-responsive(src="images/ico_portal.png")
+					li.hidden-xs.hidden-sm
+						span
+					li.hidden-sm
+						a(href="https://twitter.com/sibcolombia", target="_blank", title="Síguenos en Twitter")
+							img.img-responsive(src="images/ico_twitter.png")
+					li.hidden-sm
+						a(href="https://www.facebook.com/SibColombia", target="_blank", title="Síguenos en facebook")
+							img.img-responsive(src="images/ico_fb.png")
+					li.hidden-sm
+						a(href="http://www.youtube.com/user/sibcolombia", target="_blank", title="Visita nuestro canal en youtube")
+							img.img-responsive(src="images/ico_youtube.png")

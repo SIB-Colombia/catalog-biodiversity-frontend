@@ -1,0 +1,28 @@
+{
+  "name": "CatalogOfBiodiversity-SIBColombia",
+  "version": "1.2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.0.0",
+    "angular": "~1.2.3",
+    "angular-scenario": "~1.2.0",
+    "angular-route": "~1.2.0",
+    "angular-mocks": "~1.2.0",
+    "requirejs": "~2.1.9",
+    "requirejs-text": "~2.0.10",
+    "jquery-ui": "~1.10.3",
+    "angularytics": "~0.2.3",
+    "isotope": "~1.5.25",
+    "angular-isotope": "*",
+    "nginfinitescroll": "1.0.0"
+  },
+  "resolutions": {
+    "angular": "1.2.3"
+  }
+}

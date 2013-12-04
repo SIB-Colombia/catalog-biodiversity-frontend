@@ -33,138 +33,242 @@ a
 		-moz-opacity .5
 #flower
 	height 70px
+@media (min-width:1200px)
+	.visible-large-screen
+		display inline-block !important
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 260px
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 270px
+				img
+					width 270px
+	footer.fix_bottom
+		section.sib-cd
+			.hidden-sm
+				display inline-block !important
+			.hidden-md
+				display inline-block !important
+@media (min-width:992px) and (max-width:1199px)
+	footer.fix_bottom
+		section.sib-cd
+			.hidden-sm
+				display inline-block !important
+			.hidden-md
+				display none !important
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 270px
+				img
+					width 270px
+@media (min-width:1090px)
+	.container-center
+		float left
+		margin-left 50px
+@media (min-width:761px) and (max-width:1199px)
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 150px
+	#top-zone
+		.navbar
+			.navbar-header
+				.brand
+					margin-left 0px !important
+@media (min-width:768px) and (max-width:995px)
+	#top-zone
+		.navbar
+			font-size 11px !important
+			.navbar-header
+				.brand
+					padding 3px 7px 8px 7px !important
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 270px
+				img
+					width 270px
+@media (min-width:360px) and (max-width:760px)
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 260px
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 320px
+				img
+					width 320px
+@media (max-width:320px)
+	#top-zone
+		.navbar
+			.navbar-header
+				.brand
+					padding 3px 5px 8px 5px !important
+					margin-left 0px !important
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 260px
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 280px
+				img
+					width 280px
 #top-zone
 	top 0
 	right 0
 	left 0
-	z-index 1030
 	margin-bottom 0
 	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
-	.brand
-		-webkit-border-radius 0px 0px 15px 15px
-		border-radius 0px 0px 15px 15px
-		background-color #fffef3
-		padding 10px 13px 13px 13px
-		float left
-		position absolute
-		z-index 15000
-		a:hover
-			opacity 1 !important
-			-moz-opacity 1 !important
-			//alpha(opacity=100)
-			opacity 1 !important
-	.nav
-		font-size 0.9em
-	.navbar-inner
-		background transparent !important
-		min-height 50px
-	.container-fluid
-		text-align center
-		div
-			display inline-block
-			vertical-align middle
-			padding 0 20px
-		a
-			opacity 1
-		a:hover
-			//filter alpha(opacity=60)
-			opacity .6
-			background-color rgba(255,255,255,0.5)
-	.hidden-phone
-		display inline-block
-		right 0px
-		position absolute
-		padding 11px 10px
-		-webkit-transition all 0.5s ease-in-out
-		-moz-transition all 0.5s ease-in-out
-		-ms-transition all 0.5s ease-in-out
-		-o-transition all 0.5s ease-in-out
-		transition all 0.5s ease-in-out
-	.hidden-phone a
-		vertical-align middle !important
-		margin 0
-		padding 21px 11px
-	.hidden-phone span
-		width 0px
-		border-left #9bc2de 1px solid
-		display inline-block
-		height 20px
-		vertical-align middle
-		margin 0 4px
-	nav .navbar:first-child
+	.nav 
+		.caret
+			border-top-color #FFFFFF
+			border-bottom-color #FFFFFF
+	.navbar
 		background #2b7fbc
-		height 53px
-		color white
-		text-transform uppercase
-		//position  fixed
-		width  100%
-		z-index  10000
-		top  0px
-		&:after 
-			content " "
-			display block
-			height 20px
-			width 100%
-			background  url("/images/shadow_top.png") no-repeat top center
-			margin-top  1px
-	.menu-opciones
-		margin-bottom 0px
-		li.dropdown.open
-			a.dropdown-toggle
-				color #fff
-				vertical-align middle
-		li.dropdown
-			a.dropdown-toggle
-					padding 16px 12px
-					text-shadow none
+		border 0px
+		font-size 13px
+		-webkit-box-shadow 0px 0px 35px 1px #525252
+		-moz-box-shadow 0px 0px 35px 1px #525252
+		box-shadow 0px 0px 35px 1px #525252
+		#navbar-header-catalog-collapse
+			background #2b7fbc
+		.navbar-header
+			height 52px
+			.navbar-toggle
+				padding 3px 10px 12px
+			.brand
+				-webkit-border-radius 0px 0px 15px 15px
+				border-radius 0px 0px 15px 15px
+				background-color #fffef3
+				padding 3px 13px 8px 13px
+				margin-left 20px
+				float left
+				a:hover
+					opacity 1 !important
+					-moz-opacity 1 !important
+					opacity 1 !important
+		.navbar-collapse 
+			height 52px
+			.navbar-form
+				.form-group
 					font-size 1em
-					font-weight 300
-				.dropdown-menu
-					background rgba(255, 255, 255, 0.9)
-					.active
-						a
-							color white
-				.caret
-					border-top-color #2288c9
-					border-bottom-color #2288c9
-			&:hover, &:focus
-				a.dropdown-toggle
-					background rgba(255, 255, 255, 0.2)
+					.form-control
+						-webkit-border-radius 0px
+						border-radius 0px
+						background-color #2b7fbc
+						border solid 1px #fff
+						color #fff
+						font-weight normal
+						font-size 1.2em
+						line-height 1
+						font-family "Helvetica Neue",Helvetica,Arial,sans-serif
+						&:hover
+							background-color #fff
+							color #000
+				button
+					display none
+					padding 13px
 					color #fff
-		.divider-vertical
-			margin 15px 0
-			height 18px
-		.navbar-search
-			margin-top 0px
-			.buscar
-				display inline-block
-				padding 3px
-				text-align right
-				input
-					width 180px
-					height 20px
-					font-size 1em
-					-webkit-border-radius 0px
-					border-radius 0px
-					background-color #2b7fbc
-					border solid 1px white
-					color white
-					// -webkit-box-shadow inset 3px 3px 2px 0px rgba(0, 0, 0, 0.2)
-					// box-shadow inset 3px 3px 2px 0px rgba(0, 0, 0, 0.2)
-					&:focus
-						background
-				.btn
-					display  inline-block
-					padding  13px
-					color  #FFF
-					right  0px
-					height  32px
-					text-decoration  none
-					width  33px
+					right 0px
+					height 32px
+					text-decoration none
+					width 33px
 					border none 0px transparent
 					box-shadow none
 					background url("/images/ico_search.png") no-repeat center center
 					margin-top 0px
+			ul.navbar-right
+				li
+					a
+						height 52px
+						&:hover
+							opacity 0.6
+							background-color rgba(255,255,255,0.5)
+			ul.nav.navbar-nav
+				li.divider-vertical
+					margin 17px 0
+					height 18px
+					border-left 1px solid #f2f2f2
+				li
+					a
+						color white
+						vertical-align middle
+					span
+						width 0px
+						border-left #9bc2de 1px solid
+						display inline-block
+						height 20px
+						vertical-align middle
+						margin 15px 4px
+				li.dropdown
+					a.dropdown-toggle
+						padding 16px 12px
+						text-shadow none
+						font-size 1em
+						font-weight 300
+					&:hover
+					&:focus
+						a.dropdown-toggle
+							background rgba(255,255,255,0.2)
+							color #fff
+				li.dropdown.open
+					a.dropdown-toggle
+						color #fff
+						vertical-align middle
+						background-color rgba(255,255,255,0.5)
+					ul.dropdown-menu
+						background rgba(255,255,255,0.9)
+						-webkit-border-radius 6px
+						-moz-border-radius 6px
+						border-radius 6px
+						-webkit-box-shadow 0 5px 10px rgba(0,0,0,0.2)
+						-moz-box-shadow 0 5px 10px rgba(0,0,0,0.2)
+						box-shadow 0 5px 10px rgba(0,0,0,0.2)
+						-webkit-background-clip padding-box
+						-moz-background-clip padding
+						background-clip padding-box
+						li.active
+							a
+								color white
+								text-decoration none
+								outline 0
+								background-color #0081c2
+								background-image -moz-linear-gradient(top,#08c,#0077b3)
+								background-image -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#0077b3))
+								background-image -webkit-linear-gradient(top,#08c,#0077b3)
+								background-image -o-linear-gradient(top,#08c,#0077b3)
+								background-image linear-gradient(to bottom,#08c,#0077b3)
+								background-repeat repeat-x
+						li
+							text-align center
+							text-transform uppercase
+							a
+								color black
+								padding 3px 20px
+								&:hover
+								&:focus
+									opacity 0.6
+									background-color rgba(255,255,255,0.5)
+									text-decoration none
+									color #fff
+									background-color #0081c2
+									background-image -moz-linear-gradient(top,#08c,#0077b3)
+									background-image -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#0077b3))
+									background-image -webkit-linear-gradient(top,#08c,#0077b3)
+									background-image -o-linear-gradient(top,#08c,#0077b3)
+									background-image linear-gradient(to bottom,#08c,#0077b3)
+									background-repeat repeat-x
 #content-wrapper
 	padding-top 0px
 	min-height 658px
@@ -260,13 +364,12 @@ a
 			text-align center
 			margin-top 10px
 			margin-bottom 60px
-		#container
+		#isotopeContainer
 			margin-top 0px
 			margin-left auto
 			margin-right auto
 			margin-bottom 10px
 			.ficha
-				width 250px
 				margin 9px
 				float left
 				overflow hidden
@@ -309,17 +412,14 @@ a
 						margin-bottom 15px
 					.ficha-muro-departamentos
 						font-size 0.9em
-
-.fix_bottom
-	position fixed
-	bottom 0px
 h3.ui-state-active
 	background url("/images/flecha_down.png") no-repeat top center !important
 h3.ui-state-default
 	background url("/images/flecha_up.png") no-repeat top center
-footer
+footer.fix_bottom
+	position fixed
+	bottom 0px
 	font-size 0.85em
-	clear both
 	margin 0
 	color #515254 !important
 	background rgba(255,255,255,0.9) url("/images/shadow_top_clear.png") no-repeat top center
@@ -331,112 +431,92 @@ footer
 	h3
 		margin 6px 0px
 		height 15px
+	h3.ui-state-default
+		background url("/images/flecha_up.png") no-repeat top center
+	h3.ui-state-active
+		background url("/images/flecha_down.png") no-repeat top center !important
 	h5
 		font-family 'Open Sans'
 		font-size 1.03em
 		padding 0px
 		margin 0px
 		font-weight 700
-	aside
-		float left
-		background rgba(255,255,255,0.6)
-		-webkit-border-radius 15px
-		border-radius 15px
-		padding 7px
-		-webkit-box-shadow  0px 0px 3px 0px rgba(0, 0, 0, 0.2)
-		box-shadow  0px 0px 3px 0px rgba(0, 0, 0, 0.2)
-
-	section
-		margin 0 auto
-		max-width 1100px
-		padding 30px 0 !important
-		text-align center
+		margin-bottom 3px
+	section.sib-cd
+		padding-top 2px
 		a
 			color #515254 !important
-		div
+		img
+			margin 0 3px
 			display inline-block
 			vertical-align top
-			text-align left
-			&:nth-child(3)
-				div
-					width 24%
-				div:nth-child(1)
-					width 31%
-				div:nth-child(3)
-					width 19%
-				a
-					color #515254 !important
-				div a
-					display block
-					vertical-align top 
-	section:nth-child(2)
-		background url("/images/shadow_bottom_clear.png") no-repeat bottom center !important
-		text-align left
-	section > div:nth-child(2)
-		width 19%
-		padding 0px 20px 0px 20px
-	section > div:nth-child(3)
-	nav
-		width 66%
-		padding 0 20px 0px 20px !important
-		display inline-block
-		border-left  1px #cfcfcf solid
-	nav
-		border none
-		font-weight bold
-		vertical-align top
-		margin-top  20px
-		padding 0px
-		font-size 1.1em
-		a
-			margin 0 30px 0 3px
-	.redes
-		width 19%
-		padding 0 20px 0px 20px
-		margin 20px 0 0 70px !important
-		a
-			float left
-			margin 0 4px 0 0
-	.barra
-		padding 10px 0 !important
-	section:nth-child(3)
+		span.separator
+			content " "
+			border-right 1px #cfcfcf solid
+			height 30px
+			margin: 20px 0 0 0;
+			padding 0px
 		span
+			display inline-block
+			text-align center
+			vertical-align top
 			margin 0 10px
-			position relative
-			padding  0 10px
+			padding 0 10px
 			p
 				display block
 				font-weight 700
 				font-size 0.75em
 				margin-top 12px
 				line-height 1.3em
-			&:last-child
-				margin-right 0px
-				padding-right 0px
-			&:first-child
-				margin-left 0px
-				padding-left 0px
-			&:after
-				content " "
-				border-right 1px #cfcfcf solid
-				position absolute
-				top 20px
-				height 30px
-				right -10px
-			&:last-child:after
-					content none
-					border-right none
-					display none
-	section
+				margin-bottom 5px
+	section.sib-moreinfo
+		background url("/images/shadow_bottom_clear.png") no-repeat bottom center !important
+		text-align left
+		a
+			color #515254
+		aside
+			float left
+			background rgba(255,255,255,0.6)
+			-webkit-border-radius 15px
+			border-radius 15px
+			padding 7px
+			-webkit-box-shadow 0px 0px 3px 0px rgba(0,0,0,0.2)
+			box-shadow 0px 0px 3px 0px rgba(0,0,0,0.2)
+			margin-right 20px
+			margin-bottom 10px
 		img
 			margin 0 3px
 			display inline-block
 			vertical-align top
+		div
+			vertical-align top
+			text-align left
+			.location-data
+				padding 0px 0px 0px 20px
+			.links
+				padding 0 20px 0px 20px !important
+				display inline-block
+				border-left 1px #cfcfcf solid
+				a
+					display block
+					vertical-align top
 		span
 			display inline-block
 			text-align center
 			vertical-align top
-
+		span.redes
+			width 100%
+			margin 15px 0 15px 0px
+		nav
+			border none
+			font-weight bold
+			vertical-align top
+			margin-top 15px
+			margin-left 20px
+			a
+				margin 0 30px 0 3px
+				font-weight bold
+				font-size 1.1em
 #catalogRecord
 	#record-wrapper
 		margin-left 2%
@@ -593,50 +673,50 @@ footer
 	display block
 .share_icons
 	top 10px
-
-@media (min-width:1055px)
-	.buscar input
-		width 250px
-@media (max-width:1055px)
-	.hidden-phone
-		right -50px
-	.hidden-phone span
-		display none !important
-	.navbar-inner 
-		.nav-collapse 
-			padding-left 30px;
-@media (min-width 930px)
-	#top-zone
-		.menu-opciones
-			.navbar-search
-				.buscar
-					input
-						width 160px
-					.btn
-						margin-top 0px
-						margin-right 3px
-						background url("/images/lupa3.png") no-repeat center center
-						border 0px solid #ccc
-						box-shadow none
-						width 30px
-						height 30px
-	.container-fluid
-		padding-right 0px
-		padding-left 0px
-
-@media (max-width: 979px)
-	#top-zone
-		position static
-	.no-bottom-margin
-		margin-bottom 0px
-	#recordHeader
-	#recordContent
-		width 100% !important
-	footer
-	#recordPictures
-		float none !important
-		max-width 100% !important
-		img
-			max-width 100% !important
-	footer section > div:nth-child(3), footer nav
-		width 50%
+/* Beta ribbon styles */
+.wrapper
+	position relative
+	z-index 90
+.ribbon-wrapper-green
+	width 100px
+	height 100px
+	overflow hidden
+	position absolute
+	top -3px
+	left 0px
+.ribbon-green
+	font bold 15px Sans-Serif
+	color #333
+	text-align center
+	text-shadow rgba(255,255,255,0.5) 0px 1px 0px
+	-webkit-transform rotate(-45deg)
+	-moz-transform rotate(-45deg)
+	-ms-transform rotate(-45deg)
+	-o-transform rotate(-45deg)
+	position relative
+	padding 7px 0
+	left -31px
+	top 15px
+	width 120px
+	background-color #BFDC7A;
+	background-image -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45))
+	background-image -webkit-linear-gradient(top, #BFDC7A, #8EBF45)
+	background-image -moz-linear-gradient(top, #BFDC7A, #8EBF45)
+	background-image -ms-linear-gradient(top, #BFDC7A, #8EBF45)
+	background-image -o-linear-gradient(top, #BFDC7A, #8EBF45)
+	color #6a6340
+	-webkit-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	-moz-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+.ribbon-green:before, .ribbon-green:after
+	content ""
+	border-bottom 3px solid #6e8900
+	border-left 3px solid transparent
+	border-right 3px solid transparent
+	position absolute
+	bottom -3px
+.ribbon-green:before
+	left 0
+.ribbon-green:after
+	right 0
+/* End of beta ribbon styles */

@@ -1,6 +1,10 @@
 extends ../../layouts/layout
 
 block content
+	//span #{data}
+	script.
+		dataVar = !{data};
+		//console.log(dataVar);
 
 	// Carousel section display
 	//- section#carruselSection
@@ -12,10 +16,10 @@ block content
 	//- 				span.carousel-taxonnombre(data-bind="text: taxonnombre")
 	// Wall records
 	// Messages section
-	section#messageAndAlertSection
+	//section#messageAndAlertSection
 		#messageAndAlert
-	section#catalogWallSection
-		#wall-container-wrapper
+	section#catalogWallSection(data-ng-view)
+	//#wall-container-wrapper
 			#container
 		.navigation
 			a(data-bind="attr: { href: urlSearch() }")
