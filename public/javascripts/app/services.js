@@ -12,6 +12,7 @@ define(['jquery', 'angular'], function($, angular) {
 		.factory('Catalogue', ['$http', function ($http) {
 			var Catalogue = function() {
 				this.species = [];
+				this.totalregisters = dataVar.total_fichas;
 				for(var i in dataVar.data) {
 					if (typeof dataVar.data[i].imagenes.imagenThumb270 != "undefined") {
 						dataVar.data[i]["currentImage"] = dataVar.data[i].imagenes.imagenThumb270[Math.floor(Math.random()*dataVar.data[i].imagenes.imagenThumb270.length)];
@@ -21,15 +22,17 @@ define(['jquery', 'angular'], function($, angular) {
 					this.species.push(dataVar.data[i]);
 				}
 				this.busy = false;
+				this.end = false;
 				this.page = 2;
 			};
 
 			Catalogue.prototype.nextPage = function() {
 				var self = this;
+				if (this.end) return;
 				if (this.busy) return;
 				this.busy = true;
 
-				var url = 'http://192.168.3.107/index.php/api/fichasresumen?page='+this.page+'&onlyimages=true&jsonp=JSON_CALLBACK';
+				var url = 'http://www.biodiversidad.co/index.php/api/fichasresumen?page='+this.page+'&onlyimages=true&jsonp=JSON_CALLBACK';
 				$http.jsonp(url).success(function(data) {
 					var items = data.data;
 					for (var i = 0; i < items.length; i++) {
@@ -42,11 +45,29 @@ define(['jquery', 'angular'], function($, angular) {
 					}
 					this.busy = false;
 					this.page++;
+					setTimeout(function() {
+						$("#isotopeContainer").isotope('reLayout');
+					}, 8000);
+					if(this.species.length == this.totalregisters) {
+						this.end = true;
+					}
 				}.bind(this));
 
 			};
 
 			return Catalogue;
+		}])
+		.factory('Record', ['$http', function ($http) {
+			var Record = function() {
+				this.data = recordOfSpecie;
+				if (typeof this.data.atributos.imagenThumb270 != "undefined") {
+					this.data.currentImages = this.data.atributos.imagenThumb270;
+				} else if (typeof this.data.atributos.imagenThumb140 != "undefined") {
+					this.data.currentImages = this.data.atributos.imagenThumb140;
+				}
+			};
+
+			return Record;
 		}]);
 
 });

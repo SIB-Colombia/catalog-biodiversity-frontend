@@ -1,13 +1,8 @@
 define([], function() {
 	return ['$scope', '$http', 'Catalogue', function($scope, $http, Catalogue) {
 		// You can access the scope of the controller from here
-		$scope.welcomeMessage = 'hey this is wallctrl.js!';
 		$scope.catalogue = new Catalogue();
 		$scope.Math = window.Math;
-
-		$scope.$on('$viewContentLoaded', function() {
-			$("#isotopeContainer").isotope('reLayout');
-		});
 
 		// because this has happened asynchroneusly we've missed
 		// Angular's initial call to $apply after the controller has been loaded
@@ -70,6 +65,5 @@ define([], function() {
 				width : (this.masonry.cols - unusedCols) * this.masonry.columnWidth
 			};
 		};
-		$("#isotopeContainer").isotope( 'reLayout');
 	}];
 });

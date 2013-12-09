@@ -19,17 +19,16 @@ head
 	// Stylesheets
 	link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
 	link(rel='stylesheet', href='/stylesheets/catalogo.css')
-
 body
 	.wrapper
 		.ribbon-wrapper-green
 			.ribbon-green BETA
 	#wrapper
 		section#top-zone
-			include includes/header
-		#content-wrapper(data-ng-controller="RecordCtrl")
+			include includes/header_home
+		#content-wrapper
 			block content
 		section#footer-zone
-			include includes/footer
+			include includes/footer_home
 	// Including RequiereJS module loader
-	script(data-main="/javascripts/record", src="/components/requirejs/require.js")
+	script(data-main="/javascripts/main", src="/components/requirejs/require.js")

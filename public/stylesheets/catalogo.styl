@@ -23,17 +23,22 @@ a
 .wrapper
 	margin 0 auto
 .loading
-	background-image url("/images/loading/ajax-loader.gif")
-	background-position center center
-	background-repeat no-repeat
-	opacity 1
-	-moz-opacity 1
-	& *
-		opacity .5
-		-moz-opacity .5
+	position fixed
+	left 0px
+	width 100%
+	margin-left auto
+	margin-right auto
+	background rgba(255, 246, 202, 0.9)
+	padding-top 5px
+	padding-bottom 5px
+	font-weight bold
+	font-size 0.9em
+	text-align center
 #flower
 	height 70px
 @media (min-width:1200px)
+	.loading
+		bottom 136px
 	.visible-large-screen
 		display inline-block !important
 	.navbar-collapse 
@@ -47,14 +52,16 @@ a
 				width 270px
 				img
 					width 270px
-	footer.fix_bottom
+	footer
 		section.sib-cd
 			.hidden-sm
 				display inline-block !important
 			.hidden-md
 				display inline-block !important
 @media (min-width:992px) and (max-width:1199px)
-	footer.fix_bottom
+	.loading
+		bottom 136px
+	footer
 		section.sib-cd
 			.hidden-sm
 				display inline-block !important
@@ -67,10 +74,14 @@ a
 				img
 					width 270px
 @media (min-width:1090px)
+	.loading
+		bottom 136px
 	.container-center
 		float left
 		margin-left 50px
 @media (min-width:761px) and (max-width:1199px)
+	.loading
+		bottom 136px
 	.navbar-collapse 
 			.navbar-form
 				.form-group
@@ -82,6 +93,8 @@ a
 				.brand
 					margin-left 0px !important
 @media (min-width:768px) and (max-width:995px)
+	.loading
+		bottom 136px
 	#top-zone
 		.navbar
 			font-size 11px !important
@@ -95,6 +108,8 @@ a
 				img
 					width 270px
 @media (min-width:360px) and (max-width:760px)
+	.loading
+		bottom 0px
 	.navbar-collapse 
 			.navbar-form
 				.form-group
@@ -106,7 +121,11 @@ a
 				width 320px
 				img
 					width 320px
+	.taxonComplete
+		width 100% !important
 @media (max-width:320px)
+	.loading
+		bottom 0px
 	#top-zone
 		.navbar
 			.navbar-header
@@ -124,6 +143,8 @@ a
 				width 280px
 				img
 					width 280px
+	.taxonComplete
+		width 100% !important
 #top-zone
 	top 0
 	right 0
@@ -141,6 +162,7 @@ a
 		-webkit-box-shadow 0px 0px 35px 1px #525252
 		-moz-box-shadow 0px 0px 35px 1px #525252
 		box-shadow 0px 0px 35px 1px #525252
+		margin-bottom 10px
 		#navbar-header-catalog-collapse
 			background #2b7fbc
 		.navbar-header
@@ -270,25 +292,15 @@ a
 									background-image linear-gradient(to bottom,#08c,#0077b3)
 									background-repeat repeat-x
 #content-wrapper
-	padding-top 0px
-	min-height 658px
-	margin 0 auto
-	//margin-top -50px
-	width 100%
-	position relative
-	background-size 101.90% 658px
 	.breadcrumb
-		margin-left 2%
-		margin-right 2%
 		-webkit-border-radius 0px
 		-moz-border-radius 0px
 		border-radius 0px
-		padding 5px 0px
 		margin-bottom 10px
 		font-size 0.8em
 		text-shadow none
 		text-transform uppercase
-		position absolute
+		background-color transparent
 		li
 			background rgba(255,255,245,1) url("/images/separator.png") no-repeat center right
 			padding 4px 12px 4px 8px
@@ -412,13 +424,16 @@ a
 						margin-bottom 15px
 					.ficha-muro-departamentos
 						font-size 0.9em
+					span.ficha-id
+						font-size 0.5em
+						text-align right
+						vertical-align top
+						margin-left 5px
 h3.ui-state-active
 	background url("/images/flecha_down.png") no-repeat top center !important
 h3.ui-state-default
 	background url("/images/flecha_up.png") no-repeat top center
-footer.fix_bottom
-	position fixed
-	bottom 0px
+footer
 	font-size 0.85em
 	margin 0
 	color #515254 !important
@@ -428,6 +443,9 @@ footer.fix_bottom
 	display inline-block
 	vertical-align bottom
 	width 100%
+	&.fix_bottom
+		position fixed
+		bottom 0px
 	h3
 		margin 6px 0px
 		height 15px
@@ -518,61 +536,51 @@ footer.fix_bottom
 				font-weight bold
 				font-size 1.1em
 #catalogRecord
-	#record-wrapper
-		margin-left 2%
-		margin-right 2%
-		font-size 90%
-	.container-fluid
-		display inline-block
-		vertical-align top
+	.container
+		h1.taxonName
+			font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
+			color #2288C9
+			font-weight 300
+			text-transform uppercase
+			font-style italic
+			margin-top 0px
+			font-size 30px
+		h2.author
+			margin-top 0px
+			color #888
+			font-size: 14px;
 		#recordPictures
-			max-width 45%
-			display inline-block
-			vertical-align top
+			text-align center
 			img
-				-webkit-box-shadow 0 1px 3px rgba(34,25,25,0.4)
-				-moz-box-shadow 0 1px 3px rgba(34,25,25,0.4)
-				box-shadow 0 1px 3px rgba(34,25,25,0.4)
+				-webkit-box-shadow 3px 3px 3px rgba(34,25,25,0.4)
+				-moz-box-shadow 3px 3px 3px rgba(34,25,25,0.4)
+				box-shadow 3px 3px 3px rgba(34,25,25,0.4)
 				-webkit-transition all 0.6s
 				-moz-transition all 0.6s
 				-ms-transition all 0.6s
 				-o-transition all 0.6s
 				transition all 0.6s
-				margin-right 30px
-				margin-bottom 30px
-				max-width 100%
-				float left
-				max-width 300px
-				max-height 350px
-		#recordContent li
-			width 210px
-			display inline-block
-			vertical-align top
-			line-height 1.2em
-			margin 0 5px 10px 0
-			em
-				color #999
-				display block
-				line-height 0.9em
+				margin-bottom 10px
+				display inline
+				width 400px
+			.carousel-control.left
+				background-image none
+			.carousel-control.right
+				background-image none
 		#recordHeader
-			padding-top 1px
 			padding-bottom 5px
-			padding-left 10px
-			padding-right 0px
-			margin-bottom 20px
-			margin-left 20px
-			max-width 45%
 			.fullTaxonContainer
 				display block
-				span
+				.taxonComplete
 					font-size 1em
-					background rgba(250,250,235,0.9)
+					background rgba(215,231,238,0.9)
 					padding 6px 12px
 					-webkit-border-radius 10px
 					border-radius 10px
 					display block
-					font-weight 700
 					margin-top 10px
+					padding 20px
+					width 80%
 			#recordTitles
 				h1.taxonName
 					font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
@@ -580,18 +588,14 @@ footer.fix_bottom
 					font-weight 300
 					text-transform uppercase
 					font-style italic
-				h6.author
-					margin 0px
-				.authorContainer
-					margin 10px 10px
-					display inline-block
-					vertical-align bottom !important
+					margin-top 0px
+				h2.author
 					color #888
-		#recordContent
-			text-align left
-			padding-right 20px
-			padding-left 20px
-			width 100%
+					font-size: 18px;
+					margin-bottom 20px
+		.recordContent
+			margin-left 0px
+			margin-right 0px
 			span
 				-moz-column-count 2
 				-moz-column-gap 20px
@@ -599,37 +603,25 @@ footer.fix_bottom
 				-webkit-column-gap 20px
 				column-count 2
 				column-gap 20px
-			.descriptionTitle
-			.commonNamesTitle
-			.distributionTitle
-				color #A5B562
-				padding-top 5px
-				padding-bottom 5px
-				font-weight 300
-				font-size 1.6em
-				text-transform uppercase
-				margin-top 20px
-				margin-bottom 10px
 			h1
-				background-color #A5B562
+				background-color #89BE70
 				color white
-				padding 10px
+				padding 15px
 				font-weight 300
 				margin 10px 0
-				font-size 1.7em
+				font-size 1.6em
 				line-height 1em
 				display block
-				-webkit-border-radius 5px
-				-moz-border-radius 5px
-				border-radius 5px
-				width 95%
+				-webkit-border-radius 10px
+				-moz-border-radius 10px
+				border-radius 10px
 				text-transform uppercase
 			h2
-				color #7D846C
+				color #89BE70
 				text-transform uppercase
 				font-weight 400
-				font-size 1.4em
-				margin 13px 0 1px 0
+				font-size 1.2em
+				margin 15px 0 5px 0
 				line-height 1.2em
 			h3
 				color black
@@ -638,33 +630,45 @@ footer.fix_bottom
 				margin-bottom 2px
 				text-transform uppercase
 				line-height 1.1em
-			.content
+			.commonName
 				font-size 14px
 				margin-bottom 15px
 				display inline-block
 				vertical-align top
 				font-weight 700
-			.tabla
-				font-size 14px
-				margin 5px 20px 5px 0
-				display inline-block
-				vertical-align top
-				font-weight 700
-				width auto
-				max-width 170px
-				div
-					display block
-					padding 0px
-				div.title
+				padding 10px 20px 10px 20px
+				background-color rgba(255, 255, 255, 0.5)
+				margin 0px 5px 10px 5px
+				border-radius 10px
+				span.name
 					font-weight 400
-					text-transform uppercase
-					color rgba(111,125,75,0.7) 
 					padding 0px
+					font-size 1.2em
+				span.content
+					font-weight 400
+				h1
+					background-color transparent
+					color #89BE70
+					margin 0px
+					padding 0px
+					font-size 0.9em
 					margin-top 5px
-					font-size 1.1em
-					display block
+					margin-bottom 5px
 			ul
-				list-style-position inside
+				li
+					vertical-align top
+					line-height 1.2em
+					margin 15px 25px 25px 0
+					list-style-position outside
+					em
+						color #999
+						display block
+						line-height 0.9em
+			.basicInfoRecord
+				background rgba(215,231,238,0.9)
+				padding 6px 12px
+				-webkit-border-radius 10px
+				border-radius 10px
 .slider
 .collapseSlider
 .sliderExpanded .expandSlider
@@ -679,7 +683,7 @@ footer.fix_bottom
 	z-index 90
 .ribbon-wrapper-green
 	width 100px
-	height 100px
+	height 60px
 	overflow hidden
 	position absolute
 	top -3px
@@ -720,3 +724,14 @@ footer.fix_bottom
 .ribbon-green:after
 	right 0
 /* End of beta ribbon styles */
+/* Wall counter styles */
+.wallCounter
+	position: fixed;
+	right: 0px;
+	top: 50px;
+	background rgba(43, 127, 188, 0.2)
+	padding 5px
+	z-index 10
+	font-weight bold
+	font-size 1em
+/* End wall counter styles */

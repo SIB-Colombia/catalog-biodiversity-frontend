@@ -15,10 +15,7 @@ requirejs.config({
 		angularMocks: '../../components/angular-mocks/angular-mocks',
 		angularSanitize: '../../components/angular-sanitize/angular-sanitize.min',
 		text: '../../components/requirejs-text/text',
-		angularytics: '../../components/angularytics/dist/angularytics.min',
-		nginfinitescroll: '../../components/nginfinitescroll/build/ng-infinite-scroll.min',
-		isotope: '../../components/isotope/jquery.isotope.min',
-		angularisotope: '../../components/angular-isotope/dist/angular-isotope.min'
+		angularytics: '../../components/angularytics/dist/angularytics.min'
 	},
 	shim: {
 		'angular': {
@@ -32,6 +29,9 @@ requirejs.config({
 			deps: ['angular'],
 			'exports':'angular.mock'
 		},
+		'angularSanitize': {
+			deps: ['angular']
+		},
 		'bootstrap': {
 			deps: ['jquery']
 		},
@@ -40,18 +40,12 @@ requirejs.config({
 		},
 		'angularytics': {
 			deps: ['angular']
-		},
-		'isotope': {
-			deps: ['jquery']
-		},
-		'angularisotope': {
-			deps: ['jquery', 'isotope', 'angular']
 		}
 	}
 });
 
 // Load the main app module to start the app
-require(['jquery', 'angular', 'app', 'routes', 'jqueryui', 'bootstrap'], function($, angular, app, routes) {
+require(['jquery', 'angular', 'app.internal', 'jqueryui', 'bootstrap'], function($, angular, app) {
 	'use strict';
 
 	// Google analytics code
@@ -71,29 +65,6 @@ require(['jquery', 'angular', 'app', 'routes', 'jqueryui', 'bootstrap'], functio
 		//$html.addClass('ng-app');
 		$html.attr('data-ng-app', app['name']);
 		angular.bootstrap($html, [app['name']]);
-	});
-
-	// Enable accordion on main site (hiding link section)
-	$( document ).ready(function() {
-		// Enable accordion on main site (hiding link section)
-		$( document ).ready(function() {
-			var icons = {
-				header: "ui-icon-circle-arrow-e",
-				activeHeader: "ui-icon-circle-arrow-s"
-			};
-			$("footer").accordion({ collapsible: true, animate: "easeOutQuad", active: false, icons: icons });
-			$( "#toggle" ).button().click(function() {
-				$( "section" ).accordion( "disable" );
-				if ( $("#accordion").accordion( "option", "icons" ) ) {
-					$("#accordion").accordion( "option", "icons", null );
-				} else {
-					$("#accordion").accordion( "option", "icons", icons );
-				}
-			});
-		});
-    setTimeout(function() {
-    	$("#isotopeContainer").isotope('reLayout');
-    }, 8000);
 	});
 
 });
