@@ -32,7 +32,7 @@ define(['jquery', 'angular'], function($, angular) {
 				if (this.busy) return;
 				this.busy = true;
 
-				var url = 'http://www.biodiversidad.co/index.php/api/fichasresumen?page='+this.page+'&onlyimages=true&jsonp=JSON_CALLBACK';
+				var url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page='+this.page+'&onlyimages=true&jsonp=JSON_CALLBACK';
 				$http.jsonp(url).success(function(data) {
 					var items = data.data;
 					for (var i = 0; i < items.length; i++) {
