@@ -1,0 +1,51 @@
+#wall-container-wrapper
+	div.wallCounter
+		span Fichas: {{catalogue.species.length}} / {{catalogue.totalregisters}}
+	div(infinite-scroll='catalogue.nextPage()', infinite-scroll-disabled='catalogue.busy', infinite-scroll-distance='2')
+		div(id="isotopeContainer", isotope-container, refreshIsotope)
+			div(ng-repeat="specie in catalogue.species", isotope-item, class="element ficha")
+				a(ng-href='/ficha/id/{{specie.id}}')
+					img(ng-src='{{ specie.currentImage }}')
+				.ficha-muro-datos
+					.ficha-muro-taxonnombre
+						a(ng-href='/ficha/id/{{specie.id}}')
+							span {{specie.taxon_nombre.trim()}}
+						span.ficha-id {{specie.id}}
+					.ficha-muro-autor
+						span {{specie.autor.trim()}}
+					.ficha-muro-taxoncompleto
+						span(ng-if="specie.reino") 
+							strong Reino 
+							| {{specie.reino}} >> 
+						span(ng-if="specie.phylum") 
+							strong Phylum 
+							| {{specie.phylum}} >> 
+						span(ng-if="specie.clase") 
+							strong Clase 
+							| {{specie.clase}} >> 
+						span(ng-if="specie.orden") 
+							strong Orden 
+							| {{specie.orden}} >> 
+						span(ng-if="specie.familia") 
+							strong Familia 
+							| {{specie.familia}} >> 
+						span(ng-if="specie.genero") 
+							strong Género 
+							| {{specie.genero}} >> 
+						span(ng-if="specie.especie") 
+							strong Especie 
+							| {{specie.especie}}
+					.ficha-muro-nombrescomunes(ng-if="specie.nombres_comunes.length > 0")
+						strong Nombres comunes: 
+						span(ng-repeat="nombre_comun in specie.nombres_comunes") {{nombre_comun.nombre.trim()}}
+							span(ng-if="!$last") , 
+							span(ng-if="$last") . 
+					.ficha-muro-departamentos(ng-if="specie.departamentos.length > 0")
+						strong Departamentos: 
+						span(ng-repeat="departamento in specie.departamentos") {{departamento.departamento.trim()}}
+							span(ng-if="!$last") , 
+							span(ng-if="$last") . 
+		div(ng-show='catalogue.busy', class="loading")
+			.container
+				img(src="/images/loading/loading4.gif")
+				| Cargando fichas de especie...

@@ -165,7 +165,7 @@ function FichasCarruselViewModel() {
 	};
 
 	$.ajax({
-		url: "http://ec2-174-129-41-104.compute-1.amazonaws.com/index.php/api/fichas/carrusel?count=6",
+		url: "http://54.225.116.72/index.php/api/fichas/carrusel?count=6",
 		type: 'GET',
 		dataType: "jsonp",
 		success: function(data) {
@@ -215,7 +215,7 @@ function RecordsWallViewModel() {
 	};
 
 	$.ajax({
-		url: "http://ec2-174-129-41-104.compute-1.amazonaws.com/index.php/api/fichas/carrusel?count=6",
+		url: "http://54.225.116.72/index.php/api/fichas/carrusel?count=6",
 		type: 'GET',
 		dataType: "jsonp",
 		success: function(data) {
@@ -323,7 +323,7 @@ function RecordsWallViewModel() {
 	};
 
 	self.urlSearch = ko.computed(function() {
-		var url = "http://ec2-174-129-41-104.compute-1.amazonaws.com/index.php/api/fichas?";
+		var url = "http://54.225.116.72/index.php/api/fichas?";
 		// Add page to search
 		url = url+"page="+self.currentPage();
 		if(self.currentGroupActive() == "Insectos") {
