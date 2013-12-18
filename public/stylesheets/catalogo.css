@@ -138,6 +138,7 @@ a {
   }
   .taxonComplete div:after {
     width: 4% !important;
+    margin-left: 5% !important;
   }
 }
 @media (max-width:320px) {
@@ -954,3 +955,15 @@ footer section.sib-moreinfo nav a {
   font-size: 1em;
 }
 /* End wall counter styles */
+.alertbar {
+  background-color: #f0ffff;
+  background: rgba(255,255,255,0.9) url("/images/shadow_top_clear.png") no-repeat top center;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.alertbar h4 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #cf1212;
+}
