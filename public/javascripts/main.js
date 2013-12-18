@@ -47,7 +47,10 @@ requirejs.config({
 		'angularisotope': {
 			deps: ['jquery', 'isotope', 'angular']
 		}
-	}
+	},
+	priority: [
+		"angular"
+	]
 });
 
 // Load the main app module to start the app
