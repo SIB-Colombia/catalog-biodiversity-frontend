@@ -136,6 +136,9 @@ a {
   .taxonComplete {
     width: 100% !important;
   }
+  .taxonComplete div:after {
+    width: 4% !important;
+  }
 }
 @media (max-width:320px) {
   .loading {
@@ -680,11 +683,11 @@ footer section.sib-moreinfo nav a {
   content: "";
   display: block;
   position: relative;
-  width: 25px;
+  width: 20px;
   height: 18px;
   border-left: #48a0bd solid 2px;
   border-bottom: #48a0bd solid 2px;
-  margin-left: 26px;
+  margin-left: 30px;
 }
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(2) {
   margin-left: 10%;
