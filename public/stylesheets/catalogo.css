@@ -9,7 +9,7 @@
 }
 body {
   background: #f2eee3 url("/images/noise1.png") repeat 0 0 !important;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 a {
   -webkit-transition: all 0.5s ease-in-out;
@@ -215,7 +215,7 @@ a {
   font-weight: normal;
   font-size: 1.2em;
   line-height: 1;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #top-zone .navbar .navbar-collapse .navbar-form .form-group .form-control:hover {
   background-color: #fff;
@@ -614,6 +614,9 @@ footer section.sib-moreinfo nav a {
   font-weight: bold;
   font-size: 1.1em;
 }
+#catalogRecord .container {
+  padding-bottom: 30px;
+}
 #catalogRecord .container h1.taxonName {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #2288c9;
@@ -625,7 +628,8 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container h2.author {
   margin-top: 0px;
-  color: #888;
+  color: #333;
+  font-weight: 300;
   font-size: 14px;
 }
 #catalogRecord .container #recordPictures {
@@ -658,7 +662,7 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete {
   font-size: 1em;
-  background: rgba(215,231,238,0.9);
+  background: rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom;
   padding: 6px 12px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -666,6 +670,42 @@ footer section.sib-moreinfo nav a {
   margin-top: 10px;
   padding: 20px;
   width: 80%;
+  text-transform: uppercase;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div {
+  display: block;
+  margin-bottom: -10px;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 25px;
+  height: 18px;
+  border-left: #48a0bd solid 2px;
+  border-bottom: #48a0bd solid 2px;
+  margin-left: 26px;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(2) {
+  margin-left: 10%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(3) {
+  margin-left: 20%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(4) {
+  margin-left: 30%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(5) {
+  margin-left: 40%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(6) {
+  margin-left: 50%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(7) {
+  margin-left: 60%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:last-child:after {
+  display: none !important;
 }
 #catalogRecord .container #recordHeader #recordTitles h1.taxonName {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -692,13 +732,16 @@ footer section.sib-moreinfo nav a {
   column-count: 2;
   column-gap: 20px;
 }
+#catalogRecord .container .recordContent >h1+div {
+  padding: 1px 0 13px 25px;
+}
 #catalogRecord .container .recordContent h1 {
   background-color: #89be70;
   color: #fff;
   padding: 15px;
   font-weight: 300;
   margin: 10px 0;
-  font-size: 1.6em;
+  font-size: 1.8em;
   line-height: 1em;
   display: block;
   -webkit-border-radius: 10px;
@@ -706,11 +749,15 @@ footer section.sib-moreinfo nav a {
   border-radius: 10px;
   text-transform: uppercase;
 }
+#catalogRecord .container .recordContent h1 img {
+  padding: 0 15px 0 0;
+  margin: 0;
+}
 #catalogRecord .container .recordContent h2 {
   color: #89be70;
   text-transform: uppercase;
-  font-weight: 400;
-  font-size: 1.2em;
+  font-weight: 300;
+  font-size: 1.6em;
   margin: 15px 0 5px 0;
   line-height: 1.2em;
 }
@@ -731,7 +778,6 @@ footer section.sib-moreinfo nav a {
   padding: 10px 20px 10px 20px;
   background-color: rgba(255,255,255,0.5);
   margin: 0px 5px 10px 5px;
-  border-radius: 10px;
 }
 #catalogRecord .container .recordContent .commonName span.name {
   font-weight: 400;
@@ -739,7 +785,9 @@ footer section.sib-moreinfo nav a {
   font-size: 1.2em;
 }
 #catalogRecord .container .recordContent .commonName span.content {
-  font-weight: 400;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9em;
 }
 #catalogRecord .container .recordContent .commonName h1 {
   background-color: transparent;
@@ -749,6 +797,7 @@ footer section.sib-moreinfo nav a {
   font-size: 0.9em;
   margin-top: 5px;
   margin-bottom: 5px;
+  font-weight: 700;
 }
 #catalogRecord .container .recordContent ul li {
   vertical-align: top;
@@ -760,6 +809,70 @@ footer section.sib-moreinfo nav a {
   color: #999;
   display: block;
   line-height: 0.9em;
+}
+#catalogRecord .container .recordContent .basicInfoRecord {
+  background: rgba(140,210,231,0.8);
+  padding: 4px 10px;
+  margin-bottom: 20px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+#catalogRecord .container .recordContent .basicInfoRecord >div {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  padding: 15px;
+}
+#catalogRecord .container .recordContent .basicInfoRecord h1 {
+  background-color: transparent;
+  padding: 0px;
+}
+#catalogRecord .container .recordContent .basicInfoRecord h1+div {
+  clear: both;
+}
+#catalogRecord .container .recordContent .basicInfoRecord .title {
+  font-weight: 700;
+  width: 185px !important;
+  text-transform: uppercase;
+}
+#catalogRecord .container .recordContent .basicInfoRecord .separador {
+  border-right: 1px #fff solid;
+  height: 130px;
+  margin: 30px 10px 0 0;
+  width: 1px;
+  padding: 0px;
+}
+#catalogRecord .container .recordContent .basicInfoRecord .tabla div div {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  padding-right: 15px;
+}
+#catalogRecord .container .recordContent .citacion {
+  background: rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom;
+  padding: 20px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+#catalogRecord .container .recordContent .citacion h1 {
+  background-color: transparent;
+  color: #52b8d9;
+  padding: 0px;
+}
+#catalogRecord .container .recordContent .citacion div {
+  width: auto;
+  min-width: 100px;
+}
+#catalogRecord .container .recordContent .citacion .title {
+  font-weight: 400;
+  text-transform: uppercase;
+  width: 120px;
+  color: #52b8d9;
+}
+#catalogRecord .container .recordContent .citacion .tabla div div {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 15px;
 }
 .slider,
 .collapseSlider,

@@ -36,29 +36,42 @@ block content
 								h2.author(data-ng-bind="'Autor: '+record.data.info_taxonomica.autor")
 							.fullTaxonContainer
 								.taxonComplete
-									strong(data-ng-show="record.data.reino") Reino 
-									span(data-ng-show="record.data.reino", data-ng-bind="record.data.reino+' >> '")
-									strong(data-ng-show="record.data.phylum") Phylum 
-									span(data-ng-show="record.data.phylum", data-ng-bind="record.data.phylum+' >> '")
-									strong(data-ng-show="record.data.clase") Clase 
-									span(data-ng-show="record.data.clase", data-ng-bind="record.data.clase+' >> '")
-									strong(data-ng-show="record.data.orden") Orden 
-									span(data-ng-show="record.data.orden", data-ng-bind="record.data.orden+' >> '")
-									strong(data-ng-show="record.data.familia") Familia 
-									span(data-ng-show="record.data.familia", data-ng-bind="record.data.familia+' >> '")
-									strong(data-ng-show="record.data.genero") Género 
-									span(data-ng-show="record.data.genero", data-ng-bind="record.data.genero+' >> '")
-									strong(data-ng-show="record.data.especie") Especie 
-									span(data-ng-show="record.data.especie", data-ng-bind="record.data.especie")
+									div
+										strong(data-ng-show="record.data.reino") Reino
+										span(data-ng-show="record.data.reino", data-ng-bind="record.data.reino")
+									div
+										strong(data-ng-show="record.data.phylum") Phylum 
+										span(data-ng-show="record.data.phylum", data-ng-bind="record.data.phylum")
+									div	
+										strong(data-ng-show="record.data.clase") Clase 
+										span(data-ng-show="record.data.clase", data-ng-bind="record.data.clase")
+									div	
+										strong(data-ng-show="record.data.orden") Orden 
+										span(data-ng-show="record.data.orden", data-ng-bind="record.data.orden")
+									div	
+										strong(data-ng-show="record.data.familia") Familia 
+										span(data-ng-show="record.data.familia", data-ng-bind="record.data.familia")
+									div	
+										strong(data-ng-show="record.data.genero") Género 
+										span(data-ng-show="record.data.genero", data-ng-bind="record.data.genero")
+									div	
+										strong(data-ng-show="record.data.especie") Especie 
+										span(data-ng-show="record.data.especie", data-ng-bind="record.data.especie")
 			.row.recordContent
-				h1(data-ng-show="record.data.nombres_comunes") Nombres comunes
+				h1(data-ng-show="record.data.nombres_comunes")
+					img(src='/images/secciones/nombres.png')
+					| Nombres comunes
 				.commonName(data-ng-repeat="nombreComun in record.data.nombres_comunes")
 					span.name(data-ng-bind="nombreComun.tesauronombre")
 					h1(data-ng-show="nombreComun.idioma") Idioma o lengua
 					span.content(data-ng-bind="nombreComun.idioma")
 					h1(data-ng-show="nombreComun.regionesgeograficas") Región donde se usa
 					span.content(data-ng-bind="nombreComun.regionesgeograficas")
-				h1 Distribución
+				h1
+					img(src='/images/secciones/distribucion.png')
+					| Distribución
+
+				div
 					h2(data-ng-show="record.data.atributos['Distribución altitudinal']") Distribución altitudinal
 					span(data-ng-bind-html="record.data.atributos['Distribución altitudinal'][0]")
 
@@ -76,7 +89,10 @@ block content
 
 					h2(data-ng-show="record.data.atributos['Registros biológicos']") Registros biológicos
 					span(data-ng-bind-html="record.data.atributos['Registros biológicos'][0]")
-				h1 Historia natural
+				h1
+					img(src='/images/secciones/historia.png')
+					| Historia natural
+				div
 					h2(data-ng-show="record.data.atributos['Alimentación']") Alimentación
 					span(data-ng-bind-html="record.data.atributos['Alimentación'][0]")
 
@@ -94,11 +110,17 @@ block content
 
 					h2(data-ng-show="record.data.atributos['Descripción general']") Descripción general
 					span(data-ng-bind-html="record.data.atributos['Descripción general'][0]")
-				h1 Taxonomía
+				h1
+					img(src='/images/secciones/taxonomia.png')
+					| Taxonomía
+				div
 					h2(data-ng-show="record.data.atributos['Descripción taxonómica']") Descripción taxonómica
 					span(data-ng-bind-html="record.data.atributos['Descripción taxonómica'][0]")
 					
-				h1 Estado de conservación
+				h1
+					img(src='/images/secciones/conservacion.png')
+					| Estado de conservación
+				div
 					h2(data-ng-show="record.data.atributos['Estado de amenaza según categorías UICN']") Estado de amenaza según categorías UICN
 					h3(data-ng-show="record.data.atributos['Estado de amenaza según categorías UICN']['En el mundo']") En el mundo
 					span(data-ng-bind-html="record.data.atributos['Estado de amenaza según categorías UICN']['En el mundo'][0]")
@@ -114,46 +136,52 @@ block content
 					h2(data-ng-show="record.data.atributos['Medidas de conservación']") Medidas de conservación
 					span(data-ng-bind-html="record.data.atributos['Medidas de conservación'][0]")
 
-				h1 Más información
+				h1
+					img(src='/images/secciones/informacion.png')
+					| Más información
+				div
 					h2(data-ng-show="record.data.atributos['Referencias bibliográficas']") Referencias bibliográficas
 					ul(data-ng-repeat="referenciaBibliografica in record.data.atributos['Referencias bibliográficas']")
 						li(data-ng-bind-html="bibliographicReference(referenciaBibliografica.autor, referenciaBibliografica.documento_titulo, referenciaBibliografica.fecha, referenciaBibliografica.lugar_publicacion)")
 
 				.basicInfoRecord
-					h1 Información básica de la ficha
+					div
+						h1 Información básica de la ficha
+						div
+							.tabla
+								div(data-ng-show="record.data.fechaelaboracion")
+									div.title Fecha de elaboración:
+									div(data-ng-bind="record.data.fechaelaboracion")
+								div(data-ng-show="record.data.fechaactualizacion")
+									div.title Fecha de actualización:
+									div(data-ng-bind="record.data.fechaactualizacion")
+								div(data-ng-show="record.data.info_taxonomica.taxonnombre")
+									div.title Nombre científico:
+									div(data-ng-bind="record.data.info_taxonomica.taxonnombre")
+								div(data-ng-show="record.data.info_taxonomica.paginaweb")
+									div.title Ficha nomenclatural:
+									div
+										a(target="_blank", data-ng-href="record.data.info_taxonomica.paginaweb")
+											span(data-ng-bind="record.data.info_taxonomica.paginaweb")
+								div(data-ng-show="record.data.titulometadato")
+									div.title Metadato:
+									div
+										a(target="_blank", data-ng-href="record.data.titulometadato")
+											span(data-ng-bind="record.data.titulometadato")
+					.separador
+					div
+						h1 Contacto de la ficha
+						div
+				.citacion
+					h1 Cómo citar esta ficha
 					div
 						.tabla
+							div(data-ng-show="record.data.citacion.autor")
+								div.title Autor
+								div(data-ng-bind="record.data.citacion.autor + ', ' + record.data.citacion.fecha + ', ' + record.data.citacion.documento_titulo + ' ' + record.data.info_taxonomica.autor")
 							div(data-ng-show="record.data.fechaelaboracion")
-								div.title Fecha de elaboración:
+								div.title Elaborada
 								div(data-ng-bind="record.data.fechaelaboracion")
 							div(data-ng-show="record.data.fechaactualizacion")
-								div.title Fecha de actualización:
+								div.title Actualizada
 								div(data-ng-bind="record.data.fechaactualizacion")
-							div(data-ng-show="record.data.info_taxonomica.taxonnombre")
-								div.title Nombre científico:
-								div(data-ng-bind="record.data.info_taxonomica.taxonnombre")
-							div(data-ng-show="record.data.info_taxonomica.paginaweb")
-								div.title Ficha nomenclatural:
-								div
-									a(target="_blank", data-ng-href="record.data.info_taxonomica.paginaweb")
-										span(data-ng-bind="record.data.info_taxonomica.paginaweb")
-							div(data-ng-show="record.data.titulometadato")
-								div.title Metadato:
-								div
-									a(target="_blank", data-ng-href="record.data.titulometadato")
-										span(data-ng-bind="record.data.titulometadato")
-
-				h1 Contacto de la ficha
-				div
-				h1 Cómo citar esta ficha
-				div
-					.tabla
-						div(data-ng-show="record.data.citacion.autor")
-							div.title Autor
-							div(data-ng-bind="record.data.citacion.autor + ', ' + record.data.citacion.fecha + ', ' + record.data.citacion.documento_titulo + ' ' + record.data.info_taxonomica.autor")
-						div(data-ng-show="record.data.fechaelaboracion")
-							div.title Elaborada
-							div(data-ng-bind="record.data.fechaelaboracion")
-						div(data-ng-show="record.data.fechaactualizacion")
-							div.title Actualizada
-							div(data-ng-bind="record.data.fechaactualizacion")

@@ -24,6 +24,6 @@
     "nginfinitescroll": "1.0.0"
   },
   "resolutions": {
-    "angular": "1.2.3"
+    "angular": "~1.2.3"
   }
 }

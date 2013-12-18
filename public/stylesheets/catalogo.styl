@@ -10,7 +10,7 @@
 	//border red 1px solid
 body
 	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
-	font-family "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
+	font-family 'Open Sans', Helvetica, sans-serif
 a
 	-webkit-transition all 0.5s ease-in-out
 	-moz-transition all 0.5s ease-in-out
@@ -194,7 +194,7 @@ a
 						font-weight normal
 						font-size 1.2em
 						line-height 1
-						font-family "Helvetica Neue",Helvetica,Arial,sans-serif
+						font-family "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif
 						&:hover
 							background-color #fff
 							color #000
@@ -537,6 +537,8 @@ footer
 				font-size 1.1em
 #catalogRecord
 	.container
+		padding-bottom 30px
+		
 		h1.taxonName
 			font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
 			color #2288C9
@@ -547,7 +549,8 @@ footer
 			font-size 30px
 		h2.author
 			margin-top 0px
-			color #888
+			color #333
+			font-weight 300
 			font-size: 14px;
 		#recordPictures
 			text-align center
@@ -573,7 +576,7 @@ footer
 				display block
 				.taxonComplete
 					font-size 1em
-					background rgba(215,231,238,0.9)
+					background rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom
 					padding 6px 12px
 					-webkit-border-radius 10px
 					border-radius 10px
@@ -581,6 +584,34 @@ footer
 					margin-top 10px
 					padding 20px
 					width 80%
+					text-transform uppercase
+					div
+						display block
+						margin-bottom -10px
+						&:after
+							content ""
+							display block
+							position relative
+							width 25px
+							height 18px
+							border-left #48a0bd solid 2px
+							border-bottom #48a0bd solid 2px
+							margin-left 26px
+						&:nth-child(2)
+							margin-left 10%
+						&:nth-child(3)
+							margin-left 20%
+						&:nth-child(4)
+							margin-left 30%
+						&:nth-child(5)
+							margin-left 40%
+						&:nth-child(6)
+							margin-left 50%
+						&:nth-child(7)
+							margin-left 60%
+						&:last-child:after
+							display none !important
+
 			#recordTitles
 				h1.taxonName
 					font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
@@ -603,24 +634,29 @@ footer
 				-webkit-column-gap 20px
 				column-count 2
 				column-gap 20px
+			>h1+div
+				padding 1px 0 13px 25px
 			h1
 				background-color #89BE70
 				color white
 				padding 15px
 				font-weight 300
 				margin 10px 0
-				font-size 1.6em
+				font-size 1.8em
 				line-height 1em
 				display block
 				-webkit-border-radius 10px
 				-moz-border-radius 10px
 				border-radius 10px
 				text-transform uppercase
+				img
+					padding 0 15px 0 0
+					margin 0
 			h2
 				color #89BE70
 				text-transform uppercase
-				font-weight 400
-				font-size 1.2em
+				font-weight 300
+				font-size 1.6em
 				margin 15px 0 5px 0
 				line-height 1.2em
 			h3
@@ -639,13 +675,14 @@ footer
 				padding 10px 20px 10px 20px
 				background-color rgba(255, 255, 255, 0.5)
 				margin 0px 5px 10px 5px
-				border-radius 10px
 				span.name
 					font-weight 400
 					padding 0px
 					font-size 1.2em
 				span.content
-					font-weight 400
+					font-weight 700
+					text-transform uppercase
+					font-size 0.9em
 				h1
 					background-color transparent
 					color #89BE70
@@ -654,6 +691,7 @@ footer
 					font-size 0.9em
 					margin-top 5px
 					margin-bottom 5px
+					font-weight 700
 			ul
 				li
 					vertical-align top
@@ -665,10 +703,58 @@ footer
 						display block
 						line-height 0.9em
 			.basicInfoRecord
-				background rgba(215,231,238,0.9)
-				padding 6px 12px
-				-webkit-border-radius 10px
-				border-radius 10px
+				background rgba(140,210,231,0.8)
+				padding 4px 10px
+				margin-bottom 20px
+				-webkit-border-radius 15px
+				border-radius 15px
+				>div
+					display inline-block
+					vertical-align top
+					width 48%
+					padding 15px
+				h1
+					background-color transparent
+					padding 0px
+					&+div
+						clear both
+				.title
+					font-weight 700
+					width 185px !important
+					text-transform uppercase
+				.separador
+					border-right 1px white solid
+					height 130px
+					margin 30px 10px 0 0
+					width 1px
+					padding 0px
+				.tabla div div
+					display inline-block
+					vertical-align top
+					width 45%
+					padding-right 15px
+			.citacion
+				background rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom
+				padding 20px
+				-webkit-border-radius 15px
+				border-radius 15px
+				h1
+					background-color transparent
+					color #52b8d9
+					padding 0px
+				div
+					width auto
+					min-width 100px
+				.title
+					font-weight 400
+					text-transform uppercase
+					width 120px
+					color #52b8d9
+				.tabla div div
+					display inline-block
+					vertical-align top
+					padding-right 15px
+
 .slider
 .collapseSlider
 .sliderExpanded .expandSlider
