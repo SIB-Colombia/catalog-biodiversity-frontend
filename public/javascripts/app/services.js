@@ -70,6 +70,9 @@ define(['jquery', 'angular'], function($, angular) {
 								}
 							}
 							this.species.push(items[i]);
+							setTimeout(function() {
+								$("#isotopeContainer").isotope('reLayout');
+							}, 5000);
 						}
 					}.bind(this));
 				}
