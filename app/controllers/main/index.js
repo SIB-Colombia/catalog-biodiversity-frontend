@@ -10,7 +10,7 @@ exports.index = function(req, res) {
 		{
 			initialRecordsSpeciesData: function(callback) {
 				request({
-					url: appConfigVars.backendURL+'/index.php/api/fichasresumen?page=1&onlyimages=true',
+					url: appConfigVars.backendURL+'/index.php/api/fichasresumen?page=1&order=scientificname&orderdirection=asc&priorityimages',
 					method: 'GET',
 					json: true
 				}, function(error, response, body) {

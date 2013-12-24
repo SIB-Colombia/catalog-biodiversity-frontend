@@ -40,8 +40,17 @@ requirejs.config({
 		},
 		'angularytics': {
 			deps: ['angular']
+		},
+		'nginfinitescroll': {
+			deps: ['angular']
+		},
+		'angularSanitize': {
+			deps: ['angular']
 		}
-	}
+	},
+	priority: [
+		"angular"
+	]
 });
 
 // Load the main app module to start the app

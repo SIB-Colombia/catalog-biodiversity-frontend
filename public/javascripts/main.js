@@ -46,6 +46,12 @@ requirejs.config({
 		},
 		'angularisotope': {
 			deps: ['jquery', 'isotope', 'angular']
+		},
+		'nginfinitescroll': {
+			deps: ['angular']
+		},
+		'angularSanitize': {
+			deps: ['angular']
 		}
 	},
 	priority: [
@@ -94,9 +100,15 @@ require(['jquery', 'angular', 'app', 'routes', 'jqueryui', 'bootstrap'], functio
 				}
 			});
 		});
-    setTimeout(function() {
-    	$("#isotopeContainer").isotope('reLayout');
-    }, 8000);
+		if($("#isotopeContainer").length != 0) {
+			setTimeout(function() {
+				$("#isotopeContainer").isotope('reLayout');
+			}, 3000);
+		} else {
+			setTimeout(function() {
+				$("#isotopeContainer").isotope('reLayout');
+			}, 8000);
+		}
 	});
 
 });

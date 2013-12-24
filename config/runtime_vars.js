@@ -1,7 +1,7 @@
 appConfigVars = {};
 
 // Backend URL Configuration
-appConfigVars.backendURL =  'http://administracion.biodiversidad.co';
+appConfigVars.backendURL =  'http://localhost';
 
 // App web server port
 appConfigVars.port = 3000;

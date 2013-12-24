@@ -1,5 +1,5 @@
 block header
-	header
+	header(data-ng-controller="SearchOptionsCtrl")
 		nav.navbar(role="navigation")
 			.navbar-header
 				button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-header-catalog-collapse")
@@ -16,36 +16,36 @@ block header
 							a(class="dropdown-toggle", data-toggle="dropdown") GRUPO BIOLÓGICO
 								b.caret
 							ul.dropdown-menu
-								li(class="active")
-									a(href="#") Todos
-								li
-									a(href="#") Insectos
-								li
-									a(href="#") Aves
-								li
-									a(href="#") Plantas
-								li
-									a(href="#") Mamíferos
-								li
-									a(href="#") Reptiles
-								li
-									a(href="#") Anfibios
-								li
-									a(href="#") Hongos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
+									a(data-ng-click="switchTaxon('all')", href="/#/") Todos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'insecta'}")
+									a(data-ng-click="switchTaxon('insecta')", href="/#/insectos") Insectos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'bird'}")
+									a(data-ng-click="switchTaxon('bird')", href="/#/aves") Aves
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'plantae'}")
+									a(data-ng-click="switchTaxon('plantae')", href="/#/plantas") Plantas
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'mammal'}")
+									a(data-ng-click="switchTaxon('mammal')", href="/#/mamiferos") Mamíferos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'reptilia'}")
+									a(data-ng-click="switchTaxon('reptilia')", href="/#/reptiles") Reptiles
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'amphibia'}")
+									a(data-ng-click="switchTaxon('amphibia')", href="/#/anfibios") Anfibios
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'fungi'}")
+									a(data-ng-click="switchTaxon('fungi')", href="/#/hongos") Hongos
 								li.divider
-								li(class="active")
-									a(href="#") Solo fichas con imagen
+								li(data-ng-class="{active: searchOptions.getShowRecordsWithPicture()}")
+									a(href="#") Mostrar primero fichas con foto
 						li.divider-vertical.hidden-xs
 							li.dropdown
 								a(class="dropdown-toggle", data-toggle="dropdown") ORDENAR
 									b.caret
 								ul.dropdown-menu
-									li(class="active")
+									li(data-ng-class="{active: searchOptions.getOrderBy() == 'scientificName'}")
 										a(href="#") Nombre científico
 									li.divider
-									li
+									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'asc'}")
 										a(href="#") Ascendente
-									li(class="active")
+									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
 										a(href="#") Descendente
 						.navbar-form.navbar-left
 							.form-group

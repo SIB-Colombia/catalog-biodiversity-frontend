@@ -1,7 +1,8 @@
 define([], function() {
-	return ['$scope', '$http', 'Catalogue', function($scope, $http, Catalogue) {
+	return ['$scope', '$http', 'Catalogue', 'SearchOptions', function($scope, $http, Catalogue, SearchOptions) {
 		// You can access the scope of the controller from here
-		$scope.catalogue = new Catalogue();
+		SearchOptions.setCurrentTaxon("insecta");
+		$scope.catalogue = new Catalogue("insecta");
 		$scope.Math = window.Math;
 
 		// because this has happened asynchroneusly we've missed
