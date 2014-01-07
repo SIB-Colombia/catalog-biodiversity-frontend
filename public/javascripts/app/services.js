@@ -42,6 +42,9 @@ define(['jquery', 'angular'], function($, angular) {
 					}
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
+					}, 1000);
+					setTimeout(function() {
+						$("#isotopeContainer").isotope('reLayout');
 					}, 3000);
 				} else if(typeof typeTaxon != 'undefined') {
 					var url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page=1&order=scientificname&orderdirection=asc&taxon='+typeTaxon+'&priorityimages&jsonp=JSON_CALLBACK';
@@ -76,6 +79,9 @@ define(['jquery', 'angular'], function($, angular) {
 							this.species.push(items[i]);
 						}
 						$("#wall-container-wrapper").removeClass("loading2");
+						setTimeout(function() {
+							$("#isotopeContainer").isotope('reLayout');
+						}, 1000);
 						setTimeout(function() {
 							$("#isotopeContainer").isotope('reLayout');
 						}, 3000);
