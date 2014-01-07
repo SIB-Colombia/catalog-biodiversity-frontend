@@ -40,8 +40,12 @@ define(['jquery', 'angular'], function($, angular) {
 						}
 						this.species.push(dataVar.data[i]);
 					}
+					setTimeout(function() {
+						$("#isotopeContainer").isotope('reLayout');
+					}, 3000);
 				} else if(typeof typeTaxon != 'undefined') {
 					var url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page=1&order=scientificname&orderdirection=asc&taxon='+typeTaxon+'&priorityimages&jsonp=JSON_CALLBACK';
+					$("#wall-container-wrapper").addClass("loading2");
 					$http.jsonp(url).success(function(data) {
 						var items = data.data;
 						this.totalregisters = data.total_fichas;
@@ -70,10 +74,11 @@ define(['jquery', 'angular'], function($, angular) {
 								}
 							}
 							this.species.push(items[i]);
-							setTimeout(function() {
-								$("#isotopeContainer").isotope('reLayout');
-							}, 5000);
 						}
+						$("#wall-container-wrapper").removeClass("loading2");
+						setTimeout(function() {
+							$("#isotopeContainer").isotope('reLayout');
+						}, 3000);
 					}.bind(this));
 				}
 				this.busy = false;

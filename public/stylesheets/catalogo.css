@@ -162,6 +162,30 @@ a {
     width: 100% !important;
   }
 }
+/* Estilos de apoyo */
+.loading2 {
+  background-image: url("/images/loading/loading64w.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  height: 200px;
+}
+.hiding {
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+}
+.hide-element {
+  visibility: hidden;
+}
+.occult-element {
+  display: none;
+}
+.opacity-element {
+  opacity: 0.2;
+  -moz-opacity: 0.2;
+}
+/* Fin de estilos de apoyo */
 #top-zone {
   top: 0;
   right: 0;
