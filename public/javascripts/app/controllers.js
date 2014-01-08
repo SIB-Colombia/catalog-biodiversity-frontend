@@ -15,7 +15,7 @@ define(['jquery', 'angular', 'services', 'nginfinitescroll', 'angularSanitize'],
 			});
 		}])
 		// Home site records of species wall controller
-		.controller('WallHomeCtrl', ['$scope', '$injector', function($scope, $injector) {
+		.controller('WallHomeCtrl', ['$scope', '$routeParams', '$injector', function($scope, $routeParams, $injector) {
 			require(['controllers/wallHomeCtrl'], function(wallctrl) {
 				// injector method takes an array of modules as the first argument
 				// if you want your controller to be able to use components from

@@ -1,6 +1,9 @@
 define([], function() {
-	return ['$scope', '$http', 'SearchOptions', function($scope, $http, SearchOptions) {
+	return ['$scope', '$location', '$routeParams', '$http', 'SearchOptions', function($scope, $location, $routeParams, $http, SearchOptions) {
 		$scope.searchOptions = SearchOptions;
+		$scope.currentTextSearch = "";
+		//$scope.currentPath = $location.$$path;
+		//$scope.currentPath = "sopas";
 
 		$scope.switchTaxon = function(currentTaxon) {
 			if(currentTaxon == "all") {
@@ -19,6 +22,28 @@ define([], function() {
 				$scope.searchOptions.setCurrentTaxon("amphibia");
 			} else if(currentTaxon == "fungi") {
 				$scope.searchOptions.setCurrentTaxon("fungi");
+			}
+		};
+
+		$scope.switchShowRecordsWithPicture = function() {
+			if($scope.searchOptions.getShowRecordsWithPicture() == true) {
+				$scope.searchOptions.setShowRecordsWithPicture(false);
+			} else {
+				$scope.searchOptions.setShowRecordsWithPicture(true);
+			}
+		};
+
+		$scope.switchOrderDirection = function(direction) {
+			$scope.searchOptions.setOrderDirection(direction);
+		};
+
+		$scope.go = function () {
+			if($scope.currentTextSearch != "") {
+				SearchOptions.setSearchCondition($scope.currentTextSearch);
+				$location.search('q', $scope.currentTextSearch);
+			} else {
+				SearchOptions.setSearchCondition("");
+				$location.search('q', $scope.currentTextSearch);
 			}
 		};
 

@@ -1,8 +1,22 @@
 define([], function() {
-	return ['$scope', '$http', 'Catalogue', 'SearchOptions', function($scope, $http, Catalogue, SearchOptions) {
+	return ['$scope', '$routeParams', '$location', '$http', 'Catalogue', 'SearchOptions', function($scope, $routeParams, $location, $http, Catalogue, SearchOptions) {
 		// You can access the scope of the controller from here
-		SearchOptions.setCurrentTaxon("bird");
-		$scope.catalogue = new Catalogue("aves");
+		SearchOptions.setCurrentTaxon("aves");
+		SearchOptions.setCurrentLocation($location.$$path);
+		if($routeParams.priorityImages == 'false') {
+			SearchOptions.setShowRecordsWithPicture(false);
+		} else {
+			SearchOptions.setShowRecordsWithPicture(true);
+		}
+		if($routeParams.order == 'desc') {
+			SearchOptions.setOrderDirection('desc');
+		} else {
+			SearchOptions.setOrderDirection('asc');
+		}
+		if(typeof $routeParams.q != 'undefined') {
+			SearchOptions.setSearchCondition($routeParams.q);
+		}
+		$scope.catalogue = new Catalogue(SearchOptions);
 		$scope.Math = window.Math;
 
 		// because this has happened asynchroneusly we've missed

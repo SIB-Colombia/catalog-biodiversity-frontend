@@ -10,9 +10,9 @@ define(['jquery', 'angular'], function($, angular) {
 	// Factory for loading initial data and get nextPage of infiniteScroll
 	angular.module('catalogFrontend.factories', [])
 		.factory('Catalogue', ['$http', function ($http) {
-			var Catalogue = function(typeTaxon) {
+			var Catalogue = function(searchOptions) {
 				this.species = [];
-				if(typeof typeTaxon == 'undefined') {
+				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
 					this.totalregisters = dataVar.total_fichas;
 					for(var i in dataVar.data) {
 						if (typeof dataVar.data[i].imagenes.imagenThumb270 != "undefined") {
@@ -46,8 +46,23 @@ define(['jquery', 'angular'], function($, angular) {
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 3000);
-				} else if(typeof typeTaxon != 'undefined') {
-					var url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page=1&order=scientificname&orderdirection=asc&taxon='+typeTaxon+'&priorityimages&jsonp=JSON_CALLBACK';
+				} else {
+					var url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page=1';
+					if(searchOptions.getCurrentTaxon() != 'all') {
+						url += '&taxon='+searchOptions.getCurrentTaxon();
+					}
+					if(searchOptions.getShowRecordsWithPicture() == true) {
+						url += '&priorityimages';
+					}
+					if(searchOptions.getOrderDirection() == 'desc') {
+						url += '&orderdirection=desc';
+					} else {
+						url += '&orderdirection=asc';
+					}
+					if(searchOptions.getSearchCondition() != "") {
+						url += '&query='+searchOptions.getSearchCondition();
+					}
+					url += '&order=scientificname&jsonp=JSON_CALLBACK';
 					$("#wall-container-wrapper").addClass("loading2");
 					$http.jsonp(url).success(function(data) {
 						var items = data.data;
@@ -85,12 +100,18 @@ define(['jquery', 'angular'], function($, angular) {
 						setTimeout(function() {
 							$("#isotopeContainer").isotope('reLayout');
 						}, 3000);
+						this.end = false;
+						if(this.species.length == this.totalregisters) {
+							this.end = true;
+						}
 					}.bind(this));
 				}
 				this.busy = false;
-				this.end = false;
 				this.page = 2;
-				this.taxonType = typeTaxon;
+				this.taxonType = searchOptions.getCurrentTaxon();
+				this.showWithPriorityPicture = searchOptions.getShowRecordsWithPicture();
+				this.orderDirection = searchOptions.getOrderDirection();
+				this.searchCondition = searchOptions.getSearchCondition();
 			};
 
 			Catalogue.prototype.nextPage = function() {
@@ -100,11 +121,24 @@ define(['jquery', 'angular'], function($, angular) {
 				this.busy = true;
 				var url="";
 
-				if(typeof this.taxonType != 'undefined') {
-					url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page='+this.page+'&taxon='+this.taxonType+'&order=scientificname&orderdirection=asc&priorityimages&jsonp=JSON_CALLBACK';
+				url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page='+this.page;
+				if(this.taxonType != 'all') {
+					url += '&taxon='+this.taxonType+'&order=scientificname';
 				} else {
-					url = 'http://administracion.biodiversidad.co/index.php/api/fichasresumen?page='+this.page+'&order=scientificname&orderdirection=asc&priorityimages&jsonp=JSON_CALLBACK';
+					url += '&order=scientificname';
 				}
+				if(this.showWithPriorityPicture == true) {
+					url += '&priorityimages';
+				}
+				if(this.orderDirection == 'desc') {
+					url += '&orderdirection=desc';
+				} else {
+					url += '&orderdirection=asc';
+				}
+				if(this.searchCondition != "") {
+					url += '&query='+this.searchCondition;
+				}
+				url += '&jsonp=JSON_CALLBACK';
 				$http.jsonp(url).success(function(data) {
 					var items = data.data;
 					for (var i = 0; i < items.length; i++) {
@@ -165,6 +199,7 @@ define(['jquery', 'angular'], function($, angular) {
 			var orderBy = "scientificName";
 			var orderDirection = "asc";
 			var searchCondition = "";
+			var currentLocation = "/";
 			
 			/*var SearchOptions = function() {
 				this.showRecordsWithPicture = true;
@@ -193,6 +228,63 @@ define(['jquery', 'angular'], function($, angular) {
 				return searchCondition;
 			};
 
+			function getCurrentLocation() {
+				return currentLocation;
+			};
+
+			function getCurrentURL() {
+				var url = "";
+				url += currentLocation;
+				var first = true;
+				if(showRecordsWithPicture == false) {
+					url += "?priorityImages="+showRecordsWithPicture;
+					first = false;
+				}
+				if(orderDirection == 'desc') {
+					if(first == true) {
+						url += "?order="+orderDirection;
+						first = false;
+					} else {
+						url += "&order="+orderDirection;
+					}
+				}
+				if(searchCondition != '') {
+					if(first == true) {
+						url += "?q="+searchCondition;
+						first = false;
+					} else {
+						url += "&q="+searchCondition;
+					}	
+				}
+				return url;
+			};
+
+			function getCurrentURLWithoutTaxon() {
+				var url = "";
+				var first = true;
+				if(showRecordsWithPicture == false) {
+					url += "?priorityImages="+showRecordsWithPicture;
+					first = false;
+				}
+				if(orderDirection == 'desc') {
+					if(first == true) {
+						url += "?order="+orderDirection;
+						first = false;
+					} else {
+						url += "&order="+orderDirection;
+					}
+				}
+				if(searchCondition != '') {
+					if(first == true) {
+						url += "?q="+searchCondition;
+						first = false;
+					} else {
+						url += "&q="+searchCondition;
+					}	
+				}
+				return url;
+			};
+
 			function setShowRecordsWithPicture(newShowRecordsWithPicture) {
 				showRecordsWithPicture = newShowRecordsWithPicture;
 			};
@@ -213,6 +305,10 @@ define(['jquery', 'angular'], function($, angular) {
 				searchCondition = newSearchCondition;
 			};
 
+			function setCurrentLocation(newLocation) {
+				currentLocation = newLocation;
+			};
+
 			//return SearchOptions;
 			return {
 				getShowRecordsWithPicture: getShowRecordsWithPicture,
@@ -220,11 +316,15 @@ define(['jquery', 'angular'], function($, angular) {
 				getOrderBy: getOrderBy,
 				getOrderDirection: getOrderDirection,
 				getSearchCondition: getSearchCondition,
+				getCurrentLocation: getCurrentLocation,
+				getCurrentURL: getCurrentURL,
+				getCurrentURLWithoutTaxon: getCurrentURLWithoutTaxon,
 				setShowRecordsWithPicture: setShowRecordsWithPicture,
 				setCurrentTaxon: setCurrentTaxon,
 				setOrderBy: setOrderBy,
 				setOrderDirection: setOrderDirection,
-				setSearchCondition: setSearchCondition
+				setSearchCondition: setSearchCondition,
+				setCurrentLocation: setCurrentLocation
 			};
 		}]);
 

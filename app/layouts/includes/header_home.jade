@@ -17,40 +17,41 @@ block header
 								b.caret
 							ul.dropdown-menu
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
-									a(data-ng-click="switchTaxon('all')", href="/#/") Todos
+									a(data-ng-click="switchTaxon('all')", data-ng-href="/#/{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'insecta'}")
-									a(data-ng-click="switchTaxon('insecta')", href="/#/insectos") Insectos
-								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'bird'}")
-									a(data-ng-click="switchTaxon('bird')", href="/#/aves") Aves
+									a(data-ng-click="switchTaxon('insecta')", data-ng-href="/#/insectos{{searchOptions.getCurrentURLWithoutTaxon()}}") Insectos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'aves'}")
+									a(data-ng-click="switchTaxon('aves')", data-ng-href="/#/aves{{searchOptions.getCurrentURLWithoutTaxon()}}") Aves
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'plantae'}")
-									a(data-ng-click="switchTaxon('plantae')", href="/#/plantas") Plantas
+									a(data-ng-click="switchTaxon('plantae')", data-ng-href="/#/plantas{{searchOptions.getCurrentURLWithoutTaxon()}}") Plantas
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'mammal'}")
-									a(data-ng-click="switchTaxon('mammal')", href="/#/mamiferos") Mamíferos
+									a(data-ng-click="switchTaxon('mammal')", data-ng-href="/#/mamiferos{{searchOptions.getCurrentURLWithoutTaxon()}}") Mamíferos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'reptilia'}")
-									a(data-ng-click="switchTaxon('reptilia')", href="/#/reptiles") Reptiles
+									a(data-ng-click="switchTaxon('reptilia')", data-ng-href="/#/reptiles{{searchOptions.getCurrentURLWithoutTaxon()}}") Reptiles
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'amphibia'}")
-									a(data-ng-click="switchTaxon('amphibia')", href="/#/anfibios") Anfibios
+									a(data-ng-click="switchTaxon('amphibia')", data-ng-href="/#/anfibios{{searchOptions.getCurrentURLWithoutTaxon()}}") Anfibios
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'fungi'}")
-									a(data-ng-click="switchTaxon('fungi')", href="/#/hongos") Hongos
+									a(data-ng-click="switchTaxon('fungi')", data-ng-href="/#/hongos{{searchOptions.getCurrentURLWithoutTaxon()}}") Hongos
 								li.divider
 								li(data-ng-class="{active: searchOptions.getShowRecordsWithPicture()}")
-									a(href="#") Mostrar primero fichas con foto
+									a(data-ng-click="switchShowRecordsWithPicture()", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Mostrar primero fichas con foto
 						li.divider-vertical.hidden-xs
 							li.dropdown
 								a(class="dropdown-toggle", data-toggle="dropdown") ORDENAR
 									b.caret
 								ul.dropdown-menu
 									li(data-ng-class="{active: searchOptions.getOrderBy() == 'scientificName'}")
-										a(href="#") Nombre científico
+										a(href="") Nombre científico
 									li.divider
 									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'asc'}")
-										a(href="#") Ascendente
+										a(data-ng-click="switchOrderDirection('asc')", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Ascendente
 									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
-										a(href="#") Descendente
+										a(data-ng-click="switchOrderDirection('desc')", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Descendente
 						.navbar-form.navbar-left
-							.form-group
-								input.form-control(type="text", placeholder="Buscar especies")
-							button.visible-large-screen(type="button")
+							form(data-ng-submit="go()")
+								.form-group
+									input.form-control(type="text", data-ng-model="currentTextSearch", placeholder="Buscar especies")
+								button.visible-large-screen(type="button", data-ng-click="go()")
 				ul.nav.navbar-nav.navbar-right
 					li
 						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
@@ -66,7 +67,7 @@ block header
 					li.hidden-sm
 						a(href="http://www.youtube.com/user/sibcolombia", target="_blank", title="Visita nuestro canal en youtube")
 							img.img-responsive(src="images/ico_youtube.png")
-		nav(role="alertmessage")
+		//nav(role="alertmessage")
 			.alertbar
 				h4 Disculpe las molestias estamos en renovacion
 				span Algunas de las funciones podrian no funcionar, lo invitamos a darnos sus sugerencias y visitarnos nuevamente muy pronto.
