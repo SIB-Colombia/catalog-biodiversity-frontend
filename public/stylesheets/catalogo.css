@@ -991,3 +991,33 @@ footer section.sib-moreinfo nav a {
   margin-bottom: 10px;
   color: #cf1212;
 }
+.notFound {
+  padding-top: 80px;
+  margin: auto;
+  width: 450px;
+}
+.notFound img {
+  margin: auto;
+}
+.notFound .title {
+  color: #2a6496;
+  font-size: 2.2em;
+  font-weight: 300;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.notFound .body {
+  font-size: 1.3em;
+  font-weight: normal;
+  padding-bottom: 15px;
+}
+@media (max-width:320px) {
+  .notFound {
+    width: 250px;
+  }
+}
+@media (min-width:321px) and (max-width:767px) {
+  .notFound {
+    width: 300px;
+  }
+}

@@ -7,7 +7,7 @@ block header
 					span.icon-bar"
 					span.icon-bar"
 					span.icon-bar"
-				a(class="brand", title="Catálogo de la Biodiversidad", href="#")
+				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
 					img.img-responsive(src="images/logo_catalogo_especies.png")
 			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
 				.container-center
@@ -67,7 +67,14 @@ block header
 					li.hidden-sm
 						a(href="http://www.youtube.com/user/sibcolombia", target="_blank", title="Visita nuestro canal en youtube")
 							img.img-responsive(src="images/ico_youtube.png")
-		//nav(role="alertmessage")
-			.alertbar
+		nav(role="alertmessage")
+			//.alertbar
 				h4 Disculpe las molestias estamos en renovacion
 				span Algunas de las funciones podrian no funcionar, lo invitamos a darnos sus sugerencias y visitarnos nuevamente muy pronto.
+			.notFound.occult-element
+				.row
+					.col-xs-12
+						.content
+							.title LO SENTIMOS
+							.body No localizamos fichas de especie con la condición de búsqueda elegida.
+						img.img-responsive(src="images/sad_dog.png")
