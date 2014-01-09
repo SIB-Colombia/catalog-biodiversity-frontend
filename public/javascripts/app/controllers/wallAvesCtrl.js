@@ -15,6 +15,8 @@ define([], function() {
 		}
 		if(typeof $routeParams.q != 'undefined') {
 			SearchOptions.setSearchCondition($routeParams.q);
+		} else {
+			SearchOptions.setSearchCondition("");
 		}
 		$scope.catalogue = new Catalogue(SearchOptions);
 		$scope.Math = window.Math;
