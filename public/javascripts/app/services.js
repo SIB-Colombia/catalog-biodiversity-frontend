@@ -109,6 +109,7 @@ define(['jquery', 'angular'], function($, angular) {
 						} else {
 							$("#wall-container-wrapper").removeClass("loading2");
 							$("nav .notFound").removeClass("occult-element");
+							this.end = true;
 						}
 					}.bind(this));
 				}
