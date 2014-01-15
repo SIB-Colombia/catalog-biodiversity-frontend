@@ -218,8 +218,6 @@ a {
 #top-zone .navbar .navbar-header .brand {
   -webkit-border-radius: 0px 0px 15px 15px;
   border-radius: 0px 0px 15px 15px;
-  background-color: #fffef3;
-  padding: 3px 13px 8px 13px;
   margin-left: 20px;
   float: left;
 }
@@ -241,8 +239,7 @@ a {
   border: solid 1px #fff;
   color: #fff;
   font-weight: normal;
-  font-size: 1.2em;
-  line-height: 1;
+  font-size: 1.1em;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #top-zone .navbar .navbar-collapse .navbar-form .form-group .form-control:hover {
@@ -352,7 +349,7 @@ a {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  margin-bottom: 10px;
+  margin: 15px 0 10px 10px;
   font-size: 0.8em;
   text-shadow: none;
   text-transform: uppercase;
@@ -550,7 +547,7 @@ footer h5 {
   margin-bottom: 3px;
 }
 footer section.sib-cd {
-  padding-top: 2px;
+  padding-top: 20px;
 }
 footer section.sib-cd a {
   color: #515254 !important;
@@ -704,15 +701,11 @@ footer section.sib-moreinfo nav a {
   display: block;
   margin-bottom: -10px;
 }
-#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:after {
-  content: "";
-  display: block;
-  position: relative;
-  width: 20px;
-  height: 18px;
-  border-left: #48a0bd solid 2px;
-  border-bottom: #48a0bd solid 2px;
-  margin-left: 30px;
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:last-child:after {
+  display: none !important;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(1) {
+  margin-left: 0%;
 }
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(2) {
   margin-left: 10%;
@@ -732,8 +725,36 @@ footer section.sib-moreinfo nav a {
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(7) {
   margin-left: 60%;
 }
-#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:last-child:after {
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div strong {
+  margin-right: 3px;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div span:after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 18px;
+  border-left: #48a0bd solid 2px;
+  border-bottom: #48a0bd solid 2px;
+  margin-left: 30px;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:last-child span:after {
   display: none !important;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div.ng-hide+div {
+  margin-left: 10%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div.ng-hide+div+div {
+  margin-left: 20%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div.ng-hide+div+div+div {
+  margin-left: 30%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div.ng-hide+div+div+div+div {
+  margin-left: 40%;
+}
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div.ng-hide+div+div+div+div+div {
+  margin-left: 50%;
 }
 #catalogRecord .container #recordHeader #recordTitles h1.taxonName {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -766,10 +787,10 @@ footer section.sib-moreinfo nav a {
 #catalogRecord .container .recordContent h1 {
   background-color: #89be70;
   color: #fff;
-  padding: 15px;
+  padding: 13px;
   font-weight: 300;
   margin: 10px 0;
-  font-size: 1.8em;
+  font-size: 1.5em;
   line-height: 1em;
   display: block;
   -webkit-border-radius: 10px;
@@ -780,12 +801,14 @@ footer section.sib-moreinfo nav a {
 #catalogRecord .container .recordContent h1 img {
   padding: 0 15px 0 0;
   margin: 0;
+  max-height: 35px;
+  max-width: 35px;
 }
 #catalogRecord .container .recordContent h2 {
   color: #89be70;
   text-transform: uppercase;
   font-weight: 300;
-  font-size: 1.6em;
+  font-size: 1.5em;
   margin: 15px 0 5px 0;
   line-height: 1.2em;
 }
@@ -810,7 +833,7 @@ footer section.sib-moreinfo nav a {
 #catalogRecord .container .recordContent .commonName span.name {
   font-weight: 400;
   padding: 0px;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 #catalogRecord .container .recordContent .commonName span.content {
   font-weight: 700;
@@ -835,7 +858,6 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container .recordContent ul li em {
   color: #999;
-  display: block;
   line-height: 0.9em;
 }
 #catalogRecord .container .recordContent .basicInfoRecord {
@@ -850,6 +872,10 @@ footer section.sib-moreinfo nav a {
   vertical-align: top;
   width: 48%;
   padding: 15px;
+  overflow: hidden;
+}
+#catalogRecord .container .recordContent .basicInfoRecord >div:first-child {
+  border-right: 1px #fff solid;
 }
 #catalogRecord .container .recordContent .basicInfoRecord h1 {
   background-color: transparent;
@@ -860,21 +886,15 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container .recordContent .basicInfoRecord .title {
   font-weight: 700;
-  width: 185px !important;
+  max-width: 185px !important;
   text-transform: uppercase;
-}
-#catalogRecord .container .recordContent .basicInfoRecord .separador {
-  border-right: 1px #fff solid;
-  height: 130px;
-  margin: 30px 10px 0 0;
-  width: 1px;
-  padding: 0px;
 }
 #catalogRecord .container .recordContent .basicInfoRecord .tabla div div {
   display: inline-block;
   vertical-align: top;
-  width: 45%;
+  width: 60%;
   padding-right: 15px;
+  overflow: hidden;
 }
 #catalogRecord .container .recordContent .citacion {
   background: rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom;
@@ -972,11 +992,15 @@ footer section.sib-moreinfo nav a {
   position: fixed;
   right: 0px;
   top: 50px;
-  background: rgba(43,127,188,0.2);
-  padding: 5px;
+  background: rgba(43,127,188,0.8);
+  padding: 4px 10px;
+  color: #fff;
   z-index: 10;
-  font-weight: bold;
-  font-size: 1em;
+  font-weight: 400;
+  font-size: 0.85em;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  text-transform: uppercase;
 }
 /* End wall counter styles */
 .alertbar {
@@ -992,24 +1016,30 @@ footer section.sib-moreinfo nav a {
   color: #cf1212;
 }
 .notFound {
-  padding-top: 80px;
-  margin: auto;
-  width: 450px;
+  padding: 100px 0 0 150px;
+  margin: 80px auto auto auto;
+  width: 600px;
+  min-height: 380px;
+  background: url("/images/DINO1.png") no-repeat center left;
+  text-align: left;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
 }
 .notFound img {
   margin: auto;
 }
 .notFound .title {
-  color: #2a6496;
+  color: #684b16;
   font-size: 2.2em;
   font-weight: 300;
-  padding-bottom: 15px;
-  text-align: center;
+  padding: 0 0 0 0;
+  margin: 90px 0 0 56%;
 }
 .notFound .body {
   font-size: 1.3em;
   font-weight: normal;
-  padding-bottom: 15px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 56%;
 }
 @media (max-width:320px) {
   .notFound {
@@ -1019,5 +1049,15 @@ footer section.sib-moreinfo nav a {
 @media (min-width:321px) and (max-width:767px) {
   .notFound {
     width: 300px;
+    padding: 0 0 0 0;
+    background-size: 100%;
+  }
+  .notFound .body,
+  .notFound .title {
+    margin: 0 0 0 0;
+  }
+  .taxonComplete div span:after {
+    margin-left: 15px !important;
+    width: 10px !important;
   }
 }

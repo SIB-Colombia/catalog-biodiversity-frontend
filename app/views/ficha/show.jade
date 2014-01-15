@@ -6,7 +6,7 @@ block content
 	ul.breadcrumb
 		li 
 			a(href="/") Principal
-		li.active(data-ng-bind="'Ficha de especie: '+record.data.catalogoespecies_id")
+		li.active(data-ng-bind="'Ficha de especie Nº '+record.data.catalogoespecies_id")
 	section#catalogRecord
 		.container
 			.row
@@ -36,26 +36,26 @@ block content
 								h2.author(data-ng-bind="'Autor: '+record.data.info_taxonomica.autor")
 							.fullTaxonContainer
 								.taxonComplete
-									div
-										strong(data-ng-show="record.data.reino") Reino
+									div(data-ng-show="record.data.reino")
+										strong Reino
 										span(data-ng-show="record.data.reino", data-ng-bind="record.data.reino")
-									div
-										strong(data-ng-show="record.data.phylum") Phylum 
+									div(data-ng-show="record.data.phylum")
+										strong Phylum 
 										span(data-ng-show="record.data.phylum", data-ng-bind="record.data.phylum")
-									div	
-										strong(data-ng-show="record.data.clase") Clase 
+									div(data-ng-show="record.data.clase")
+										strong Clase 
 										span(data-ng-show="record.data.clase", data-ng-bind="record.data.clase")
-									div	
-										strong(data-ng-show="record.data.orden") Orden 
+									div(data-ng-show="record.data.orden")
+										strong Orden 
 										span(data-ng-show="record.data.orden", data-ng-bind="record.data.orden")
-									div	
-										strong(data-ng-show="record.data.familia") Familia 
+									div(data-ng-show="record.data.familia") 
+										strong Familia 
 										span(data-ng-show="record.data.familia", data-ng-bind="record.data.familia")
-									div	
-										strong(data-ng-show="record.data.genero") Género 
+									div(data-ng-show="record.data.genero")
+										strong Género 
 										span(data-ng-show="record.data.genero", data-ng-bind="record.data.genero")
-									div	
-										strong(data-ng-show="record.data.especie") Especie 
+									div(data-ng-show="record.data.especie") 
+										strong Especie 
 										span(data-ng-show="record.data.especie", data-ng-bind="record.data.especie")
 			.row.recordContent
 				h1(data-ng-show="record.data.nombres_comunes")
@@ -150,25 +150,24 @@ block content
 						div
 							.tabla
 								div(data-ng-show="record.data.fechaelaboracion")
-									div.title Fecha de elaboración:
+									div.title Fecha de elaboración
 									div(data-ng-bind="record.data.fechaelaboracion")
 								div(data-ng-show="record.data.fechaactualizacion")
-									div.title Fecha de actualización:
+									div.title Fecha de actualización
 									div(data-ng-bind="record.data.fechaactualizacion")
 								div(data-ng-show="record.data.info_taxonomica.taxonnombre")
-									div.title Nombre científico:
+									div.title Nombre científico
 									div(data-ng-bind="record.data.info_taxonomica.taxonnombre")
 								div(data-ng-show="record.data.info_taxonomica.paginaweb")
-									div.title Ficha nomenclatural:
+									div.title Ficha nomenclatural
 									div
 										a(target="_blank", data-ng-href="record.data.info_taxonomica.paginaweb")
 											span(data-ng-bind="record.data.info_taxonomica.paginaweb")
 								div(data-ng-show="record.data.titulometadato")
-									div.title Metadato:
+									div.title Metadato
 									div
 										a(target="_blank", data-ng-href="record.data.titulometadato")
 											span(data-ng-bind="record.data.titulometadato")
-					.separador
 					div
 						h1 Contacto de la ficha
 						div

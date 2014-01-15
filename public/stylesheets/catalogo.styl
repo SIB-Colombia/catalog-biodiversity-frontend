@@ -196,8 +196,6 @@ a
 			.brand
 				-webkit-border-radius 0px 0px 15px 15px
 				border-radius 0px 0px 15px 15px
-				background-color #fffef3
-				padding 3px 13px 8px 13px
 				margin-left 20px
 				float left
 				a:hover
@@ -216,8 +214,7 @@ a
 						border solid 1px #fff
 						color #fff
 						font-weight normal
-						font-size 1.2em
-						line-height 1
+						font-size 1.1em
 						font-family "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif
 						&:hover
 							background-color #fff
@@ -320,7 +317,7 @@ a
 		-webkit-border-radius 0px
 		-moz-border-radius 0px
 		border-radius 0px
-		margin-bottom 10px
+		margin 15px 0 10px 10px
 		font-size 0.8em
 		text-shadow none
 		text-transform uppercase
@@ -485,7 +482,7 @@ footer
 		font-weight 700
 		margin-bottom 3px
 	section.sib-cd
-		padding-top 2px
+		padding-top 20px
 		a
 			color #515254 !important
 		img
@@ -609,32 +606,42 @@ footer
 					padding 20px
 					width 80%
 					text-transform uppercase
+					
 					div
 						display block
 						margin-bottom -10px
-						&:after
-							content ""
-							display block
-							position relative
-							width 20px
-							height 18px
-							border-left #48a0bd solid 2px
-							border-bottom #48a0bd solid 2px
-							margin-left 30px
-						&:nth-child(2)
-							margin-left 10%
-						&:nth-child(3)
-							margin-left 20%
-						&:nth-child(4)
-							margin-left 30%
-						&:nth-child(5)
-							margin-left 40%
-						&:nth-child(6)
-							margin-left 50%
-						&:nth-child(7)
-							margin-left 60%
 						&:last-child:after
 							display none !important
+
+						for row in 1 2 3 4 5 6 7
+							&:nth-child({row})
+								margin-left 10% * (row - 1)
+
+						strong
+							margin-right 3px
+						span
+							&:after
+								content ""
+								display block
+								position relative
+								width 20px
+								height 18px
+								border-left #48a0bd solid 2px
+								border-bottom #48a0bd solid 2px
+								margin-left 30px
+						
+						&:last-child span:after
+							display none !important
+						&.ng-hide+div
+							margin-left 10%
+						&.ng-hide+div+div
+							margin-left 20%
+						&.ng-hide+div+div+div
+							margin-left 30%
+						&.ng-hide+div+div+div+div
+							margin-left 40%
+						&.ng-hide+div+div+div+div+div
+							margin-left 50%
 
 			#recordTitles
 				h1.taxonName
@@ -663,10 +670,10 @@ footer
 			h1
 				background-color #89BE70
 				color white
-				padding 15px
+				padding 13px
 				font-weight 300
 				margin 10px 0
-				font-size 1.8em
+				font-size 1.5em
 				line-height 1em
 				display block
 				-webkit-border-radius 10px
@@ -676,11 +683,13 @@ footer
 				img
 					padding 0 15px 0 0
 					margin 0
+					max-height 35px
+					max-width 35px
 			h2
 				color #89BE70
 				text-transform uppercase
 				font-weight 300
-				font-size 1.6em
+				font-size 1.5em
 				margin 15px 0 5px 0
 				line-height 1.2em
 			h3
@@ -702,7 +711,7 @@ footer
 				span.name
 					font-weight 400
 					padding 0px
-					font-size 1.2em
+					font-size 1em
 				span.content
 					font-weight 700
 					text-transform uppercase
@@ -724,7 +733,6 @@ footer
 					list-style-position outside
 					em
 						color #999
-						display block
 						line-height 0.9em
 			.basicInfoRecord
 				background rgba(140,210,231,0.8)
@@ -737,6 +745,9 @@ footer
 					vertical-align top
 					width 48%
 					padding 15px
+					overflow hidden
+					&:first-child
+						border-right 1px white solid
 				h1
 					background-color transparent
 					padding 0px
@@ -744,19 +755,15 @@ footer
 						clear both
 				.title
 					font-weight 700
-					width 185px !important
+					max-width 185px !important
 					text-transform uppercase
-				.separador
-					border-right 1px white solid
-					height 130px
-					margin 30px 10px 0 0
-					width 1px
-					padding 0px
+				
 				.tabla div div
 					display inline-block
 					vertical-align top
-					width 45%
+					width 60%
 					padding-right 15px
+					overflow hidden
 			.citacion
 				background rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom
 				padding 20px
@@ -839,11 +846,15 @@ footer
 	position fixed
 	right 0px
 	top 50px
-	background rgba(43, 127, 188, 0.2)
-	padding 5px
+	background rgba(43, 127, 188, 0.8)
+	padding 4px 10px
+	color white
 	z-index 10
-	font-weight bold
-	font-size 1em
+	font-weight 400
+	font-size 0.85em
+	-webkit-border-radius 0
+	border-radius 0
+	text-transform uppercase
 /* End wall counter styles */
 
 .alertbar
@@ -860,24 +871,44 @@ footer
 
 // Not found alert bar
 .notFound
-	padding-top 80px
-	margin auto
-	width 450px
+	padding 100px 0 0 150px
+	margin 80px auto auto auto
+	width 600px
+	min-height 380px
+	background url("/images/DINO1.png") no-repeat center left
+	text-align left
+	-webkit-border-radius 20px
+	border-radius 20px
 	img
 		margin auto
 	.title
-		color #2a6496
+		color #684B16
 		font-size 2.2em
 		font-weight 300
-		padding-bottom 15px
-		text-align center
+		padding 0 0 0 0
+		margin 90px 0 0 56%
+
 	.body
 		font-size 1.3em
 		font-weight normal
-		padding-bottom 15px
+		padding 0 0 0 0
+		margin 0 0 0 56%
+
 @media (max-width:320px)
 	.notFound
 		width 250px
 @media (min-width:321px) and (max-width:767px)
 	.notFound
 		width 300px
+		padding 0 0 0 0
+		background-size 100%
+		.body
+		.title
+			margin 0 0 0 0 
+	.taxonComplete
+		div
+			span
+				&:after
+					margin-left 15px !important
+					width 10px !important
+

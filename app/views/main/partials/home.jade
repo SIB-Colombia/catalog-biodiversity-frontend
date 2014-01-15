@@ -1,6 +1,10 @@
 #wall-container-wrapper
 	div.wallCounter
-		span Fichas: {{catalogue.species.length}} / {{catalogue.totalregisters}}
+		span mostrando 
+		strong {{catalogue.species.length}} 
+		| de 
+		strong {{catalogue.totalregisters}} 
+		| fichas
 	div(infinite-scroll='catalogue.nextPage()', infinite-scroll-disabled='catalogue.busy', infinite-scroll-distance='2')
 		div(id="isotopeContainer", isotope-container, refreshIsotope)
 			div(ng-repeat="specie in catalogue.species", isotope-item, class="element ficha")
@@ -16,10 +20,10 @@
 					.ficha-muro-taxoncompleto
 						span(ng-if="specie.reino") 
 							strong Reino 
-							| {{specie.reino}} >> 
+							| {{specie.reino}} >
 						span(ng-if="specie.phylum") 
 							strong Phylum 
-							| {{specie.phylum}} >> 
+							| {{specie.phylum}} >
 						span(ng-if="specie.clase") 
 							strong Clase 
 							| {{specie.clase}} >> 
