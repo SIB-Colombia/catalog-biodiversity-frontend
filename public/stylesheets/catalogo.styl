@@ -482,7 +482,7 @@ footer
 		font-weight 700
 		margin-bottom 3px
 	section.sib-cd
-		padding-top 20px
+		padding-top 5px
 		a
 			color #515254 !important
 		img
@@ -564,10 +564,10 @@ footer
 			font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
 			color #2288C9
 			font-weight 300
-			text-transform uppercase
 			font-style italic
 			margin-top 0px
 			font-size 30px
+			font-size 2.5em
 		h2.author
 			margin-top 0px
 			color #333
@@ -642,13 +642,15 @@ footer
 							margin-left 40%
 						&.ng-hide+div+div+div+div+div
 							margin-left 50%
-
+						&:last-child span
+							text-transform none !important
+							font-style italic !important
+							font-size 1.1em
 			#recordTitles
 				h1.taxonName
 					font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
 					color #2288C9
 					font-weight 300
-					text-transform uppercase
 					font-style italic
 					margin-top 0px
 				h2.author

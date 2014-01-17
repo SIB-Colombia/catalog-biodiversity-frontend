@@ -547,7 +547,7 @@ footer h5 {
   margin-bottom: 3px;
 }
 footer section.sib-cd {
-  padding-top: 20px;
+  padding-top: 5px;
 }
 footer section.sib-cd a {
   color: #515254 !important;
@@ -646,10 +646,10 @@ footer section.sib-moreinfo nav a {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #2288c9;
   font-weight: 300;
-  text-transform: uppercase;
   font-style: italic;
   margin-top: 0px;
   font-size: 30px;
+  font-size: 2.5em;
 }
 #catalogRecord .container h2.author {
   margin-top: 0px;
@@ -756,11 +756,15 @@ footer section.sib-moreinfo nav a {
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div.ng-hide+div+div+div+div+div {
   margin-left: 50%;
 }
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:last-child span {
+  text-transform: none !important;
+  font-style: italic !important;
+  font-size: 1.1em;
+}
 #catalogRecord .container #recordHeader #recordTitles h1.taxonName {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #2288c9;
   font-weight: 300;
-  text-transform: uppercase;
   font-style: italic;
   margin-top: 0px;
 }
