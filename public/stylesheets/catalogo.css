@@ -124,6 +124,9 @@ a {
   .loading {
     bottom: 0px;
   }
+  #top-zone .navbar .navbar-header {
+    height: 67px !important;
+  }
   .navbar-collapse .navbar-form .form-group .form-control {
     width: 260px;
   }
@@ -145,9 +148,13 @@ a {
   .loading {
     bottom: 0px;
   }
+  #top-zone .navbar .navbar-header {
+    height: 70px !important;
+  }
   #top-zone .navbar .navbar-header .brand {
     padding: 3px 5px 8px 5px !important;
     margin-left: 0px !important;
+    width: 80%;
   }
   .navbar-collapse .navbar-form .form-group .form-control {
     width: 260px;
@@ -160,6 +167,9 @@ a {
   }
   .taxonComplete {
     width: 100% !important;
+  }
+  .wallCounter {
+    display: none;
   }
 }
 /* Estilos de apoyo */
