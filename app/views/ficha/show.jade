@@ -1,0 +1,186 @@
+extends ../../layouts/layout
+
+block content
+	script.
+		var recordOfSpecie = !{data};
+	ul.breadcrumb
+		li 
+			a(href="/") Principal
+		li.active(data-ng-bind="'Ficha de especie Nº '+record.data.catalogoespecies_id")
+	section#catalogRecord
+		.container
+			.row
+				.col-lg-4.col-md-4.col-sm-5
+					h1.taxonName(data-ng-bind="record.data.info_taxonomica.taxonnombre", class="visible-xs")
+					h2.author(data-ng-bind="'Autor: '+record.data.info_taxonomica.autor", class="visible-xs")
+					#recordPictures(data-ng-if="record.data.currentImages")
+						div(data-ng-if="record.data.currentImages.length > 1")
+							#carrusel-imagen-especie.carousel.slide(data-ride="carousel")
+								ol.carousel-indicators
+									li(ng-repeat="image in record.data.currentImages", data-ng-class="{active: $first}", data-target="#carrusel-imagen-especie" data-slide-to="{{$index}}")
+								.carousel-inner
+									.item(ng-repeat="image in record.data.currentImages", data-ng-class="{active: $first}")
+										img(data-ng-src='{{ image }}', class="img-responsive")
+								a.left.carousel-control(href="#carrusel-imagen-especie" data-slide="prev")
+									span.glyphicon.glyphicon-chevron-left
+								a.right.carousel-control(href="#carrusel-imagen-especie" data-slide="next")
+									span.glyphicon.glyphicon-chevron-right
+						div(data-ng-if="record.data.currentImages.length == 1")
+							img(data-ng-src='{{ record.data.currentImages[0] }}', class="img-responsive")
+				.col-lg-8.col-md-8.col-sm-7
+					#recordHeader
+						#recordTitles
+							.taxonNameContainer(data-ng-show="record.data.info_taxonomica.taxonnombre", class="hidden-xs")
+								h1.taxonName(data-ng-bind="record.data.info_taxonomica.taxonnombre")
+							.authorContainer(data-ng-show="record.data.info_taxonomica.autor", class="hidden-xs")
+								h2.author(data-ng-bind="'Autor: '+record.data.info_taxonomica.autor")
+							.fullTaxonContainer
+								.taxonComplete
+									div(data-ng-show="record.data.reino")
+										strong Reino
+										span(data-ng-show="record.data.reino", data-ng-bind="record.data.reino")
+									div(data-ng-show="record.data.phylum")
+										strong Phylum 
+										span(data-ng-show="record.data.phylum", data-ng-bind="record.data.phylum")
+									div(data-ng-show="record.data.clase")
+										strong Clase 
+										span(data-ng-show="record.data.clase", data-ng-bind="record.data.clase")
+									div(data-ng-show="record.data.orden")
+										strong Orden 
+										span(data-ng-show="record.data.orden", data-ng-bind="record.data.orden")
+									div(data-ng-show="record.data.familia") 
+										strong Familia 
+										span(data-ng-show="record.data.familia", data-ng-bind="record.data.familia")
+									div(data-ng-show="record.data.genero")
+										strong Género 
+										span(data-ng-show="record.data.genero", data-ng-bind="record.data.genero")
+									div(data-ng-show="record.data.especie") 
+										strong Especie 
+										span(data-ng-show="record.data.especie", data-ng-bind="record.data.especie")
+			.row.recordContent
+				h1(data-ng-show="record.data.nombres_comunes")
+					img(src='/images/secciones/nombres.png')
+					| Nombres comunes
+				.commonName(data-ng-repeat="nombreComun in record.data.nombres_comunes")
+					span.name(data-ng-bind="nombreComun.tesauronombre")
+					h1(data-ng-show="nombreComun.idioma") Idioma o lengua
+					span.content(data-ng-bind="nombreComun.idioma")
+					h1(data-ng-show="nombreComun.regionesgeograficas") Región donde se usa
+					span.content(data-ng-bind="nombreComun.regionesgeograficas")
+				h1
+					img(src='/images/secciones/distribucion.png')
+					| Distribución
+
+				div
+					h2(data-ng-show="record.data.atributos['Distribución altitudinal']") Distribución altitudinal
+					span(data-ng-bind-html="record.data.atributos['Distribución altitudinal'][0]")
+
+					h2(data-ng-show="record.data.atributos['Distribución geográfica en Colombia']") Distribución geográfica en Colombia
+					span(data-ng-bind-html="record.data.atributos['Distribución geográfica en Colombia'][0]")
+
+					h2(data-ng-show="record.data.atributos['Ecosistema']") Ecosistema
+					span(data-ng-bind-html="record.data.atributos['Ecosistema'][0]")
+
+					h2(data-ng-show="record.data.atributos['Región natural']") Región natural
+					span(data-ng-bind-html="record.data.atributos['Región natural'][0]")
+
+					h2(data-ng-show="record.data.atributos['Distribución geográfica en el mundo']") Distribución geográfica en el mundo
+					span(data-ng-bind-html="record.data.atributos['Distribución geográfica en el mundo'][0]")
+
+					h2(data-ng-show="record.data.atributos['Registros biológicos']") Registros biológicos
+					span(data-ng-bind-html="record.data.atributos['Registros biológicos'][0]")
+				h1
+					img(src='/images/secciones/historia.png')
+					| Historia natural
+				div
+					h2(data-ng-show="record.data.atributos['Alimentación']") Alimentación
+					span(data-ng-bind-html="record.data.atributos['Alimentación'][0]")
+
+					h2(data-ng-show="record.data.atributos['Comportamiento']") Comportamiento
+					span(data-ng-bind-html="record.data.atributos['Comportamiento'][0]")
+
+					h2(data-ng-show="record.data.atributos['Hábitat']") Hábitat
+					span(data-ng-bind-html="record.data.atributos['Hábitat'][0]")
+
+					h2(data-ng-show="record.data.atributos['Vocalizaciones']") Vocalizaciones
+					span(data-ng-bind-html="record.data.atributos['Vocalizaciones'][0]")
+
+					h2(data-ng-show="record.data.atributos['Reproducción']") Reproducción
+					span(data-ng-bind-html="record.data.atributos['Reproducción'][0]")
+
+					h2(data-ng-show="record.data.atributos['Descripción general']") Descripción general
+					span(data-ng-bind-html="record.data.atributos['Descripción general'][0]")
+				h1
+					img(src='/images/secciones/taxonomia.png')
+					| Taxonomía
+				div
+					h2(data-ng-show="record.data.atributos['Descripción taxonómica']") Descripción taxonómica
+					span(data-ng-bind-html="record.data.atributos['Descripción taxonómica'][0]")
+					
+				h1
+					img(src='/images/secciones/conservacion.png')
+					| Estado de conservación
+				div
+					h2(data-ng-show="record.data.atributos['Estado de amenaza según categorías UICN']") Estado de amenaza según categorías UICN
+					h3(data-ng-show="record.data.atributos['Estado de amenaza según categorías UICN']['En el mundo']") En el mundo
+					span(data-ng-bind-html="record.data.atributos['Estado de amenaza según categorías UICN']['En el mundo'][0]")
+					h3(data-ng-show="record.data.atributos['Estado de amenaza según categorías UICN']['En Colombia']") En Colombia
+					span(data-ng-bind-html="record.data.atributos['Estado de amenaza según categorías UICN']['En Colombia'][0]")
+
+					h2(data-ng-show="record.data.atributos['Factores de amenaza']") Factores de amenaza
+					span(data-ng-bind-html="record.data.atributos['Factores de amenaza'][0]")
+
+					h2(data-ng-show="record.data.atributos['Estado actual de la población']") Estado actual de la población
+					span(data-ng-bind-html="record.data.atributos['Estado actual de la población'][0]")
+
+					h2(data-ng-show="record.data.atributos['Medidas de conservación']") Medidas de conservación
+					span(data-ng-bind-html="record.data.atributos['Medidas de conservación'][0]")
+
+				h1
+					img(src='/images/secciones/informacion.png')
+					| Más información
+				div
+					h2(data-ng-show="record.data.atributos['Referencias bibliográficas']") Referencias bibliográficas
+					ul(data-ng-repeat="referenciaBibliografica in record.data.atributos['Referencias bibliográficas']")
+						li(data-ng-bind-html="bibliographicReference(referenciaBibliografica.autor, referenciaBibliografica.documento_titulo, referenciaBibliografica.fecha, referenciaBibliografica.lugar_publicacion)")
+
+				.basicInfoRecord
+					div
+						h1 Información básica de la ficha
+						div
+							.tabla
+								div(data-ng-show="record.data.fechaelaboracion")
+									div.title Fecha de elaboración
+									div(data-ng-bind="record.data.fechaelaboracion")
+								div(data-ng-show="record.data.fechaactualizacion")
+									div.title Fecha de actualización
+									div(data-ng-bind="record.data.fechaactualizacion")
+								div(data-ng-show="record.data.info_taxonomica.taxonnombre")
+									div.title Nombre científico
+									div(data-ng-bind="record.data.info_taxonomica.taxonnombre")
+								div(data-ng-show="record.data.info_taxonomica.paginaweb")
+									div.title Ficha nomenclatural
+									div
+										a(target="_blank", data-ng-href="record.data.info_taxonomica.paginaweb")
+											span(data-ng-bind="record.data.info_taxonomica.paginaweb")
+								div(data-ng-show="record.data.titulometadato")
+									div.title Metadato
+									div
+										a(target="_blank", data-ng-href="record.data.titulometadato")
+											span(data-ng-bind="record.data.titulometadato")
+					div
+						h1 Contacto de la ficha
+						div
+				.citacion
+					h1 Cómo citar esta ficha
+					div
+						.tabla
+							div(data-ng-show="record.data.citacion.autor")
+								div.title Autor
+								div(data-ng-bind="record.data.citacion.autor + ', ' + record.data.citacion.fecha + ', ' + record.data.citacion.documento_titulo + ' ' + record.data.info_taxonomica.autor")
+							div(data-ng-show="record.data.fechaelaboracion")
+								div.title Elaborada
+								div(data-ng-bind="record.data.fechaelaboracion")
+							div(data-ng-show="record.data.fechaactualizacion")
+								div.title Actualizada
+								div(data-ng-bind="record.data.fechaactualizacion")

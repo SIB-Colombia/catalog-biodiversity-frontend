@@ -1,0 +1,924 @@
+@import unquote('url(http://fonts.googleapis.com/css?family=Economica:400,700,400italic)')
+@import unquote('url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,300italic,400italic)')
+
+*
+	-webkit-transition all 0.4s ease
+	-moz-transition all 0.4s ease
+	-ms-transition all 0.4s ease
+	-o-transition all 0.4s ease
+	transition all 0.4s ease
+	//border red 1px solid
+body
+	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
+	font-family 'Open Sans', Helvetica, sans-serif
+a
+	-webkit-transition all 0.5s ease-in-out
+	-moz-transition all 0.5s ease-in-out
+    -ms-transition all 0.5s ease-in-out
+    -o-transition all 0.5s ease-in-out
+	transition all 0.5s ease-in-out
+	&:hover
+		color #00a0ff
+		text-decoration none
+.wrapper
+	margin 0 auto
+.loading
+	background-repeat no-repeat
+	position fixed
+	left 0px
+	width 100%
+	margin-left auto
+	margin-right auto
+	background rgba(255, 246, 202, 0.9)
+	padding-top 5px
+	padding-bottom 5px
+	font-weight bold
+	font-size 0.9em
+	text-align center
+#flower
+	height 70px
+@media (min-width:1200px)
+	.loading
+		bottom 136px
+	.visible-large-screen
+		display inline-block !important
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 260px
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 270px
+				img
+					width 270px
+	footer
+		section.sib-cd
+			.hidden-sm
+				display inline-block !important
+			.hidden-md
+				display inline-block !important
+@media (min-width:992px) and (max-width:1199px)
+	.loading
+		bottom 136px
+	footer
+		section.sib-cd
+			.hidden-sm
+				display inline-block !important
+			.hidden-md
+				display none !important
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 270px
+				img
+					width 270px
+@media (min-width:1090px)
+	.loading
+		bottom 136px
+	.container-center
+		float left
+		margin-left 50px
+@media (min-width:761px) and (max-width:1199px)
+	.loading
+		bottom 136px
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 150px
+	#top-zone
+		.navbar
+			.navbar-header
+				.brand
+					margin-left 0px !important
+@media (min-width:768px) and (max-width:995px)
+	.loading
+		bottom 136px
+	#top-zone
+		.navbar
+			font-size 11px !important
+			.navbar-header
+				.brand
+					padding 3px 7px 8px 7px !important
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 270px
+				img
+					width 270px
+@media (min-width:360px) and (max-width:760px)
+	.loading
+		bottom 0px
+	#top-zone
+		.navbar
+			.navbar-header
+				height 67px !important
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 260px
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 320px
+				img
+					width 320px
+	.taxonComplete
+		width 100% !important
+		div:after
+				width 4% !important
+				margin-left 5% !important
+@media (max-width:320px)
+	.loading
+		bottom 0px
+	#top-zone
+		.navbar
+			.navbar-header
+				height 70px !important
+				.brand
+					/*padding 3px 5px 8px 5px !important*/
+					margin-left 0px !important
+					width 80% 
+	.navbar-collapse 
+			.navbar-form
+				.form-group
+					.form-control
+						width 260px
+	#wall-container-wrapper
+		#isotopeContainer
+			.ficha
+				width 280px
+				img
+					width 280px
+	.taxonComplete
+		width 100% !important
+	.wallCounter
+		display none
+/* Estilos de apoyo */
+.loading2
+	background-image url("/images/loading/loading64w.gif")
+	background-position center center
+	background-repeat no-repeat
+	opacity .5
+	-moz-opacity .5
+	height 200px
+.hiding
+	opacity .5
+	-moz-opacity .5
+.hide-element
+	visibility hidden
+.occult-element
+	display none
+.opacity-element
+	opacity .2
+	-moz-opacity .2
+/* Fin de estilos de apoyo */
+
+#top-zone
+	top 0
+	right 0
+	left 0
+	margin-bottom 0
+	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
+	.nav 
+		.caret
+			border-top-color #FFFFFF
+			border-bottom-color #FFFFFF
+	.navbar
+		background #2b7fbc
+		border 0px
+		font-size 13px
+		-webkit-box-shadow 0px 0px 35px 1px #525252
+		-moz-box-shadow 0px 0px 35px 1px #525252
+		box-shadow 0px 0px 35px 1px #525252
+		margin-bottom 10px
+		#navbar-header-catalog-collapse
+			background #2b7fbc
+		.navbar-header
+			height 52px
+			.navbar-toggle
+				padding 3px 10px 12px
+			.brand
+				-webkit-border-radius 0px 0px 15px 15px
+				border-radius 0px 0px 15px 15px
+				margin-left 20px
+				float left
+				a:hover
+					opacity 1 !important
+					-moz-opacity 1 !important
+					opacity 1 !important
+		.navbar-collapse 
+			height 52px
+			.navbar-form
+				.form-group
+					font-size 1em
+					.form-control
+						-webkit-border-radius 0px
+						border-radius 0px
+						background-color #2b7fbc
+						border solid 1px #fff
+						color #fff
+						font-weight normal
+						font-size 1.1em
+						font-family "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif
+						&:hover
+							background-color #fff
+							color #000
+				button
+					display none
+					padding 13px
+					color #fff
+					right 0px
+					height 32px
+					text-decoration none
+					width 33px
+					border none 0px transparent
+					box-shadow none
+					background url("/images/ico_search.png") no-repeat center center
+					margin-top 0px
+			ul.navbar-right
+				li
+					a
+						height 52px
+						&:hover
+							opacity 0.6
+							background-color rgba(255,255,255,0.5)
+			ul.nav.navbar-nav
+				li.divider-vertical
+					margin 17px 0
+					height 18px
+					border-left 1px solid #f2f2f2
+				li
+					a
+						color white
+						vertical-align middle
+					span
+						width 0px
+						border-left #9bc2de 1px solid
+						display inline-block
+						height 20px
+						vertical-align middle
+						margin 15px 4px
+				li.dropdown
+					a.dropdown-toggle
+						padding 16px 12px
+						text-shadow none
+						font-size 1em
+						font-weight 300
+					&:hover
+					&:focus
+						a.dropdown-toggle
+							background rgba(255,255,255,0.2)
+							color #fff
+				li.dropdown.open
+					a.dropdown-toggle
+						color #fff
+						vertical-align middle
+						background-color rgba(255,255,255,0.5)
+					ul.dropdown-menu
+						background rgba(255,255,255,0.9)
+						-webkit-border-radius 6px
+						-moz-border-radius 6px
+						border-radius 6px
+						-webkit-box-shadow 0 5px 10px rgba(0,0,0,0.2)
+						-moz-box-shadow 0 5px 10px rgba(0,0,0,0.2)
+						box-shadow 0 5px 10px rgba(0,0,0,0.2)
+						-webkit-background-clip padding-box
+						-moz-background-clip padding
+						background-clip padding-box
+						li.active
+							a
+								color white
+								text-decoration none
+								outline 0
+								background-color #0081c2
+								background-image -moz-linear-gradient(top,#08c,#0077b3)
+								background-image -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#0077b3))
+								background-image -webkit-linear-gradient(top,#08c,#0077b3)
+								background-image -o-linear-gradient(top,#08c,#0077b3)
+								background-image linear-gradient(to bottom,#08c,#0077b3)
+								background-repeat repeat-x
+						li
+							text-align center
+							text-transform uppercase
+							a
+								color black
+								padding 3px 20px
+								&:hover
+								&:focus
+									opacity 0.6
+									background-color rgba(255,255,255,0.5)
+									text-decoration none
+									color #fff
+									background-color #0081c2
+									background-image -moz-linear-gradient(top,#08c,#0077b3)
+									background-image -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#0077b3))
+									background-image -webkit-linear-gradient(top,#08c,#0077b3)
+									background-image -o-linear-gradient(top,#08c,#0077b3)
+									background-image linear-gradient(to bottom,#08c,#0077b3)
+									background-repeat repeat-x
+#content-wrapper
+	.breadcrumb
+		-webkit-border-radius 0px
+		-moz-border-radius 0px
+		border-radius 0px
+		margin 15px 0 10px 10px
+		font-size 0.8em
+		text-shadow none
+		text-transform uppercase
+		background-color transparent
+		li
+			background rgba(255,255,245,1) url("/images/separator.png") no-repeat center right
+			padding 4px 12px 4px 8px
+			&:first-child
+				-webkit-border-radius 8px 0 0 8px
+				-moz-border-radius 8px 0 0 8px
+				border-radius 8px 0 0 8px
+
+			&:last-child
+				-webkit-border-radius 0 8px 8px 0
+				-moz-border-radius 0 8px 8px 0
+				border-radius 0 8px 8px 0
+				background-image none
+			&:only-child
+				-webkit-border-radius 8px
+				-moz-border-radius 8px
+				border-radius 8px
+			a
+				text-decoration none
+				&:hover, &:focus
+					color #2b7fbc
+					text-decoration none
+			.divider
+				color #aaa
+		li.active
+			color #888
+			//text-shadow 0 1px 0 rgb(211, 211, 211)
+		li:empty
+			display none
+#carruselSection
+	.container-fluid-withoutmargin
+		height auto
+		width auto
+		text-align center
+		margin-left auto
+		margin-right auto
+		margin-bottom 10px
+		#fichas_muestra
+			margin-left 2%
+			margin-right 2%
+			background rgba(251, 180, 29, 0.1)
+			padding-top 10px
+			padding-bottom 10px
+			.foto_muestra
+				max-width 150px
+				display inline-block
+				background-color rgba(255, 255, 255, 1)
+				opacity 1
+				margin-left 3px
+				margin-right 3px
+				vertical-align top
+				border 1px #cccccc solid
+				box-shadow 0 1px 1px #ccc
+				-webkit-transition all 0.6s
+				-moz-transition all 0.6s
+				-ms-transition all 0.6s
+				-o-transition all 0.6s
+				transition all 0.6s
+				span.carousel-taxonnombre
+					font-weight bold
+					font-size 0.9em
+			.popover-title
+				background-color rgb(75, 75, 75)
+				color white
+			.popover-content
+				line-height 16px
+#catalogWallSection
+	#wall-container-wrapper
+		margin-left 2%
+		margin-right 2%
+		.navigation
+			display block
+			text-align center
+			margin-top 10px
+			margin-bottom 60px
+		#isotopeContainer
+			margin-top 0px
+			margin-left auto
+			margin-right auto
+			margin-bottom 10px
+			.ficha
+				margin 9px
+				float left
+				overflow hidden
+				background #fff
+				font-size 0.9em
+				border 1px #cccccc solid;
+				-webkit-box-shadow 0 1px 3px rgba(34,25,25,0.4)
+				-moz-box-shadow 0 1px 3px rgba(34,25,25,0.4)
+				box-shadow 0 1px 3px rgba(34,25,25,0.4)
+				-webkit-transition all 0.6s
+				-moz-transition all 0.6s
+				-ms-transition all 0.6s
+				-o-transition all 0.6s
+				transition all 0.6s
+				&:hover
+					box-shadow 0 0 20px rgba(0,0,0,0.5)
+					border 1px #aaa solid
+				.ficha-muro-datos
+					padding-top 12px
+					padding-bottom 15px
+					padding-left 15px
+					padding-right 15px
+					color #333
+					line-height 1.3em
+					background-size 90% 8px
+					background url("/images/shadow_top_clear.png") no-repeat top center
+					.ficha-muro-taxonnombre
+						font-size 1.5em
+						font-style italic
+						margin 3px 0
+						font-weight 300
+					.ficha-muro-autor
+						color #888
+					.ficha-muro-taxoncompleto
+						margin-top 10px
+						font-size 0.8em
+						margin-bottom 15px
+					.ficha-muro-nombrescomunes
+						font-size 0.9em
+						margin-bottom 15px
+					.ficha-muro-departamentos
+						font-size 0.9em
+					span.ficha-id
+						font-size 0.5em
+						text-align right
+						vertical-align top
+						margin-left 5px
+h3.ui-state-active
+	background url("/images/flecha_down.png") no-repeat top center !important
+h3.ui-state-default
+	background url("/images/flecha_up.png") no-repeat top center
+footer
+	font-size 0.85em
+	margin 0
+	color #515254 !important
+	background rgba(255,255,255,0.9) url("/images/shadow_top_clear.png") no-repeat top center
+	line-height 1.5em
+	padding 0px
+	display inline-block
+	vertical-align bottom
+	width 100%
+	&.fix_bottom
+		position fixed
+		bottom 0px
+	h3
+		margin 6px 0px
+		height 15px
+	h3.ui-state-default
+		background url("/images/flecha_up.png") no-repeat top center
+	h3.ui-state-active
+		background url("/images/flecha_down.png") no-repeat top center !important
+	h5
+		font-family 'Open Sans'
+		font-size 1.03em
+		padding 0px
+		margin 0px
+		font-weight 700
+		margin-bottom 3px
+	section.sib-cd
+		padding-top 5px
+		a
+			color #515254 !important
+		img
+			margin 0 3px
+			display inline-block
+			vertical-align top
+		span.separator
+			content " "
+			border-right 1px #cfcfcf solid
+			height 30px
+			margin: 20px 0 0 0;
+			padding 0px
+		span
+			display inline-block
+			text-align center
+			vertical-align top
+			margin 0 10px
+			padding 0 10px
+			p
+				display block
+				font-weight 700
+				font-size 0.75em
+				margin-top 12px
+				line-height 1.3em
+				margin-bottom 5px
+	section.sib-moreinfo
+		background url("/images/shadow_bottom_clear.png") no-repeat bottom center !important
+		text-align left
+		a
+			color #515254
+		aside
+			float left
+			background rgba(255,255,255,0.6)
+			-webkit-border-radius 15px
+			border-radius 15px
+			padding 7px
+			-webkit-box-shadow 0px 0px 3px 0px rgba(0,0,0,0.2)
+			box-shadow 0px 0px 3px 0px rgba(0,0,0,0.2)
+			margin-right 20px
+			margin-bottom 10px
+		img
+			margin 0 3px
+			display inline-block
+			vertical-align top
+		div
+			vertical-align top
+			text-align left
+			.location-data
+				padding 0px 0px 0px 20px
+			.links
+				padding 0 20px 0px 20px !important
+				display inline-block
+				border-left 1px #cfcfcf solid
+				a
+					display block
+					vertical-align top
+		span
+			display inline-block
+			text-align center
+			vertical-align top
+		span.redes
+			width 100%
+			margin 15px 0 15px 0px
+		nav
+			border none
+			font-weight bold
+			vertical-align top
+			margin-top 15px
+			margin-left 20px
+			a
+				margin 0 30px 0 3px
+				font-weight bold
+				font-size 1.1em
+#catalogRecord
+	.container
+		padding-bottom 30px
+		
+		h1.taxonName
+			font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
+			color #2288C9
+			font-weight 300
+			font-style italic
+			margin-top 0px
+			font-size 30px
+			font-size 2.5em
+		h2.author
+			margin-top 0px
+			color #333
+			font-weight 300
+			font-size: 14px;
+		#recordPictures
+			text-align center
+			img
+				-webkit-box-shadow 3px 3px 3px rgba(34,25,25,0.4)
+				-moz-box-shadow 3px 3px 3px rgba(34,25,25,0.4)
+				box-shadow 3px 3px 3px rgba(34,25,25,0.4)
+				-webkit-transition all 0.6s
+				-moz-transition all 0.6s
+				-ms-transition all 0.6s
+				-o-transition all 0.6s
+				transition all 0.6s
+				margin-bottom 10px
+				display inline
+				width 400px
+			.carousel-control.left
+				background-image none
+			.carousel-control.right
+				background-image none
+		#recordHeader
+			padding-bottom 5px
+			.fullTaxonContainer
+				display block
+				.taxonComplete
+					font-size 1em
+					background rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom
+					padding 6px 12px
+					-webkit-border-radius 10px
+					border-radius 10px
+					display block
+					margin-top 10px
+					padding 20px
+					width 80%
+					text-transform uppercase
+					
+					div
+						display block
+						margin-bottom -10px
+						&:last-child:after
+							display none !important
+
+						for row in 1 2 3 4 5 6 7
+							&:nth-child({row})
+								margin-left 10% * (row - 1)
+
+						strong
+							margin-right 3px
+						span
+							&:after
+								content ""
+								display block
+								position relative
+								width 20px
+								height 18px
+								border-left #48a0bd solid 2px
+								border-bottom #48a0bd solid 2px
+								margin-left 30px
+						
+						&:last-child span:after
+							display none !important
+						&.ng-hide+div
+							margin-left 10%
+						&.ng-hide+div+div
+							margin-left 20%
+						&.ng-hide+div+div+div
+							margin-left 30%
+						&.ng-hide+div+div+div+div
+							margin-left 40%
+						&.ng-hide+div+div+div+div+div
+							margin-left 50%
+						&:last-child span
+							text-transform none !important
+							font-style italic !important
+							font-size 1.1em
+			#recordTitles
+				h1.taxonName
+					font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
+					color #2288C9
+					font-weight 300
+					font-style italic
+					margin-top 0px
+				h2.author
+					color #888
+					font-size: 18px;
+					margin-bottom 20px
+		.recordContent
+			margin-left 0px
+			margin-right 0px
+			span
+				-moz-column-count 2
+				-moz-column-gap 20px
+				-webkit-column-count 2
+				-webkit-column-gap 20px
+				column-count 2
+				column-gap 20px
+			>h1+div
+				padding 1px 0 13px 25px
+			h1
+				background-color #89BE70
+				color white
+				padding 13px
+				font-weight 300
+				margin 10px 0
+				font-size 1.5em
+				line-height 1em
+				display block
+				-webkit-border-radius 10px
+				-moz-border-radius 10px
+				border-radius 10px
+				text-transform uppercase
+				img
+					padding 0 15px 0 0
+					margin 0
+					max-height 35px
+					max-width 35px
+			h2
+				color #89BE70
+				text-transform uppercase
+				font-weight 300
+				font-size 1.5em
+				margin 15px 0 5px 0
+				line-height 1.2em
+			h3
+				color black
+				font-weight bold
+				font-size 14px
+				margin-bottom 2px
+				text-transform uppercase
+				line-height 1.1em
+			.commonName
+				font-size 14px
+				margin-bottom 15px
+				display inline-block
+				vertical-align top
+				font-weight 700
+				padding 10px 20px 10px 20px
+				background-color rgba(255, 255, 255, 0.5)
+				margin 0px 5px 10px 5px
+				span.name
+					font-weight 400
+					padding 0px
+					font-size 1em
+				span.content
+					font-weight 700
+					text-transform uppercase
+					font-size 0.9em
+				h1
+					background-color transparent
+					color #89BE70
+					margin 0px
+					padding 0px
+					font-size 0.9em
+					margin-top 5px
+					margin-bottom 5px
+					font-weight 700
+			ul
+				li
+					vertical-align top
+					line-height 1.2em
+					margin 15px 25px 25px 0
+					list-style-position outside
+					em
+						color #999
+						line-height 0.9em
+			.basicInfoRecord
+				background rgba(140,210,231,0.8)
+				padding 4px 10px
+				margin-bottom 20px
+				-webkit-border-radius 15px
+				border-radius 15px
+				>div
+					display inline-block
+					vertical-align top
+					width 48%
+					padding 15px
+					overflow hidden
+					&:first-child
+						border-right 1px white solid
+				h1
+					background-color transparent
+					padding 0px
+					&+div
+						clear both
+				.title
+					font-weight 700
+					max-width 185px !important
+					text-transform uppercase
+				
+				.tabla div div
+					display inline-block
+					vertical-align top
+					width 60%
+					padding-right 15px
+					overflow hidden
+			.citacion
+				background rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom
+				padding 20px
+				-webkit-border-radius 15px
+				border-radius 15px
+				h1
+					background-color transparent
+					color #52b8d9
+					padding 0px
+				div
+					width auto
+					min-width 100px
+				.title
+					font-weight 400
+					text-transform uppercase
+					width 120px
+					color #52b8d9
+				.tabla div div
+					display inline-block
+					vertical-align top
+					padding-right 15px
+
+.slider
+.collapseSlider
+.sliderExpanded .expandSlider
+	display none
+.sliderExpanded .collapseSlider
+	display block
+.share_icons
+	top 10px
+/* Beta ribbon styles */
+.wrapper
+	position relative
+	z-index 90
+.ribbon-wrapper-green
+	width 100px
+	height 60px
+	overflow hidden
+	position absolute
+	top -3px
+	left 0px
+.ribbon-green
+	font bold 15px Sans-Serif
+	color #333
+	text-align center
+	text-shadow rgba(255,255,255,0.5) 0px 1px 0px
+	-webkit-transform rotate(-45deg)
+	-moz-transform rotate(-45deg)
+	-ms-transform rotate(-45deg)
+	-o-transform rotate(-45deg)
+	position relative
+	padding 7px 0
+	left -31px
+	top 15px
+	width 120px
+	background-color #BFDC7A;
+	background-image -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45))
+	background-image -webkit-linear-gradient(top, #BFDC7A, #8EBF45)
+	background-image -moz-linear-gradient(top, #BFDC7A, #8EBF45)
+	background-image -ms-linear-gradient(top, #BFDC7A, #8EBF45)
+	background-image -o-linear-gradient(top, #BFDC7A, #8EBF45)
+	color #6a6340
+	-webkit-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	-moz-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+.ribbon-green:before, .ribbon-green:after
+	content ""
+	border-bottom 3px solid #6e8900
+	border-left 3px solid transparent
+	border-right 3px solid transparent
+	position absolute
+	bottom -3px
+.ribbon-green:before
+	left 0
+.ribbon-green:after
+	right 0
+/* End of beta ribbon styles */
+/* Wall counter styles */
+.wallCounter
+	position fixed
+	right 0px
+	top 50px
+	background rgba(43, 127, 188, 0.8)
+	padding 4px 10px
+	color white
+	z-index 10
+	font-weight 400
+	font-size 0.85em
+	-webkit-border-radius 0
+	border-radius 0
+	text-transform uppercase
+/* End wall counter styles */
+
+.alertbar
+	//display none
+	background-color azure
+	background rgba(255,255,255,0.9) url("/images/shadow_top_clear.png") no-repeat top center
+	text-align center
+	padding-top 15px
+	padding-bottom 15px
+	h4
+		margin-top 0px
+		margin-bottom 10px
+		color rgb(207, 18, 18)
+
+// Not found alert bar
+.notFound
+	padding 100px 0 0 150px
+	margin 80px auto auto auto
+	width 600px
+	min-height 380px
+	background url("/images/DINO1.png") no-repeat center left
+	text-align left
+	-webkit-border-radius 20px
+	border-radius 20px
+	img
+		margin auto
+	.title
+		color #684B16
+		font-size 2.2em
+		font-weight 300
+		padding 0 0 0 0
+		margin 90px 0 0 56%
+
+	.body
+		font-size 1.3em
+		font-weight normal
+		padding 0 0 0 0
+		margin 0 0 0 56%
+
+@media (max-width:320px)
+	.notFound
+		width 250px
+@media (min-width:321px) and (max-width:767px)
+	.notFound
+		width 300px
+		padding 0 0 0 0
+		background-size 100%
+		.body
+		.title
+			margin 0 0 0 0 
+	.taxonComplete
+		div
+			span
+				&:after
+					margin-left 15px !important
+					width 10px !important
+

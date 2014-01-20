@@ -1,0 +1,81 @@
+block header
+	header(data-ng-controller="SearchOptionsCtrl")
+		nav.navbar(role="navigation")
+			.navbar-header
+				button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-header-catalog-collapse")
+					span.sr-only Toggle navigation
+					span.icon-bar"
+					span.icon-bar"
+					span.icon-bar"
+				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
+					img.img-responsive(src="images/logo_catalogo_especies.png")
+			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
+				.container-center
+					ul.nav.navbar-nav
+						li.dropdown
+							a(class="dropdown-toggle", data-toggle="dropdown") GRUPO BIOLÓGICO
+								b.caret
+							ul.dropdown-menu
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
+									a(data-ng-click="switchTaxon('all') | trackEvent:'Categorias todas las fichas':'Button clicked'", data-ng-href="/#/{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'insecta'}")
+									a(data-ng-click="switchTaxon('insecta') | trackEvent:'Categoria insectos':'Button clicked'", data-ng-href="/#/insectos{{searchOptions.getCurrentURLWithoutTaxon()}}") Insectos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'aves'}")
+									a(data-ng-click="switchTaxon('aves') | trackEvent:'Categoria aves':'Button clicked'", data-ng-href="/#/aves{{searchOptions.getCurrentURLWithoutTaxon()}}") Aves
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'plantae'}")
+									a(data-ng-click="switchTaxon('plantae') | trackEvent:'Categoria plantas':'Button clicked'", data-ng-href="/#/plantas{{searchOptions.getCurrentURLWithoutTaxon()}}") Plantas
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'mammal'}")
+									a(data-ng-click="switchTaxon('mammal') | trackEvent:'Categoria mamíferos':'Button clicked'", data-ng-href="/#/mamiferos{{searchOptions.getCurrentURLWithoutTaxon()}}") Mamíferos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'reptilia'}")
+									a(data-ng-click="switchTaxon('reptilia') | trackEvent:'Categoria reptiles':'Button clicked'", data-ng-href="/#/reptiles{{searchOptions.getCurrentURLWithoutTaxon()}}") Reptiles
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'amphibia'}")
+									a(data-ng-click="switchTaxon('amphibia') | trackEvent:'Categoria anfibios':'Button clicked'", data-ng-href="/#/anfibios{{searchOptions.getCurrentURLWithoutTaxon()}}") Anfibios
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'fungi'}")
+									a(data-ng-click="switchTaxon('fungi') | trackEvent:'Categoria hongos':'Button clicked'", data-ng-href="/#/hongos{{searchOptions.getCurrentURLWithoutTaxon()}}") Hongos
+								li.divider
+								li(data-ng-class="{active: searchOptions.getShowRecordsWithPicture()}")
+									a(data-ng-click="switchShowRecordsWithPicture() | trackEvent:'Se eligió mostrar primero fichas con foto':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Mostrar primero fichas con foto
+						li.divider-vertical.hidden-xs
+							li.dropdown
+								a(class="dropdown-toggle", data-toggle="dropdown") ORDENAR
+									b.caret
+								ul.dropdown-menu
+									li(data-ng-class="{active: searchOptions.getOrderBy() == 'scientificName'}")
+										a(href="") Nombre científico
+									li.divider
+									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'asc'}")
+										a(data-ng-click="switchOrderDirection('asc') | trackEvent:'Mostrar fichas en orden ascendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Ascendente
+									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
+										a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Descendente
+						.navbar-form.navbar-left
+							form(data-ng-submit="go()")
+								.form-group
+									input.form-control(type="text", data-ng-model="currentTextSearch", placeholder="Buscar especies")
+								button.visible-large-screen(type="button", data-ng-click="go() | trackEvent:'Búsqueda realizada':'Button clicked'")
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
+							img.img-responsive(src="images/ico_portal.png")
+					li.hidden-xs.hidden-sm
+						span
+					li.hidden-sm
+						a(href="https://twitter.com/sibcolombia", target="_blank", title="Síguenos en Twitter")
+							img.img-responsive(src="images/ico_twitter.png")
+					li.hidden-sm
+						a(href="https://www.facebook.com/SibColombia", target="_blank", title="Síguenos en facebook")
+							img.img-responsive(src="images/ico_fb.png")
+					li.hidden-sm
+						a(href="http://www.youtube.com/user/sibcolombia", target="_blank", title="Visita nuestro canal en youtube")
+							img.img-responsive(src="images/ico_youtube.png")
+		nav(role="alertmessage")
+			//.alertbar
+				h4 Disculpe las molestias estamos en renovacion
+				span Algunas de las funciones podrian no funcionar, lo invitamos a darnos sus sugerencias y visitarnos nuevamente muy pronto.
+			.notFound.occult-element
+				.row
+					.col-xs-12
+						//img.img-responsive(src="images/DINO1.png")
+						.content
+							.title LO SENTIMOS
+							.body No se encontraron fichas de especie con la condición de búsqueda elegida.
+						
