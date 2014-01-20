@@ -10,6 +10,13 @@ block header
 				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
 					img.img-responsive(src="/images/logo_catalogo_especies.png")
 			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
+				.container-center
+					ul.nav.navbar-nav
+						.navbar-form.navbar-left
+							form(method="get", onsubmit="window.location.href='http://192.168.16.113:3000/#' + '/?q=' + encodeURIComponent(this.elements['q'].value); return false;")
+								.form-group
+									input.form-control(type="text", name="q", placeholder="Buscar especies")
+								button.visible-large-screen(type="submit")
 				ul.nav.navbar-nav.navbar-right
 					li
 						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")

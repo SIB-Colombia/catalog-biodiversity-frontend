@@ -12,7 +12,7 @@ define(['jquery', 'angular', 'filters', 'services', 'directives', 'controllers',
     'catalogFrontend.directives',
     'angularytics'
   ]).config(function(AngularyticsProvider) {
-    AngularyticsProvider.setEventHandlers(['Console', 'GoogleUniversal']);
+    AngularyticsProvider.setEventHandlers(['Console', 'Google']);
   }).run(function(Angularytics) {
     Angularytics.init();
   });
