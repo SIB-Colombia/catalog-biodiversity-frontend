@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Allow: /#/
+Allow: /index
+Allow: /ficha/id
