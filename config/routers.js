@@ -37,6 +37,10 @@ module.exports = function(parent, options){
           method = 'get';
           path = '/';
           break;
+        case 'showAllSpecies':
+          method = 'get';
+          path = '/index';
+          break;
         case 'test':
           method = 'get';
           path = '/test';
