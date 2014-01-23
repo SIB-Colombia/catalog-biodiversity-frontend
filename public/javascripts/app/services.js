@@ -3,8 +3,6 @@ define(['jquery', 'angular'], function($, angular) {
         
 	/* Services */
 
-	// Demonstrate how to register services
-	// In this case it is a simple value service.
 	angular.module('catalogFrontend.services', []).value('version', '0.1');
 
 	// Factory for loading initial data and get nextPage of infiniteScroll
@@ -212,13 +210,6 @@ define(['jquery', 'angular'], function($, angular) {
 			var searchCondition = "";
 			var currentLocation = "/";
 			
-			/*var SearchOptions = function() {
-				this.showRecordsWithPicture = true;
-				this.currentTaxon = "all";;
-				this.orderBy = "scientificName";
-				this.orderDirection = "asc";
-				this.searchCondition = "";
-			};*/
 			function getShowRecordsWithPicture() {
 				return showRecordsWithPicture;
 			};

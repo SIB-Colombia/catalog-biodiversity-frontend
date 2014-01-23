@@ -1,4 +1,4 @@
-define(['jquery', 'angular', 'services', 'angularSanitize'], function ($, angular) {
+define(['jquery', 'angular', 'controllers/record', 'services', 'angularSanitize'], function ($, angular) {
 	'use strict';
 
 	/* Controllers */
