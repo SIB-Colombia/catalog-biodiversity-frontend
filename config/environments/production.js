@@ -17,12 +17,12 @@ module.exports = function(parent) {
 		]
 	});
 
-	var redirect = express();
+	/*var redirect = express();
 
 	redirect.all('*', function(req, res) {
 		console.log(req.subdomains);
-		res.redirect('http://administracion.biodiversidad.co:3000/' + req-subdomains[0]);
+		res.redirect('http://www.biodiversidad.co:3000/' + req-subdomains[0]);
 	});
 
-	parent.use(express.vhost('administracion.biodiversidad.co', redirect));
+	parent.use(express.vhost('http://www.biodiversidad.co/admin', redirect));*/
 };
