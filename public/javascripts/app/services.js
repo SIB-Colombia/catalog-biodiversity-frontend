@@ -202,14 +202,14 @@ define(['jquery', 'angular'], function($, angular) {
 						}
 						this.species.push(items[i]);
 					}
+					if(this.species.length == this.totalregisters) {
+						this.end = true;
+					}
 					this.busy = false;
 					this.page++;
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 8000);
-					if(this.species.length == this.totalregisters) {
-						this.end = true;
-					}
 				}.bind(this));
 
 			};

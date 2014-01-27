@@ -6,11 +6,11 @@ module.exports = function(parent) {
 	parent.set('view engine', 'jade');
 	parent.set('jsonp callback', true );
 	parent.use(express.compress());
-	parent.use(express.favicon({ maxAge: 2592000000 }));
+	parent.use(express.favicon());
 	parent.use(express.logger('dev'));
 	parent.use(express.bodyParser());
 	parent.use(express.methodOverride());
-	parent.use(require('stylus').middleware(__dirname + '/../../public/stylesheets'));
+	parent.use(require('stylus').middleware(__dirname + '/../../public'));
 
 	var env = process.env.NODE_ENV || 'development';
 

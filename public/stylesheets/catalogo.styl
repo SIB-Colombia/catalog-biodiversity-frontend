@@ -1,6 +1,6 @@
 @import unquote('url(http://fonts.googleapis.com/css?family=Economica:400,700,400italic)')
 @import unquote('url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,300italic,400italic)')
-@import url("../components/bootstrap/dist/css/bootstrap.css");
+@import url("../components/bootstrap/dist/css/bootstrap.css")
 *
 	-webkit-transition all 0.4s ease
 	-moz-transition all 0.4s ease
@@ -851,6 +851,69 @@ footer
 .ribbon-green:after
 	right 0
 /* End of beta ribbon styles */
+/* Ribbons for threat status */
+.ribbon-threat-status-wrapper
+	width 200px
+	height 200px
+	overflow hidden
+	position absolute
+	top -3px
+	left 0px
+.ribbon-threat
+	font-size 14px
+	font-family 'Open Sans', Helvetica, sans-serif
+	font-weight: bold;
+	color #333
+	text-align center
+	text-shadow rgba(255,255,255,0.5) 0px 1px 0px
+	-webkit-transform rotate(-45deg)
+	-moz-transform rotate(-45deg)
+	-ms-transform rotate(-45deg)
+	-o-transform rotate(-45deg)
+	position relative
+	padding 7px 0
+	left -41px
+	top 35px
+	width 180px
+	-webkit-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	-moz-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+.ribbon-threat:before, .ribbon-threat:after
+	content ""
+	border-bottom 3px solid #6e8900
+	border-left 3px solid transparent
+	border-right 3px solid transparent
+	position absolute
+	bottom -3px
+.ribbon-threat:before
+	left 0
+.ribbon-threat:after
+	right 0
+.threat-orange
+	background-color #E6721B;
+	background-image -webkit-gradient(linear, left top, left bottom, from(#E6721B), to(#E6721B))
+	background-image -webkit-linear-gradient(top, #E6721B, #E6721B)
+	background-image -moz-linear-gradient(top, #E6721B, #E6721B)
+	background-image -ms-linear-gradient(top, #E6721B, #E6721B)
+	background-image -o-linear-gradient(top, #E6721B, #E6721B)
+	color white
+.threat-red
+	background-color #CA171D;
+	background-image -webkit-gradient(linear, left top, left bottom, from(#CA171D), to(#CA171D))
+	background-image -webkit-linear-gradient(top, #CA171D, #CA171D)
+	background-image -moz-linear-gradient(top, #CA171D, #CA171D)
+	background-image -ms-linear-gradient(top, #CA171D, #CA171D)
+	background-image -o-linear-gradient(top, #CA171D, #CA171D)
+	color white
+.threat-yellow
+	background-color #E8AC1A;
+	background-image -webkit-gradient(linear, left top, left bottom, from(#E8AC1A), to(#E8AC1A))
+	background-image -webkit-linear-gradient(top, #E8AC1A, #E8AC1A)
+	background-image -moz-linear-gradient(top, #E8AC1A, #E8AC1A)
+	background-image -ms-linear-gradient(top, #E8AC1A, #E8AC1A)
+	background-image -o-linear-gradient(top, #E8AC1A, #E8AC1A)
+	color white
+/* End of ribbon threat status */
 /* Wall counter styles */
 .wallCounter
 	position fixed
@@ -921,4 +984,3 @@ footer
 				&:after
 					margin-left 15px !important
 					width 10px !important
-

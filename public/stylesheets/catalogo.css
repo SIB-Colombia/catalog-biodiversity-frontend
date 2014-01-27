@@ -16,12 +16,12 @@ a {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
 }
--ms-transition all 0.5sease-in-out,
--o-transition all 0.5sease-in-out {
+-ms-transition all 0.5s ease-in-out,
+-o-transition all 0.5s ease-in-out {
   transition: all 0.5s ease-in-out;
 }
--ms-transition all 0.5sease-in-out:hover,
--o-transition all 0.5sease-in-out:hover {
+-ms-transition all 0.5s ease-in-out:hover,
+-o-transition all 0.5s ease-in-out:hover {
   color: #00a0ff;
   text-decoration: none;
 }
@@ -1003,6 +1003,78 @@ footer section.sib-moreinfo nav a {
   right: 0;
 }
 /* End of beta ribbon styles */
+/* Ribbons for threat status */
+.ribbon-threat-status-wrapper {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  left: 0px;
+}
+.ribbon-threat {
+  font-size: 14px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -41px;
+  top: 35px;
+  width: 180px;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+}
+.ribbon-threat:before,
+.ribbon-threat:after {
+  content: "";
+  border-bottom: 3px solid #6e8900;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  bottom: -3px;
+}
+.ribbon-threat:before {
+  left: 0;
+}
+.ribbon-threat:after {
+  right: 0;
+}
+.threat-orange {
+  background-color: #e6721b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e6721b), to(#e6721b));
+  background-image: -webkit-linear-gradient(top, #e6721b, #e6721b);
+  background-image: -moz-linear-gradient(top, #e6721b, #e6721b);
+  background-image: -ms-linear-gradient(top, #e6721b, #e6721b);
+  background-image: -o-linear-gradient(top, #e6721b, #e6721b);
+  color: #fff;
+}
+.threat-red {
+  background-color: #ca171d;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ca171d), to(#ca171d));
+  background-image: -webkit-linear-gradient(top, #ca171d, #ca171d);
+  background-image: -moz-linear-gradient(top, #ca171d, #ca171d);
+  background-image: -ms-linear-gradient(top, #ca171d, #ca171d);
+  background-image: -o-linear-gradient(top, #ca171d, #ca171d);
+  color: #fff;
+}
+.threat-yellow {
+  background-color: #e8ac1a;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e8ac1a), to(#e8ac1a));
+  background-image: -webkit-linear-gradient(top, #e8ac1a, #e8ac1a);
+  background-image: -moz-linear-gradient(top, #e8ac1a, #e8ac1a);
+  background-image: -ms-linear-gradient(top, #e8ac1a, #e8ac1a);
+  background-image: -o-linear-gradient(top, #e8ac1a, #e8ac1a);
+  color: #fff;
+}
+/* End of ribbon threat status */
 /* Wall counter styles */
 .wallCounter {
   position: fixed;
