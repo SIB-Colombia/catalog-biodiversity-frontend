@@ -44,6 +44,10 @@ exports.index = function(req, res) {
 	);
 };
 
+exports.redirectAdministrationUrl = function(req, res) {
+	res.redirect('http://www.biodiversidad.co:3000');
+};
+
 exports.showAllSpecies = function(req, res) {
 	async.parallel(
 		{

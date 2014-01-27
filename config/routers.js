@@ -37,6 +37,10 @@ module.exports = function(parent, options){
           method = 'get';
           path = '/';
           break;
+        case 'redirectAdministrationUrl':
+          method = 'get';
+          path = '/admin';
+          break;
         case 'showAllSpecies':
           method = 'get';
           path = '/index';
