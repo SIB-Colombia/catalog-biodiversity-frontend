@@ -43,7 +43,7 @@ a {
   text-align: center;
 }
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 #flower {
   height: 70px;
