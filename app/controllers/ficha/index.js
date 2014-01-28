@@ -26,6 +26,8 @@ exports.show = function(req, res) {
 			if(err)
 				res.send(handleError(err));
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
+			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
+			res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
 			res.render('show', { data: JSON.stringify(result.registerData[registerID]) } );
 		}
 	);

@@ -7,7 +7,7 @@ block content
 		li 
 			a(href="/") Principal
 		li.active(data-ng-bind="'Ficha de especie Nº '+record.data.catalogoespecies_id")
-	section#catalogRecord
+	section#catalogRecord.hidden
 		.container
 			.row
 				.col-lg-4.col-md-4.col-sm-5
@@ -15,6 +15,11 @@ block content
 					h2.author(data-ng-bind="'Autor: '+record.data.info_taxonomica.autor", class="visible-xs")
 					#recordPictures(data-ng-if="record.data.currentImages")
 						div(data-ng-if="record.data.currentImages.length > 1")
+							.wrapper(ng-if="record.data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0")
+								.ribbon-threat-status-wrapper(ng-repeat="threatStatus in record.data.atributos['Estado de amenaza según categorías UICN']['En Colombia']")
+									.ribbon-threat(ng-show="threatStatus == 'CR (en peligro crítico)'", class="threat-red") En Peligro Crítico
+									.ribbon-threat(ng-show="threatStatus == 'EN (en peligro)'", class="threat-orange") En Peligro
+									.ribbon-threat(ng-show="threatStatus == 'VU (vulnerable)'", class="threat-yellow") Vulnerable
 							#carrusel-imagen-especie.carousel.slide(data-ride="carousel")
 								ol.carousel-indicators
 									li(ng-repeat="image in record.data.currentImages", data-ng-class="{active: $first}", data-target="#carrusel-imagen-especie" data-slide-to="{{$index}}")
@@ -26,6 +31,11 @@ block content
 								a.right.carousel-control(href="#carrusel-imagen-especie" data-slide="next")
 									span.glyphicon.glyphicon-chevron-right
 						div(data-ng-if="record.data.currentImages.length == 1")
+							.wrapper(ng-if="record.data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0")
+								.ribbon-threat-status-wrapper(ng-repeat="threatStatus in record.data.atributos['Estado de amenaza según categorías UICN']['En Colombia']")
+									.ribbon-threat(ng-show="threatStatus == 'CR (en peligro crítico)'", class="threat-red") En Peligro Crítico
+									.ribbon-threat(ng-show="threatStatus == 'EN (en peligro)'", class="threat-orange") En Peligro
+									.ribbon-threat(ng-show="threatStatus == 'VU (vulnerable)'", class="threat-yellow") Vulnerable
 							img(data-ng-src='{{ record.data.currentImages[0] }}', class="img-responsive")
 				.col-lg-8.col-md-8.col-sm-7
 					#recordHeader
@@ -183,4 +193,4 @@ block content
 								div(data-ng-bind="record.data.fechaelaboracion")
 							div(data-ng-show="record.data.fechaactualizacion")
 								div.title Actualizada
-								div(data-ng-bind="record.data.fechaactualizacion")
+								div(data-ng-bind="record.data.fechaactualizacion")		}

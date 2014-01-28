@@ -12,6 +12,7 @@ define(['jquery', 'angular', 'controllers/record', 'services', 'angularSanitize'
 				// any of your other modules, make sure you include it together with 'ng'
 				// Furthermore we need to pass on the $scope as it's unique to this controller
 				$injector.invoke(record, this, {'$scope': $scope});
+				$("#catalogRecord").removeClass("hidden");
 			});
 		}]);
 });

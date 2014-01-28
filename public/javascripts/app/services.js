@@ -225,7 +225,6 @@ define(['jquery', 'angular'], function($, angular) {
 					this.data.currentImages = this.data.atributos.imagenThumb140;
 				}
 			};
-
 			return Record;
 		}])
 		.factory('SearchOptions', ['$http', function ($http) {
