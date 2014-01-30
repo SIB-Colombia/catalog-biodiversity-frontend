@@ -41,9 +41,9 @@ block content
 					#recordHeader
 						#recordTitles
 							.taxonNameContainer(data-ng-show="record.data.info_taxonomica.taxonnombre", class="hidden-xs")
-								h1.taxonName(data-ng-bind="record.data.info_taxonomica.taxonnombre")
+								h1.taxonName(data-ng-bind-html="record.data.info_taxonomica.taxonnombre")
 							.authorContainer(data-ng-show="record.data.info_taxonomica.autor", class="hidden-xs")
-								h2.author(data-ng-bind="'Autor: '+record.data.info_taxonomica.autor")
+								h2.author(data-ng-bind-html="'Autor: '+record.data.info_taxonomica.autor", data-ng-show="record.data.info_taxonomica.autor")
 							.fullTaxonContainer
 								.taxonComplete
 									div(data-ng-show="record.data.reino")
@@ -89,7 +89,7 @@ block content
 					span(data-ng-bind-html="record.data.atributos['Distribución geográfica en Colombia'][0]")
 
 					h2(data-ng-show="record.data.atributos['Ecosistema']") Ecosistema
-					span(data-ng-bind-html="record.data.atributos['Ecosistema'][0]")
+					span(ccc="record.data.atributos['Ecosistema'][0]")
 
 					h2(data-ng-show="record.data.atributos['Región natural']") Región natural
 					span(data-ng-bind-html="record.data.atributos['Región natural'][0]")

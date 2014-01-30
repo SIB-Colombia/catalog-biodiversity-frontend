@@ -49,6 +49,12 @@ head(data-ng-controller="RecordCtrl")
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 
+	//- Including RequiereJS module loader for production
+	//- script(data-main="/javascripts/record-built", src="/javascripts/require.js")
+
+	// Including RequiereJS module loader for development
+	script(data-main="/javascripts/record", src="/javascripts/require.js")
+
 body
 	.wrapper
 		.ribbon-wrapper-green
@@ -60,9 +66,3 @@ body
 			block content
 		section#footer-zone
 			include includes/footer
-
-	//- Including RequiereJS module loader for production
-	//- script(data-main="/javascripts/record-built", src="/javascripts/require.js")
-
-	// Including RequiereJS module loader for development
-	script(data-main="/javascripts/record", src="/javascripts/require.js")
