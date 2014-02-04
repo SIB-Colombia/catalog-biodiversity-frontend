@@ -37,6 +37,9 @@ block content
 									.ribbon-threat(ng-show="threatStatus == 'EN (en peligro)'", class="threat-orange") EN
 									.ribbon-threat(ng-show="threatStatus == 'VU (vulnerable)'", class="threat-yellow") VU
 							img(data-ng-src='{{ record.data.currentImages[0] }}', class="img-responsive")
+					#recordPictures(data-ng-if="!record.data.currentImages")
+						div
+							img(data-ng-src='{{ record.data.currentImage }}', class="img-responsive")
 				.col-lg-8.col-md-8.col-sm-7
 					#recordHeader
 						#recordTitles

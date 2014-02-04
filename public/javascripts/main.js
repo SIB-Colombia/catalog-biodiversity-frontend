@@ -52,6 +52,9 @@ requirejs.config({
 		},
 		'angularSanitize': {
 			deps: ['angular']
+		},
+		'angulari18n': {
+			deps: ['angular']
 		}
 	},
 	priority: [
