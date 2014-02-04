@@ -41,8 +41,7 @@
     "winston": "0.7.2",
     "underscore": "1.5.2",
     "clean-css": "*",
-    "nodemon": "*",
-    "clean-css": "*"
+    "nodemon": "*"
   },
   "devDependencies": {
     "supertest": "latest",
