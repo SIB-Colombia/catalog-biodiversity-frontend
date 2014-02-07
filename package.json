@@ -41,6 +41,7 @@
     "winston": "0.7.2",
     "underscore": "1.5.2",
     "clean-css": "*",
+    "simple-http-proxy": "latest",
     "nodemon": "*"
   },
   "devDependencies": {
