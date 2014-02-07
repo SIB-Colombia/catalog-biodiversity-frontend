@@ -14,7 +14,7 @@ require('./config/runtime_vars');
 // Load app configuration
 require('./config/environments/all')(app);
 
-app.use("/fotoblog", proxy("http://192.168.16.113:8080/fotoblog/")); //Module for SIB Colombia Photoblog proxy, you can delete it without consequences
+app.use("/fotoblog", proxy("http://www.biodiversidad.co:8080/fotoblog/")); //Module for SIB Colombia Photoblog proxy, you can delete it without consequences
 
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
