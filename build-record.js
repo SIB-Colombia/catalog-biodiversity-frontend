@@ -2,7 +2,7 @@
 	baseUrl: "public/javascripts/app",
 	optimize: "uglify2",
 	paths: {
-		jquery: '../../components/jquery/jquery.min',
+		jquery: '../../components/jquery/dist/jquery.min',
 		jqueryui: '../../components/jquery-ui/ui/jquery-ui',
 		bootstrap: '../../components/bootstrap/dist/js/bootstrap.min',
 		angular: '../../components/angular/angular.min',
