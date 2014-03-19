@@ -26,9 +26,33 @@ exports.show = function(req, res) {
 			if(err)
 				res.send(handleError(err));
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
+			var metaTagOgImage;
+			if (typeof result.registerData[registerID].atributos.imagenThumb270 != "undefined") {
+				metaTagOgImage = result.registerData[registerID].atributos.imagenThumb270;
+			} else if (typeof result.registerData[registerID].atributos.imagenThumb140 != "undefined") {
+				metaTagOgImage = result.registerData[registerID].atributos.imagenThumb140;
+			} else {
+				if(result.registerData[registerID].reino.toLowerCase() == "animalia" && result.registerData[registerID].clase.toLowerCase() == "aves") {
+					metaTagOgImage = "/images/taxon_icons/aves.png";
+				} else if(result.registerData[registerID].reino.toLowerCase() == "animalia" && result.registerData[registerID].clase.toLowerCase() == "reptilia") {
+					metaTagOgImage = "/images/taxon_icons/reptiles.png";
+				} else if(result.registerData[registerID].reino.toLowerCase() == "animalia" && (result.registerData[registerID].clase.toLowerCase() == "mammalia" || result.registerData[registerID].clase.toLowerCase() == "mamalia")) {
+					metaTagOgImage = "/images/taxon_icons/mamiferos.png";
+				} else if(result.registerData[registerID].reino.toLowerCase() == "animalia" && result.registerData[registerID].clase.toLowerCase() == "insecta") {
+					metaTagOgImage = "/images/taxon_icons/insectos.png";
+				} else if(result.registerData[registerID].reino.toLowerCase() == "plantae") {
+					metaTagOgImage = "/images/taxon_icons/plantas.png";
+				} else if(result.registerData[registerID].reino.toLowerCase() == "fungi") {
+					metaTagOgImage = "/images/taxon_icons/hongos.png";
+				} else if(result.registerData[registerID].reino.toLowerCase() == "animalia" && result.registerData[registerID].clase.toLowerCase() == "amphibia") {
+					metaTagOgImage = "/images/taxon_icons/anfibios.png";
+				} else {
+					metaTagOgImage = "/images/taxon_icons/vida.png";
+				}
+			}
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
 			res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
-			res.render('show', { data: JSON.stringify(result.registerData[registerID]) } );
+			res.render('show', { data: JSON.stringify(result.registerData[registerID]), metaImageOg: metaTagOgImage } );
 		}
 	);
 };

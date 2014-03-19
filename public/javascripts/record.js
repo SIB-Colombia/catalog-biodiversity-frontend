@@ -7,7 +7,7 @@ requirejs.config({
 	//never includes a ".js" extension since
 	//the paths config could be for a directory.
 	paths: {
-		jquery: '../../components/jquery/jquery.min',
+		jquery: '../../components/jquery/dist/jquery.min',
 		jqueryui: '../../components/jquery-ui/ui/jquery-ui',
 		bootstrap: '../../components/bootstrap/dist/js/bootstrap.min',
 		angular: '../../components/angular/angular.min',
