@@ -28,9 +28,9 @@ exports.show = function(req, res) {
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
 			var metaTagOgImage;
 			if (typeof result.registerData[registerID].atributos.imagenThumb270 != "undefined") {
-				metaTagOgImage = result.registerData[registerID].atributos.imagenThumb270;
+				metaTagOgImage = result.registerData[registerID].atributos.imagenThumb270[0];
 			} else if (typeof result.registerData[registerID].atributos.imagenThumb140 != "undefined") {
-				metaTagOgImage = result.registerData[registerID].atributos.imagenThumb140;
+				metaTagOgImage = result.registerData[registerID].atributos.imagenThumb140[0];
 			} else {
 				if(result.registerData[registerID].reino.toLowerCase() == "animalia" && result.registerData[registerID].clase.toLowerCase() == "aves") {
 					metaTagOgImage = "/images/taxon_icons/aves.png";
