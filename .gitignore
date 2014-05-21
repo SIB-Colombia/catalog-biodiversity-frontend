@@ -16,6 +16,7 @@ lib-cov
 pids
 logs
 results
+newrelic.js
 
 npm-debug.log
 node_modules
