@@ -9,7 +9,7 @@ module.exports = function(parent) {
 		next();
 	});
 	parent.use(express.static(path.join(__dirname, '/../../public')));
-	
+
 	logger = new (winston.Logger)({
 		transports: [
 			new (winston.transports.Console)({ level: 'error' }),

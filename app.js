@@ -19,6 +19,10 @@ require('./config/environments/all')(app);
 
 app.use("/fotoblog", proxy("http://www.biodiversidad.co:8080/fotoblog/")); //Module for SIB Colombia Photoblog proxy, you can delete it without consequences
 
+var options = {};
+options.agent = false;
+
+http.request(options)
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
 });

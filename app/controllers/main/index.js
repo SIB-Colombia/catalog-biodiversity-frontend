@@ -40,6 +40,7 @@ exports.index = function(req, res) {
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
 			res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
 			res.render('index', { data: JSON.stringify(result.initialRecordsSpeciesData), dataRandom: JSON.stringify(result.initialRecordsSpeciesDataRandomWithImages) } );
+      //res.render('index');
 		}
 	);
 };

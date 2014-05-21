@@ -1,15 +1,20 @@
-var express = require('express')
+var express = require('express');
+var compress = require('compression');
+var morgan  = require('morgan');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var favicon = require('serve-favicon')
   , path = require('path');
 
 module.exports = function(parent) {
 	parent.set('port', process.env.PORT || appConfigVars.port);
 	parent.set('view engine', 'jade');
 	parent.set('jsonp callback', true );
-	parent.use(express.compress());
-	parent.use(express.favicon());
-	parent.use(express.logger('dev'));
-	parent.use(express.bodyParser());
-	parent.use(express.methodOverride());
+	parent.use(compress());
+	parent.use(favicon(__dirname + '/../../public/images/favicon.ico'));
+	parent.use(morgan('dev'));
+	parent.use(bodyParser());
+	parent.use(methodOverride());
 	parent.use(require('stylus').middleware(__dirname + '/../../public'));
 
 	var env = process.env.NODE_ENV || 'development';
