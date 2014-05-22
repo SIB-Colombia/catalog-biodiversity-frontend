@@ -47,7 +47,7 @@ define([], function() {
 			// i.e. this.masonry.columnWidth = ...
 			this.masonry.columnWidth = colW;
 		};
-		  
+
 		$.Isotope.prototype._masonryReset = function() {
 			// layout-specific props
 			this.masonry = {};
@@ -66,7 +66,7 @@ define([], function() {
 			this._getCenteredMasonryColumns();
 			return ( this.masonry.cols !== prevColCount );
 		};
-		  
+
 		$.Isotope.prototype._masonryGetContainerSize = function() {
 			var unusedCols = 0,
 			i = this.masonry.cols;

@@ -1,6 +1,6 @@
 define(['jquery', 'angular'], function($, angular) {
 	'use strict';
-        
+
 	/* Services */
 
 	angular.module('catalogFrontend.services', []).value('version', '0.1');
@@ -12,6 +12,7 @@ define(['jquery', 'angular'], function($, angular) {
 				$("nav .notFound").addClass("occult-element");
 				this.species = [];
 				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
+					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
 					for(var i in dataVarRandomImages.data) {
 						if (typeof dataVarRandomImages.data[i].imagenes.imagenThumb270 != "undefined") {
@@ -71,6 +72,8 @@ define(['jquery', 'angular'], function($, angular) {
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 3000);
+					this.page = 2;
+					this.busy = false;
 				} else {
 					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page=1';
 					if(searchOptions.getCurrentTaxon() != 'all') {
@@ -134,6 +137,8 @@ define(['jquery', 'angular'], function($, angular) {
 							if(this.species.length == this.totalregisters) {
 								this.end = true;
 							}
+							this.page = 2;
+							this.busy = false;
 						} else {
 							$("#wall-container-wrapper").removeClass("loading2");
 							$("nav .notFound").removeClass("occult-element");
@@ -141,8 +146,6 @@ define(['jquery', 'angular'], function($, angular) {
 						}
 					}.bind(this));
 				}
-				this.busy = false;
-				this.page = 2;
 				this.taxonType = searchOptions.getCurrentTaxon();
 				this.showWithPriorityPicture = searchOptions.getShowRecordsWithPicture();
 				this.orderDirection = searchOptions.getOrderDirection();
@@ -252,7 +255,7 @@ define(['jquery', 'angular'], function($, angular) {
 			var orderDirection = "asc";
 			var searchCondition = "";
 			var currentLocation = "/";
-			
+
 			function getShowRecordsWithPicture() {
 				return showRecordsWithPicture;
 			};
@@ -299,7 +302,7 @@ define(['jquery', 'angular'], function($, angular) {
 						first = false;
 					} else {
 						url += "&q="+searchCondition;
-					}	
+					}
 				}
 				return url;
 			};
@@ -325,7 +328,7 @@ define(['jquery', 'angular'], function($, angular) {
 						first = false;
 					} else {
 						url += "&q="+searchCondition;
-					}	
+					}
 				}
 				return url;
 			};
