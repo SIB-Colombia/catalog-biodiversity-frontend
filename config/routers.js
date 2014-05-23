@@ -43,7 +43,11 @@ module.exports = function(parent, options){
           break;
         case 'showAllSpecies':
           method = 'get';
-          path = '/index';
+          path = '/species_list_dynamic';
+          break;
+        case 'showAllSpeciesSimple':
+          method = 'get';
+          path = '/listado_especies';
           break;
         case 'test':
           method = 'get';

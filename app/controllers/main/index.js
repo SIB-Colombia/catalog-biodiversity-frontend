@@ -73,6 +73,10 @@ exports.showAllSpecies = function(req, res) {
 	);
 }
 
+exports.showAllSpeciesSimple = function(req, res) {
+  res.render('showlistspeciessimple');
+}
+
 exports.test = function(req, res) {
 	res.render('index');
 };

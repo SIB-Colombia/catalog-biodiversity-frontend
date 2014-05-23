@@ -1,4 +1,4 @@
-!!!5
+doctype html
 //if IE 8
 	|<html class="no-js lt-ie9">
 //if gt IE 8
@@ -19,8 +19,8 @@ head(data-ng-controller="RecordCtrl")
 	meta(name="google-site-verification" content="nm1-g-rVHscAi_K7O9e-s3EE7rEDorSu9OFagozmx3Q")
 	link(rel="Shortcut Icon" href="/images/favicon.ico")
 	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
-	
-	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+
+	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
 	//if lt IE 9
 		script(src='http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js')
 		script(src='htpp://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js')
@@ -28,6 +28,11 @@ head(data-ng-controller="RecordCtrl")
 	// Stylesheets
 	link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
 	link(rel='stylesheet', href='/stylesheets/catalogo.css')
+
+	style.
+		h1 {
+			font-size: 16px;
+		}
 
 	script.
 		var _gaq = _gaq || [];
@@ -47,5 +52,6 @@ body
 				.col-lg-12.col-md-12.col-sm-12
 					each val in data.data
 						li
-							a(href="http://www.biodiversidad.co/ficha/id/#{val.id}")
-								= val.taxon_nombre
+							h1
+								a(href="/ficha/id/#{val.id}")
+									= val.taxon_nombre
