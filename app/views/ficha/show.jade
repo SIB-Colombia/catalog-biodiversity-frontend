@@ -16,7 +16,7 @@ block content
 						!= data.info_taxonomica.autor
 					if data.currentImages
 						#recordPictures
-							if data.currentImages.length > 1
+							if data.currentImages && data.currentImages.length > 1
 								div
 									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
 										.wrapper
@@ -47,9 +47,9 @@ block content
 											span.glyphicon.glyphicon-chevron-left
 										a.right.carousel-control(href="#carrusel-imagen-especie" data-slide="next")
 											span.glyphicon.glyphicon-chevron-right
-							if data.currentImages.length == 1
+							if data.currentImages && data.currentImages.length == 1
 								div
-									if data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
+									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
 										.wrapper
 											each threatStatus in data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
 												.ribbon-threat-status-wrapper
@@ -186,12 +186,12 @@ block content
 				div
 					if data.atributos['Estado de amenaza según categorías UICN']
 						h2 Estado de amenaza según categorías UICN
-						if data.atributos['Estado de amenaza según categorías UICN']['En el mundo']
+						if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En el mundo']
 							h3 En el mundo
 							span!= data.atributos['Estado de amenaza según categorías UICN']['En el mundo'][0]
 						div.amenaza
 							div
-								if data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
+								if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
 									.wrapper
 										each threatStatus in data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
 											.ribbon-threat-status-wrapper
@@ -202,7 +202,7 @@ block content
 												if threatStatus == 'VU (vulnerable)'
 													.ribbon-threat(class="threat-yellow") VU
 							span
-								if data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
+								if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
 									h3 En Colombia
 									span!= data.atributos['Estado de amenaza según categorías UICN']['En Colombia'][0]
 
