@@ -49,7 +49,7 @@ block content
 											span.glyphicon.glyphicon-chevron-right
 							if data.currentImages && data.currentImages.length == 1
 								div
-									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
+									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
 										.wrapper
 											each threatStatus in data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
 												.ribbon-threat-status-wrapper
