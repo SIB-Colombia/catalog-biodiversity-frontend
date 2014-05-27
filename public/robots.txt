@@ -1,5 +1,3 @@
 User-agent: *
-Allow: /
-Allow: /#/
-Allow: /index
-Allow: /ficha/id
+Disallow: /cgi-bin/
+Disallow: /tmp/
