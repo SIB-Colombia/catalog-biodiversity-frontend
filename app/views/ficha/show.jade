@@ -122,61 +122,61 @@ block content
 					img(src='/images/secciones/distribucion.png')
 					| Distribución
 				div
-					if data.atributos['Distribución altitudinal']
+					if data.atributos && data.atributos['Distribución altitudinal']
 						h2 Distribución altitudinal
 						span!= data.atributos['Distribución altitudinal'][0]
 
-					if data.atributos['Distribución geográfica en Colombia']
+					if data.atributos && data.atributos['Distribución geográfica en Colombia']
 						h2 Distribución geográfica en Colombia
 						span!= data.atributos['Distribución geográfica en Colombia'][0]
 
-					if data.atributos['Ecosistema']
+					if data.atributos && data.atributos['Ecosistema']
 						h2 Ecosistema
 						span!= data.atributos['Ecosistema'][0]
 
-					if data.atributos['Región natural']
+					if data.atributos && data.atributos['Región natural']
 						h2 Región natural
 						span!= data.atributos['Región natural'][0]
 
-					if data.atributos['Distribución geográfica en el mundo']
+					if data.atributos && data.atributos['Distribución geográfica en el mundo']
 						h2 Distribución geográfica en el mundo
 						span!= data.atributos['Distribución geográfica en el mundo'][0]
 
-					if data.atributos['Registros biológicos']
+					if data.atributos && data.atributos['Registros biológicos']
 						h2 Registros biológicos
 						span!= data.atributos['Registros biológicos'][0]
 				h1
 					img(src='/images/secciones/historia.png')
 					| Historia natural
 				div
-					if data.atributos['Alimentación']
+					if data.atributos && data.atributos['Alimentación']
 						h2 Alimentación
 						span!= data.atributos['Alimentación'][0]
 
-					if data.atributos['Comportamiento']
+					if data.atributos && data.atributos['Comportamiento']
 						h2 Comportamiento
 						span!= data.atributos['Comportamiento'][0]
 
-					if data.atributos['Hábitat']
+					if data.atributos && data.atributos['Hábitat']
 						h2 Hábitat
 						span!= data.atributos['Hábitat'][0]
 
-					if data.atributos['Vocalizaciones']
+					if data.atributos && data.atributos['Vocalizaciones']
 						h2 Vocalizaciones
 						span!= data.atributos['Vocalizaciones'][0]
 
-					if data.atributos['Reproducción']
+					if data.atributos && data.atributos['Reproducción']
 						h2 Reproducción
 						span!= data.atributos['Reproducción'][0]
 
-					if data.atributos['Descripción general']
+					if data.atributos && data.atributos['Descripción general']
 						h2 Descripción general
 						span!= data.atributos['Descripción general'][0]
 				h1
 					img(src='/images/secciones/taxonomia.png')
 					| Taxonomía
 				div
-					if data.atributos['Descripción taxonómica']
+					if data.atributos && data.atributos['Descripción taxonómica']
 						h2 Descripción taxonómica
 						span!= data.atributos['Descripción taxonómica'][0]
 
@@ -184,7 +184,7 @@ block content
 					img(src='/images/secciones/conservacion.png')
 					| Estado de conservación
 				div
-					if data.atributos['Estado de amenaza según categorías UICN']
+					if data.atributos && data.atributos['Estado de amenaza según categorías UICN']
 						h2 Estado de amenaza según categorías UICN
 						if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En el mundo']
 							h3 En el mundo
@@ -206,15 +206,15 @@ block content
 									h3 En Colombia
 									span!= data.atributos['Estado de amenaza según categorías UICN']['En Colombia'][0]
 
-					if data.atributos['Factores de amenaza']
+					if data.atributos && data.atributos['Factores de amenaza']
 						h2 Factores de amenaza
 						span!= data.atributos['Factores de amenaza'][0]
 
-					if data.atributos['Estado actual de la población']
+					if data.atributos && data.atributos['Estado actual de la población']
 						h2 Estado actual de la población
 						span!= data.atributos['Estado actual de la población'][0]
 
-					if data.atributos['Medidas de conservación']
+					if data.atributos && data.atributos['Medidas de conservación']
 						h2 Medidas de conservación
 						span!= data.atributos['Medidas de conservación'][0]
 
@@ -222,7 +222,7 @@ block content
 					img(src='/images/secciones/informacion.png')
 					| Más información
 				div
-					if data.atributos['Referencias bibliográficas']
+					if data.atributos && data.atributos['Referencias bibliográficas']
 						h2 Referencias bibliográficas
 						each referenciaBibliografica in data.atributos['Referencias bibliográficas']
 							ul
