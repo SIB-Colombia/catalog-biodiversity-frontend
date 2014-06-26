@@ -122,6 +122,9 @@ block content
 					img(src='/images/secciones/distribucion.png')
 					| Distribución
 				div
+					if data.atributos && data.atributos['Mapa']
+						h2 Mapa
+						img(src="http://www.biodiversidad.co:3000/mapa/#{data.atributos['Mapa']}", class="img-responsive")
 					if data.atributos && data.atributos['Distribución altitudinal']
 						h2 Distribución altitudinal
 						span!= data.atributos['Distribución altitudinal'][0]
@@ -247,6 +250,9 @@ block content
 					img(src='/images/secciones/informacion.png')
 					| Más información
 				div
+					if data.atributos && data.atributos['Créditos específicos']
+						h2 Créditos específicos
+						span!= data.atributos['Créditos específicos'][0]
 					if data.atributos && data.atributos['Referencias bibliográficas']
 						h2 Referencias bibliográficas
 						each referenciaBibliografica in data.atributos['Referencias bibliográficas']
