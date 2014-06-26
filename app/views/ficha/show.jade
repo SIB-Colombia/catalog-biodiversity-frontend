@@ -161,6 +161,10 @@ block content
 						h2 Hábitat
 						span!= data.atributos['Hábitat'][0]
 
+					if data.atributos && data.atributos['Hábito']
+						h2 Hábito
+						span!= data.atributos['Hábito'][0]
+
 					if data.atributos && data.atributos['Vocalizaciones']
 						h2 Vocalizaciones
 						span!= data.atributos['Vocalizaciones'][0]
@@ -172,6 +176,10 @@ block content
 					if data.atributos && data.atributos['Descripción general']
 						h2 Descripción general
 						span!= data.atributos['Descripción general'][0]
+
+					if data.atributos && data.atributos['Ecología']
+						h2 Ecología
+						span!= data.atributos['Ecología'][0]
 				h1
 					img(src='/images/secciones/taxonomia.png')
 					| Taxonomía
@@ -179,6 +187,15 @@ block content
 					if data.atributos && data.atributos['Descripción taxonómica']
 						h2 Descripción taxonómica
 						span!= data.atributos['Descripción taxonómica'][0]
+					if data.atributos && data.atributos['Claves taxonómicas']
+						h2 Claves taxonómicas
+						span!= data.atributos['Claves taxonómicas'][0]
+					if data.atributos && data.atributos['Etimología del nombre científico']
+						h2 Etimología del nombre científico
+						span!= data.atributos['Etimología del nombre científico'][0]
+					if data.atributos && data.atributos['Información de tipos']
+						h2 Información de tipos
+						span!= data.atributos['Información de tipos'][0]
 
 				h1
 					img(src='/images/secciones/conservacion.png')
@@ -218,6 +235,14 @@ block content
 						h2 Medidas de conservación
 						span!= data.atributos['Medidas de conservación'][0]
 
+				if data.atributos && data.atributos['Información de usos']
+					h1
+						img(src='/images/secciones/conservacion.png')
+						| Uso y tráfico
+					div
+						h2 Información de usos
+						span!= data.atributos['Información de usos'][0]
+
 				h1
 					img(src='/images/secciones/informacion.png')
 					| Más información
@@ -230,6 +255,9 @@ block content
 									li!= referenciaBibliografica.autor + " (" + referenciaBibliografica.fecha + ") " + referenciaBibliografica.documento_titulo + " " + referenciaBibliografica.lugar_publicacion
 								else
 									li!= referenciaBibliografica.autor + " " + referenciaBibliografica.documento_titulo + " " + referenciaBibliografica.lugar_publicacion
+					if data.atributos && data.atributos['Otros recursos en Internet']
+						h2 Otros recursos en Internet
+						span!= data.atributos['Otros recursos en Internet'][0]
 				.basicInfoRecord
 					div
 						h1 Información básica de la ficha
