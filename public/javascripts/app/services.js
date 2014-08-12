@@ -11,6 +11,8 @@ define(['jquery', 'angular'], function($, angular) {
 			var Catalogue = function(searchOptions) {
 				$("nav .notFound").addClass("occult-element");
 				this.species = [];
+				console.log(searchOptions.getCurrentTaxon());
+				console.log(searchOptions.getCurrentURL());
 				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
 					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
@@ -179,6 +181,7 @@ define(['jquery', 'angular'], function($, angular) {
 				url += '&jsonp=JSON_CALLBACK';
 				$http.jsonp(url).success(function(data) {
 					var items = data.data;
+					this.totalregisters = data.total_fichas;
 					for (var i = 0; i < items.length; i++) {
 						if (typeof items[i].imagenes.imagenThumb270 != "undefined") {
 							items[i]["currentImage"] = items[i].imagenes.imagenThumb270[Math.floor(Math.random()*items[i].imagenes.imagenThumb270.length)];

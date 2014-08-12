@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
-						callback(null, body);
+						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
 					} else {
 						res.send(body);
 					}
@@ -28,7 +28,7 @@ exports.index = function(req, res) {
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
-						callback(null, body);
+						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
 					} else {
 						res.send(body);
 					}
@@ -39,8 +39,8 @@ exports.index = function(req, res) {
 				res.send(handleError(err));
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
 			res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
+			console.log(typeof result.initialRecordsSpeciesDataRandomWithImages);
 			res.render('index', { data: JSON.stringify(result.initialRecordsSpeciesData), dataRandom: JSON.stringify(result.initialRecordsSpeciesDataRandomWithImages) } );
-      //res.render('index');
 		}
 	);
 };
