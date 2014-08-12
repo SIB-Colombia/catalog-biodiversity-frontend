@@ -11,8 +11,6 @@ define(['jquery', 'angular'], function($, angular) {
 			var Catalogue = function(searchOptions) {
 				$("nav .notFound").addClass("occult-element");
 				this.species = [];
-				console.log(searchOptions.getCurrentTaxon());
-				console.log(searchOptions.getCurrentURL());
 				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
 					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
