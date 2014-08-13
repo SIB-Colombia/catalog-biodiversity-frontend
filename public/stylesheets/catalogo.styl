@@ -9,7 +9,7 @@
 	transition all 0.4s ease
 	//border red 1px solid
 body
-	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
+	background #dddfe1 url("/images/noise1.png") repeat 0 0 !important
 	font-family 'Open Sans', Helvetica, sans-serif
 a
 	-webkit-transition all 0.5s ease-in-out
@@ -17,6 +17,7 @@ a
     -ms-transition all 0.5s ease-in-out
     -o-transition all 0.5s ease-in-out
 	transition all 0.5s ease-in-out
+	color #507fb6 !important
 	&:hover
 		color #00a0ff
 		text-decoration none
@@ -187,10 +188,10 @@ a
 	background #f2eee3 url("/images/noise1.png") repeat 0 0 !important
 	.nav 
 		.caret
-			border-top-color #FFFFFF
-			border-bottom-color #FFFFFF
+			border-top-color #576054
+			border-bottom-color #576054
 	.navbar
-		background #2b7fbc
+		background #cccd95
 		border 0px
 		font-size 13px
 		-webkit-box-shadow 0px 0px 35px 1px #525252
@@ -198,7 +199,7 @@ a
 		box-shadow 0px 0px 35px 1px #525252
 		margin-bottom 10px
 		#navbar-header-catalog-collapse
-			background #2b7fbc
+			background #cccd95
 		.navbar-header
 			height 52px
 			.navbar-toggle
@@ -220,8 +221,8 @@ a
 					.form-control
 						-webkit-border-radius 0px
 						border-radius 0px
-						background-color #2b7fbc
-						border solid 1px #fff
+						background-color #cccd95
+						border solid 1px #576054
 						color #fff
 						font-weight normal
 						font-size 1.1em
@@ -252,14 +253,14 @@ a
 				li.divider-vertical
 					margin 17px 0
 					height 18px
-					border-left 1px solid #f2f2f2
+					border-left 1px solid #b84c00
 				li
 					a
-						color white
+						color #50604a
 						vertical-align middle
 					span
 						width 0px
-						border-left #9bc2de 1px solid
+						border-left #b84c00 1px solid
 						display inline-block
 						height 20px
 						vertical-align middle
@@ -270,6 +271,7 @@ a
 						text-shadow none
 						font-size 1em
 						font-weight 300
+						cursor pointer
 					&:hover
 					&:focus
 						a.dropdown-toggle
@@ -296,13 +298,7 @@ a
 								color white
 								text-decoration none
 								outline 0
-								background-color #0081c2
-								background-image -moz-linear-gradient(top,#08c,#0077b3)
-								background-image -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#0077b3))
-								background-image -webkit-linear-gradient(top,#08c,#0077b3)
-								background-image -o-linear-gradient(top,#08c,#0077b3)
-								background-image linear-gradient(to bottom,#08c,#0077b3)
-								background-repeat repeat-x
+								background-color #507fb6
 						li
 							text-align center
 							text-transform uppercase
@@ -315,13 +311,7 @@ a
 									background-color rgba(255,255,255,0.5)
 									text-decoration none
 									color #fff
-									background-color #0081c2
-									background-image -moz-linear-gradient(top,#08c,#0077b3)
-									background-image -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#0077b3))
-									background-image -webkit-linear-gradient(top,#08c,#0077b3)
-									background-image -o-linear-gradient(top,#08c,#0077b3)
-									background-image linear-gradient(to bottom,#08c,#0077b3)
-									background-repeat repeat-x
+									background-color #507fb6
 #content-wrapper
 	.breadcrumb
 		-webkit-border-radius 0px
@@ -352,7 +342,7 @@ a
 			a
 				text-decoration none
 				&:hover, &:focus
-					color #2b7fbc
+					color #cccd95
 					text-decoration none
 			.divider
 				color #aaa
@@ -572,7 +562,7 @@ footer
 		
 		h1.taxonName
 			font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
-			color #2288C9
+			color #507fb6
 			font-weight 300
 			font-style italic
 			margin-top 0px
@@ -607,7 +597,7 @@ footer
 				display block
 				.taxonComplete
 					font-size 1em
-					background rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom
+					background rgba(117,166,222,0.7) url("/images/ramas.png") repeat-x right bottom
 					padding 6px 12px
 					-webkit-border-radius 10px
 					border-radius 10px
@@ -636,8 +626,8 @@ footer
 								position relative
 								width 20px
 								height 18px
-								border-left #48a0bd solid 2px
-								border-bottom #48a0bd solid 2px
+								border-left white solid 2px
+								border-bottom white solid 2px
 								margin-left 30px
 						
 						&:last-child span:after
@@ -659,7 +649,7 @@ footer
 			#recordTitles
 				h1.taxonName
 					font-family "Open sans","Helvetica Neue",Helvetica,Arial,sans-serif
-					color #2288C9
+					color #507fb6
 					font-weight 300
 					font-style italic
 					margin-top 0px
@@ -680,7 +670,7 @@ footer
 			>h1+div
 				padding 1px 0 13px 25px
 			h1
-				background-color #89BE70
+				background-color #576054
 				color white
 				padding 13px
 				font-weight 300
@@ -698,7 +688,7 @@ footer
 					max-height 35px
 					max-width 35px
 			h2
-				color #89BE70
+				color #5b8fcf
 				text-transform uppercase
 				font-weight 300
 				font-size 1.5em
@@ -730,7 +720,7 @@ footer
 					font-size 0.9em
 				h1
 					background-color transparent
-					color #89BE70
+					color #73a2d9
 					margin 0px
 					padding 0px
 					font-size 0.9em
@@ -747,7 +737,7 @@ footer
 						color #999
 						line-height 0.9em
 			.basicInfoRecord
-				background rgba(140,210,231,0.8)
+				background rgba(204,205,149,0.8)
 				padding 4px 10px
 				margin-bottom 20px
 				-webkit-border-radius 15px
@@ -777,13 +767,13 @@ footer
 					padding-right 15px
 					overflow hidden
 			.citacion
-				background rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom
+				background rgba(117,166,222,0.4) url("/images/ramas.png") repeat-x right bottom
 				padding 20px
 				-webkit-border-radius 15px
 				border-radius 15px
 				h1
 					background-color transparent
-					color #52b8d9
+					color white
 					padding 0px
 				div
 					width auto
@@ -792,7 +782,7 @@ footer
 					font-weight 400
 					text-transform uppercase
 					width 120px
-					color #52b8d9
+					color white
 				.tabla div div
 					display inline-block
 					vertical-align top
@@ -920,8 +910,8 @@ footer
 .wallCounter
 	position fixed
 	right 0px
-	top 50px
-	background rgba(43, 127, 188, 0.8)
+	top 52px
+	background rgba(87,96, 84, 0.8)
 	padding 4px 10px
 	color white
 	z-index 10

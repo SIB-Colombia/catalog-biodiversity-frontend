@@ -9,7 +9,7 @@
   transition: all 0.4s ease;
 }
 body {
-  background: #f2eee3 url("/images/noise1.png") repeat 0 0 !important;
+  background: #dddfe1 url("/images/noise1.png") repeat 0 0 !important;
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 a {
@@ -19,6 +19,7 @@ a {
 -ms-transition all 0.5s ease-in-out,
 -o-transition all 0.5s ease-in-out {
   transition: all 0.5s ease-in-out;
+  color: #507fb6 !important;
 }
 -ms-transition all 0.5s ease-in-out:hover,
 -o-transition all 0.5s ease-in-out:hover {
@@ -209,11 +210,11 @@ a {
   background: #f2eee3 url("/images/noise1.png") repeat 0 0 !important;
 }
 #top-zone .nav .caret {
-  border-top-color: #fff;
-  border-bottom-color: #fff;
+  border-top-color: #576054;
+  border-bottom-color: #576054;
 }
 #top-zone .navbar {
-  background: #2b7fbc;
+  background: #cccd95;
   border: 0px;
   font-size: 13px;
   -webkit-box-shadow: 0px 0px 35px 1px #525252;
@@ -222,7 +223,7 @@ a {
   margin-bottom: 10px;
 }
 #top-zone .navbar #navbar-header-catalog-collapse {
-  background: #2b7fbc;
+  background: #cccd95;
 }
 #top-zone .navbar .navbar-header {
   height: 52px;
@@ -250,8 +251,8 @@ a {
 #top-zone .navbar .navbar-collapse .navbar-form .form-group .form-control {
   -webkit-border-radius: 0px;
   border-radius: 0px;
-  background-color: #2b7fbc;
-  border: solid 1px #fff;
+  background-color: #cccd95;
+  border: solid 1px #576054;
   color: #fff;
   font-weight: normal;
   font-size: 1.1em;
@@ -284,15 +285,15 @@ a {
 #top-zone .navbar .navbar-collapse ul.nav.navbar-nav li.divider-vertical {
   margin: 17px 0;
   height: 18px;
-  border-left: 1px solid #f2f2f2;
+  border-left: 1px solid #b84c00;
 }
 #top-zone .navbar .navbar-collapse ul.nav.navbar-nav li a {
-  color: #fff;
+  color: #50604a;
   vertical-align: middle;
 }
 #top-zone .navbar .navbar-collapse ul.nav.navbar-nav li span {
   width: 0px;
-  border-left: #9bc2de 1px solid;
+  border-left: #b84c00 1px solid;
   display: inline-block;
   height: 20px;
   vertical-align: middle;
@@ -303,6 +304,7 @@ a {
   text-shadow: none;
   font-size: 1em;
   font-weight: 300;
+  cursor: pointer;
 }
 #top-zone .navbar .navbar-collapse ul.nav.navbar-nav li.dropdown:hover a.dropdown-toggle,
 #top-zone .navbar .navbar-collapse ul.nav.navbar-nav li.dropdown:focus a.dropdown-toggle {
@@ -330,13 +332,7 @@ a {
   color: #fff;
   text-decoration: none;
   outline: 0;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #08c, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #08c, #0077b3);
-  background-image: -o-linear-gradient(top, #08c, #0077b3);
-  background-image: linear-gradient(to bottom, #08c, #0077b3);
-  background-repeat: repeat-x;
+  background-color: #507fb6;
 }
 #top-zone .navbar .navbar-collapse ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li {
   text-align: center;
@@ -352,13 +348,7 @@ a {
   background-color: rgba(255,255,255,0.5);
   text-decoration: none;
   color: #fff;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #08c, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #08c, #0077b3);
-  background-image: -o-linear-gradient(top, #08c, #0077b3);
-  background-image: linear-gradient(to bottom, #08c, #0077b3);
-  background-repeat: repeat-x;
+  background-color: #507fb6;
 }
 #content-wrapper .breadcrumb {
   -webkit-border-radius: 0px;
@@ -395,7 +385,7 @@ a {
 }
 #content-wrapper .breadcrumb li a:hover,
 #content-wrapper .breadcrumb li a:focus {
-  color: #2b7fbc;
+  color: #cccd95;
   text-decoration: none;
 }
 #content-wrapper .breadcrumb li .divider {
@@ -659,7 +649,7 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container h1.taxonName {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #2288c9;
+  color: #507fb6;
   font-weight: 300;
   font-style: italic;
   margin-top: 0px;
@@ -702,7 +692,7 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete {
   font-size: 1em;
-  background: rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom;
+  background: rgba(117,166,222,0.7) url("/images/ramas.png") repeat-x right bottom;
   padding: 6px 12px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -749,8 +739,8 @@ footer section.sib-moreinfo nav a {
   position: relative;
   width: 20px;
   height: 18px;
-  border-left: #48a0bd solid 2px;
-  border-bottom: #48a0bd solid 2px;
+  border-left: #fff solid 2px;
+  border-bottom: #fff solid 2px;
   margin-left: 30px;
 }
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:last-child span:after {
@@ -778,7 +768,7 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container #recordHeader #recordTitles h1.taxonName {
   font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #2288c9;
+  color: #507fb6;
   font-weight: 300;
   font-style: italic;
   margin-top: 0px;
@@ -804,7 +794,7 @@ footer section.sib-moreinfo nav a {
   padding: 1px 0 13px 25px;
 }
 #catalogRecord .container .recordContent h1 {
-  background-color: #89be70;
+  background-color: #576054;
   color: #fff;
   padding: 13px;
   font-weight: 300;
@@ -824,7 +814,7 @@ footer section.sib-moreinfo nav a {
   max-width: 35px;
 }
 #catalogRecord .container .recordContent h2 {
-  color: #89be70;
+  color: #5b8fcf;
   text-transform: uppercase;
   font-weight: 300;
   font-size: 1.5em;
@@ -861,7 +851,7 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container .recordContent .commonName h1 {
   background-color: transparent;
-  color: #89be70;
+  color: #73a2d9;
   margin: 0px;
   padding: 0px;
   font-size: 0.9em;
@@ -880,7 +870,7 @@ footer section.sib-moreinfo nav a {
   line-height: 0.9em;
 }
 #catalogRecord .container .recordContent .basicInfoRecord {
-  background: rgba(140,210,231,0.8);
+  background: rgba(204,205,149,0.8);
   padding: 4px 10px;
   margin-bottom: 20px;
   -webkit-border-radius: 15px;
@@ -916,14 +906,14 @@ footer section.sib-moreinfo nav a {
   overflow: hidden;
 }
 #catalogRecord .container .recordContent .citacion {
-  background: rgba(211,233,240,0.4) url("/images/ramas.png") no-repeat right bottom;
+  background: rgba(117,166,222,0.4) url("/images/ramas.png") repeat-x right bottom;
   padding: 20px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
 }
 #catalogRecord .container .recordContent .citacion h1 {
   background-color: transparent;
-  color: #52b8d9;
+  color: #fff;
   padding: 0px;
 }
 #catalogRecord .container .recordContent .citacion div {
@@ -934,7 +924,7 @@ footer section.sib-moreinfo nav a {
   font-weight: 400;
   text-transform: uppercase;
   width: 120px;
-  color: #52b8d9;
+  color: #fff;
 }
 #catalogRecord .container .recordContent .citacion .tabla div div {
   display: inline-block;
@@ -1085,8 +1075,8 @@ footer section.sib-moreinfo nav a {
 .wallCounter {
   position: fixed;
   right: 0px;
-  top: 50px;
-  background: rgba(43,127,188,0.8);
+  top: 52px;
+  background: rgba(87,96,84,0.8);
   padding: 4px 10px;
   color: #fff;
   z-index: 10;
