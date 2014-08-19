@@ -5,7 +5,7 @@ var express = require('express')
   , http = require('http');
 
 // New relic software analytics
-require('newrelic');
+//require('newrelic');
 
 var app = express();
 
