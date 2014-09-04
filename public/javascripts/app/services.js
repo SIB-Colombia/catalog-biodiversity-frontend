@@ -75,7 +75,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.page = 2;
 					this.busy = false;
 				} else {
-					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page=1';
+					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenparamo?page=1';
 					if(searchOptions.getCurrentTaxon() != 'all') {
 						url += '&taxon='+searchOptions.getCurrentTaxon();
 					}
@@ -159,7 +159,7 @@ define(['jquery', 'angular'], function($, angular) {
 				this.busy = true;
 				var url="";
 
-				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page='+this.page;
+				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenparamo?page='+this.page;
 				if(this.taxonType != 'all') {
 					url += '&taxon='+this.taxonType+'&order=scientificname';
 				} else {

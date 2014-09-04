@@ -10,12 +10,13 @@ exports.index = function(req, res) {
 		{
 			initialRecordsSpeciesData: function(callback) {
 				request({
-					url: appConfigVars.backendURL+'/index.php/api/fichasresumen?page=1&order=scientificname&orderdirection=asc&priorityimages',
+					url: appConfigVars.backendURL+'/index.php/api/fichasresumenparamo?page=1&order=scientificname&orderdirection=asc&priorityimages',
 					method: 'GET',
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
-						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+						//callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+						callback(null, body);
 					} else {
 						res.send(body);
 					}
@@ -23,12 +24,13 @@ exports.index = function(req, res) {
 			},
 			initialRecordsSpeciesDataRandomWithImages: function(callback) {
 				request({
-					url: appConfigVars.backendURL+'/index.php/api/fichas/previewrandomspecies',
+					url: appConfigVars.backendURL+'/index.php/api/fichas/previewrandomspeciesparamo',
 					method: 'GET',
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
-						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+						//callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+						callback(null, body);
 					} else {
 						res.send(body);
 					}
