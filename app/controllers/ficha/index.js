@@ -27,8 +27,7 @@ exports.show = function(req, res) {
 				res.send(handleError(err));
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
 			var metaTagOgImage;
-			//result = JSON.parse(result.registerData.replace(/^\s+|\s+$/g, ''));
-			result = result.registerData;
+			result = JSON.parse(result.registerData.replace(/^\s+|\s+$/g, ''));
 			if (typeof result[registerID].atributos != "undefined" && typeof result[registerID].atributos.imagenThumb270 != "undefined") {
         result[registerID].currentImages = result[registerID].atributos.imagenThumb270;
 				metaTagOgImage = result[registerID].atributos.imagenThumb270[0];
