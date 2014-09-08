@@ -11,6 +11,7 @@ define(['jquery', 'angular'], function($, angular) {
 			var Catalogue = function(searchOptions) {
 				$("nav .notFound").addClass("occult-element");
 				this.species = [];
+				this.loadedRegisters = 0;
 				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
 					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
@@ -65,6 +66,7 @@ define(['jquery', 'angular'], function($, angular) {
 							}
 						}
 						this.species.push(dataVar.data[i]);
+						this.loadedRegisters += 1;
 					}
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
@@ -125,6 +127,7 @@ define(['jquery', 'angular'], function($, angular) {
 									}
 								}
 								this.species.push(items[i]);
+								this.loadedRegisters += 1;
 							}
 							$("#wall-container-wrapper").removeClass("loading2");
 							setTimeout(function() {
