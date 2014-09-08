@@ -208,6 +208,7 @@ define(['jquery', 'angular'], function($, angular) {
 							}
 						}
 						this.species.push(items[i]);
+						this.loadedRegisters += 1;
 					}
 					if(this.species.length == this.totalregisters) {
 						this.end = true;
