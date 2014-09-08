@@ -1,6 +1,6 @@
 @import unquote('url(http://fonts.googleapis.com/css?family=Economica:400,700,400italic)')
 @import unquote('url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,300italic,400italic)')
-
+@import url("../components/bootstrap/dist/css/bootstrap.css")
 *
 	-webkit-transition all 0.4s ease
 	-moz-transition all 0.4s ease
@@ -35,6 +35,8 @@ a
 	font-weight bold
 	font-size 0.9em
 	text-align center
+.hidden
+	display none
 #flower
 	height 70px
 @media (min-width:1200px)
@@ -235,7 +237,7 @@ a
 					height 32px
 					text-decoration none
 					width 33px
-					border none 0px transparent
+					border 0px
 					box-shadow none
 					background url("/images/ico_search.png") no-repeat center center
 					margin-top 0px
@@ -851,6 +853,69 @@ footer
 .ribbon-green:after
 	right 0
 /* End of beta ribbon styles */
+/* Ribbons for threat status */
+.amenaza
+	text-transform uppercase
+	width 300px
+	min-height 60px
+	margin 10px 0
+	clear both
+	>div
+		float left
+	>span
+		margin 8px 5px 5px 10px
+		display inline-table
+	h3
+		margin 0px !important
+
+#wall-container-wrapper
+#recordPictures
+	.ribbon-threat-status-wrapper
+		position absolute
+.ribbon-threat-status-wrapper
+	width 50px
+	height 50px
+	overflow hidden
+	top 10px
+	left 10px
+.ribbon-threat
+	width 50px
+	height 50px
+	font-size 1.5em
+	font-family 'Open Sans', Helvetica, sans-serif
+	font-weight 400
+	color #333
+	text-align center
+	text-shadow rgba(255,255,255,0.5) 0px 1px 0px
+	position relative
+	padding 12px
+	-webkit-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	-moz-box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	box-shadow 0px 0px 3px rgba(0,0,0,0.3)
+	-webkit-border-radius 30px
+	border-radius 30px
+	display inline-block
+.ribbon-threat:before, .ribbon-threat:after
+	content ""
+	border-bottom 3px solid #6e8900
+	border-left 3px solid transparent
+	border-right 3px solid transparent
+	position absolute
+	bottom -3px
+.ribbon-threat:before
+	left 0
+.ribbon-threat:after
+	right 0
+.threat-orange
+	background-color #f47d20;
+	color white
+.threat-red
+	background-color #d51920;
+	color white
+.threat-yellow
+	background-color #f9ba1b;
+	color white
+/* End of ribbon threat status */
 /* Wall counter styles */
 .wallCounter
 	position fixed
@@ -904,6 +969,18 @@ footer
 		padding 0 0 0 0
 		margin 0 0 0 56%
 
+@media (max-width:1200px)
+	.taxonComplete
+		width 100% !important
+
+@media (max-width:980px)
+	.taxonComplete
+		width 100% !important
+		div
+			span
+				&:after
+					margin-left 15px !important
+					width 10px !important
 @media (max-width:320px)
 	.notFound
 		width 250px
@@ -921,4 +998,3 @@ footer
 				&:after
 					margin-left 15px !important
 					width 10px !important
-

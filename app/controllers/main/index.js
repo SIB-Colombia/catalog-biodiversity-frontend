@@ -15,6 +15,50 @@ exports.index = function(req, res) {
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
+						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+					} else {
+						res.send(body);
+					}
+				});
+			},
+			initialRecordsSpeciesDataRandomWithImages: function(callback) {
+				request({
+					url: appConfigVars.backendURL+'/index.php/api/fichas/previewrandomspecies',
+					method: 'GET',
+					json: true
+				}, function(error, response, body) {
+					if (!error && response.statusCode == 200) {
+						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+					} else {
+						res.send(body);
+					}
+				});
+			}
+		}, function(err, result) {
+			if(err)
+				res.send(handleError(err));
+			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
+			res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
+			console.log(typeof result.initialRecordsSpeciesDataRandomWithImages);
+			res.render('index', { data: JSON.stringify(result.initialRecordsSpeciesData), dataRandom: JSON.stringify(result.initialRecordsSpeciesDataRandomWithImages) } );
+		}
+	);
+};
+
+exports.redirectAdministrationUrl = function(req, res) {
+	res.redirect('http://www.biodiversidad.co:3000');
+};
+
+exports.showAllSpecies = function(req, res) {
+	async.parallel(
+		{
+			fullListRecords: function(callback) {
+				request({
+					url: appConfigVars.backendURL+'/index.php/api/list/species',
+					method: 'GET',
+					json: true
+				}, function(error, response, body) {
+					if (!error && response.statusCode == 200) {
 						callback(null, body);
 					} else {
 						res.send(body);
@@ -24,10 +68,14 @@ exports.index = function(req, res) {
 		}, function(err, result) {
 			if(err)
 				res.send(handleError(err));
-			res.render('index', { data: JSON.stringify(result.initialRecordsSpeciesData) } );
+			res.render('showlistspecies', { data: result.fullListRecords } );
 		}
 	);
-};
+}
+
+exports.showAllSpeciesSimple = function(req, res) {
+  res.render('showlistspeciessimple');
+}
 
 exports.test = function(req, res) {
 	res.render('index');

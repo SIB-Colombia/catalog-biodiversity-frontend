@@ -1,31 +1,36 @@
-!!!5
+doctype html
 //if IE 8
 	|<html class="no-js lt-ie9">
 //if gt IE 8
 	|<!--> <html class="no-js"> <!--
-head
+head(data-ng-controller="RecordCtrl")
 	meta(charset='utf-8')
 	meta(http-equiv='X-UA-Compatible', content='IE=edge')
-	title Catálogo de la Biodiversidad
+	title #{data.info_taxonomica.taxonnombre} - Catálogo de la Biodiversidad
 	meta(name='description', content='')
 	meta(name='viewport', content='width=device-width,initial-scale=1')
-	meta(property='og:title', content='Sistema de Información sobre Biodiversidad en Colombia')
+	meta(property='og:title', content='#{ogTitle}')
 	meta(property='og:type', content='website')
 	meta(property='og:description', content='Acceso libre a la información sobre biodiversidad de Colombia! Open access to Colombian biodiversity information!')
-	meta(property='og:url', content='http://www.biosiversidad.co/')
-	meta(property='og:image', content='http://www.biodiversidad.co/images/logo_catalogo_especies.png')
+	meta(property='og:url', content='#{registerURL}')
+	meta(property='og:image', content='#{metaImageOg}')
 	meta(property='og:site_name', content='Catalogo de especies de la biodiversidad de Colombia')
 	meta(property='og:locale', content='es_ES')
+	meta(name="google-site-verification" content="nm1-g-rVHscAi_K7O9e-s3EE7rEDorSu9OFagozmx3Q")
+
 	link(rel="Shortcut Icon" href="/images/favicon.ico")
 	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
-	
-	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+
+	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
 	//if lt IE 9
 		script(src='http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js')
 		script(src='htpp://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js')
 
-	// Stylesheets
-	link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+	//- Stylesheets production
+	//- link(rel='stylesheet', href='/stylesheets/catalogo-built.min.css')
+
+	// Stylesheets development
+	link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
 	link(rel='stylesheet', href='/stylesheets/catalogo.css')
 
 	script.
@@ -39,6 +44,12 @@ head
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 
+	//- Including RequiereJS module loader for production
+	//- script(data-main="/javascripts/record-built", src="/javascripts/require.js")
+
+	// Including RequiereJS module loader for development
+	script(data-main="/javascripts/record", src="/javascripts/require.js")
+
 body
 	.wrapper
 		.ribbon-wrapper-green
@@ -50,5 +61,3 @@ body
 			block content
 		section#footer-zone
 			include includes/footer
-	// Including RequiereJS module loader
-	script(data-main="/javascripts/record", src="/components/requirejs/require.js")

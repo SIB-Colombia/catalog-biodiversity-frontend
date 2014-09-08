@@ -1,10 +1,8 @@
 define(['jquery', 'angular'], function($, angular) {
 	'use strict';
-        
+
 	/* Services */
 
-	// Demonstrate how to register services
-	// In this case it is a simple value service.
 	angular.module('catalogFrontend.services', []).value('version', '0.1');
 
 	// Factory for loading initial data and get nextPage of infiniteScroll
@@ -13,8 +11,36 @@ define(['jquery', 'angular'], function($, angular) {
 			var Catalogue = function(searchOptions) {
 				$("nav .notFound").addClass("occult-element");
 				this.species = [];
+				this.loadedRegisters = 0;
 				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
+					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
+					for(var i in dataVarRandomImages.data) {
+						if (typeof dataVarRandomImages.data[i].imagenes.imagenThumb270 != "undefined") {
+							dataVarRandomImages.data[i]["currentImage"] = dataVarRandomImages.data[i].imagenes.imagenThumb270[Math.floor(Math.random()*dataVarRandomImages.data[i].imagenes.imagenThumb270.length)];
+						} else if (typeof dataVarRandomImages.data[i].imagenes.imagenThumb140 != "undefined") {
+							dataVarRandomImages.data[i]["currentImage"] = dataVarRandomImages.data[i].imagenes.imagenThumb140[Math.floor(Math.random()*dataVarRandomImages.data[i].imagenes.imagenThumb140.length)];
+						} else {
+							if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "aves") {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/aves2.png";
+							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "reptilia") {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/reptiles2.png";
+							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && (dataVarRandomImages.data[i].clase.toLowerCase() == "mammalia" || dataVarRandomImages.data[i].clase.toLowerCase() == "mamalia")) {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
+							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "insecta") {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/insectos2.png";
+							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "plantae") {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/plantas2.png";
+							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "fungi") {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
+							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "amphibia") {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+							} else {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+							}
+						}
+						this.species.push(dataVarRandomImages.data[i]);
+					}
 					for(var i in dataVar.data) {
 						if (typeof dataVar.data[i].imagenes.imagenThumb270 != "undefined") {
 							dataVar.data[i]["currentImage"] = dataVar.data[i].imagenes.imagenThumb270[Math.floor(Math.random()*dataVar.data[i].imagenes.imagenThumb270.length)];
@@ -36,10 +62,11 @@ define(['jquery', 'angular'], function($, angular) {
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "amphibia") {
 								dataVar.data[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
 							} else {
-								dataVar.data[i]["currentImage"] = 'data:image/png;base64,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';
+								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
 						}
 						this.species.push(dataVar.data[i]);
+						this.loadedRegisters += 1;
 					}
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
@@ -47,8 +74,10 @@ define(['jquery', 'angular'], function($, angular) {
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 3000);
+					this.page = 2;
+					this.busy = false;
 				} else {
-					var url = 'http://administracion.biodiversidad.co:3000/index.php/api/fichasresumen?page=1';
+					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page=1';
 					if(searchOptions.getCurrentTaxon() != 'all') {
 						url += '&taxon='+searchOptions.getCurrentTaxon();
 					}
@@ -91,13 +120,14 @@ define(['jquery', 'angular'], function($, angular) {
 										} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
 											items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
 										} else {
-											items[i]["currentImage"] = 'data:image/png;base64,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';
+											items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 										}
 									} else {
-										items[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
+										items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 									}
 								}
 								this.species.push(items[i]);
+								this.loadedRegisters += 1;
 							}
 							$("#wall-container-wrapper").removeClass("loading2");
 							setTimeout(function() {
@@ -110,6 +140,8 @@ define(['jquery', 'angular'], function($, angular) {
 							if(this.species.length == this.totalregisters) {
 								this.end = true;
 							}
+							this.page = 2;
+							this.busy = false;
 						} else {
 							$("#wall-container-wrapper").removeClass("loading2");
 							$("nav .notFound").removeClass("occult-element");
@@ -117,8 +149,6 @@ define(['jquery', 'angular'], function($, angular) {
 						}
 					}.bind(this));
 				}
-				this.busy = false;
-				this.page = 2;
 				this.taxonType = searchOptions.getCurrentTaxon();
 				this.showWithPriorityPicture = searchOptions.getShowRecordsWithPicture();
 				this.orderDirection = searchOptions.getOrderDirection();
@@ -132,7 +162,7 @@ define(['jquery', 'angular'], function($, angular) {
 				this.busy = true;
 				var url="";
 
-				url = 'http://administracion.biodiversidad.co:3000/index.php/api/fichasresumen?page='+this.page;
+				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page='+this.page;
 				if(this.taxonType != 'all') {
 					url += '&taxon='+this.taxonType+'&order=scientificname';
 				} else {
@@ -152,6 +182,7 @@ define(['jquery', 'angular'], function($, angular) {
 				url += '&jsonp=JSON_CALLBACK';
 				$http.jsonp(url).success(function(data) {
 					var items = data.data;
+					this.totalregisters = data.total_fichas;
 					for (var i = 0; i < items.length; i++) {
 						if (typeof items[i].imagenes.imagenThumb270 != "undefined") {
 							items[i]["currentImage"] = items[i].imagenes.imagenThumb270[Math.floor(Math.random()*items[i].imagenes.imagenThumb270.length)];
@@ -173,19 +204,20 @@ define(['jquery', 'angular'], function($, angular) {
 							} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
 								items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
 							} else {
-								items[i]["currentImage"] = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAADICAYAAAAZdw+4AAAIzElEQVR4Xu3avYscdRgH8LlcTKEWKgqBoKbRQggSbDS2gthYiCIo+geIggQRLE+wEMVSC4UgFjYWplBQtBQFIZLGF3xpFEWtAipRNCezMMfcsDs7j09Ob3w+6ZLbZ/f3fJ5nvpnd240TD7y03fhDgACBgMCG4AhoeSgBAgsBwWERCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZAoIEBAcdoAAgbCA4AiTKSBAQHDYAQIEwgKCI0ymgAABwWEHCBAICwiOMJkCAgQEhx0gQCAsIDjCZP9Nwaln7m1uPHr1zot/9+O55v6Try/+/vjDtzf33Xls6cEubG83r755pnnljY8XP3/uibuaE8ev33nsux982Wy9+H64qbHzdE825bWmPCZ8OAV7LiA49pw4/wLDi7R7xi48pgbH8CLtnicaHuvOsyyglr3WxTpPXtgzRAUER1TsX358eyfx2IO3NZubB5ruAu+CYng30T9ad3F34XL0yJVN+2+HLtlszn7xQ/PI06cXf2/vYs79cr45+exbzeff/Ly2uynnee/Dr9a+1vnf/1z7mCnnWXtgD9gTAcGxJ6wX70m7kPjrwnbz5PNvNx+d/XbxtmQYJv1XHKvZOLCx89Zl+Lhbb75u5y3PMKTa52//rQ2Z9vXHzvPp1z8tzjf2WtcevmLtY9pe/dmfAoJjf85l9FRjdxz9O4v+W5CpYdK/C3nqhXearUfvaK656rKm/5nK8HDD81x+6aGV4dKFyZTHdJ/LzHBE//sjC46ZjbgfDMsu5u5zg+Hbj6l3Lt3zHzx4oPnks++bW246suvuYsi17DxTXmvKncs/+dB2ZuOc7XEFx4xG1/7P//LWPYs7gP5bha6F/s+7zzG6n025mLsLdfhh66oPT1edZ8prCY4ZLd6SowqOmcyvf5Gu+lC0++yj/9nClOAYPr5/F7EsoNrnHDvPlLdF3qrMZPFWHFNwzGB+U0KjbWPV25T2Z8tCZdkF3j523Xc01p1nymv5cHQGizdyRMExg/n1L+QpbxuWffYx9dex/TB57fSZ5qG7j+/6VfAwWJadZ8pr+XXsDBZPcMx3SP1fvS7rortwxz7f6OrWfeFqygV/7IbDO78KHjvPutfq3yENnyf6hbT5Tne+J3fHsc9nt+oC7I7dXWSrfg07bG/sK97dnc2q72i0H7j++tsfu76yPnbRT/k6+ZTH7PMRlTye4Cg5dk0TyAkIjpyfagIlBQRHybFrmkBOQHDk/FQTKCkgOEqOXdMEcgKCI+enmkBJAcFRcuyaJpATEBw5P9UESgoIjpJj1zSBnIDgyPmpJlBSQHCUHLumCeQEBEfOTzWBkgKCo+TYNU0gJyA4cn6qCZQUEBwlx65pAjkBwZHzU02gpIDgKDl2TRPICQiOnJ9qAiUFBEfJsWuaQE5AcOT8VBMoKSA4So5d0wRyAoIj56eaQEkBwVFy7JomkBMQHDk/1QRKCgiOkmPXNIGcgODI+akmUFJAcJQcu6YJ5AQER85PNYGSAoKj5Ng1TSAnIDhyfqoJlBQQHCXHrmkCOQHBkfNTTaCkgOAoOXZNE8gJCI6cn2oCJQUER8mxa5pATkBw5PxUEygpIDhKjl3TBHICgiPnp5pASQHBUXLsmiaQExAcOT/VBEoKCI6SY9c0gZyA4Mj5qSZQUkBwlBy7pgnkBARHzk81gZICgqPk2DVNICcgOHJ+qgmUFBAcJceuaQI5AcGR81NNoKSA4Cg5dk0TyAkIjpyfagIlBQRHybFrmkBOQHDk/FQTKCkgOEqOXdMEcgKCI+enmkBJAcFRcuyaJpATEBw5P9UESgoIjpJj1zSBnIDgyPmpJlBSQHCUHLumCeQEBEfOTzWBkgKCo+TYNU0gJyA4cn6qCZQUEBwlx65pAjkBwZHzU02gpIDgKDl2TRPICQiOnJ9qAiUFBEfJsWuaQE5AcOT8VBMoKSA4So5d0wRyAoIj56eaQEkBwVFy7JomkBMQHDk/1QRKCgiOkmPXNIGcgODI+akmUFJAcJQcu6YJ5AQER85PNYGSAoKj5Ng1TSAnIDhyfqoJlBQQHCXHrmkCOQHBkfNTTaCkgOAoOXZNE8gJCI6cn2oCJQUER8mxa5pATkBw5PxUEygpIDhKjl3TBHICgiPnp5pASQHBUXLsmiaQExAcOT/VBEoKCI6SY9c0gZyA4Mj5qSZQUkBwlBy7pgnkBARHzk81gZICgqPk2DVNICcgOHJ+qgmUFBAcJceuaQI5gb8BzV3S1Rr5g5wAAAAASUVORK5CYII=';
+								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
 						}
 						this.species.push(items[i]);
+						this.loadedRegisters += 1;
+					}
+					if(this.species.length == this.totalregisters) {
+						this.end = true;
 					}
 					this.busy = false;
 					this.page++;
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 8000);
-					if(this.species.length == this.totalregisters) {
-						this.end = true;
-					}
 				}.bind(this));
 
 			};
@@ -199,9 +231,26 @@ define(['jquery', 'angular'], function($, angular) {
 					this.data.currentImages = this.data.atributos.imagenThumb270;
 				} else if (typeof this.data.atributos.imagenThumb140 != "undefined") {
 					this.data.currentImages = this.data.atributos.imagenThumb140;
+				} else {
+					if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "aves") {
+						this.data.currentImage = "/images/taxon_icons/aves.png";
+					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "reptilia") {
+						this.data.currentImage = "/images/taxon_icons/reptiles.png";
+					} else if(this.data.reino.toLowerCase() == "animalia" && (this.data.clase.toLowerCase() == "mammalia" || this.data.clase.toLowerCase() == "mamalia")) {
+						this.data.currentImage = "/images/taxon_icons/mamiferos.png";
+					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "insecta") {
+						this.data.currentImage = "/images/taxon_icons/insectos.png";
+					} else if(this.data.reino.toLowerCase() == "plantae") {
+						this.data.currentImage = "/images/taxon_icons/plantas.png";
+					} else if(this.data.reino.toLowerCase() == "fungi") {
+						this.data.currentImage = "/images/taxon_icons/hongos.png";
+					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "amphibia") {
+						this.data.currentImage = "/images/taxon_icons/anfibios.png";
+					} else {
+						this.data.currentImage = "/images/taxon_icons/vida.png";
+					}
 				}
 			};
-
 			return Record;
 		}])
 		.factory('SearchOptions', ['$http', function ($http) {
@@ -211,14 +260,7 @@ define(['jquery', 'angular'], function($, angular) {
 			var orderDirection = "asc";
 			var searchCondition = "";
 			var currentLocation = "/";
-			
-			/*var SearchOptions = function() {
-				this.showRecordsWithPicture = true;
-				this.currentTaxon = "all";;
-				this.orderBy = "scientificName";
-				this.orderDirection = "asc";
-				this.searchCondition = "";
-			};*/
+
 			function getShowRecordsWithPicture() {
 				return showRecordsWithPicture;
 			};
@@ -265,7 +307,7 @@ define(['jquery', 'angular'], function($, angular) {
 						first = false;
 					} else {
 						url += "&q="+searchCondition;
-					}	
+					}
 				}
 				return url;
 			};
@@ -291,7 +333,7 @@ define(['jquery', 'angular'], function($, angular) {
 						first = false;
 					} else {
 						url += "&q="+searchCondition;
-					}	
+					}
 				}
 				return url;
 			};

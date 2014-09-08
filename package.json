@@ -4,7 +4,7 @@
   "version": "1.2.0",
   "private": true,
   "author": "Valentinilla <valegrajales@gmail.com>",
-  "contributors": [ 
+  "contributors": [
     {
       "name": "Daniel Amariles",
       "email": "damariles@humboldt.org.co"
@@ -15,7 +15,8 @@
     }
   ],
   "scripts": {
-    "start": "./node_modules/.bin/nodemon app.js",
+    "minify": "r.js -o build.js;r.js -o build-record.js;r.js -o cssIn=public/stylesheets/catalogo.css out=public/stylesheets/catalogo-built.css;./node_modules/clean-css/bin/cleancss -o public/stylesheets/catalogo-built.min.css public/stylesheets/catalogo-built.css",
+    "start": "./node_modules/.bin/nodemon -e jade,js app.js",
     "test": "set NODE_ENV=test; ./node_modules/.bin/mocha --reporter spec test/test-*.js"
   },
   "keywords": [
@@ -31,15 +32,24 @@
     }
   ],
   "dependencies": {
-    "express": "3.4.4",
-    "async": "0.2.9",
-    "stylus": "0.40.3",
-    "jade": "0.35.0",
-    "request": "2.27.0",
-    "q": "0.9.7",
+    "express": "4.3.0",
+    "compression": "1.0.2",
+    "serve-favicon": "2.0.0",
+    "morgan": "1.1.1",
+    "body-parser": "1.2.0",
+    "method-override": "1.0.1",
+    "errorhandler": "1.0.1",
+    "serve-static": "1.1.0",
+    "async": "0.9.0",
+    "stylus": "0.45.1",
+    "jade": "1.3.1",
+    "request": "2.36.0",
+    "q": "1.0.1",
     "winston": "0.7.2",
     "underscore": "1.5.2",
-    "express-uglify": "0.3.1"
+    "clean-css": "*",
+    "simple-http-proxy": "latest",
+    "nodemon": "*"
   },
   "devDependencies": {
     "supertest": "latest",

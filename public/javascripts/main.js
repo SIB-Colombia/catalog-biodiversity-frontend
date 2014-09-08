@@ -7,14 +7,14 @@ requirejs.config({
 	//never includes a ".js" extension since
 	//the paths config could be for a directory.
 	paths: {
-		jquery: '../../components/jquery/jquery.min',
+		jquery: '../../components/jquery/dist/jquery.min',
 		jqueryui: '../../components/jquery-ui/ui/jquery-ui',
 		bootstrap: '../../components/bootstrap/dist/js/bootstrap.min',
 		angular: '../../components/angular/angular.min',
+		angulari18n: '../../components/angular-i18n/angular-locale_es-co',
 		angularRoute: '../../components/angular-route/angular-route.min',
 		angularMocks: '../../components/angular-mocks/angular-mocks',
 		angularSanitize: '../../components/angular-sanitize/angular-sanitize.min',
-		text: '../../components/requirejs-text/text',
 		angularytics: '../../components/angularytics/dist/angularytics.min',
 		nginfinitescroll: '../../components/nginfinitescroll/build/ng-infinite-scroll.min',
 		isotope: '../../components/isotope/jquery.isotope.min',
@@ -51,6 +51,9 @@ requirejs.config({
 			deps: ['angular']
 		},
 		'angularSanitize': {
+			deps: ['angular']
+		},
+		'angulari18n': {
 			deps: ['angular']
 		}
 	},

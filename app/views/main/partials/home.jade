@@ -1,15 +1,21 @@
 #wall-container-wrapper
 	div.wallCounter
 		span mostrando 
-		strong {{catalogue.species.length}} 
+		strong {{catalogue.loadedRegisters}} 
 		| de 
 		strong {{catalogue.totalregisters}} 
 		| fichas
 	div(infinite-scroll='catalogue.nextPage()', infinite-scroll-disabled='catalogue.busy', infinite-scroll-distance='2')
 		div(id="isotopeContainer", isotope-container, refreshIsotope)
 			div(ng-repeat="specie in catalogue.species", isotope-item, class="element ficha")
-				a(ng-href='/ficha/id/{{specie.id}}')
-					img(ng-src='{{ specie.currentImage }}')
+				#amenaza
+					.wrapper(ng-if="specie.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0")
+						.ribbon-threat-status-wrapper(ng-repeat="threatStatus in specie.atributos['Estado de amenaza según categorías UICN']['En Colombia']")
+							.ribbon-threat(ng-show="threatStatus == 'CR (en peligro crítico)'", class="threat-red") CR
+							.ribbon-threat(ng-show="threatStatus == 'EN (en peligro)'", class="threat-orange") EN
+							.ribbon-threat(ng-show="threatStatus == 'VU (vulnerable)'", class="threat-yellow") VU
+					a(ng-href='/ficha/id/{{specie.id}}')
+						img(ng-src='{{ specie.currentImage }}')
 				.ficha-muro-datos
 					.ficha-muro-taxonnombre
 						a(ng-href='/ficha/id/{{specie.id}}')

@@ -6,7 +6,7 @@ define([], function() {
 		$scope.bibliographicReference = function(autor, documento_titulo, fecha, lugar_publicacion) {
 			var text = autor;
 			if(fecha != "") {
-				text = text + " (" + autor + ") ";
+				text = text + " (" + fecha + ") ";
 			}
 			text = text + documento_titulo + " " + lugar_publicacion;
 			return text;

@@ -9,21 +9,20 @@
     "tests"
   ],
   "devDependencies": {
-    "bootstrap": "~3.0.3",
-    "angular": "~1.2.0",
-    "angular-scenario": "~1.2.0",
-    "angular-route": "~1.2.0",
-    "angular-mocks": "~1.2.0",
-    "angular-sanitize": "~1.2.4",
-    "requirejs": "~2.1.9",
-    "requirejs-text": "~2.0.10",
-    "jquery-ui": "~1.10.3",
+    "bootstrap": "~3.1.1",
+    "angular": "~1.2.10",
+    "angular-i18n": "~1.2.16",
+    "angular-scenario": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "angular-mocks": "~1.2.16",
+    "angular-sanitize": "~1.2.16",
+    "jquery-ui": "~1.10.4",
     "angularytics": "~0.2.3",
-    "isotope": "~1.5.25",
-    "angular-isotope": "*",
-    "nginfinitescroll": "1.0.0"
+    "isotope": "~2.0.0",
+    "angular-isotope": "~0.1.14",
+    "nginfinitescroll": "1.1.2"
   },
   "resolutions": {
-    "angular": "~1.2.9"
+    "angular": "~1.2.16"
   }
 }

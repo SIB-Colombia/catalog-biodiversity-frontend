@@ -10,9 +10,9 @@ define(['jquery', 'angular', 'filters', 'services', 'directives', 'controllers.i
     'catalogFrontend.factories',
     'catalogFrontend.directives',
     'angularytics'
-  ]).config(function(AngularyticsProvider) {
-    AngularyticsProvider.setEventHandlers(['Console', 'GoogleUniversal']);
-  }).run(function(Angularytics) {
-    Angularytics.init();
-  });
+  ]).config(['AngularyticsProvider', function (AngularyticsProvider) {
+      AngularyticsProvider.setEventHandlers(['Console', 'Google']);
+  }]).run(['Angularytics', function (Angularytics) {
+      Angularytics.init();
+  }]);
 });

@@ -1,4 +1,4 @@
-define(['jquery', 'angular', 'services', 'nginfinitescroll', 'angularSanitize'], function ($, angular) {
+define(['jquery', 'angular', 'controllers/searchOptionsCtrl', 'controllers/wallHomeCtrl', 'controllers/wallInsectaCtrl', 'controllers/wallAvesCtrl', 'controllers/wallPlantaeCtrl', 'controllers/wallMammaliaCtrl', 'controllers/wallReptiliaCtrl', 'controllers/wallAmphibiaCtrl', 'controllers/wallFungiCtrl', 'services', 'nginfinitescroll', 'angularSanitize'], function ($, angular) {
 	'use strict';
 
 	/* Controllers */

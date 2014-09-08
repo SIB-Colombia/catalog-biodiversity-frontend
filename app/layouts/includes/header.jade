@@ -4,9 +4,9 @@ block header
 			.navbar-header
 				button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-header-catalog-collapse")
 					span.sr-only Toggle navigation
-					span.icon-bar"
-					span.icon-bar"
-					span.icon-bar"
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
 				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
 					img.img-responsive(src="/images/logo_catalogo_especies.png")
 			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
@@ -15,7 +15,7 @@ block header
 						.navbar-form.navbar-left
 							form(method="get", onsubmit="window.location.href='/#' + '/?q=' + encodeURIComponent(this.elements['q'].value); return false;")
 								.form-group
-									input.form-control(type="text", name="q", placeholder="Buscar especies")
+									input.form-control(type="text", name="q", x-webkit-speech, placeholder="Buscar especies")
 								button.visible-large-screen(type="submit")
 				ul.nav.navbar-nav.navbar-right
 					li

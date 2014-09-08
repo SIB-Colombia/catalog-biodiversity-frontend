@@ -4,9 +4,9 @@ block header
 			.navbar-header
 				button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-header-catalog-collapse")
 					span.sr-only Toggle navigation
-					span.icon-bar"
-					span.icon-bar"
-					span.icon-bar"
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
 				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
 					img.img-responsive(src="images/logo_catalogo_especies.png")
 			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
@@ -48,10 +48,10 @@ block header
 									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
 										a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Descendente
 						.navbar-form.navbar-left
-							form(data-ng-submit="go()")
+							form(data-ng-submit="go() | trackEvent:'Búsqueda realizada':'Button clicked':'Condición búsqueda':currentTextSearch")
 								.form-group
-									input.form-control(type="text", data-ng-model="currentTextSearch", placeholder="Buscar especies")
-								button.visible-large-screen(type="button", data-ng-click="go() | trackEvent:'Búsqueda realizada':'Button clicked'")
+									input.form-control(type="text", name="q", x-webkit-speech, data-ng-model="currentTextSearch", placeholder="Buscar especies")
+								button.visible-large-screen(type="button", data-ng-click="go() | trackEvent:'Búsqueda realizada':'Button clicked':'Condición búsqueda':currentTextSearch")
 				ul.nav.navbar-nav.navbar-right
 					li
 						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
@@ -78,4 +78,3 @@ block header
 						.content
 							.title LO SENTIMOS
 							.body No se encontraron fichas de especie con la condición de búsqueda elegida.
-						
