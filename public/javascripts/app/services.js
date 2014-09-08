@@ -11,6 +11,7 @@ define(['jquery', 'angular'], function($, angular) {
 			var Catalogue = function(searchOptions) {
 				$("nav .notFound").addClass("occult-element");
 				this.species = [];
+				this.loadedRegisters = 0;
 				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
 					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
@@ -65,6 +66,7 @@ define(['jquery', 'angular'], function($, angular) {
 							}
 						}
 						this.species.push(dataVar.data[i]);
+						this.loadedRegisters += 1;
 					}
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
@@ -75,7 +77,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.page = 2;
 					this.busy = false;
 				} else {
-					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page=1';
+					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenhumedal?page=1';
 					if(searchOptions.getCurrentTaxon() != 'all') {
 						url += '&taxon='+searchOptions.getCurrentTaxon();
 					}
@@ -125,6 +127,7 @@ define(['jquery', 'angular'], function($, angular) {
 									}
 								}
 								this.species.push(items[i]);
+								this.loadedRegisters += 1;
 							}
 							$("#wall-container-wrapper").removeClass("loading2");
 							setTimeout(function() {
@@ -134,7 +137,7 @@ define(['jquery', 'angular'], function($, angular) {
 								$("#isotopeContainer").isotope('reLayout');
 							}, 3000);
 							this.end = false;
-							if(this.species.length == this.totalregisters) {
+							if(this.loadedRegisters == this.totalregisters) {
 								this.end = true;
 							}
 							this.page = 2;
@@ -159,7 +162,7 @@ define(['jquery', 'angular'], function($, angular) {
 				this.busy = true;
 				var url="";
 
-				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page='+this.page;
+				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenhumedal?page='+this.page;
 				if(this.taxonType != 'all') {
 					url += '&taxon='+this.taxonType+'&order=scientificname';
 				} else {
@@ -205,8 +208,9 @@ define(['jquery', 'angular'], function($, angular) {
 							}
 						}
 						this.species.push(items[i]);
+						this.loadedRegisters += 1;
 					}
-					if(this.species.length == this.totalregisters) {
+					if(this.loadedRegisters == this.totalregisters) {
 						this.end = true;
 					}
 					this.busy = false;
