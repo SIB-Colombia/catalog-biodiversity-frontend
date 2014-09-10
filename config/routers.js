@@ -3,6 +3,7 @@ var express = require('express')
 
 module.exports = function(parent, options){
   var verbose = options.verbose;
+  console.log(__dirname);
   fs.readdirSync(__dirname + '/../app/controllers').forEach(function(name){
     verbose && console.log('\n %s:', name);
     var obj = require('./../app/controllers/' + name)
@@ -35,31 +36,31 @@ module.exports = function(parent, options){
       switch (key) {
         case 'index':
           method = 'get';
-          path = '/';
+          path = '/paramos';
           break;
         case 'redirectAdministrationUrl':
           method = 'get';
-          path = '/admin';
+          path = '/paramos/admin';
           break;
         case 'showAllSpecies':
           method = 'get';
-          path = '/species_list_dynamic';
+          path = '/paramos/species_list_dynamic';
           break;
         case 'showAllSpeciesSimple':
           method = 'get';
-          path = '/listado_especies';
+          path = '/paramos/listado_especies';
           break;
         case 'test':
           method = 'get';
-          path = '/test';
+          path = '/paramos/test';
           break;
         case 'show':
           method = 'get';
-          path = '/' + name + '/id/:' + '_id';
+          path = '/paramos/' + name + '/id/:' + '_id';
           break;
         case 'partials':
           method = 'get';
-          path = '/partials/:name';
+          path = '/paramos/partials/:name';
           break;
         default:
           throw new Error('unrecognized route: ' + name + '.' + key);

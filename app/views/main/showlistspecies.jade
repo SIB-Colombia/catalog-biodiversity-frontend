@@ -17,7 +17,7 @@ head(data-ng-controller="RecordCtrl")
 	meta(property='og:site_name', content='Catalogo de especies de la biodiversidad de Colombia')
 	meta(property='og:locale', content='es_ES')
 	meta(name="google-site-verification" content="nm1-g-rVHscAi_K7O9e-s3EE7rEDorSu9OFagozmx3Q")
-	link(rel="Shortcut Icon" href="/images/favicon.ico")
+	link(rel="Shortcut Icon" href="images/favicon.ico")
 	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
 
 	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -26,8 +26,8 @@ head(data-ng-controller="RecordCtrl")
 		script(src='htpp://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js')
 
 	// Stylesheets
-	link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
-	link(rel='stylesheet', href='/stylesheets/catalogo.css')
+	link(rel='stylesheet', href='components/bootstrap/dist/css/bootstrap.css')
+	link(rel='stylesheet', href='stylesheets/catalogo.css')
 
 	style.
 		h1 {
@@ -53,5 +53,5 @@ body
 					each val in data.data
 						li
 							h1
-								a(href="/ficha/id/#{val.id}")
+								a(href="ficha/id/#{val.id}")
 									= val.taxon_nombre

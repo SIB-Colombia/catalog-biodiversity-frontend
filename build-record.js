@@ -1,5 +1,5 @@
 ({
-	baseUrl: "public/javascripts/app",
+	baseUrl: "public/paramos/javascripts/app",
 	optimize: "uglify2",
 	paths: {
 		jquery: '../../components/jquery/dist/jquery.min',
@@ -40,5 +40,5 @@
 		"angular"
 	],
 	name: "../record",
-	out: "public/javascripts/record-built.js"
+	out: "public/paramos/javascripts/record-built.js"
 })

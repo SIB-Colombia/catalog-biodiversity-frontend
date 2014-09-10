@@ -15,8 +15,8 @@ exports.index = function(req, res) {
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
-						//callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
-						callback(null, body);
+						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+						//callback(null, body);
 					} else {
 						res.send(body);
 					}
@@ -29,8 +29,8 @@ exports.index = function(req, res) {
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
-						//callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
-						callback(null, body);
+						callback(null, JSON.parse(body.replace(/^\s+|\s+$/g, '')));
+						//callback(null, body);
 					} else {
 						res.send(body);
 					}

@@ -14,11 +14,11 @@
 							.ribbon-threat(ng-show="threatStatus == 'CR (en peligro crítico)'", class="threat-red") CR
 							.ribbon-threat(ng-show="threatStatus == 'EN (en peligro)'", class="threat-orange") EN
 							.ribbon-threat(ng-show="threatStatus == 'VU (vulnerable)'", class="threat-yellow") VU
-					a(ng-href='/ficha/id/{{specie.id}}')
+					a(ng-href='ficha/id/{{specie.id}}')
 						img(ng-src='{{ specie.currentImage }}')
 				.ficha-muro-datos
 					.ficha-muro-taxonnombre
-						a(ng-href='/ficha/id/{{specie.id}}')
+						a(ng-href='ficha/id/{{specie.id}}')
 							span(data-ng-bind-html="specie.taxon_nombre.trim()")
 						span.ficha-id {{specie.id}}		
 					.ficha-muro-autor
@@ -59,5 +59,5 @@
 							span(ng-if="$last") . 
 		div(ng-show='catalogue.busy', class="loading")
 			.container
-				img(src="/images/loading/loading4.gif")
+				img(src="images/loading/loading4.gif")
 				| Cargando fichas de especie...

@@ -15,7 +15,7 @@
     }
   ],
   "scripts": {
-    "minify": "r.js -o build.js;r.js -o build-record.js;r.js -o cssIn=public/stylesheets/catalogo.css out=public/stylesheets/catalogo-built.css;./node_modules/clean-css/bin/cleancss -o public/stylesheets/catalogo-built.min.css public/stylesheets/catalogo-built.css",
+    "minify": "r.js -o build.js;r.js -o build-record.js;r.js -o cssIn=public/paramos/stylesheets/catalogo.css out=public/paramos/stylesheets/catalogo-built.css;./node_modules/clean-css/bin/cleancss -o public/paramos/stylesheets/catalogo-built.min.css public/paramos/stylesheets/catalogo-built.css",
     "start": "./node_modules/.bin/nodemon -e jade,js app_paramo.js",
     "test": "set NODE_ENV=test; ./node_modules/.bin/mocha --reporter spec test/test-*.js"
   },
