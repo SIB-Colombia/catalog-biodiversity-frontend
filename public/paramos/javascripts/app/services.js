@@ -12,7 +12,7 @@ define(['jquery', 'angular'], function($, angular) {
 				$("nav .notFound").addClass("occult-element");
 				this.species = [];
 				this.loadedRegisters = 0;
-				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/paramos') {
+				if(searchOptions.getCurrentTaxon() == 'all' && searchOptions.getCurrentURL() == '/') {
 					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
 					for(var i in dataVarRandomImages.data) {
