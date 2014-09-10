@@ -78,6 +78,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.busy = false;
 				} else {
 					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page=1';
+					this.page = 2;
 					if(searchOptions.getCurrentTaxon() != 'all') {
 						url += '&taxon='+searchOptions.getCurrentTaxon();
 					}
@@ -137,10 +138,9 @@ define(['jquery', 'angular'], function($, angular) {
 								$("#isotopeContainer").isotope('reLayout');
 							}, 3000);
 							this.end = false;
-							if(this.species.length == this.totalregisters) {
+							if(this.loadedRegisters == this.totalregisters) {
 								this.end = true;
 							}
-							this.page = 2;
 							this.busy = false;
 						} else {
 							$("#wall-container-wrapper").removeClass("loading2");
@@ -163,6 +163,7 @@ define(['jquery', 'angular'], function($, angular) {
 				var url="";
 
 				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page='+this.page;
+				this.page += 1;
 				if(this.taxonType != 'all') {
 					url += '&taxon='+this.taxonType+'&order=scientificname';
 				} else {
@@ -210,11 +211,10 @@ define(['jquery', 'angular'], function($, angular) {
 						this.species.push(items[i]);
 						this.loadedRegisters += 1;
 					}
-					if(this.species.length == this.totalregisters) {
+					if(this.loadedRegisters == this.totalregisters) {
 						this.end = true;
 					}
 					this.busy = false;
-					this.page++;
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 8000);
