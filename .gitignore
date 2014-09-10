@@ -2,6 +2,8 @@ catalogo_v1.sublime-project
 catalogo_v1.sublime-workspace
 public/.DS_Store
 public/components
+public/paramos/components
+public/humedales/components
 
 lib-cov
 *.seed

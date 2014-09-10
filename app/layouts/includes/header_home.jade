@@ -7,7 +7,7 @@ block header
 					span.icon-bar
 					span.icon-bar
 					span.icon-bar
-				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
+				a(class="brand", title="Catálogo de la Biodiversidad", href="/humedales")
 					img.img-responsive(src="images/logo_catalogo_especies.png")
 			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
 				.container-center
@@ -17,24 +17,24 @@ block header
 								b.caret
 							ul.dropdown-menu
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
-									a(data-ng-click="switchTaxon('all') | trackEvent:'Categorias todas las fichas':'Button clicked'", data-ng-href="/#/{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
+									a(data-ng-click="switchTaxon('all') | trackEvent:'Categorias todas las fichas':'Button clicked'", data-ng-href="/humedales/#/{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'insecta'}")
-									a(data-ng-click="switchTaxon('insecta') | trackEvent:'Categoria insectos':'Button clicked'", data-ng-href="/#/insectos{{searchOptions.getCurrentURLWithoutTaxon()}}") Insectos
+									a(data-ng-click="switchTaxon('insecta') | trackEvent:'Categoria insectos':'Button clicked'", data-ng-href="/humedales/#/insectos{{searchOptions.getCurrentURLWithoutTaxon()}}") Insectos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'aves'}")
-									a(data-ng-click="switchTaxon('aves') | trackEvent:'Categoria aves':'Button clicked'", data-ng-href="/#/aves{{searchOptions.getCurrentURLWithoutTaxon()}}") Aves
+									a(data-ng-click="switchTaxon('aves') | trackEvent:'Categoria aves':'Button clicked'", data-ng-href="/humedales/#/aves{{searchOptions.getCurrentURLWithoutTaxon()}}") Aves
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'plantae'}")
-									a(data-ng-click="switchTaxon('plantae') | trackEvent:'Categoria plantas':'Button clicked'", data-ng-href="/#/plantas{{searchOptions.getCurrentURLWithoutTaxon()}}") Plantas
+									a(data-ng-click="switchTaxon('plantae') | trackEvent:'Categoria plantas':'Button clicked'", data-ng-href="/humedales/#/plantas{{searchOptions.getCurrentURLWithoutTaxon()}}") Plantas
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'mammal'}")
-									a(data-ng-click="switchTaxon('mammal') | trackEvent:'Categoria mamíferos':'Button clicked'", data-ng-href="/#/mamiferos{{searchOptions.getCurrentURLWithoutTaxon()}}") Mamíferos
+									a(data-ng-click="switchTaxon('mammal') | trackEvent:'Categoria mamíferos':'Button clicked'", data-ng-href="/humedales/#/mamiferos{{searchOptions.getCurrentURLWithoutTaxon()}}") Mamíferos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'reptilia'}")
-									a(data-ng-click="switchTaxon('reptilia') | trackEvent:'Categoria reptiles':'Button clicked'", data-ng-href="/#/reptiles{{searchOptions.getCurrentURLWithoutTaxon()}}") Reptiles
+									a(data-ng-click="switchTaxon('reptilia') | trackEvent:'Categoria reptiles':'Button clicked'", data-ng-href="/humedales/#/reptiles{{searchOptions.getCurrentURLWithoutTaxon()}}") Reptiles
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'amphibia'}")
-									a(data-ng-click="switchTaxon('amphibia') | trackEvent:'Categoria anfibios':'Button clicked'", data-ng-href="/#/anfibios{{searchOptions.getCurrentURLWithoutTaxon()}}") Anfibios
+									a(data-ng-click="switchTaxon('amphibia') | trackEvent:'Categoria anfibios':'Button clicked'", data-ng-href="/humedales/#/anfibios{{searchOptions.getCurrentURLWithoutTaxon()}}") Anfibios
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'fungi'}")
-									a(data-ng-click="switchTaxon('fungi') | trackEvent:'Categoria hongos':'Button clicked'", data-ng-href="/#/hongos{{searchOptions.getCurrentURLWithoutTaxon()}}") Hongos
+									a(data-ng-click="switchTaxon('fungi') | trackEvent:'Categoria hongos':'Button clicked'", data-ng-href="/humedales/#/hongos{{searchOptions.getCurrentURLWithoutTaxon()}}") Hongos
 								li.divider
 								li(data-ng-class="{active: searchOptions.getShowRecordsWithPicture()}")
-									a(data-ng-click="switchShowRecordsWithPicture() | trackEvent:'Se eligió mostrar primero fichas con foto':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Mostrar primero fichas con foto
+									a(data-ng-click="switchShowRecordsWithPicture() | trackEvent:'Se eligió mostrar primero fichas con foto':'Button clicked'", data-ng-href="/humedales/#{{searchOptions.getCurrentURL()}}") Mostrar primero fichas con foto
 						li.divider-vertical.hidden-xs
 							li.dropdown
 								a(class="dropdown-toggle", data-toggle="dropdown") ORDENAR
@@ -44,9 +44,9 @@ block header
 										a(href="") Nombre científico
 									li.divider
 									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'asc'}")
-										a(data-ng-click="switchOrderDirection('asc') | trackEvent:'Mostrar fichas en orden ascendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Ascendente
+										a(data-ng-click="switchOrderDirection('asc') | trackEvent:'Mostrar fichas en orden ascendente':'Button clicked'", data-ng-href="/humedales/#{{searchOptions.getCurrentURL()}}") Ascendente
 									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
-										a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Descendente
+										a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/humedales/#{{searchOptions.getCurrentURL()}}") Descendente
 						.navbar-form.navbar-left
 							form(data-ng-submit="go() | trackEvent:'Búsqueda realizada':'Button clicked':'Condición búsqueda':currentTextSearch")
 								.form-group

@@ -1,10 +1,10 @@
 {
-  "name": "CatalogOfBiodiversity-SIBColombia",
+  "name": "CatalogOfBiodiversity-SIBColombia-Humedales",
   "version": "1.2.0",
   "ignore": [
     "**/.*",
     "node_modules",
-    "public/components",
+    "public/humedales/components",
     "test",
     "tests"
   ],

@@ -11,7 +11,7 @@ module.exports = function(parent) {
 	parent.set('view engine', 'jade');
 	parent.set('jsonp callback', true );
 	parent.use(compress());
-	parent.use(favicon(__dirname + '/../../public/images/favicon.ico'));
+	parent.use(favicon(__dirname + '/../../public/humedales/images/favicon.ico'));
 	parent.use(morgan('dev'));
 	parent.use(bodyParser());
 	parent.use(methodOverride());

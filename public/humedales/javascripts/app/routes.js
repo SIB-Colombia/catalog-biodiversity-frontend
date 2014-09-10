@@ -3,35 +3,35 @@ define(['jquery', 'angular', 'app'], function ($, angular, app) {
 
   return app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallHomeCtrl'
     })
     .when('/insectos', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallInsectaCtrl'
     })
     .when('/aves', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallAvesCtrl'
     })
     .when('/plantas', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallPlantaeCtrl'
     })
     .when('/mamiferos', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallMammaliaCtrl'
     })
     .when('/reptiles', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallReptiliaCtrl'
     })
     .when('/anfibios', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallAmphibiaCtrl'
     })
     .when('/hongos', {
-      templateUrl: '/partials/home',
+      templateUrl: '/humedales/partials/home',
       controller: 'WallFungiCtrl'
     });
     $routeProvider.otherwise({redirectTo: '/'});

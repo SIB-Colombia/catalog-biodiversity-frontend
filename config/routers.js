@@ -35,31 +35,31 @@ module.exports = function(parent, options){
       switch (key) {
         case 'index':
           method = 'get';
-          path = '/';
+          path = '/humedales';
           break;
         case 'redirectAdministrationUrl':
           method = 'get';
-          path = '/admin';
+          path = '/humedales/admin';
           break;
         case 'showAllSpecies':
           method = 'get';
-          path = '/species_list_dynamic';
+          path = '/humedales/species_list_dynamic';
           break;
         case 'showAllSpeciesSimple':
           method = 'get';
-          path = '/listado_especies';
+          path = '/humedales/listado_especies';
           break;
         case 'test':
           method = 'get';
-          path = '/test';
+          path = '/humedales/test';
           break;
         case 'show':
           method = 'get';
-          path = '/' + name + '/id/:' + '_id';
+          path = '/humedales/' + name + '/id/:' + '_id';
           break;
         case 'partials':
           method = 'get';
-          path = '/partials/:name';
+          path = '/humedales/partials/:name';
           break;
         default:
           throw new Error('unrecognized route: ' + name + '.' + key);

@@ -7,28 +7,28 @@ block header
 					span.icon-bar
 					span.icon-bar
 					span.icon-bar
-				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
-					img.img-responsive(src="/images/logo_catalogo_especies.png")
+				a(class="brand", title="Catálogo de la Biodiversidad", href="/humedales")
+					img.img-responsive(src="../../images/logo_catalogo_especies.png")
 			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
 				.container-center
 					ul.nav.navbar-nav
 						.navbar-form.navbar-left
-							form(method="get", onsubmit="window.location.href='/#' + '/?q=' + encodeURIComponent(this.elements['q'].value); return false;")
+							form(method="get", onsubmit="window.location.href='/humedales/#' + '/?q=' + encodeURIComponent(this.elements['q'].value); return false;")
 								.form-group
 									input.form-control(type="text", name="q", x-webkit-speech, placeholder="Buscar especies")
 								button.visible-large-screen(type="submit")
 				ul.nav.navbar-nav.navbar-right
 					li
 						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
-							img.img-responsive(src="/images/ico_portal.png")
+							img.img-responsive(src="../../images/ico_portal.png")
 					li.hidden-xs.hidden-sm
 						span
 					li.hidden-sm
 						a(href="https://twitter.com/sibcolombia", target="_blank", title="Síguenos en Twitter")
-							img.img-responsive(src="/images/ico_twitter.png")
+							img.img-responsive(src="../../images/ico_twitter.png")
 					li.hidden-sm
 						a(href="https://www.facebook.com/SibColombia", target="_blank", title="Síguenos en facebook")
-							img.img-responsive(src="/images/ico_fb.png")
+							img.img-responsive(src="../../images/ico_fb.png")
 					li.hidden-sm
 						a(href="http://www.youtube.com/user/sibcolombia", target="_blank", title="Visita nuestro canal en youtube")
-							img.img-responsive(src="/images/ico_youtube.png")
+							img.img-responsive(src="../../images/ico_youtube.png")

@@ -22,21 +22,21 @@ define(['jquery', 'angular'], function($, angular) {
 							dataVarRandomImages.data[i]["currentImage"] = dataVarRandomImages.data[i].imagenes.imagenThumb140[Math.floor(Math.random()*dataVarRandomImages.data[i].imagenes.imagenThumb140.length)];
 						} else {
 							if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "aves") {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/aves2.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/aves2.png";
 							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "reptilia") {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/reptiles2.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/reptiles2.png";
 							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && (dataVarRandomImages.data[i].clase.toLowerCase() == "mammalia" || dataVarRandomImages.data[i].clase.toLowerCase() == "mamalia")) {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/mamiferos2.png";
 							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "insecta") {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/insectos2.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/insectos2.png";
 							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "plantae") {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/plantas2.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/plantas2.png";
 							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "fungi") {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/hongos2.png";
 							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "amphibia") {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/anfibios2.png";
 							} else {
-								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+								dataVarRandomImages.data[i]["currentImage"] = "images/taxon_icons/vida_s.png";
 							}
 						}
 						this.species.push(dataVarRandomImages.data[i]);
@@ -48,21 +48,21 @@ define(['jquery', 'angular'], function($, angular) {
 							dataVar.data[i]["currentImage"] = dataVar.data[i].imagenes.imagenThumb140[Math.floor(Math.random()*dataVar.data[i].imagenes.imagenThumb140.length)];
 						} else {
 							if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "aves") {
-								dataVar.data[i]["currentImage"] = "/images/taxon_icons/aves2.png";
+								dataVar.data[i]["currentImage"] = "images/taxon_icons/aves2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "reptilia") {
-								dataVar.data[i]["currentImage"] = "/images/taxon_icons/reptiles2.png";
+								dataVar.data[i]["currentImage"] = "images/taxon_icons/reptiles2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && (dataVar.data[i].clase.toLowerCase() == "mammalia" || dataVar.data[i].clase.toLowerCase() == "mamalia")) {
-								dataVar.data[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
+								dataVar.data[i]["currentImage"] = "images/taxon_icons/mamiferos2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "insecta") {
-								dataVar.data[i]["currentImage"] = "/images/taxon_icons/insectos2.png";
+								dataVar.data[i]["currentImage"] = "images/taxon_icons/insectos2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "plantae") {
-								dataVar.data[i]["currentImage"] = "/images/taxon_icons/plantas2.png";
+								dataVar.data[i]["currentImage"] = "images/taxon_icons/plantas2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "fungi") {
-								dataVar.data[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
+								dataVar.data[i]["currentImage"] = "images/taxon_icons/hongos2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "amphibia") {
-								dataVar.data[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+								dataVar.data[i]["currentImage"] = "images/taxon_icons/anfibios2.png";
 							} else {
-								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+								items[i]["currentImage"] = "images/taxon_icons/vida_s.png";
 							}
 						}
 						this.species.push(dataVar.data[i]);
@@ -78,6 +78,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.busy = false;
 				} else {
 					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenhumedal?page=1';
+					this.page = 2;
 					if(searchOptions.getCurrentTaxon() != 'all') {
 						url += '&taxon='+searchOptions.getCurrentTaxon();
 					}
@@ -106,24 +107,24 @@ define(['jquery', 'angular'], function($, angular) {
 								} else {
 									if(typeof items[i].reino != 'undefined' && typeof items[i].clase != 'undefined') {
 										if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "aves") {
-											items[i]["currentImage"] = "/images/taxon_icons/aves2.png";
+											items[i]["currentImage"] = "images/taxon_icons/aves2.png";
 										} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "reptilia") {
-											items[i]["currentImage"] = "/images/taxon_icons/reptiles2.png";
+											items[i]["currentImage"] = "images/taxon_icons/reptiles2.png";
 										} else if(items[i].reino.toLowerCase() == "animalia" && (items[i].clase.toLowerCase() == "mammalia" || items[i].clase.toLowerCase() == "mamalia")) {
-											items[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
+											items[i]["currentImage"] = "images/taxon_icons/mamiferos2.png";
 										} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "insecta") {
-											items[i]["currentImage"] = "/images/taxon_icons/insectos2.png";
+											items[i]["currentImage"] = "images/taxon_icons/insectos2.png";
 										} else if(items[i].reino.toLowerCase() == "plantae") {
-											items[i]["currentImage"] = "/images/taxon_icons/plantas2.png";
+											items[i]["currentImage"] = "images/taxon_icons/plantas2.png";
 										} else if(items[i].reino.toLowerCase() == "fungi") {
-											items[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
+											items[i]["currentImage"] = "images/taxon_icons/hongos2.png";
 										} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
-											items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+											items[i]["currentImage"] = "images/taxon_icons/anfibios2.png";
 										} else {
-											items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+											items[i]["currentImage"] = "images/taxon_icons/vida_s.png";
 										}
 									} else {
-										items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+										items[i]["currentImage"] = "images/taxon_icons/vida_s.png";
 									}
 								}
 								this.species.push(items[i]);
@@ -140,7 +141,6 @@ define(['jquery', 'angular'], function($, angular) {
 							if(this.loadedRegisters == this.totalregisters) {
 								this.end = true;
 							}
-							this.page = 2;
 							this.busy = false;
 						} else {
 							$("#wall-container-wrapper").removeClass("loading2");
@@ -163,6 +163,7 @@ define(['jquery', 'angular'], function($, angular) {
 				var url="";
 
 				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenhumedal?page='+this.page;
+				this.page += 1;
 				if(this.taxonType != 'all') {
 					url += '&taxon='+this.taxonType+'&order=scientificname';
 				} else {
@@ -190,21 +191,21 @@ define(['jquery', 'angular'], function($, angular) {
 							items[i]["currentImage"] = items[i].imagenes.imagenThumb140[Math.floor(Math.random()*items[i].imagenes.imagenThumb140.length)];
 						} else {
 							if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "aves") {
-								items[i]["currentImage"] = "/images/taxon_icons/aves2.png";
+								items[i]["currentImage"] = "images/taxon_icons/aves2.png";
 							} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "reptilia") {
-								items[i]["currentImage"] = "/images/taxon_icons/reptiles2.png";
+								items[i]["currentImage"] = "images/taxon_icons/reptiles2.png";
 							} else if(items[i].reino.toLowerCase() == "animalia" && (items[i].clase.toLowerCase() == "mammalia" || items[i].clase.toLowerCase() == "mamalia")) {
-								items[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
+								items[i]["currentImage"] = "images/taxon_icons/mamiferos2.png";
 							} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "insecta") {
-								items[i]["currentImage"] = "/images/taxon_icons/insectos2.png";
+								items[i]["currentImage"] = "images/taxon_icons/insectos2.png";
 							} else if(items[i].reino.toLowerCase() == "plantae") {
-								items[i]["currentImage"] = "/images/taxon_icons/plantas2.png";
+								items[i]["currentImage"] = "images/taxon_icons/plantas2.png";
 							} else if(items[i].reino.toLowerCase() == "fungi") {
-								items[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
+								items[i]["currentImage"] = "images/taxon_icons/hongos2.png";
 							} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
-								items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+								items[i]["currentImage"] = "images/taxon_icons/anfibios2.png";
 							} else {
-								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+								items[i]["currentImage"] = "images/taxon_icons/vida_s.png";
 							}
 						}
 						this.species.push(items[i]);
@@ -214,7 +215,6 @@ define(['jquery', 'angular'], function($, angular) {
 						this.end = true;
 					}
 					this.busy = false;
-					this.page++;
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 8000);
@@ -233,21 +233,21 @@ define(['jquery', 'angular'], function($, angular) {
 					this.data.currentImages = this.data.atributos.imagenThumb140;
 				} else {
 					if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "aves") {
-						this.data.currentImage = "/images/taxon_icons/aves.png";
+						this.data.currentImage = "images/taxon_icons/aves.png";
 					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "reptilia") {
-						this.data.currentImage = "/images/taxon_icons/reptiles.png";
+						this.data.currentImage = "images/taxon_icons/reptiles.png";
 					} else if(this.data.reino.toLowerCase() == "animalia" && (this.data.clase.toLowerCase() == "mammalia" || this.data.clase.toLowerCase() == "mamalia")) {
-						this.data.currentImage = "/images/taxon_icons/mamiferos.png";
+						this.data.currentImage = "images/taxon_icons/mamiferos.png";
 					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "insecta") {
-						this.data.currentImage = "/images/taxon_icons/insectos.png";
+						this.data.currentImage = "images/taxon_icons/insectos.png";
 					} else if(this.data.reino.toLowerCase() == "plantae") {
-						this.data.currentImage = "/images/taxon_icons/plantas.png";
+						this.data.currentImage = "images/taxon_icons/plantas.png";
 					} else if(this.data.reino.toLowerCase() == "fungi") {
-						this.data.currentImage = "/images/taxon_icons/hongos.png";
+						this.data.currentImage = "images/taxon_icons/hongos.png";
 					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "amphibia") {
-						this.data.currentImage = "/images/taxon_icons/anfibios.png";
+						this.data.currentImage = "images/taxon_icons/anfibios.png";
 					} else {
-						this.data.currentImage = "/images/taxon_icons/vida.png";
+						this.data.currentImage = "images/taxon_icons/vida.png";
 					}
 				}
 			};

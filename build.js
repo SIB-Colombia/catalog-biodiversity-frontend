@@ -1,5 +1,5 @@
 ({
-	baseUrl: "public/javascripts/app",
+	baseUrl: "public/humedales/javascripts/app",
 	optimize: "uglify2",
 	paths: {
 		jquery: '../../components/jquery/dist/jquery.min',
@@ -53,5 +53,5 @@
 		"angular"
 	],
 	name: "../main",
-	out: "public/javascripts/main-built.js"
+	out: "public/humedales/javascripts/main-built.js"
 })

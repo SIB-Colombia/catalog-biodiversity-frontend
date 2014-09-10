@@ -5,7 +5,7 @@ block content
 		var recordOfSpecie = !{data2};
 	ul.breadcrumb
 		li
-			a(href="/") Principal
+			a(href="/humedales") Principal
 		li.active Ficha de especie Nº #{data.catalogoespecies_id}
 	section#catalogRecord
 		.container
@@ -107,7 +107,7 @@ block content
 			.row.recordContent
 				if data.nombres_comunes
 					h1
-						img(src='/images/secciones/nombres.png')
+						img(src='../../images/secciones/nombres.png')
 						| Nombres comunes
 					each nombreComun in data.nombres_comunes
 						.commonName
@@ -119,7 +119,7 @@ block content
 								h1 Región donde se usa
 								span.content #{nombreComun.regionesgeograficas}
 				h1
-					img(src='/images/secciones/distribucion.png')
+					img(src='../../images/secciones/distribucion.png')
 					| Distribución
 				div
 					if data.atributos && data.atributos['Mapa']
@@ -149,7 +149,7 @@ block content
 						h2 Registros biológicos
 						span!= data.atributos['Registros biológicos'][0]
 				h1
-					img(src='/images/secciones/historia.png')
+					img(src='../../images/secciones/historia.png')
 					| Historia natural
 				div
 					if data.atributos && data.atributos['Alimentación']
@@ -184,7 +184,7 @@ block content
 						h2 Ecología
 						span!= data.atributos['Ecología'][0]
 				h1
-					img(src='/images/secciones/taxonomia.png')
+					img(src='../../images/secciones/taxonomia.png')
 					| Taxonomía
 				div
 					if data.atributos && data.atributos['Descripción taxonómica']
@@ -201,7 +201,7 @@ block content
 						span!= data.atributos['Información de tipos'][0]
 
 				h1
-					img(src='/images/secciones/conservacion.png')
+					img(src='../../images/secciones/conservacion.png')
 					| Estado de conservación
 				div
 					if data.atributos && data.atributos['Estado de amenaza según categorías UICN']
@@ -240,14 +240,14 @@ block content
 
 				if data.atributos && data.atributos['Información de usos']
 					h1
-						img(src='/images/secciones/conservacion.png')
+						img(src='../../images/secciones/conservacion.png')
 						| Uso y tráfico
 					div
 						h2 Información de usos
 						span!= data.atributos['Información de usos'][0]
 
 				h1
-					img(src='/images/secciones/informacion.png')
+					img(src='../../images/secciones/informacion.png')
 					| Más información
 				div
 					if data.atributos && data.atributos['Créditos específicos']
