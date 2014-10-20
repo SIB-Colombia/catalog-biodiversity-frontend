@@ -1,0 +1,321 @@
+extends ../../layouts/layout
+
+block content
+	script.
+		var recordOfSpecie = !{data2};
+	ul.breadcrumb
+		li
+			a(href="/") Principal
+		li.active Ficha de especie Nº #{data.catalogoespecies_id}
+	section#catalogRecord
+		.container
+			.row
+				.col-lg-4.col-md-4.col-sm-5
+					h1.taxonName(class="visible-xs")!= data.info_taxonomica.taxonnombre
+					h2.author(class="visible-xs") Autor:
+						!= data.info_taxonomica.autor
+					if data.currentImages
+						#recordPictures
+							if data.currentImages && data.currentImages.length > 1
+								div
+									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
+										.wrapper
+											each threatStatus in data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
+												.ribbon-threat-status-wrapper
+													if threatStatus == 'CR (en peligro crítico)'
+														.ribbon-threat(class="threat-red") CR
+													if threatStatus == 'EN (en peligro)'
+														.ribbon-threat(class="threat-orange") EN
+													if threatStatus == 'VU (vulnerable)'
+														.ribbon-threat(class="threat-yellow") VU
+									#carrusel-imagen-especie.carousel.slide(data-ride="carousel")
+										ol.carousel-indicators
+											each image, index in data.currentImages
+												if index == 0
+													li.active(data-target="#carrusel-imagen-especie" data-slide-to="#{index}")
+												else
+													li(data-target="#carrusel-imagen-especie" data-slide-to="#{index}")
+										.carousel-inner
+											each image, index in data.currentImages
+												if index == 0
+													.item(class="active")
+														img(src='#{image}', class="img-responsive")
+												else
+													.item
+														img(src='#{image}', class="img-responsive")
+										a.left.carousel-control(href="#carrusel-imagen-especie" data-slide="prev")
+											span.glyphicon.glyphicon-chevron-left
+										a.right.carousel-control(href="#carrusel-imagen-especie" data-slide="next")
+											span.glyphicon.glyphicon-chevron-right
+							if data.currentImages && data.currentImages.length == 1
+								div
+									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
+										.wrapper
+											each threatStatus in data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
+												.ribbon-threat-status-wrapper
+													if threatStatus == 'CR (en peligro crítico)'
+														.ribbon-threat(class="threat-red") CR
+													if threatStatus == 'EN (en peligro)'
+														.ribbon-threat(class="threat-orange") EN
+													if threatStatus == 'VU (vulnerable)'
+														.ribbon-threat(class="threat-yellow") VU
+									img(src='#{data.currentImages[0]}', class="img-responsive")
+					if !data.currentImages
+						#recordPictures
+							div
+								img(src='#{data.currentImage}', class="img-responsive")
+				.col-lg-8.col-md-8.col-sm-7
+					#recordHeader
+						#recordTitles
+							if data.info_taxonomica.taxonnombre
+								.taxonNameContainer(class="hidden-xs")
+									h1.taxonName!= data.info_taxonomica.taxonnombre
+							if data.info_taxonomica.autor
+								.authorContainer(class="hidden-xs")
+									h2.author Autor:
+										!= data.info_taxonomica.autor
+							.fullTaxonContainer
+								.taxonComplete
+									if data.reino
+										div
+											strong Reino
+											span #{data.reino}
+									if data.phylum
+										div
+											strong Phylum
+											span #{data.phylum}
+									if data.clase
+										div
+											strong Clase
+											span #{data.clase}
+									if data.orden
+										div
+											strong Orden
+											span #{data.orden}
+									if data.familia
+										div
+											strong Familia
+											span #{data.familia}
+									if data.genero
+										div
+											strong Género
+											span #{data.genero}
+									if data.especie
+										div
+											strong Especie
+											span #{data.especie}
+			.row.recordContent
+				if data.nombres_comunes
+					h1
+						img(src='/images/secciones/nombres.png')
+						| Nombres comunes
+					each nombreComun in data.nombres_comunes
+						.commonName
+							span.name #{nombreComun.tesauronombre}
+							if nombreComun.idioma
+								h1 Idioma o lengua
+								span.content #{nombreComun.idioma}
+							if nombreComun.regionesgeograficas
+								h1 Región donde se usa
+								span.content #{nombreComun.regionesgeograficas}
+				
+				if data.atributos && (data.atributos['Mapa'] || data.atributos['Distribución altitudinal'] || data.atributos['Distribución geográfica en Colombia'] || data.atributos['Ecosistema'] || data.atributos['Región natural'] || data.atributos['Distribución geográfica en el mundo'] || data.atributos['Registros biológicos'])
+					h1
+						img(src='/images/secciones/distribucion.png')
+						| Distribución
+					div
+						if data.atributos['Mapa']
+							h2 Mapa
+							img(src="http://www.biodiversidad.co:3000/mapa/#{data.atributos['Mapa']}", class="img-responsive")
+						if data.atributos['Distribución altitudinal']
+							h2 Distribución altitudinal
+							span!= data.atributos['Distribución altitudinal'][0]
+
+						if data.atributos['Distribución geográfica en Colombia']
+							h2 Distribución geográfica en Colombia
+							span!= data.atributos['Distribución geográfica en Colombia'][0]
+
+						if data.atributos['Ecosistema']
+							h2 Ecosistema
+							span!= data.atributos['Ecosistema'][0]
+
+						if data.atributos['Región natural']
+							h2 Región natural
+							span!= data.atributos['Región natural'][0]
+
+						if data.atributos['Distribución geográfica en el mundo']
+							h2 Distribución geográfica en el mundo
+							span!= data.atributos['Distribución geográfica en el mundo'][0]
+
+						if data.atributos['Registros biológicos']
+							h2 Registros biológicos
+							span!= data.atributos['Registros biológicos'][0]
+				
+				if data.atributos && (data.atributos['Alimentación'] || data.atributos['Comportamiento'] || data.atributos['Hábitat'] || data.atributos['Vocalizaciones'] || data.atributos['Reproducción'] || data.atributos['Descripción general'] || data.atributos['Ecología'])
+					h1
+						img(src='/images/secciones/historia.png')
+						| Historia natural
+					div
+						if data.atributos['Alimentación']
+							h2 Alimentación
+							span!= data.atributos['Alimentación'][0]
+
+						if data.atributos['Comportamiento']
+							h2 Comportamiento
+							span!= data.atributos['Comportamiento'][0]
+
+						if data.atributos['Hábitat']
+							h2 Hábitat
+							span!= data.atributos['Hábitat'][0]
+
+						if data.atributos['Hábito']
+							h2 Hábito
+							span!= data.atributos['Hábito'][0]
+
+						if data.atributos['Vocalizaciones']
+							h2 Vocalizaciones
+							span!= data.atributos['Vocalizaciones'][0]
+
+						if data.atributos['Reproducción']
+							h2 Reproducción
+							span!= data.atributos['Reproducción'][0]
+
+						if data.atributos['Descripción general']
+							h2 Descripción general
+							span!= data.atributos['Descripción general'][0]
+
+						if data.atributos['Ecología']
+							h2 Ecología
+							span!= data.atributos['Ecología'][0]
+
+				if data.atributos && (data.atributos['Descripción taxonómica'] || data.atributos['Claves taxonómicas'] || data.atributos['Etimología del nombre científico'] || data.atributos['Información de tipos'])
+					h1
+						img(src='/images/secciones/taxonomia.png')
+						| Taxonomía
+					div
+						if data.atributos['Descripción taxonómica']
+							h2 Descripción taxonómica
+							span!= data.atributos['Descripción taxonómica'][0]
+						if data.atributos['Claves taxonómicas']
+							h2 Claves taxonómicas
+							span!= data.atributos['Claves taxonómicas'][0]
+						if data.atributos['Etimología del nombre científico']
+							h2 Etimología del nombre científico
+							span!= data.atributos['Etimología del nombre científico'][0]
+						if data.atributos['Información de tipos']
+							h2 Información de tipos
+							span!= data.atributos['Información de tipos'][0]
+
+				if data.atributos && (data.atributos['Estado de amenaza según categorías UICN'] || data.atributos['Factores de amenaza'] || data.atributos['Estado actual de la población'] || data.atributos['Medidas de conservación'])
+					h1
+						img(src='/images/secciones/conservacion.png')
+						| Estado de conservación
+					div
+						if data.atributos['Estado de amenaza según categorías UICN']
+							h2 Estado de amenaza según categorías UICN
+							if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En el mundo']
+								h3 En el mundo
+								span!= data.atributos['Estado de amenaza según categorías UICN']['En el mundo'][0]
+							div.amenaza
+								div
+									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia'].length > 0
+										.wrapper
+											each threatStatus in data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
+												.ribbon-threat-status-wrapper
+													if threatStatus == 'CR (en peligro crítico)'
+														.ribbon-threat(class="threat-red") CR
+													if threatStatus == 'EN (en peligro)'
+														.ribbon-threat(class="threat-orange") EN
+													if threatStatus == 'VU (vulnerable)'
+														.ribbon-threat(class="threat-yellow") VU
+								span
+									if data.atributos['Estado de amenaza según categorías UICN'] && data.atributos['Estado de amenaza según categorías UICN']['En Colombia']
+										h3 En Colombia
+										span!= data.atributos['Estado de amenaza según categorías UICN']['En Colombia'][0]
+
+						if data.atributos['Factores de amenaza']
+							h2 Factores de amenaza
+							span!= data.atributos['Factores de amenaza'][0]
+
+						if data.atributos['Estado actual de la población']
+							h2 Estado actual de la población
+							span!= data.atributos['Estado actual de la población'][0]
+
+						if data.atributos['Medidas de conservación']
+							h2 Medidas de conservación
+							span!= data.atributos['Medidas de conservación'][0]
+
+				if data.atributos && data.atributos['Información de usos']
+					h1
+						img(src='/images/secciones/conservacion.png')
+						| Uso y tráfico
+					div
+						h2 Información de usos
+						span!= data.atributos['Información de usos'][0]
+
+				if data.atributos && (data.atributos['Créditos específicos'] || data.atributos['Referencias bibliográficas'] || data.atributos['Otros recursos en Internet'])
+					h1
+						img(src='/images/secciones/informacion.png')
+						| Más información
+					div
+						if data.atributos['Créditos específicos']
+							h2 Créditos específicos
+							span!= data.atributos['Créditos específicos'][0]
+						if data.atributos['Referencias bibliográficas']
+							h2 Referencias bibliográficas
+							each referenciaBibliografica in data.atributos['Referencias bibliográficas']
+								ul
+									if referenciaBibliografica.fecha != ""
+										li!= referenciaBibliografica.autor + " (" + referenciaBibliografica.fecha + ") " + referenciaBibliografica.documento_titulo + " " + referenciaBibliografica.lugar_publicacion
+									else
+										li!= referenciaBibliografica.autor + " " + referenciaBibliografica.documento_titulo + " " + referenciaBibliografica.lugar_publicacion
+						if data.atributos['Otros recursos en Internet']
+							h2 Otros recursos en Internet
+							span!= data.atributos['Otros recursos en Internet'][0]
+				.basicInfoRecord
+					div
+						if data.fechaelaboracion || data.fechaactualizacion || data.info_taxonomica.taxonnombre || data.info_taxonomica.paginaweb
+							h1 Información básica de la ficha
+							div
+								.tabla
+									if data.fechaelaboracion
+										div
+											div.title Fecha de elaboración
+											div= data.fechaelaboracion
+									if data.fechaactualizacion
+										div
+											div.title Fecha de actualización
+											div= data.fechaactualizacion
+									if data.info_taxonomica.taxonnombre
+										div
+											div.title Nombre científico
+											div= data.info_taxonomica.taxonnombre
+									if data.info_taxonomica.paginaweb
+										div.title Ficha nomenclatural
+										div
+											a(target="_blank", href="#{data.info_taxonomica.paginaweb}")
+												span= data.info_taxonomica.paginaweb
+									///if data.titulometadato
+										///div.title Metadato
+										///div
+											a(target="_blank", href="#{data.titulometadato}")
+												span= data.titulometadato
+					///div
+						h1 Contacto de la ficha
+						div
+				///.citacion
+					h1 Cómo citar esta ficha
+					div
+						.tabla
+							if data.citacion.autor
+								div
+									div.title Autor
+									div= data.citacion.autor + ', ' + data.citacion.fecha + ', ' + data.citacion.documento_titulo + ' ' + data.info_taxonomica.autor
+							if data.fechaelaboracion
+								div
+									div.title Elaborada
+									div= data.fechaelaboracion
+							if data.fechaactualizacion
+								div
+									div.title Actualizada
+									div= data.fechaactualizacion

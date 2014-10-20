@@ -18,6 +18,9 @@ module.exports = function(parent) {
 		]
 	});
 
+	// New relic software analytics
+	require('newrelic');
+
 	/*var redirect = express();
 
 	redirect.all('*', function(req, res) {
