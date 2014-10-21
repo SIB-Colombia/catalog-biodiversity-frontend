@@ -26,12 +26,13 @@ head(data-ng-controller="RecordCtrl")
 		script(src='http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js')
 		script(src='htpp://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js')
 
-	//- Stylesheets production
-	//- link(rel='stylesheet', href='/stylesheets/catalogo-built.min.css')
-
-	// Stylesheets development
-	link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
-	link(rel='stylesheet', href='/stylesheets/catalogo.css')
+	- if ('development' == process.env.NODE_ENV)
+		// Stylesheets development
+		link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/catalogo.css')
+	- else
+		// Stylesheets production
+		link(rel='stylesheet', href='/stylesheets/catalogo-built.min.css')
 
 	script.
 		var _gaq = _gaq || [];
@@ -44,11 +45,12 @@ head(data-ng-controller="RecordCtrl")
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 
-	//- Including RequiereJS module loader for production
-	//- script(data-main="/javascripts/record-built", src="/javascripts/require.js")
-
-	// Including RequiereJS module loader for development
-	script(data-main="/javascripts/record", src="/javascripts/require.js")
+	- if ('development' == process.env.NODE_ENV)
+		// Including RequiereJS module loader for development
+		script(data-main="/javascripts/record", src="/javascripts/require.js")
+	- else
+		// Including RequiereJS module loader for production
+		script(data-main="/javascripts/record-built", src="/javascripts/require.js")
 
 body
 	.wrapper

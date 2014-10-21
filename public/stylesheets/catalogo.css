@@ -274,6 +274,9 @@ a {
   background: url("/images/ico_search.png") no-repeat center center;
   margin-top: 0px;
 }
+#top-zone .navbar .navbar-collapse ul.navbar-right ul.dropdown-menu li a {
+  height: inherit;
+}
 #top-zone .navbar .navbar-collapse ul.navbar-right li a {
   height: 52px;
 }
@@ -1134,6 +1137,9 @@ footer section.sib-moreinfo nav a {
   font-weight: normal;
   padding: 0 0 0 0;
   margin: 0 0 0 56%;
+}
+.navbar-toggle .icon-bar {
+  background-color: #96c7e5;
 }
 @media (max-width: 1200px) {
   .taxonComplete {

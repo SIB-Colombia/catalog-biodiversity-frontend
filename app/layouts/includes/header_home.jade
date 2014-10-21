@@ -35,7 +35,7 @@ block header
 								li.divider
 								li(data-ng-class="{active: searchOptions.getShowRecordsWithPicture()}")
 									a(data-ng-click="switchShowRecordsWithPicture() | trackEvent:'Se eligió mostrar primero fichas con foto':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Mostrar primero fichas con foto
-						li.divider-vertical.hidden-xs
+						//- li.divider-vertical.hidden-xs
 							li.dropdown
 								a(class="dropdown-toggle", data-toggle="dropdown") ORDENAR
 									b.caret
@@ -53,6 +53,20 @@ block header
 									input.form-control(type="text", name="q", x-webkit-speech, data-ng-model="currentTextSearch", placeholder="Buscar especies")
 								button.visible-large-screen(type="button", data-ng-click="go() | trackEvent:'Búsqueda realizada':'Button clicked':'Condición búsqueda':currentTextSearch")
 				ul.nav.navbar-nav.navbar-right
+					li.dropdown
+							a(class="dropdown-toggle", data-toggle="dropdown")
+								svg(x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" focusable="false")
+										g(fill="#FFFFFF")
+											polygon(points="7,3 10,0 13,3 ")
+											polygon(points="13,17 10,19.875 7,17 ")
+											//- polygon(points="28,9 24,13 20,9 ")
+											path(d="M7.294,12.844h-3.51L3.104,15H1.078L4.519,5h2.054L10,15H7.974L7.294,12.844z M4.279,11.271H6.8L5.563,7.342H5.522   L4.279,11.271z")
+											path(d="M13.875,13.455h4.891V15h-7.314v-1.049l4.752-7.406h-4.746V5h7.191v1.003L13.875,13.455z")
+							ul.dropdown-menu
+								li(data-ng-class="{active: searchOptions.getOrderDirection() == 'asc'}")
+									a(data-ng-click="switchOrderDirection('asc') | trackEvent:'Mostrar fichas en orden ascendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Orden ascendente
+								li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
+									a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Orden descendente
 					li
 						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
 							img.img-responsive(src="images/ico_portal.png")
