@@ -16,6 +16,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
 					for(var i in dataVarRandomImages.data) {
+						dataVarRandomImages.data[i]["localImage"] = true;
 						if (typeof dataVarRandomImages.data[i].imagenes.imagenThumb270 != "undefined") {
 							dataVarRandomImages.data[i]["currentImage"] = dataVarRandomImages.data[i].imagenes.imagenThumb270[Math.floor(Math.random()*dataVarRandomImages.data[i].imagenes.imagenThumb270.length)];
 						} else if (typeof dataVarRandomImages.data[i].imagenes.imagenThumb140 != "undefined") {
@@ -38,10 +39,12 @@ define(['jquery', 'angular'], function($, angular) {
 							} else {
 								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
+							dataVarRandomImages.data[i]["localImage"] = false;
 						}
 						this.species.push(dataVarRandomImages.data[i]);
 					}
 					for(var i in dataVar.data) {
+						dataVar.data[i]["localImage"] = true;
 						if (typeof dataVar.data[i].imagenes.imagenThumb270 != "undefined") {
 							dataVar.data[i]["currentImage"] = dataVar.data[i].imagenes.imagenThumb270[Math.floor(Math.random()*dataVar.data[i].imagenes.imagenThumb270.length)];
 						} else if (typeof dataVar.data[i].imagenes.imagenThumb140 != "undefined") {
@@ -64,6 +67,7 @@ define(['jquery', 'angular'], function($, angular) {
 							} else {
 								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
+							dataVar.data[i]["localImage"] = false;
 						}
 						this.species.push(dataVar.data[i]);
 						this.loadedRegisters += 1;
@@ -95,11 +99,13 @@ define(['jquery', 'angular'], function($, angular) {
 					}
 					url += '&order=scientificname&jsonp=JSON_CALLBACK';
 					$("#wall-container-wrapper").addClass("loading2");
+					this.busy = true;
 					$http.jsonp(url).success(function(data) {
 						if(data != 'No items where found') {
 							var items = data.data;
 							this.totalregisters = data.total_fichas;
 							for (var i = 0; i < items.length; i++) {
+								items[i]["localImage"] = true;
 								if (typeof items[i].imagenes.imagenThumb270 != "undefined") {
 									items[i]["currentImage"] = items[i].imagenes.imagenThumb270[Math.floor(Math.random()*items[i].imagenes.imagenThumb270.length)];
 								} else if (typeof items[i].imagenes.imagenThumb140 != "undefined") {
@@ -126,6 +132,7 @@ define(['jquery', 'angular'], function($, angular) {
 									} else {
 										items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 									}
+									items[i]["localImage"] = false;
 								}
 								this.species.push(items[i]);
 								this.loadedRegisters += 1;
@@ -146,6 +153,24 @@ define(['jquery', 'angular'], function($, angular) {
 							$("#wall-container-wrapper").removeClass("loading2");
 							$("nav .notFound").removeClass("occult-element");
 							this.end = true;
+						}
+						for (i = 0; i < this.species.length; i++) {
+							if(this.species[i].localImage == false) {
+								var q = "http://eol.org/api/search/1.0.json?callback=JSON_CALLBACK&q="+encodeURIComponent(this.species[i].taxon_nombre)+"&page=1&exact=true&filter_by_taxon_concept_id=&filter_by_hierarchy_entry_id=&filter_by_string=&cache_ttl=";
+								(function(currentSpecie) {
+									$http.jsonp(q).success(function(data) {
+										if(data.totalResults > 0) {
+											var q = "http://eol.org/api/pages/1.0/"+data.results[0].id+".json?callback=JSON_CALLBACK&images=2&videos=0&sounds=0&maps=0&text=0&iucn=false&subjects=overview&licenses=all&details=true&common_names=false&synonyms=false&references=false&vetted=0&cache_ttl=";
+											$http.jsonp(q).success(function(data) {
+												if(data.dataObjects.length > 0) {
+													this.species[currentSpecie].currentImage = data.dataObjects[0].eolMediaURL;
+													this.species[currentSpecie].localImage = true;
+												}
+											}.bind(this));
+										}
+									}.bind(this));
+								}.bind(this))(i);
+							}
 						}
 					}.bind(this));
 				}
@@ -185,28 +210,32 @@ define(['jquery', 'angular'], function($, angular) {
 					var items = data.data;
 					this.totalregisters = data.total_fichas;
 					for (var i = 0; i < items.length; i++) {
+						items[i]["localImage"] = true;
 						if (typeof items[i].imagenes.imagenThumb270 != "undefined") {
 							items[i]["currentImage"] = items[i].imagenes.imagenThumb270[Math.floor(Math.random()*items[i].imagenes.imagenThumb270.length)];
 						} else if (typeof items[i].imagenes.imagenThumb140 != "undefined") {
 							items[i]["currentImage"] = items[i].imagenes.imagenThumb140[Math.floor(Math.random()*items[i].imagenes.imagenThumb140.length)];
 						} else {
-							if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "aves") {
-								items[i]["currentImage"] = "/images/taxon_icons/aves2.png";
-							} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "reptilia") {
-								items[i]["currentImage"] = "/images/taxon_icons/reptiles2.png";
-							} else if(items[i].reino.toLowerCase() == "animalia" && (items[i].clase.toLowerCase() == "mammalia" || items[i].clase.toLowerCase() == "mamalia")) {
-								items[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
-							} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "insecta") {
-								items[i]["currentImage"] = "/images/taxon_icons/insectos2.png";
-							} else if(items[i].reino.toLowerCase() == "plantae") {
-								items[i]["currentImage"] = "/images/taxon_icons/plantas2.png";
-							} else if(items[i].reino.toLowerCase() == "fungi") {
-								items[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
-							} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
-								items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
-							} else {
-								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+							if(typeof items[i].reino !== 'undefined') {
+								if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "aves") {
+									items[i]["currentImage"] = "/images/taxon_icons/aves2.png";
+								} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "reptilia") {
+									items[i]["currentImage"] = "/images/taxon_icons/reptiles2.png";
+								} else if(items[i].reino.toLowerCase() == "animalia" && (items[i].clase.toLowerCase() == "mammalia" || items[i].clase.toLowerCase() == "mamalia")) {
+									items[i]["currentImage"] = "/images/taxon_icons/mamiferos2.png";
+								} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "insecta") {
+									items[i]["currentImage"] = "/images/taxon_icons/insectos2.png";
+								} else if(items[i].reino.toLowerCase() == "plantae") {
+									items[i]["currentImage"] = "/images/taxon_icons/plantas2.png";
+								} else if(items[i].reino.toLowerCase() == "fungi") {
+									items[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
+								} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
+									items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+								} else {
+									items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+								}
 							}
+							items[i]["localImage"] = false;
 						}
 						this.species.push(items[i]);
 						this.loadedRegisters += 1;
@@ -218,6 +247,24 @@ define(['jquery', 'angular'], function($, angular) {
 					setTimeout(function() {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 8000);
+					for (i = 0; i < this.species.length; i++) {
+						if(this.species[i].localImage == false) {
+							var q = "http://eol.org/api/search/1.0.json?callback=JSON_CALLBACK&q="+encodeURIComponent(this.species[i].taxon_nombre)+"&page=1&exact=true&filter_by_taxon_concept_id=&filter_by_hierarchy_entry_id=&filter_by_string=&cache_ttl=";
+							(function(currentSpecie) {
+								$http.jsonp(q).success(function(data) {
+									if(data.totalResults > 0) {
+										var q = "http://eol.org/api/pages/1.0/"+data.results[0].id+".json?callback=JSON_CALLBACK&images=2&videos=0&sounds=0&maps=0&text=0&iucn=false&subjects=overview&licenses=all&details=true&common_names=false&synonyms=false&references=false&vetted=0&cache_ttl=";
+										$http.jsonp(q).success(function(data) {
+											if(data.dataObjects.length > 0) {
+												this.species[currentSpecie].currentImage = data.dataObjects[0].eolMediaURL;
+												this.species[currentSpecie].localImage = true;
+											}
+										}.bind(this));
+									}
+								}.bind(this));
+							}.bind(this))(i);
+						}
+					}
 				}.bind(this));
 
 			};
