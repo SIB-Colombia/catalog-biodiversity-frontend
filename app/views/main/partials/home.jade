@@ -16,6 +16,13 @@
 							.ribbon-threat(ng-show="threatStatus == 'VU (vulnerable)'", class="threat-yellow") VU
 					a(ng-href='/fichas/{{specie.id}}')
 						img(ng-src='{{ specie.currentImage }}')
+					.imageCopyright(ng-if="specie.imageRights")
+						| &copy; 
+						span.imageRights(ng-bind-html="specie.imageRightsHolder")
+						span.imageLicense
+							a(ng-href='{{specie.imageLicense}}', target="_blank") Licencia
+							|  - 
+							a(ng-href='{{specie.imageSource}}', target="_blank") Fuente
 				.ficha-muro-datos
 					.ficha-muro-taxonnombre
 						a(ng-href='/fichas/{{specie.id}}')

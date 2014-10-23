@@ -155,7 +155,7 @@ define(['jquery', 'angular'], function($, angular) {
 							this.end = true;
 						}
 						for (i = 0; i < this.species.length; i++) {
-							if(this.species[i].localImage == false) {
+							if(this.species[i].localImage == false && this.species[i].taxon_nombre != null) {
 								var q = "http://eol.org/api/search/1.0.json?callback=JSON_CALLBACK&q="+encodeURIComponent(this.species[i].taxon_nombre)+"&page=1&exact=true&filter_by_taxon_concept_id=&filter_by_hierarchy_entry_id=&filter_by_string=&cache_ttl=";
 								(function(currentSpecie) {
 									$http.jsonp(q).success(function(data) {
@@ -164,6 +164,10 @@ define(['jquery', 'angular'], function($, angular) {
 											$http.jsonp(q).success(function(data) {
 												if(data.dataObjects.length > 0) {
 													this.species[currentSpecie].currentImage = data.dataObjects[0].eolMediaURL;
+													this.species[currentSpecie].imageLicense = data.dataObjects[0].license;
+													this.species[currentSpecie].imageRights = data.dataObjects[0].rights;
+													this.species[currentSpecie].imageSource = data.dataObjects[0].source;
+													this.species[currentSpecie].imageRightsHolder = data.dataObjects[0].rightsHolder;
 													this.species[currentSpecie].localImage = true;
 												}
 											}.bind(this));
@@ -248,7 +252,7 @@ define(['jquery', 'angular'], function($, angular) {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 8000);
 					for (i = 0; i < this.species.length; i++) {
-						if(this.species[i].localImage == false) {
+						if(this.species[i].localImage == false && this.species[i].taxon_nombre != null) {
 							var q = "http://eol.org/api/search/1.0.json?callback=JSON_CALLBACK&q="+encodeURIComponent(this.species[i].taxon_nombre)+"&page=1&exact=true&filter_by_taxon_concept_id=&filter_by_hierarchy_entry_id=&filter_by_string=&cache_ttl=";
 							(function(currentSpecie) {
 								$http.jsonp(q).success(function(data) {
@@ -257,6 +261,10 @@ define(['jquery', 'angular'], function($, angular) {
 										$http.jsonp(q).success(function(data) {
 											if(data.dataObjects.length > 0) {
 												this.species[currentSpecie].currentImage = data.dataObjects[0].eolMediaURL;
+												this.species[currentSpecie].imageLicense = data.dataObjects[0].license;
+												this.species[currentSpecie].imageRights = data.dataObjects[0].rights;
+												this.species[currentSpecie].imageSource = data.dataObjects[0].source;
+												this.species[currentSpecie].imageRightsHolder = data.dataObjects[0].rightsHolder;
 												this.species[currentSpecie].localImage = true;
 											}
 										}.bind(this));

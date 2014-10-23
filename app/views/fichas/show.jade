@@ -37,12 +37,32 @@ block content
 													li(data-target="#carrusel-imagen-especie" data-slide-to="#{index}")
 										.carousel-inner
 											each image, index in data.currentImages
-												if index == 0
-													.item(class="active")
-														img(src='#{image}', class="img-responsive")
+												if image.imageExternal
+													if index == 0
+														.item(class="active")
+															img(src='#{image.imageURL}', class="img-responsive")
+															.carousel-caption
+																if image.imageRightsHolder
+																	.captionContent!= '&copy; '+image.imageRightsHolder+', '
+																		a(href='#{image.imageLicense}', target="_blank") Licencia
+																		| , 
+																		a(href='#{image.imageSource}', target="_blank") Fuente
+													else
+														.item
+															img(src='#{image.imageURL}', class="img-responsive")
+															.carousel-caption
+																if image.imageRightsHolder
+																	.captionContent!= '&copy; '+image.imageRightsHolder+', '
+																		a(href='#{image.imageLicense}', target="_blank") Licencia
+																		| , 
+																		a(href='#{image.imageSource}', target="_blank") Fuente
 												else
-													.item
-														img(src='#{image}', class="img-responsive")
+													if index == 0
+														.item(class="active")
+															img(src='#{image}', class="img-responsive")
+													else
+														.item
+															img(src='#{image}', class="img-responsive")
 										a.left.carousel-control(href="#carrusel-imagen-especie" data-slide="prev")
 											span.glyphicon.glyphicon-chevron-left
 										a.right.carousel-control(href="#carrusel-imagen-especie" data-slide="next")
@@ -59,7 +79,7 @@ block content
 														.ribbon-threat(class="threat-orange") EN
 													if threatStatus == 'VU (vulnerable)'
 														.ribbon-threat(class="threat-yellow") VU
-									img(src='#{data.currentImages[0]}', class="img-responsive")
+									img(src='#{data.currentImages[0].imageURL}', class="img-responsive")
 					if !data.currentImages
 						#recordPictures
 							div
