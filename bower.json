@@ -20,7 +20,8 @@
     "angularytics": "~0.2.3",
     "isotope": "~2.0.0",
     "angular-isotope": "~0.1.14",
-    "nginfinitescroll": "1.1.2"
+    "nginfinitescroll": "1.1.2",
+    "oboe": "~2.0.2"
   },
   "resolutions": {
     "angular": "~1.2.16"

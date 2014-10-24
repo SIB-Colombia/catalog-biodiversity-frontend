@@ -7,9 +7,8 @@ var request = require('request');
 
 exports.show = function(req, res) {
 	var registerID = req.params._id;
-	async.parallel(
-		{
-			registerData: function(callback) {
+	async.waterfall([
+			function(callback) {
 				request({
 					url: appConfigVars.backendURL+'/index.php/api/ficha/'+registerID,
 					method: 'GET',
@@ -21,13 +20,56 @@ exports.show = function(req, res) {
 						res.send(body);
 					}
 				});
+			},
+			function(arg1, callback) {
+				result = JSON.parse(arg1.replace(/^\s+|\s+$/g, ''));
+				request({
+					url: "http://eol.org/api/search/1.0.json?q="+encodeURIComponent(result[registerID].info_taxonomica.taxonnombre)+"&page=1&exact=true&filter_by_taxon_concept_id=&filter_by_hierarchy_entry_id=&filter_by_string=&cache_ttl=",
+					method: 'GET',
+					json: true
+				}, function(error, response, body) {
+					if (!error && response.statusCode == 200) {
+						if(body.totalResults > 0) {
+							callback(null, result, body.results[0].id);	
+						} else {
+							callback(null, result, -1);
+						}
+					} else {
+						callback(null, result, -1);
+					}
+				});
+			},
+			function(result, eolID, callback) {
+				request({
+					url: "http://eol.org/api/pages/1.0/"+eolID+".json?images=10&videos=0&sounds=0&maps=0&text=0&iucn=false&subjects=overview&licenses=all&details=true&common_names=false&synonyms=false&references=false&vetted=0&cache_ttl=",
+					method: 'GET',
+					json: true
+				}, function(error, response, body) {
+					if (!error && response.statusCode == 200) {
+						if(body.dataObjects.length > 0) {
+							result[registerID].currentImages = [];
+							for (i = 0; i < body.dataObjects.length; i++) {
+								result[registerID].currentImages[i] = {};
+								result[registerID].currentImages[i].imageURL = body.dataObjects[i].eolMediaURL;
+								result[registerID].currentImages[i].imageLicense = body.dataObjects[i].license;
+								result[registerID].currentImages[i].imageRights = body.dataObjects[i].rights;
+								result[registerID].currentImages[i].imageSource = body.dataObjects[i].source;
+								result[registerID].currentImages[i].imageRightsHolder = body.dataObjects[i].rightsHolder;
+								result[registerID].currentImages[i].imageExternal = true;
+							}
+						}
+						callback(null, result);
+					} else {
+						callback(null, result);
+					}
+				});
 			}
-		}, function(err, result) {
+		], function(err, result) {
 			if(err)
-				res.send(handleError(err));
+				res.send(err);
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
 			var metaTagOgImage;
-			result = JSON.parse(result.registerData.replace(/^\s+|\s+$/g, ''));
+			//result = JSON.parse(result.replace(/^\s+|\s+$/g, ''));
 			if (typeof result[registerID].atributos != "undefined" && typeof result[registerID].atributos.imagenThumb270 != "undefined") {
         result[registerID].currentImages = result[registerID].atributos.imagenThumb270;
 				metaTagOgImage = result[registerID].atributos.imagenThumb270[0];

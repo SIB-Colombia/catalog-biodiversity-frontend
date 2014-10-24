@@ -1,7 +1,6 @@
 var express = require('express')
   , path = require('path')
   , winston = require('winston');
-var serveStatic = require('serve-static');
 
 module.exports = function(parent) {
 	parent.use(function(req, res, next){
@@ -9,7 +8,6 @@ module.exports = function(parent) {
 		res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
 		next();
 	});
-	parent.use(serveStatic(path.join(__dirname, '/../../public')));
 
 	logger = new (winston.Logger)({
 		transports: [
@@ -17,6 +15,9 @@ module.exports = function(parent) {
 			new (winston.transports.File)({ filename: 'logs/catalog_frontend.log' })
 		]
 	});
+
+	// New relic software analytics
+	require('newrelic');
 
 	/*var redirect = express();
 

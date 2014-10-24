@@ -14,11 +14,18 @@
 							.ribbon-threat(ng-show="threatStatus == 'CR (en peligro crítico)'", class="threat-red") CR
 							.ribbon-threat(ng-show="threatStatus == 'EN (en peligro)'", class="threat-orange") EN
 							.ribbon-threat(ng-show="threatStatus == 'VU (vulnerable)'", class="threat-yellow") VU
-					a(ng-href='/ficha/id/{{specie.id}}')
+					a(ng-href='/fichas/{{specie.id}}')
 						img(ng-src='{{ specie.currentImage }}')
+					.imageCopyright(ng-if="specie.imageRights")
+						| &copy; 
+						span.imageRights(ng-bind-html="specie.imageRightsHolder")
+						span.imageLicense
+							a(ng-href='{{specie.imageLicense}}', target="_blank") Licencia
+							|  - 
+							a(ng-href='{{specie.imageSource}}', target="_blank") Fuente
 				.ficha-muro-datos
 					.ficha-muro-taxonnombre
-						a(ng-href='/ficha/id/{{specie.id}}')
+						a(ng-href='/fichas/{{specie.id}}')
 							span(data-ng-bind-html="specie.taxon_nombre.trim()")
 						span.ficha-id {{specie.id}}		
 					.ficha-muro-autor

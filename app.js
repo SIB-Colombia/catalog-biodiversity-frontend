@@ -4,9 +4,6 @@
 var express = require('express')
   , http = require('http');
 
-// New relic software analytics
-require('newrelic');
-
 var app = express();
 
 var proxy = require("simple-http-proxy"); //Module for SIB Colombia Photoblog proxy, you can delete it without consequences

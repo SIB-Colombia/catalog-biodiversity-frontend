@@ -52,11 +52,11 @@
     "nodemon": "*"
   },
   "devDependencies": {
-    "supertest": "latest",
-    "should": "latest",
-    "mocha": "latest",
     "expect": "0.0.2",
-    "nodemon": "latest"
+    "mocha": "latest",
+    "nodemon": "latest",
+    "should": "latest",
+    "supertest": "latest"
   },
   "engines": {
     "node": ">=0.10.21"

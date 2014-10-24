@@ -3,6 +3,7 @@ var compress = require('compression');
 var morgan  = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var serveStatic = require('serve-static');
 var favicon = require('serve-favicon')
   , path = require('path');
 
@@ -16,6 +17,7 @@ module.exports = function(parent) {
 	parent.use(bodyParser());
 	parent.use(methodOverride());
 	parent.use(require('stylus').middleware(__dirname + '/../../public'));
+	parent.use(serveStatic(path.join(__dirname, '/../../public')));
 
 	var env = process.env.NODE_ENV || 'development';
 
