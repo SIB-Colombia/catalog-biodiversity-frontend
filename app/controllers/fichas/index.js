@@ -70,37 +70,49 @@ exports.show = function(req, res) {
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
 			var metaTagOgImage;
 			//result = JSON.parse(result.replace(/^\s+|\s+$/g, ''));
+			if(typeof result[registerID].currentImages == "undefined") {
+				result[registerID].currentImages = [];
+				console.log(result[registerID].currentImages.length);
+			}
 			if (typeof result[registerID].atributos != "undefined" && typeof result[registerID].atributos.imagenThumb270 != "undefined") {
-        result[registerID].currentImages = result[registerID].atributos.imagenThumb270;
-				metaTagOgImage = result[registerID].atributos.imagenThumb270[0];
+				for( var i = 0; i < result[registerID].atributos.imagenThumb270.length; i++) {
+					result[registerID].currentImages[result[registerID].currentImages.length] = {};
+					result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = result[registerID].atributos.imagenThumb270[i];	
+				}
+        //result[registerID].currentImages = result[registerID].atributos.imagenThumb270;
+				//metaTagOgImage = result[registerID].atributos.imagenThumb270[0];
 			} else if (typeof result[registerID].atributos != "undefined" && typeof result[registerID].atributos.imagenThumb140 != "undefined") {
-        result[registerID].currentImages = result[registerID].atributos.imagenThumb140;
-				metaTagOgImage = result[registerID].atributos.imagenThumb140[0];
+				for( var i = 0; i < result[registerID].atributos.imagenThumb140.length; i++) {
+					result[registerID].currentImages[result[registerID].currentImages.length] = {};
+					result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = result[registerID].atributos.imagenThumb140[i];	
+				}
+        //result[registerID].currentImages = result[registerID].atributos.imagenThumb140;
+				//metaTagOgImage = result[registerID].atributos.imagenThumb140[0];
 			} else {
 				if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "aves") {
           result[registerID].currentImage = "/images/taxon_icons/aves.png";
-					metaTagOgImage = "/images/taxon_icons/aves.png";
+					//metaTagOgImage = "/images/taxon_icons/aves.png";
 				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "reptilia") {
           result[registerID].currentImage = "/images/taxon_icons/reptiles.png";
-					metaTagOgImage = "/images/taxon_icons/reptiles.png";
+					//metaTagOgImage = "/images/taxon_icons/reptiles.png";
 				} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
           result[registerID].currentImage = "/images/taxon_icons/mamiferos.png";
-					metaTagOgImage = "/images/taxon_icons/mamiferos.png";
+					//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
 				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
           result[registerID].currentImage = "/images/taxon_icons/insectos.png";
-					metaTagOgImage = "/images/taxon_icons/insectos.png";
+					//metaTagOgImage = "/images/taxon_icons/insectos.png";
 				} else if(result[registerID].reino.toLowerCase() == "plantae") {
           result[registerID].currentImage = "/images/taxon_icons/plantas.png";
-					metaTagOgImage = "/images/taxon_icons/plantas.png";
+					//metaTagOgImage = "/images/taxon_icons/plantas.png";
 				} else if(result[registerID].reino.toLowerCase() == "fungi") {
           result[registerID].currentImage = "/images/taxon_icons/hongos.png";
-					metaTagOgImage = "/images/taxon_icons/hongos.png";
+					//metaTagOgImage = "/images/taxon_icons/hongos.png";
 				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "amphibia") {
           result[registerID].currentImage = "/images/taxon_icons/anfibios.png";
-					metaTagOgImage = "/images/taxon_icons/anfibios.png";
+					//metaTagOgImage = "/images/taxon_icons/anfibios.png";
 				} else {
           result[registerID].currentImage = "/images/taxon_icons/vida.png";
-					metaTagOgImage = "/images/taxon_icons/vida.png";
+					//metaTagOgImage = "/images/taxon_icons/vida.png";
 				}
 			}
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
