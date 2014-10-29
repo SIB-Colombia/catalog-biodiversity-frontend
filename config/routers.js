@@ -57,6 +57,10 @@ module.exports = function(parent, options){
           method = 'get';
           path = '/' + name + '/:' + '_id';
           break;
+        case 'showOld':
+          method = 'get';
+          path = '/' + name + '/id/:' + '_id';
+          break;
         case 'partials':
           method = 'get';
           path = '/partials/:name';
