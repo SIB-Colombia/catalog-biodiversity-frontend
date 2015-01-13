@@ -89,30 +89,32 @@ exports.show = function(req, res) {
         //result[registerID].currentImages = result[registerID].atributos.imagenThumb140;
 				//metaTagOgImage = result[registerID].atributos.imagenThumb140[0];
 			} else {
-				if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "aves") {
-          result[registerID].currentImage = "/images/taxon_icons/aves.png";
-					//metaTagOgImage = "/images/taxon_icons/aves.png";
-				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "reptilia") {
-          result[registerID].currentImage = "/images/taxon_icons/reptiles.png";
-					//metaTagOgImage = "/images/taxon_icons/reptiles.png";
-				} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
-          result[registerID].currentImage = "/images/taxon_icons/mamiferos.png";
-					//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
-				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
-          result[registerID].currentImage = "/images/taxon_icons/insectos.png";
-					//metaTagOgImage = "/images/taxon_icons/insectos.png";
-				} else if(result[registerID].reino.toLowerCase() == "plantae") {
-          result[registerID].currentImage = "/images/taxon_icons/plantas.png";
-					//metaTagOgImage = "/images/taxon_icons/plantas.png";
-				} else if(result[registerID].reino.toLowerCase() == "fungi") {
-          result[registerID].currentImage = "/images/taxon_icons/hongos.png";
-					//metaTagOgImage = "/images/taxon_icons/hongos.png";
-				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "amphibia") {
-          result[registerID].currentImage = "/images/taxon_icons/anfibios.png";
-					//metaTagOgImage = "/images/taxon_icons/anfibios.png";
-				} else {
-          result[registerID].currentImage = "/images/taxon_icons/vida.png";
-					//metaTagOgImage = "/images/taxon_icons/vida.png";
+				if(typeof result[registerID].reino != "undefined") {
+					if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "aves") {
+	          result[registerID].currentImage = "/images/taxon_icons/aves.png";
+						//metaTagOgImage = "/images/taxon_icons/aves.png";
+					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "reptilia") {
+						result[registerID].currentImage = "/images/taxon_icons/reptiles.png";
+						//metaTagOgImage = "/images/taxon_icons/reptiles.png";
+					} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
+						result[registerID].currentImage = "/images/taxon_icons/mamiferos.png";
+						//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
+					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
+						result[registerID].currentImage = "/images/taxon_icons/insectos.png";
+						//metaTagOgImage = "/images/taxon_icons/insectos.png";
+					} else if(result[registerID].reino.toLowerCase() == "plantae") {
+						result[registerID].currentImage = "/images/taxon_icons/plantas.png";
+						//metaTagOgImage = "/images/taxon_icons/plantas.png";
+					} else if(result[registerID].reino.toLowerCase() == "fungi") {
+						result[registerID].currentImage = "/images/taxon_icons/hongos.png";
+						//metaTagOgImage = "/images/taxon_icons/hongos.png";
+					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "amphibia") {
+						result[registerID].currentImage = "/images/taxon_icons/anfibios.png";
+						//metaTagOgImage = "/images/taxon_icons/anfibios.png";
+					} else {
+						result[registerID].currentImage = "/images/taxon_icons/vida.png";
+						//metaTagOgImage = "/images/taxon_icons/vida.png";
+					}
 				}
 			}
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
