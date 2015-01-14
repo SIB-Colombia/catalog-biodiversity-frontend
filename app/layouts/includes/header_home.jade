@@ -13,7 +13,7 @@ block header
 				.container-center
 					ul.nav.navbar-nav
 						li.dropdown
-							a(class="dropdown-toggle", data-toggle="dropdown") GRUPO BIOLÓGICO
+							a(class="dropdown-toggle", data-toggle="dropdown") CATEGORÍAS
 								b.caret
 							ul.dropdown-menu
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
@@ -32,6 +32,10 @@ block header
 									a(data-ng-click="switchTaxon('amphibia') | trackEvent:'Categoria anfibios':'Button clicked'", data-ng-href="/#/anfibios{{searchOptions.getCurrentURLWithoutTaxon()}}") Anfibios
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'fungi'}")
 									a(data-ng-click="switchTaxon('fungi') | trackEvent:'Categoria hongos':'Button clicked'", data-ng-href="/#/hongos{{searchOptions.getCurrentURLWithoutTaxon()}}") Hongos
+								li
+									a(data-ng-href="/paramos") Páramos
+								li
+									a(data-ng-href="/humedales") Humedales
 								li.divider
 								li(data-ng-class="{active: searchOptions.getShowRecordsWithPicture()}")
 									a(data-ng-click="switchShowRecordsWithPicture() | trackEvent:'Se eligió mostrar primero fichas con foto':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Mostrar primero fichas con foto
