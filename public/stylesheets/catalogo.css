@@ -470,6 +470,17 @@ a {
   text-shadow: 0 0px 0px rgba(0,0,0,0.6);
   font-size: 0.8em;
 }
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  margin-left: -15px;
+  font-size: 30px;
+  top: initial;
+}
 #catalogWallSection #wall-container-wrapper {
   margin-left: 2%;
   margin-right: 2%;

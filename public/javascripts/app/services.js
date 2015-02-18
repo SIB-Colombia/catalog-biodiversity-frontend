@@ -16,7 +16,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.busy = true;
 					this.totalregisters = dataVar.total_fichas;
 					for(var i in dataVarRandomImages.data) {
-						dataVarRandomImages.data[i]["localImage"] = true;
+						dataVarRandomImages.data[i]["localImage"] = false;
 						if (typeof dataVarRandomImages.data[i].imagenes.imagenThumb270 != "undefined") {
 							dataVarRandomImages.data[i]["currentImage"] = dataVarRandomImages.data[i].imagenes.imagenThumb270[Math.floor(Math.random()*dataVarRandomImages.data[i].imagenes.imagenThumb270.length)];
 						} else if (typeof dataVarRandomImages.data[i].imagenes.imagenThumb140 != "undefined") {
@@ -39,12 +39,11 @@ define(['jquery', 'angular'], function($, angular) {
 							} else {
 								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
-							dataVarRandomImages.data[i]["localImage"] = false;
 						}
 						this.species.push(dataVarRandomImages.data[i]);
 					}
 					for(var i in dataVar.data) {
-						dataVar.data[i]["localImage"] = true;
+						dataVar.data[i]["localImage"] = false;
 						if (typeof dataVar.data[i].imagenes.imagenThumb270 != "undefined") {
 							dataVar.data[i]["currentImage"] = dataVar.data[i].imagenes.imagenThumb270[Math.floor(Math.random()*dataVar.data[i].imagenes.imagenThumb270.length)];
 						} else if (typeof dataVar.data[i].imagenes.imagenThumb140 != "undefined") {
@@ -67,7 +66,6 @@ define(['jquery', 'angular'], function($, angular) {
 							} else {
 								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
-							dataVar.data[i]["localImage"] = false;
 						}
 						this.species.push(dataVar.data[i]);
 						this.loadedRegisters += 1;
@@ -105,7 +103,7 @@ define(['jquery', 'angular'], function($, angular) {
 							var items = data.data;
 							this.totalregisters = data.total_fichas;
 							for (var i = 0; i < items.length; i++) {
-								items[i]["localImage"] = true;
+								items[i]["localImage"] = false;
 								if (typeof items[i].imagenes.imagenThumb270 != "undefined") {
 									items[i]["currentImage"] = items[i].imagenes.imagenThumb270[Math.floor(Math.random()*items[i].imagenes.imagenThumb270.length)];
 								} else if (typeof items[i].imagenes.imagenThumb140 != "undefined") {
@@ -132,7 +130,6 @@ define(['jquery', 'angular'], function($, angular) {
 									} else {
 										items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 									}
-									items[i]["localImage"] = false;
 								}
 								this.species.push(items[i]);
 								this.loadedRegisters += 1;
@@ -155,22 +152,17 @@ define(['jquery', 'angular'], function($, angular) {
 							this.end = true;
 						}
 						for (i = 0; i < this.species.length; i++) {
-							if(this.species[i].localImage == false && this.species[i].taxon_nombre != null) {
-								var q = "http://eol.org/api/search/1.0.json?callback=JSON_CALLBACK&q="+encodeURIComponent(this.species[i].taxon_nombre)+"&page=1&exact=true&filter_by_taxon_concept_id=&filter_by_hierarchy_entry_id=&filter_by_string=&cache_ttl=";
+							if(this.species[i].localImage == false && this.species[i].taxon_nombre != null){
+								var q = 'http://www.biodiversidad.co:3000/index.php/api/external_images?taxon_nombre='+encodeURIComponent(this.species[i].taxon_nombre)+'&jsonp=JSON_CALLBACK';
 								(function(currentSpecie) {
 									$http.jsonp(q).success(function(data) {
-										if(data.totalResults > 0) {
-											var q = "http://eol.org/api/pages/1.0/"+data.results[0].id+".json?callback=JSON_CALLBACK&images=2&videos=0&sounds=0&maps=0&text=0&iucn=false&subjects=overview&licenses=all&details=true&common_names=false&synonyms=false&references=false&vetted=0&cache_ttl=";
-											$http.jsonp(q).success(function(data) {
-												if(data.dataObjects.length > 0) {
-													this.species[currentSpecie].currentImage = data.dataObjects[0].eolMediaURL;
-													this.species[currentSpecie].imageLicense = data.dataObjects[0].license;
-													this.species[currentSpecie].imageRights = data.dataObjects[0].rights;
-													this.species[currentSpecie].imageSource = data.dataObjects[0].source;
-													this.species[currentSpecie].imageRightsHolder = data.dataObjects[0].rightsHolder;
-													this.species[currentSpecie].localImage = true;
-												}
-											}.bind(this));
+										if(data.length > 0) {
+											this.species[currentSpecie].currentImage = data[0].imageurl;
+											this.species[currentSpecie].imageLicense = data[0].imagelicense;
+											this.species[currentSpecie].imageRights = data[0].imagerights;
+											this.species[currentSpecie].imageSource = data[0].imageSource;
+											this.species[currentSpecie].imageRightsHolder = data[0].imagerightsholder;;
+											this.species[currentSpecie].localImage = true;
 										}
 									}.bind(this));
 								}.bind(this))(i);
@@ -182,6 +174,7 @@ define(['jquery', 'angular'], function($, angular) {
 				this.showWithPriorityPicture = searchOptions.getShowRecordsWithPicture();
 				this.orderDirection = searchOptions.getOrderDirection();
 				this.searchCondition = searchOptions.getSearchCondition();
+				
 			};
 
 			Catalogue.prototype.nextPage = function() {
@@ -214,7 +207,7 @@ define(['jquery', 'angular'], function($, angular) {
 					var items = data.data;
 					this.totalregisters = data.total_fichas;
 					for (var i = 0; i < items.length; i++) {
-						items[i]["localImage"] = true;
+						items[i]["localImage"] = false;
 						if (typeof items[i].imagenes.imagenThumb270 != "undefined") {
 							items[i]["currentImage"] = items[i].imagenes.imagenThumb270[Math.floor(Math.random()*items[i].imagenes.imagenThumb270.length)];
 						} else if (typeof items[i].imagenes.imagenThumb140 != "undefined") {
@@ -239,7 +232,6 @@ define(['jquery', 'angular'], function($, angular) {
 									items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 								}
 							}
-							items[i]["localImage"] = false;
 						}
 						this.species.push(items[i]);
 						this.loadedRegisters += 1;
@@ -252,31 +244,24 @@ define(['jquery', 'angular'], function($, angular) {
 						$("#isotopeContainer").isotope('reLayout');
 					}, 8000);
 					for (i = 0; i < this.species.length; i++) {
-						if(this.species[i].localImage == false && this.species[i].taxon_nombre != null) {
-							var q = "http://eol.org/api/search/1.0.json?callback=JSON_CALLBACK&q="+encodeURIComponent(this.species[i].taxon_nombre)+"&page=1&exact=true&filter_by_taxon_concept_id=&filter_by_hierarchy_entry_id=&filter_by_string=&cache_ttl=";
+						if(this.species[i].localImage == false && this.species[i].taxon_nombre != null){
+							var q = 'http://www.biodiversidad.co:3000/index.php/api/external_images?taxon_nombre='+encodeURIComponent(this.species[i].taxon_nombre)+'&jsonp=JSON_CALLBACK';
 							(function(currentSpecie) {
 								$http.jsonp(q).success(function(data) {
-									if(data.totalResults > 0) {
-										var q = "http://eol.org/api/pages/1.0/"+data.results[0].id+".json?callback=JSON_CALLBACK&images=2&videos=0&sounds=0&maps=0&text=0&iucn=false&subjects=overview&licenses=all&details=true&common_names=false&synonyms=false&references=false&vetted=0&cache_ttl=";
-										$http.jsonp(q).success(function(data) {
-											if(data.dataObjects.length > 0) {
-												this.species[currentSpecie].currentImage = data.dataObjects[0].eolMediaURL;
-												this.species[currentSpecie].imageLicense = data.dataObjects[0].license;
-												this.species[currentSpecie].imageRights = data.dataObjects[0].rights;
-												this.species[currentSpecie].imageSource = data.dataObjects[0].source;
-												this.species[currentSpecie].imageRightsHolder = data.dataObjects[0].rightsHolder;
-												this.species[currentSpecie].localImage = true;
-											}
-										}.bind(this));
+									if(data.length > 0) {
+										this.species[currentSpecie].currentImage = data[0].imageurl;
+										this.species[currentSpecie].imageLicense = data[0].imagelicense;
+										this.species[currentSpecie].imageRights = data[0].imagerights;
+										this.species[currentSpecie].imageSource = data[0].imageSource;
+										this.species[currentSpecie].imageRightsHolder = data[0].imagerightsholder;;
+										this.species[currentSpecie].localImage = true;
 									}
 								}.bind(this));
 							}.bind(this))(i);
 						}
 					}
 				}.bind(this));
-
 			};
-
 			return Catalogue;
 		}])
 		.factory('Record', ['$http', function ($http) {
