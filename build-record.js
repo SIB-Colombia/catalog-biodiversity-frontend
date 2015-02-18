@@ -9,7 +9,9 @@
 		angularRoute: '../../components/angular-route/angular-route.min',
 		angularMocks: '../../components/angular-mocks/angular-mocks',
 		angularSanitize: '../../components/angular-sanitize/angular-sanitize.min',
-		angularytics: '../../components/angularytics/dist/angularytics.min'
+		angularytics: '../../components/angularytics/dist/angularytics.min',
+		leaflet: '../../components/leaflet/dist/leaflet',
+		leafletMarkercluster: '../../components/leaflet.markercluster/dist/leaflet.markercluster'
 	},
 	shim: {
 		'angular': {
@@ -34,6 +36,12 @@
 		},
 		'angularSanitize': {
 			deps: ['angular']
+		},
+		'leaflet': {
+			exports: 'L'
+		},
+		'leafletMarkercluster': {
+			deps: ['leaflet']
 		}
 	},
 	priority: [

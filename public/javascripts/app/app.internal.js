@@ -1,4 +1,4 @@
-define(['jquery', 'angular', 'filters', 'services', 'directives', 'controllers.internal', 'angularytics', 'angularRoute'], function ($, angular, filters, services, directives, controllers) {
+define(['jquery', 'angular', 'leaflet' 'filters', 'services', 'directives', 'controllers.internal', 'angularytics', 'angularRoute'], function ($, angular, L, filters, services, directives, controllers) {
   'use strict';
 
   // Declare app level module which depends on filters, and services

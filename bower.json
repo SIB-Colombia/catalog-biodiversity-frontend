@@ -21,7 +21,9 @@
     "isotope": "~2.0.0",
     "angular-isotope": "~0.1.14",
     "nginfinitescroll": "1.1.2",
-    "oboe": "~2.0.2"
+    "oboe": "~2.0.2",
+    "leaflet": "~0.7.3",
+    "leaflet.markercluster": "~0.4.0"
   },
   "resolutions": {
     "angular": "~1.2.16"

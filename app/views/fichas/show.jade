@@ -1,12 +1,12 @@
 extends ../../layouts/layout
 
 block content
-	link(href='http://cdn.leafletjs.com/leaflet-0.7/leaflet.css', rel='stylesheet')
-	link(href='../../components/Leaflet.markercluster/dist/MarkerCluster.css', rel='styleshee')
-	link(href='../../components/Leaflet.markercluster/dist/MarkerCluster.Default.css' , rel='stylesheet')
+	link(href='../../components/leaflet/dist/leaflet.css', rel='stylesheet')
+	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.css', rel='styleshee')
+	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.Default.css' , rel='stylesheet')
 
-	script(src='http://cdn.leafletjs.com/leaflet-0.7/leaflet.js')
-	script(src='../../components/Leaflet.markercluster/dist/leaflet.markercluster.js')
+	script(src='../../components/leaflet/dist/leaflet.js')
+	script(src='../../components/leaflet.markercluster/dist/leaflet.markercluster.js')
 	script(src='../../components/jquery/dist/jquery.min.js')
 
 	script.
@@ -139,7 +139,7 @@ block content
 					img(src='/images/secciones/distribucion.png')
 					| Distribución
 				div
-					h2 Mapa de Registros reportados
+					h2 Mapa de Registros publicados
 					div(id='map', style='width: 600px; height: 400px')
 
 					if data.atributos
