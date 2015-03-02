@@ -293,6 +293,13 @@ define(['jquery', 'angular'], function($, angular) {
 			};
 			return Record;
 		}])
+		.factory('MapData', ['$http',function($http){
+			return {
+				mapData: function(){
+					return $http.jsonp("http://maps.sibcolombia.net/rest/occurrences/mappoints?originisocountrycode=CO&scientificname="+ encodeURIComponent(recordOfSpecie.info_taxonomica.taxonnombre)+"&callback=JSON_CALLBACK");
+				}
+			};
+		}])
 		.factory('SearchOptions', ['$http', function ($http) {
 			var showRecordsWithPicture = true;
 			var currentTaxon = "all";;

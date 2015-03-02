@@ -53,7 +53,8 @@ requirejs.config({
 			exports: 'L'
 		},
 		'leafletMarkercluster': {
-			deps: ['leaflet']
+			deps: ['leaflet'],
+			exports:'LG'
 		}
 	},
 	priority: [
