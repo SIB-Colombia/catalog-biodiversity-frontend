@@ -45,7 +45,7 @@ block content
 																if image.imageRightsHolder
 																	.captionContent!= '&copy; '+image.imageRightsHolder+', '
 																		a(href='#{image.imageLicense}', target="_blank") Licencia
-																		| , 
+																		| ,
 																		a(href='#{image.imageSource}', target="_blank") Fuente
 													else
 														.item
@@ -54,7 +54,7 @@ block content
 																if image.imageRightsHolder
 																	.captionContent!= image.imageRightsHolder+', '
 																		a(href='#{image.imageLicense}', target="_blank") Licencia
-																		| , 
+																		| ,
 																		a(href='#{image.imageSource}', target="_blank") Fuente
 												else
 													if index == 0
@@ -125,15 +125,15 @@ block content
 							if nombreComun.regionesgeograficas
 								h1 Región donde se usa
 								span.content #{nombreComun.regionesgeograficas}
-				
-				
+
+
 				h1
 					img(src='/images/secciones/distribucion.png')
 					| Distribución
 				div
 					h2 Mapa de Registros publicados
-					div(id='map', style='width: 90%; height: 400px; margin: 0 auto')
-	
+					div(id='distributionmap', style='width: 90%; height: 400px; margin: 0 auto')
+
 					if data.atributos
 						if data.atributos['Distribución altitudinal']
 							h2 Distribución altitudinal
@@ -160,7 +160,7 @@ block content
 							span!= data.atributos['Registros biológicos'][0]
 
 
-				
+
 				if data.atributos && (data.atributos['Alimentación'] || data.atributos['Comportamiento'] || data.atributos['Hábitat'] || data.atributos['Vocalizaciones'] || data.atributos['Reproducción'] || data.atributos['Descripción general'] || data.atributos['Ecología'])
 					h1
 						img(src='/images/secciones/historia.png')

@@ -1,11 +1,11 @@
 define([], function() {
-	return ['$scope', '$http', 'Record','MapData', function($scope, $http, Record, MapData) {
+	return ['$scope', '$http', 'Record', 'MapData', function($scope, $http, Record, MapData) {
 		// You can access the scope of the controller from here
 		$scope.record = new Record();
 
 		var handleSuccess = function(data,status){
 			var taxonName = recordOfSpecie.info_taxonomica.taxonnombre;
-			var map = L.map('map').setView([4, -75], 5);
+			var map = L.map('distributionmap').setView([4, -75], 5);
 			var mapQuestAttr = 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> ';
 			var mopt = {
 				url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpeg',
@@ -40,10 +40,10 @@ define([], function() {
 				.bindPopup('No hay Registros con coordenadas para este taxon.')
 				.openPopup();
 			}
-		}
+		};
 
 		MapData.mapData().success(handleSuccess);
-		
+
 
 		$scope.bibliographicReference = function(autor, documento_titulo, fecha, lugar_publicacion) {
 			var text = autor;

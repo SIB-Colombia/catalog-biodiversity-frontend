@@ -9,7 +9,7 @@ requirejs.config({
 	//the paths config could be for a directory.
 	paths: {
 		jquery: '../../components/jquery/dist/jquery.min',
-		jqueryui: '../../components/jquery-ui/ui/jquery-ui',
+		jqueryui: '../../components/jquery-ui/jquery-ui.min',
 		bootstrap: '../../components/bootstrap/dist/js/bootstrap.min',
 		angular: '../../components/angular/angular.min',
 		angulari18n: '../../components/angular-i18n/angular-locale_es-co',

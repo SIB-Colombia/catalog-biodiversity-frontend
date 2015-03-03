@@ -1,9 +1,9 @@
-define(['jquery', 'angular', 'controllers/record', 'services', 'angularSanitize'], function ($, angular) {
+define(['jquery', 'angular', 'services', 'angularSanitize', 'leaflet', 'leafletMarkercluster'], function ($, angular) {
 	'use strict';
 
 	/* Controllers */
-				
-	return angular.module('catalogFrontend.controllers', ['catalogFrontend.services', 'ngSanitize'])
+
+	return angular.module('catalogFrontend.controllers', ['ngSanitize'])
 		// Home site records of species wall controller
 		.controller('RecordCtrl', ['$scope', '$injector', function($scope, $injector) {
 			require(['controllers/record'], function(record) {
