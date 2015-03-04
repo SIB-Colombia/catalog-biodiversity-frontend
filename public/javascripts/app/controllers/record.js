@@ -2,18 +2,18 @@ define([], function() {
 	return ['$scope', '$http', 'Record', 'MapData', function($scope, $http, Record, MapData) {
 		// You can access the scope of the controller from here
 		$scope.record = new Record();
+		
+		var map = L.map('distributionmap').setView([4, -75], 5);
+		var mapQuestAttr = 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> ';
+		var mopt = {
+			url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpeg',
+			options: {attribution:mapQuestAttr , subdomains:'1234'}
+		};
+		var mq=L.tileLayer(mopt.url,mopt.options);
+
+		mq.addTo(map);
 
 		var handleSuccess = function(data,status){
-			var taxonName = recordOfSpecie.info_taxonomica.taxonnombre;
-			var map = L.map('distributionmap').setView([4, -75], 5);
-			var mapQuestAttr = 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> ';
-			var mopt = {
-				url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpeg',
-				options: {attribution:mapQuestAttr , subdomains:'1234'}
-			};
-			var mq=L.tileLayer(mopt.url,mopt.options);
-
-			mq.addTo(map);
 			if(data.totalMatched > 0){
 				var clusters = new L.markerClusterGroup({
 					spiderfyOnMaxZoom: true,
@@ -41,7 +41,7 @@ define([], function() {
 				.openPopup();
 			}
 		};
-
+		
 		MapData.mapData().success(handleSuccess);
 
 

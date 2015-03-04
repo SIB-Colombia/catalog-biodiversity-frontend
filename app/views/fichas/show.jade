@@ -1,6 +1,9 @@
 extends ../../layouts/layout
 
 block content
+	link(href='http://cdn.leafletjs.com/leaflet-0.7/leaflet.css', rel='stylesheet')
+	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.css', rel='styleshee')
+	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.Default.css' , rel='stylesheet')
 	script.
 		var recordOfSpecie = !{data2};
 	ul.breadcrumb

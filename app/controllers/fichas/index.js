@@ -54,8 +54,7 @@ exports.show = function(req, res) {
 			var metaTagOgImage;
 			//result = JSON.parse(result.replace(/^\s+|\s+$/g, ''));
 			if(typeof result[registerID].currentImages == "undefined") {
-				result[registerID].currentImages = [];
-				console.log(result[registerID].currentImages.length);
+				result[registerID].currentImages = [];	
 			}
 			if (typeof result[registerID].atributos != "undefined" && typeof result[registerID].atributos.imagenThumb270 != "undefined") {
 				for( var i = 0; i < result[registerID].atributos.imagenThumb270.length; i++) {
@@ -74,13 +73,13 @@ exports.show = function(req, res) {
 			} else {
 				if(typeof result[registerID].reino != "undefined") {
 					if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "aves") {
-	          result[registerID].currentImage = "/images/taxon_icons/aves.png";
+	          			result[registerID].currentImage = "/images/taxon_icons/aves.png";
 						//metaTagOgImage = "/images/taxon_icons/aves.png";
 					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "reptilia") {
 						result[registerID].currentImage = "/images/taxon_icons/reptiles.png";
 						//metaTagOgImage = "/images/taxon_icons/reptiles.png";
 					} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
-						result[registerID].currentImage = "/images/taxon_icons/mamiferos.png";
+						result[registerID].currentImage = "/images/taxon_icons/mamiferos-retina.png";
 						//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
 					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
 						result[registerID].currentImage = "/images/taxon_icons/insectos.png";
