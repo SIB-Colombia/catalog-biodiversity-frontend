@@ -136,6 +136,9 @@ block content
 				div
 					h2 Mapa de Registros publicados
 					div(id='distributionmap', style='width: 90%; height: 400px; margin: 0 auto')
+					{{mensaje}}
+					span(ng-if ="masRegistros")
+						a( ng-href="{{masRegistros}}" target="new") Ver más
 
 					if data.atributos
 						if data.atributos['Distribución altitudinal']

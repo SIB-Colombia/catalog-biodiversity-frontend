@@ -79,7 +79,7 @@ exports.show = function(req, res) {
 						result[registerID].currentImage = "/images/taxon_icons/reptiles.png";
 						//metaTagOgImage = "/images/taxon_icons/reptiles.png";
 					} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
-						result[registerID].currentImage = "/images/taxon_icons/mamiferos.png";
+						result[registerID].currentImage = "../public/images/taxon_icons/mamiferos.png";
 						//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
 					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
 						result[registerID].currentImage = "/images/taxon_icons/insectos.png";
