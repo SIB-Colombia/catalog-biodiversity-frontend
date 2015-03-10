@@ -39,6 +39,7 @@ define([], function() {
 				for (var i = 0; i < data.features[0].geometry.geometries.length; i++) {
 					var a = data.features[0].geometry.geometries[i].coordinates;
 					var title = '<strong><a href="http://data.sibcolombia.net/occurrences/'+(data.features[0].geometry.geometries[i].properties.occurrenceID).toString()+'" target="new"> '+ 'Detalles del Registro Biologico No. ' + data.features[0].geometry.geometries[i].properties.occurrenceID +'</a></strong>';
+					L.Icon.Default.imagePath = '../../images';
 					var marker = new L.marker(new L.LatLng(a[1], a[0]));
 					marker.bindPopup(title);
 					clusters.addLayer(marker);
