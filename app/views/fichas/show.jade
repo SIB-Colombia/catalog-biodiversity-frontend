@@ -135,10 +135,12 @@ block content
 					| Distribución
 				div
 					h2 Mapa de Registros publicados
-					div(id='distributionmap', style='width: 90%; height: 400px; margin: 0 auto')
-					{{mensaje}}
-					span(ng-if ="masRegistros")
-						a( ng-href="{{masRegistros}}" target="new") Ver más
+					div
+						div(id='distributionmap', style='width: 90%; height: 400px; margin: 0 auto')
+							div(class='spinner')
+						div(style='width: 90%; margin: 0 auto')
+							span(ng-if="mensaje" ng-bind ="mensaje")
+							span(ng-if ="masRegistros" ng-bind-html="masRegistros")
 
 					if data.atributos
 						if data.atributos['Distribución altitudinal']

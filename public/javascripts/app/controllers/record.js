@@ -15,7 +15,7 @@ define([], function() {
 			var mq=L.tileLayer(mopt.url,mopt.options);
 
 			mq.addTo(map);
-			if(data.error == 'No entries for current query.'){
+			if(data.error == 'No entries for current query.' || data.totalMatched < 0){
 				var dinoIcon =L.icon({
 					iconUrl: '../../images/zoo-24@2x.png',
 					iconSize:[50,50],
@@ -27,38 +27,27 @@ define([], function() {
 				.openPopup();
 				$scope.mensaje = 'No hay registros biológicos publicados. ';
 			}else{
-				if(data.totalMatched > 0){
 				var clusters = new L.markerClusterGroup({
 					spiderfyOnMaxZoom: true,
 					showCoverageOnHover: true,
 					zoomToBoundsOnClick: true,
 					removeOutsideVisibleBounds: true
 				});
+				
 				$scope.mensaje = 'Mostrando ' + data.features[0].geometry.geometries.length + ' registros biológicos de ' + data.totalMatched + ' publicados. '
-				$scope.masRegistros = 'http://data.sibcolombia.net/species/'+data.query.scientificname;
+				$scope.masRegistros = "<a href='http://data.sibcolombia.net/species/" + data.query.scientificname + "' target='new' > Ver más </a>";
 				for (var i = 0; i < data.features[0].geometry.geometries.length; i++) {
 					var a = data.features[0].geometry.geometries[i].coordinates;
 					var title = '<strong><a href="http://data.sibcolombia.net/occurrences/'+(data.features[0].geometry.geometries[i].properties.occurrenceID).toString()+'" target="new"> '+ 'Detalles del Registro Biologico No. ' + data.features[0].geometry.geometries[i].properties.occurrenceID +'</a></strong>';
-					L.Icon.Default.imagePath = '../../images';
+					L.Icon.Default.imagePath = '../images';
 					var marker = new L.marker(new L.LatLng(a[1], a[0]));
 					marker.bindPopup(title);
 					clusters.addLayer(marker);
 				}
 				map.addLayer(clusters);
-				}else{
-					var dinoIcon =L.icon({
-						iconUrl: '../../images/zoo-24@2x.png',
-						iconSize:[50,50],
-						iconAnchor:[45,80],
-						popupAnchor:[-3,-76]
-					});
-					L.marker([4.35,-74.04 ], {icon:dinoIcon}).addTo(map)
-					.bindPopup('No hay Registros con coordenadas para este taxon.')
-					.openPopup();
-				}
 			}
 		};
-		
+
 		MapData.mapData().success(handleSuccess);
 
 
