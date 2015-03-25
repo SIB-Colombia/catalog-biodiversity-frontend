@@ -52,7 +52,7 @@ head
 		// Including RequiereJS module loader for production
 		script(data-main="/javascripts/record-built", src="/javascripts/require.js")
 
-body(data-ng-controller="RecordCtrl")
+body(data-ng-controller="RecordCtrl", ng-init="initImages()")
 	.wrapper
 		.ribbon-wrapper-green
 			.ribbon-green BETA

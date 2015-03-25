@@ -42,6 +42,9 @@
 		},
 		'leafletMarkercluster': {
 			deps: ['leaflet']
+		},
+		'photogallery':{
+			deps: ['jquery']
 		}
 	},
 	priority: [

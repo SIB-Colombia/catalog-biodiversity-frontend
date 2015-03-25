@@ -15,7 +15,7 @@ exports.show = function(req, res) {
 					json: true
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
-						callback(null, body);
+						callback(error, body);
 					} else {
 						res.send(body);
 					}
@@ -43,7 +43,7 @@ exports.show = function(req, res) {
 						}
 						callback(null, result);
 					} else {
-						callback(null, result);
+						callback(error, result);
 					}
 				});
 			}
@@ -53,9 +53,6 @@ exports.show = function(req, res) {
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
 			var metaTagOgImage;
 			//result = JSON.parse(result.replace(/^\s+|\s+$/g, ''));
-			if(typeof result[registerID].currentImages == "undefined") {
-				result[registerID].currentImages = [];	
-			}
 			if (typeof result[registerID].atributos != "undefined" && typeof result[registerID].atributos.imagenThumb270 != "undefined") {
 				for( var i = 0; i < result[registerID].atributos.imagenThumb270.length; i++) {
 					result[registerID].currentImages[result[registerID].currentImages.length] = {};
@@ -71,7 +68,9 @@ exports.show = function(req, res) {
         //result[registerID].currentImages = result[registerID].atributos.imagenThumb140;
 				//metaTagOgImage = result[registerID].atributos.imagenThumb140[0];
 			} else {
+				console.log(result[registerID].reino);
 				if(typeof result[registerID].reino != "undefined") {
+					result[registerID].currentImages = [];
 					if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "aves") {
 	          			result[registerID].currentImage = "/images/taxon_icons/aves.png";
 						//metaTagOgImage = "/images/taxon_icons/aves.png";
@@ -97,6 +96,8 @@ exports.show = function(req, res) {
 						result[registerID].currentImage = "/images/taxon_icons/vida.png";
 						//metaTagOgImage = "/images/taxon_icons/vida.png";
 					}
+				} else{
+					result[registerID].currentImages = [];
 				}
 			}
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days

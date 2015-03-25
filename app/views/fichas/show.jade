@@ -4,6 +4,8 @@ block content
 	link(href='http://cdn.leafletjs.com/leaflet-0.7/leaflet.css', rel='stylesheet')
 	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.css', rel='styleshee')
 	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.Default.css' , rel='stylesheet')
+	link(rel="stylesheet" href="../../components/photoswipe/dist/photoswipe.css")
+	link(rel="stylesheet" href="../../components/photoswipe/dist/default-skin/default-skin.css")
 	script.
 		var recordOfSpecie = !{data2};
 	ul.breadcrumb
@@ -31,45 +33,19 @@ block content
 														.ribbon-threat(class="threat-orange") EN
 													if threatStatus == 'VU (vulnerable)'
 														.ribbon-threat(class="threat-yellow") VU
-									#carrusel-imagen-especie.carousel.slide(data-ride="carousel")
-										ol.carousel-indicators
+									#gallery-container
+										ul.rslides(itemscope='', itemtype='http://schema.org/ImageGallery')
 											each image, index in data.currentImages
-												if index == 0
-													li.active(data-target="#carrusel-imagen-especie" data-slide-to="#{index}")
-												else
-													li(data-target="#carrusel-imagen-especie" data-slide-to="#{index}")
-										.carousel-inner
-											each image, index in data.currentImages
-												if image.imageExternal
-													if index == 0
-														.item(class="active")
-															img(src='#{image.imageURL}', class="img-responsive")
-															.carousel-caption
-																if image.imageRightsHolder
-																	.captionContent!= '&copy; '+image.imageRightsHolder+', '
-																		a(href='#{image.imageLicense}', target="_blank") Licencia
-																		| ,
-																		a(href='#{image.imageSource}', target="_blank") Fuente
-													else
-														.item
-															img(src='#{image.imageURL}', class="img-responsive")
-															.carousel-caption
-																if image.imageRightsHolder
-																	.captionContent!= image.imageRightsHolder+', '
-																		a(href='#{image.imageLicense}', target="_blank") Licencia
-																		| ,
-																		a(href='#{image.imageSource}', target="_blank") Fuente
-												else
-													if index == 0
-														.item(class="active")
-															img(src='#{image.imageURL}', class="img-responsive")
-													else
-														.item
-															img(src='#{image.imageURL}', class="img-responsive")
-										a.left.carousel-control(href="#carrusel-imagen-especie" data-slide="prev")
-											span.glyphicon.glyphicon-chevron-left
-										a.right.carousel-control(href="#carrusel-imagen-especie" data-slide="next")
-											span.glyphicon.glyphicon-chevron-right
+												li
+													figure(itemprop='associatedMedia', itemscope='', itemtype='http://schema.org/ImageObject')
+														a(href='#{image.imageURL}', itemprop='contentUrl')
+															img(src='#{image.imageURL}')
+														if image.imageRightsHolder
+															figcaption(itemprop='caption description')
+																'&copy; '+ image.imageRightsHolder +', '
+																a(href='#{image.imageLicense}', target="_blank") Licencia
+																| ,
+																a(href='#{image.imageSource}', target="_blank") Fuente
 					if !data.currentImages
 						#recordPictures
 							div

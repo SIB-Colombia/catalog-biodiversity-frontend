@@ -1069,6 +1069,74 @@ footer section.sib-moreinfo nav a {
 #amenaza .imageCopyright .imageSource {
   display: block;
 }
+#gallery-container {
+  margin: 0 auto;
+  width: 360px;
+  height: 310px;
+}
+#gallery-container .rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+#gallery-container .rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 360px;
+  height: 310px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 310px;
+}
+#gallery-container .rslides li:first-child {
+  position: relative;
+  display: block;
+}
+#gallery-container .rslides img {
+  max-width: 360px;
+  max-height: 310px;
+  width: auto;
+  height: auto;
+  border: 0;
+  margin: 0 auto;
+}
+#gallery-container .rslides figcaption {
+  position: absolute;
+  top: 130px;
+  margin-left: 5px;
+  font-size: 0.9em;
+  text-shadow: 0 0 3px #fff, 0 0 5px #fff;
+  font-weight: bold;
+}
+.rslides_tabs {
+  float: left;
+  padding: 0;
+  text-align: left;
+  margin-top: 10px;
+}
+.rslides_tabs li.rslides_here img {
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  border: 1px solid;
+  padding: 2px;
+  background-color: #000;
+}
+.rslides_tabs li {
+  display: inline;
+  margin: 2px;
+}
+.rslides_tabs li img {
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  padding: 2px;
+}
 #wall-container-wrapper .ribbon-threat-status-wrapper,
 #recordPictures .ribbon-threat-status-wrapper {
   position: absolute;

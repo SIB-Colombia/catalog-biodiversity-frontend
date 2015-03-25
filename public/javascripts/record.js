@@ -17,7 +17,8 @@ requirejs.config({
 		angularSanitize: '../../components/angular-sanitize/angular-sanitize.min',
 		angularytics: '../../components/angularytics/dist/angularytics.min',
 		leaflet: '../../components/leaflet/dist/leaflet',
-		leafletMarkercluster: '../../components/leaflet.markercluster/dist/leaflet.markercluster'
+		leafletMarkercluster: '../../components/leaflet.markercluster/dist/leaflet.markercluster',
+		photogallery: '../../javascripts/photogallery.min'
 	},
 	shim: {
 		'angular': {
@@ -54,6 +55,9 @@ requirejs.config({
 		},
 		'leafletMarkercluster': {
 			deps: ['leaflet']
+		},
+		'photogallery':{
+			deps: ['jquery']
 		}
 	},
 	priority: [

@@ -910,7 +910,65 @@ footer
 			display block
 		.imageSource
 			display block
-
+#gallery-container
+	margin 0 auto
+	width 360px
+	height 310px
+	.rslides
+		position relative
+		list-style none
+		overflow hidden
+		padding 0
+		margin 0
+		li
+			-webkit-backface-visibility hidden
+			position absolute
+			display none
+			width 360px
+			height 310px
+			text-align center
+			vertical-align middle
+			line-height 310px
+			&:first-child
+				position relative
+				display block
+		img
+			max-width 360px
+			max-height 310px
+			width auto
+			height auto
+			border 0
+			margin 0 auto
+		figcaption
+			position absolute
+			top 130px
+			margin-left 5px
+			font-size 0.9em
+			text-shadow 0 0 3px #FFF, 0 0 5px #FFF
+			font-weight bold
+.rslides_tabs
+	float left
+	padding 0
+	text-align left
+	margin-top 10px
+	li.rslides_here
+		img
+			max-width 50px
+			max-height 50px
+			width auto
+			height auto
+			border 1px solid
+			padding 2px
+			background-color black
+	li
+		display inline
+		margin 2px
+		img
+			max-width 50px
+			max-height 50px
+			width auto
+			height auto
+			padding 2px
 #wall-container-wrapper
 #recordPictures
 	.ribbon-threat-status-wrapper

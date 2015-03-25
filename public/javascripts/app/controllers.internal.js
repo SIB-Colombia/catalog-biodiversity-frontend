@@ -1,4 +1,4 @@
-define(['jquery', 'angular', 'services', 'angularSanitize', 'leaflet', 'leafletMarkercluster'], function ($, angular) {
+define(['jquery', 'angular', 'services', 'angularSanitize', 'leaflet', 'leafletMarkercluster', 'photogallery'], function ($, angular) {
 	'use strict';
 
 	/* Controllers */
