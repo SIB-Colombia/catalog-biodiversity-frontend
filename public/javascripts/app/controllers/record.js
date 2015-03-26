@@ -48,7 +48,7 @@ define(['jquery'], function($) {
 			}
 		};
 
-		MapData.mapData().success(handleSuccess);
+		
 
 		$(".rslides").photoGallery({
 			timeout: 10000,
@@ -234,6 +234,16 @@ define(['jquery'], function($) {
 				galleryElements[i].getElementsByTagName('figure')[0].onclick = onThumbnailsClick;
 			}
 
+			$(window).load(function() {
+				// weave your magic here.
+				console.log("sopas B");
+				for(var i = 0, l = galleryElements.length; i < l; i++) {
+					var width = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalWidth;
+					var height = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalHeight;
+					$('#'+galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].id).parent().attr("data-size", width + 'x' + height);
+				}
+			});
+
 			// Parse URL and open gallery if it contains #&pid=3&gid=1
 			var hashData = photoswipeParseHash();
 			if(hashData.pid > 0 && hashData.gid > 0) {
@@ -241,19 +251,10 @@ define(['jquery'], function($) {
 			}
 		};
 
-		$scope.initImages = function() {
-			// weave your magic here.
-			console.log("sopas B");
-			for(var i = 0, l = galleryElements.length; i < l; i++) {
-				var width = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalWidth;
-				console.log("sopas B");
-				var height = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalHeight;
-				$('#'+galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].id).parent().attr("data-size", width + 'x' + height);
-			}
-		};
-
 		// execute above function
 		initPhotoSwipeFromDOM('.rslides');
+
+		MapData.mapData().success(handleSuccess);
 
 		$scope.bibliographicReference = function(autor, documento_titulo, fecha, lugar_publicacion) {
 			var text = autor;

@@ -18,7 +18,8 @@ requirejs.config({
 		angularytics: '../../components/angularytics/dist/angularytics.min',
 		leaflet: '../../components/leaflet/dist/leaflet',
 		leafletMarkercluster: '../../components/leaflet.markercluster/dist/leaflet.markercluster',
-		photogallery: '../../javascripts/photogallery.min'
+		photogallery: '../../javascripts/photogallery.min',
+		photoSwipe: '../../components/photo.swipe/dist/photoswipe.min'
 	},
 	shim: {
 		'angular': {

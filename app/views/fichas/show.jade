@@ -4,8 +4,8 @@ block content
 	link(href='http://cdn.leafletjs.com/leaflet-0.7/leaflet.css', rel='stylesheet')
 	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.css', rel='styleshee')
 	link(href='../../components/leaflet.markercluster/dist/MarkerCluster.Default.css' , rel='stylesheet')
-	link(rel="stylesheet" href="../../components/photoswipe/dist/photoswipe.css")
-	link(rel="stylesheet" href="../../components/photoswipe/dist/default-skin/default-skin.css")
+	link(rel="stylesheet" href="../../components/photo.swipe/dist/photoswipe.css")
+	link(rel="stylesheet" href="../../components/photo.swipe/dist/default-skin/default-skin.css")
 	script.
 		var recordOfSpecie = !{data2};
 	ul.breadcrumb
@@ -41,11 +41,40 @@ block content
 														a(href='#{image.imageURL}', itemprop='contentUrl')
 															img(src='#{image.imageURL}')
 														if image.imageRightsHolder
+															alert(image.imageRightsHolder)
 															figcaption(itemprop='caption description')
-																'&copy; '+ image.imageRightsHolder +', '
+																| &copy; #{image.imageRightsHolder} ,																
 																a(href='#{image.imageLicense}', target="_blank") Licencia
 																| ,
 																a(href='#{image.imageSource}', target="_blank") Fuente
+									#gallery.pswp(tabindex='-1', role='dialog', aria-hidden='true')
+										.pswp__bg
+										.pswp__scroll-wrap
+											.pswp__container
+												.pswp__item
+												| &#x9;&#x9;&#x9;
+												.pswp__item
+												| &#x9;&#x9;&#x9;
+												.pswp__item
+											.pswp__ui.pswp__ui--hidden
+												.pswp__top-bar
+													.pswp__counter
+													| &#x9;&#x9;&#x9;&#x9;
+													button.pswp__button.pswp__button--close(title='Cerrar (Esc)')
+													| &#x9;&#x9;&#x9;&#x9;
+													button.pswp__button.pswp__button--fs(title='Ver pantalla completa')
+													| &#x9;&#x9;&#x9;&#x9;
+													button.pswp__button.pswp__button--zoom(title='Acercar/alejar')
+													| &#x9;&#x9;&#x9;&#x9;
+													.pswp__preloader
+														.pswp__preloader__icn
+															.pswp__preloader__cut
+																.pswp__preloader__donut
+												// <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div>
+												button.pswp__button.pswp__button--arrow--left(title='Previous (arrow left)')
+												button.pswp__button.pswp__button--arrow--right(title='Next (arrow right)')
+												.pswp__caption
+													.pswp__caption__center
 					if !data.currentImages
 						#recordPictures
 							div
@@ -313,3 +342,4 @@ block content
 								div
 									div.title Actualizada
 									div= data.fechaactualizacion
+
