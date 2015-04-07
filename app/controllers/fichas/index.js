@@ -23,6 +23,7 @@ exports.show = function(req, res) {
 			},
 			function(arg1, callback) {
 				result = JSON.parse(arg1.replace(/^\s+|\s+$/g, ''));
+				result[registerID].currentImages = [];
 				request({
 					url: appConfigVars.backendURL+'/index.php/api/external_images?taxon_nombre='+encodeURIComponent(result[registerID].info_taxonomica.taxonnombre),
 					method: 'GET',
@@ -30,7 +31,6 @@ exports.show = function(req, res) {
 				}, function(error, response, body) {
 					if (!error && response.statusCode == 200) {
 						if(body.length > 0) {
-							result[registerID].currentImages = [];
 							for (i = 0; i < body.length; i++) {
 								result[registerID].currentImages[i] = {};
 								result[registerID].currentImages[i].imageURL = body[i].imageurl;
@@ -48,6 +48,7 @@ exports.show = function(req, res) {
 				});
 			}
 		], function(err, result) {
+
 			if(err)
 				res.send(err);
 			//res.render('index', { title: 'Explorador - Portal de datos SIB Colombia', totalOccurrences: result.totalOccurrences, totalGeoOccurrences: result.totalGeoOccurrences/*, data: JSON.stringify(result.data*/) });
@@ -68,37 +69,44 @@ exports.show = function(req, res) {
         //result[registerID].currentImages = result[registerID].atributos.imagenThumb140;
 				//metaTagOgImage = result[registerID].atributos.imagenThumb140[0];
 			} else {
-				console.log(result[registerID].reino);
-				if(typeof result[registerID].reino != "undefined") {
-					result[registerID].currentImages = [];
-					if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "aves") {
-	          			result[registerID].currentImage = "/images/taxon_icons/aves.png";
-						//metaTagOgImage = "/images/taxon_icons/aves.png";
-					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "reptilia") {
-						result[registerID].currentImage = "/images/taxon_icons/reptiles.png";
-						//metaTagOgImage = "/images/taxon_icons/reptiles.png";
-					} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
-						result[registerID].currentImage = "../public/images/taxon_icons/mamiferos.png";
-						//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
-					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
-						result[registerID].currentImage = "/images/taxon_icons/insectos.png";
-						//metaTagOgImage = "/images/taxon_icons/insectos.png";
-					} else if(result[registerID].reino.toLowerCase() == "plantae") {
-						result[registerID].currentImage = "/images/taxon_icons/plantas.png";
-						//metaTagOgImage = "/images/taxon_icons/plantas.png";
-					} else if(result[registerID].reino.toLowerCase() == "fungi") {
-						result[registerID].currentImage = "/images/taxon_icons/hongos.png";
-						//metaTagOgImage = "/images/taxon_icons/hongos.png";
-					} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "amphibia") {
-						result[registerID].currentImage = "/images/taxon_icons/anfibios.png";
-						//metaTagOgImage = "/images/taxon_icons/anfibios.png";
-					} else {
-						result[registerID].currentImage = "/images/taxon_icons/vida.png";
-						//metaTagOgImage = "/images/taxon_icons/vida.png";
-					}
-				} else{
-					result[registerID].currentImages = [];
+				if(result[registerID].currentImages.length < 1){
+					if(typeof result[registerID].reino != "undefined") {
+						if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "aves") {
+		          			result[registerID].currentImages[result[registerID].currentImages.length] = {};
+		          			result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/aves.png";
+							//metaTagOgImage = "/images/taxon_icons/aves.png";
+						} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "reptilia") {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/reptiles.png";
+							//metaTagOgImage = "/images/taxon_icons/reptiles.png";
+						} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "../public/images/taxon_icons/mamiferos.png";
+							//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
+						} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/insectos.png";
+							//metaTagOgImage = "/images/taxon_icons/insectos.png";
+						} else if(result[registerID].reino.toLowerCase() == "plantae") {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/plantas.png";
+							//metaTagOgImage = "/images/taxon_icons/plantas.png";
+						} else if(result[registerID].reino.toLowerCase() == "fungi") {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/hongos.png";
+							//metaTagOgImage = "/images/taxon_icons/hongos.png";
+						} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "amphibia") {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/anfibios.png";
+							//metaTagOgImage = "/images/taxon_icons/anfibios.png";
+						} else {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/vida.png";
+							//metaTagOgImage = "/images/taxon_icons/vida.png";
+						}
+					} 
 				}
+				
 			}
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
 			res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());

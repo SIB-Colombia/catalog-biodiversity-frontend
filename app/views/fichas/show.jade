@@ -41,7 +41,6 @@ block content
 														a(href='#{image.imageURL}', itemprop='contentUrl')
 															img(src='#{image.imageURL}')
 														if image.imageRightsHolder
-															alert(image.imageRightsHolder)
 															figcaption(itemprop='caption description')
 																| &copy; #{image.imageRightsHolder} ,																
 																a(href='#{image.imageLicense}', target="_blank") Licencia
