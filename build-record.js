@@ -14,6 +14,7 @@
 		leafletMarkercluster: '../../components/leaflet.markercluster/dist/leaflet.markercluster',
 		photogallery: '../../javascripts/photogallery.min',
 		photoSwipe: '../../components/photo.swipe/dist/photoswipe.min'
+		photoSwipe_ui_default: '../../components/photo.swipe/dist/photoswipe-ui-default.min'
 	},
 	shim: {
 		'angular': {
