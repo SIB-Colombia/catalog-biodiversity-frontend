@@ -1,12 +1,12 @@
-define(['jquery'], function($) {
+define(['jquery', 'photoSwipe', 'photoSwipe_ui_default'], function($, PhotoSwipe, PhotoSwipeUI_Default) {
 	return ['$scope', '$http', '$window', 'Record', 'MapData', function($scope, $http, $window, Record, MapData) {
 		// You can access the scope of the controller from here
 		$scope.record = new Record();
-		
+
 		var handleSuccess = function(data,status){
 			var map = L.map('distributionmap').setView([4, -75], 5);
 			var mapQuestAttr = 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a>';
-			
+
 			var mopt = {
 				url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpeg',
 				options: {attribution:mapQuestAttr , subdomains:'1234'},
@@ -33,7 +33,7 @@ define(['jquery'], function($) {
 					zoomToBoundsOnClick: true,
 					removeOutsideVisibleBounds: true
 				});
-				
+
 				$scope.mensaje = 'Mostrando ' + data.features[0].geometry.geometries.length + ' registros biológicos de ' + data.totalMatched + ' publicados. '
 				$scope.masRegistros = "<a href='http://data.sibcolombia.net/species/" + data.query.scientificname + "' target='new' > Ver más </a>";
 				for (var i = 0; i < data.features[0].geometry.geometries.length; i++) {
@@ -48,7 +48,7 @@ define(['jquery'], function($) {
 			}
 		};
 
-		
+
 
 		$(".rslides").photoGallery({
 			timeout: 10000,
@@ -226,23 +226,18 @@ define(['jquery'], function($) {
 				gallery.init();
 			};
 
-			// loop through all gallery elements and bind events
 			var galleryElements = document.querySelectorAll( gallerySelector )[0].getElementsByTagName("li");
 
+			// loop through all gallery elements and bind events
 			for(var i = 0, l = galleryElements.length; i < l; i++) {
 				galleryElements[i].getElementsByTagName('figure')[0].setAttribute('data-pswp-uid', i+1);
 				galleryElements[i].getElementsByTagName('figure')[0].onclick = onThumbnailsClick;
 			}
-
-			$(window).load(function() {
-				// weave your magic here.
-				console.log("sopas B");
-				for(var i = 0, l = galleryElements.length; i < l; i++) {
-					var width = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalWidth;
-					var height = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalHeight;
-					$('#'+galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].id).parent().attr("data-size", width + 'x' + height);
-				}
-			});
+			for(var i = 0, l = galleryElements.length; i < l; i++) {
+				var width = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalWidth;
+				var height = galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].naturalHeight;
+				$('#'+galleryElements[i].getElementsByTagName('figure')[0].children[0].children[0].id).parent().attr("data-size", width + 'x' + height);
+			}
 
 			// Parse URL and open gallery if it contains #&pid=3&gid=1
 			var hashData = photoswipeParseHash();

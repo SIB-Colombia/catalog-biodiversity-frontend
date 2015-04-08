@@ -718,7 +718,6 @@ footer section.sib-moreinfo nav a {
   transition: all 0.6s;
   margin-bottom: 10px;
   display: inline;
-  width: 400px;
 }
 #catalogRecord .container #recordPictures .carousel-control.left {
   background-image: none;

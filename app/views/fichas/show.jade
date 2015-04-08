@@ -42,9 +42,9 @@ block content
 															img(src='#{image.imageURL}')
 														if image.imageRightsHolder
 															figcaption(itemprop='caption description')
-																| &copy; #{image.imageRightsHolder} ,																
+																| &copy; #{image.imageRightsHolder},&nbsp;
 																a(href='#{image.imageLicense}', target="_blank") Licencia
-																| ,
+																| ,&nbsp;
 																a(href='#{image.imageSource}', target="_blank") Fuente
 									#gallery.pswp(tabindex='-1', role='dialog', aria-hidden='true')
 										.pswp__bg
