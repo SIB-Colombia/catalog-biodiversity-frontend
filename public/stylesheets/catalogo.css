@@ -1068,6 +1068,12 @@ footer section.sib-moreinfo nav a {
 #amenaza .imageCopyright .imageSource {
   display: block;
 }
+#gallery.pswp {
+  z-index: 10000;
+}
+#gallery.pswp button {
+  z-index: 100;
+}
 #gallery-container {
   margin: 0 auto;
   width: 360px;
