@@ -233,7 +233,7 @@ a {
 #top-zone .navbar .navbar-header .brand {
   -webkit-border-radius: 0px 0px 15px 15px;
   border-radius: 0px 0px 15px 15px;
-  margin-left: 20px;
+  margin-left: 10px;
   float: left;
 }
 #top-zone .navbar .navbar-header .brand a:hover {
@@ -242,7 +242,7 @@ a {
   opacity: 1 !important;
 }
 #top-zone .navbar .navbar-collapse {
-  height: 52px;
+  height: 340px;
 }
 #top-zone .navbar .navbar-collapse .navbar-form .form-group {
   font-size: 1em;
@@ -727,6 +727,8 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container #recordHeader {
   padding-bottom: 5px;
+  float: left;
+  width: 100%;
 }
 #catalogRecord .container #recordHeader .fullTaxonContainer {
   display: block;

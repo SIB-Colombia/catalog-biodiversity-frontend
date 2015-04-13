@@ -15,7 +15,7 @@ block content
 	section#catalogRecord
 		.container
 			.row
-				.col-lg-4.col-md-4.col-sm-5
+				.col-lg-4.col-md-5.col-sm-6
 					h1.taxonName(class="visible-xs")!= data.info_taxonomica.taxonnombre
 					h2.author(class="visible-xs") Autor:
 						!= data.info_taxonomica.autor
@@ -78,7 +78,7 @@ block content
 						#recordPictures
 							div
 								img(src='#{data.currentImage}', class="img-responsive")
-				.col-lg-8.col-md-8.col-sm-7
+				.col-lg-8.col-md-7.col-sm-6
 					#recordHeader
 						#recordTitles
 							if data.info_taxonomica.taxonnombre
