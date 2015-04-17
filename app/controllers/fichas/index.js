@@ -81,7 +81,7 @@ exports.show = function(req, res) {
 							//metaTagOgImage = "/images/taxon_icons/reptiles.png";
 						} else if(result[registerID].reino.toLowerCase() == "animalia" && (result[registerID].clase.toLowerCase() == "mammalia" || result[registerID].clase.toLowerCase() == "mamalia")) {
 							result[registerID].currentImages[result[registerID].currentImages.length] = {};
-							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "../public/images/taxon_icons/mamiferos.png";
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/mamiferos.png";
 							//metaTagOgImage = "/images/taxon_icons/mamiferos.png";
 						} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "insecta") {
 							result[registerID].currentImages[result[registerID].currentImages.length] = {};
