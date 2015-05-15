@@ -16,7 +16,7 @@ requirejs.config({
 		angularMocks: '../../components/angular-mocks/angular-mocks',
 		angularSanitize: '../../components/angular-sanitize/angular-sanitize.min',
 		angularytics: '../../components/angularytics/dist/angularytics.min',
-		leaflet: '../../components/leaflet/dist/leaflet',
+		mapbox: '../../components/mapbox.js/mapbox',
 		leafletMarkercluster: '../../components/leaflet.markercluster/dist/leaflet.markercluster',
 		photogallery: '../../javascripts/photogallery.min',
 		photoSwipe: '../../components/photo.swipe/dist/photoswipe.min',
@@ -52,11 +52,11 @@ requirejs.config({
 		'angularSanitize': {
 			deps: ['angular']
 		},
-		'leaflet': {
+		'mapbox': {
 			exports: 'L'
 		},
 		'leafletMarkercluster': {
-			deps: ['leaflet']
+			deps: ['mapbox']
 		},
 		'photogallery':{
 			deps: ['jquery']

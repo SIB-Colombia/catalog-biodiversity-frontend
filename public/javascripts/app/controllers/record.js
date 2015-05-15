@@ -4,17 +4,18 @@ define(['jquery', 'photoSwipe', 'photoSwipe_ui_default'], function($, PhotoSwipe
 		$scope.record = new Record();
 
 		var handleSuccess = function(data,status){
-			var map = L.map('distributionmap').setView([4, -75], 5);
-			var mapQuestAttr = 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a>';
+			var map = L.mapbox.map('distributionmap');
+			var mapQuestAttr = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> ';
 
 			var mopt = {
-				url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpeg',
-				options: {attribution:mapQuestAttr , subdomains:'1234'},
+				url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+				options: {attribution: mapQuestAttr},
 				tileSize: 1000
 			};
-			var mq=L.tileLayer(mopt.url,mopt.options);
-
-			mq.addTo(map);
+			var mq = new L.tileLayer(mopt.url,mopt.options);
+			map.setView(new L.LatLng(4, -75),5);
+			map.addLayer(mq);
+			//mq.addTo(map);
 			if(data.error == 'No entries for current query.' || data.totalMatched < 0){
 				var dinoIcon =L.icon({
 					iconUrl: '../../images/zoo-24@2x.png',
