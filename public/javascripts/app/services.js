@@ -267,6 +267,7 @@ define(['jquery', 'angular'], function($, angular) {
 		.factory('Record', ['$http', function ($http) {
 			var Record = function() {
 				this.data = recordOfSpecie;
+				console.log(this.data);
 				if (typeof this.data.atributos.imagenThumb270 != "undefined") {
 					this.data.currentImages = this.data.atributos.imagenThumb270;
 				} else if (typeof this.data.atributos.imagenThumb140 != "undefined") {
