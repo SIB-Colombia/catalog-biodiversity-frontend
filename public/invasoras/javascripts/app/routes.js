@@ -3,35 +3,35 @@ define(['jquery', 'angular', 'app'], function ($, angular, app) {
 
   return app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallHomeCtrl'
     })
     .when('/insectos', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallInsectaCtrl'
     })
     .when('/aves', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallAvesCtrl'
     })
     .when('/plantas', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallPlantaeCtrl'
     })
     .when('/mamiferos', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallMammaliaCtrl'
     })
     .when('/reptiles', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallReptiliaCtrl'
     })
     .when('/anfibios', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallAmphibiaCtrl'
     })
     .when('/hongos', {
-      templateUrl: '/paramos/partials/home',
+      templateUrl: '/invasoras/partials/home',
       controller: 'WallFungiCtrl'
     });
     $routeProvider.otherwise({redirectTo: '/'});

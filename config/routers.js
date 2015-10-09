@@ -36,31 +36,31 @@ module.exports = function(parent, options){
       switch (key) {
         case 'index':
           method = 'get';
-          path = '/paramos';
+          path = '/invasoras';
           break;
         case 'redirectAdministrationUrl':
           method = 'get';
-          path = '/paramos/admin';
+          path = '/invasoras/admin';
           break;
         case 'showAllSpecies':
           method = 'get';
-          path = '/paramos/species_list_dynamic';
+          path = '/invasoras/species_list_dynamic';
           break;
         case 'showAllSpeciesSimple':
           method = 'get';
-          path = '/paramos/listado_especies';
+          path = '/invasoras/listado_especies';
           break;
         case 'test':
           method = 'get';
-          path = '/paramos/test';
+          path = '/invasoras/test';
           break;
         case 'show':
           method = 'get';
-          path = '/paramos/' + name + '/id/:' + '_id';
+          path = '/invasoras/' + name + '/id/:' + '_id';
           break;
         case 'partials':
           method = 'get';
-          path = '/paramos/partials/:name';
+          path = '/invasoras/partials/:name';
           break;
         default:
           throw new Error('unrecognized route: ' + name + '.' + key);

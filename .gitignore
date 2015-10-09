@@ -4,6 +4,7 @@ public/.DS_Store
 public/components
 public/paramos/components
 public/humedales/components
+public/invasoras/components
 
 lib-cov
 *.seed
