@@ -5,6 +5,6 @@ appConfigVars = {};
 appConfigVars.backendURL =  'http://192.168.206.102/catalogo';
 
 // App web server port
-appConfigVars.port = 4000;
+appConfigVars.port = 3000;
 
 module.exports = appConfigVars;

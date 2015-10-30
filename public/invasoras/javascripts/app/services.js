@@ -47,6 +47,7 @@ define(['jquery', 'angular'], function($, angular) {
 						} else if (typeof dataVar.data[i].imagenes.imagenThumb140 != "undefined") {
 							dataVar.data[i]["currentImage"] = dataVar.data[i].imagenes.imagenThumb140[Math.floor(Math.random()*dataVar.data[i].imagenes.imagenThumb140.length)];
 						} else {
+							if(dataVar.data[i].reino != "undefined"){
 							if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "aves") {
 								dataVar.data[i]["currentImage"] = "images/taxon_icons/aves2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "reptilia") {
@@ -62,8 +63,10 @@ define(['jquery', 'angular'], function($, angular) {
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "amphibia") {
 								dataVar.data[i]["currentImage"] = "images/taxon_icons/anfibios2.png";
 							} else {
-								items[i]["currentImage"] = "images/taxon_icons/vida_s.png";
+									
+									
 							}
+						}
 						}
 						this.species.push(dataVar.data[i]);
 						this.loadedRegisters += 1;
@@ -77,7 +80,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.page = 2;
 					this.busy = false;
 				} else {
-					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenparamo?page=1';
+					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumeninvasoras?page=1';
 					this.page = 2;
 					if(searchOptions.getCurrentTaxon() != 'all') {
 						url += '&taxon='+searchOptions.getCurrentTaxon();
@@ -162,7 +165,7 @@ define(['jquery', 'angular'], function($, angular) {
 				this.busy = true;
 				var url="";
 
-				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumenparamo?page='+this.page;
+				url = 'http://192.168.206.102/catalogo/index.php/api/fichasresumeninvasoras?page='+this.page;
 				this.page += 1;
 				if(this.taxonType != 'all') {
 					url += '&taxon='+this.taxonType+'&order=scientificname';
@@ -181,7 +184,9 @@ define(['jquery', 'angular'], function($, angular) {
 					url += '&query='+this.searchCondition;
 				}
 				url += '&jsonp=JSON_CALLBACK';
+				
 				$http.jsonp(url).success(function(data) {
+					
 					var items = data.data;
 					this.totalregisters = data.total_fichas;
 					for (var i = 0; i < items.length; i++) {
