@@ -227,7 +227,7 @@ exports.showOld = function(req, res) {
 			}
 			res.setHeader('Cache-Control', 'public, max-age=2592000000'); // 4 days
 			res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
-      res.render('show', { data: result[registerID], data2: JSON.stringify(result[registerID]), metaImageOg: metaTagOgImage, registerURL: "http://www.biodiversidad.co/ficha/id/"+registerID, ogTitle: result[registerID].info_taxonomica.taxonnombre } );
+      res.render('show', { data: result[registerID], data2: JSON.stringify(result[registerID]), metaImageOg: metaTagOgImage, registerURL: "http:/192.168.205.14/catalogo/ficha/id/"+registerID, ogTitle: result[registerID].info_taxonomica.taxonnombre } );
 		}
 	);
 };

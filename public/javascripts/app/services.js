@@ -79,7 +79,7 @@ define(['jquery', 'angular'], function($, angular) {
 					this.page = 2;
 					this.busy = false;
 				} else {
-					var url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page=1';
+					var url = 'http:/192.168.205.14/catalogo/index.php/api/fichasresumeninvasoras?page=1';
 					this.page = 2;
 					if(searchOptions.getCurrentTaxon() != 'all') {
 						url += '&taxon='+searchOptions.getCurrentTaxon();
@@ -153,7 +153,7 @@ define(['jquery', 'angular'], function($, angular) {
 						}
 						for (i = 0; i < this.species.length; i++) {
 							if(this.species[i].localImage == false && this.species[i].taxon_nombre != null){
-								var q = 'http://www.biodiversidad.co:3000/index.php/api/external_images?taxon_nombre='+encodeURIComponent(this.species[i].taxon_nombre)+'&jsonp=JSON_CALLBACK';
+								var q = 'http:/192.168.205.14/catalogo/index.php/api/external_images?taxon_nombre='+encodeURIComponent(this.species[i].taxon_nombre)+'&jsonp=JSON_CALLBACK';
 								(function(currentSpecie) {
 									$http.jsonp(q).success(function(data) {
 										if(data.length > 0) {
@@ -184,7 +184,7 @@ define(['jquery', 'angular'], function($, angular) {
 				this.busy = true;
 				var url="";
 
-				url = 'http://www.biodiversidad.co:3000/index.php/api/fichasresumen?page='+this.page;
+				url = 'http:/192.168.205.14/catalogo/index.php/api/fichasresumeninvasoras?page='+this.page;
 				this.page += 1;
 				if(this.taxonType != 'all') {
 					url += '&taxon='+this.taxonType+'&order=scientificname';
@@ -245,7 +245,7 @@ define(['jquery', 'angular'], function($, angular) {
 					}, 8000);
 					for (i = 0; i < this.species.length; i++) {
 						if(this.species[i].localImage == false && this.species[i].taxon_nombre != null){
-							var q = 'http://www.biodiversidad.co:3000/index.php/api/external_images?taxon_nombre='+encodeURIComponent(this.species[i].taxon_nombre)+'&jsonp=JSON_CALLBACK';
+							var q = 'http:/192.168.205.14/catalogo/index.php/api/external_images?taxon_nombre='+encodeURIComponent(this.species[i].taxon_nombre)+'&jsonp=JSON_CALLBACK';
 							(function(currentSpecie) {
 								$http.jsonp(q).success(function(data) {
 									if(data.length > 0) {
