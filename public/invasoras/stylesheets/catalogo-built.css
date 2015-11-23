@@ -5786,7 +5786,7 @@ button.close {
   transition: all 0.4s ease;
 }
 body {
-  background: #dddfe1 url("/invasoras/images/noise1.png") repeat 0 0 !important;
+  background: #dddfe1 url("/paramos/images/noise1.png") repeat 0 0 !important;
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 a {
@@ -5955,7 +5955,7 @@ a {
   }
 }
 .loading2 {
-  background-image: url("/invasoras/images/loading/loading64w.gif");
+  background-image: url("/paramos/images/loading/loading64w.gif");
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0.5;
@@ -5981,7 +5981,7 @@ a {
   right: 0;
   left: 0;
   margin-bottom: 0;
-  background: #f2eee3 url("/invasoras/images/noise1.png") repeat 0 0 !important;
+  background: #f2eee3 url("/paramos/images/noise1.png") repeat 0 0 !important;
 }
 #top-zone .nav .caret {
   border-top-color: #576054;
@@ -6046,7 +6046,7 @@ a {
   width: 33px;
   border: 0px;
   box-shadow: none;
-  background: url("/invasoras/images/ico_search.png") no-repeat center center;
+  background: url("/paramos/images/ico_search.png") no-repeat center center;
   margin-top: 0px;
 }
 #top-zone .navbar .navbar-collapse ul.navbar-right li a {
@@ -6135,7 +6135,7 @@ a {
   background-color: transparent;
 }
 #content-wrapper .breadcrumb li {
-  background: #fffff5 url("/invasoras/images/separator.png") no-repeat center right;
+  background: #fffff5 url("/paramos/images/separator.png") no-repeat center right;
   padding: 4px 12px 4px 8px;
 }
 #content-wrapper .breadcrumb li:first-child {
@@ -6257,7 +6257,7 @@ a {
   color: #333;
   line-height: 1.3em;
   background-size: 90% 8px;
-  background: url("/invasoras/images/shadow_top_clear.png") no-repeat top center;
+  background: url("/paramos/images/shadow_top_clear.png") no-repeat top center;
 }
 #catalogWallSection #wall-container-wrapper #isotopeContainer .ficha .ficha-muro-datos .ficha-muro-taxonnombre {
   font-size: 1.5em;
@@ -6287,16 +6287,16 @@ a {
   margin-left: 5px;
 }
 h3.ui-state-active {
-  background: url("/invasoras/images/flecha_down.png") no-repeat top center !important;
+  background: url("/paramos/images/flecha_down.png") no-repeat top center !important;
 }
 h3.ui-state-default {
-  background: url("/invasoras/images/flecha_up.png") no-repeat top center;
+  background: url("/paramos/images/flecha_up.png") no-repeat top center;
 }
 footer {
   font-size: 0.85em;
   margin: 0;
   color: #515254 !important;
-  background: rgba(255,255,255,0.9) url("/invasoras/images/shadow_top_clear.png") no-repeat top center;
+  background: rgba(255,255,255,0.9) url("/paramos/images/shadow_top_clear.png") no-repeat top center;
   line-height: 1.5em;
   padding: 0px;
   display: inline-block;
@@ -6312,10 +6312,10 @@ footer h3 {
   height: 15px;
 }
 footer h3.ui-state-default {
-  background: url("/invasoras/images/flecha_up.png") no-repeat top center;
+  background: url("/paramos/images/flecha_up.png") no-repeat top center;
 }
 footer h3.ui-state-active {
-  background: url("/invasoras/images/flecha_down.png") no-repeat top center !important;
+  background: url("/paramos/images/flecha_down.png") no-repeat top center !important;
 }
 footer h5 {
   font-family: 'Open Sans';
@@ -6359,7 +6359,7 @@ footer section.sib-cd span p {
   margin-bottom: 5px;
 }
 footer section.sib-moreinfo {
-  background: url("/invasoras/images/shadow_bottom_clear.png") no-repeat bottom center !important;
+  background: url("/paramos/images/shadow_bottom_clear.png") no-repeat bottom center !important;
   text-align: left;
 }
 footer section.sib-moreinfo a {
@@ -6466,7 +6466,7 @@ footer section.sib-moreinfo nav a {
 }
 #catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete {
   font-size: 1em;
-  background: rgba(117,166,222,0.7) url("/invasoras/images/ramas.png") repeat-x right bottom;
+  background: rgba(117,166,222,0.7) url("/paramos/images/ramas.png") repeat-x right bottom;
   padding: 6px 12px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -6680,7 +6680,7 @@ footer section.sib-moreinfo nav a {
   overflow: hidden;
 }
 #catalogRecord .container .recordContent .citacion {
-  background: rgba(117,166,222,0.4) url("/invasoras/images/ramas.png") repeat-x right bottom;
+  background: rgba(117,166,222,0.4) url("/paramos/images/ramas.png") repeat-x right bottom;
   padding: 20px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
@@ -6857,7 +6857,7 @@ footer section.sib-moreinfo nav a {
 }
 .alertbar {
   background-color: #f0ffff;
-  background: rgba(255,255,255,0.9) url("/invasoras/images/shadow_top_clear.png") no-repeat top center;
+  background: rgba(255,255,255,0.9) url("/paramos/images/shadow_top_clear.png") no-repeat top center;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -6872,7 +6872,7 @@ footer section.sib-moreinfo nav a {
   margin: 80px auto auto auto;
   width: 600px;
   min-height: 380px;
-  background: url("/invasoras/images/DINO1.png") no-repeat center left;
+  background: url("/paramos/images/DINO1.png") no-repeat center left;
   text-align: left;
   -webkit-border-radius: 20px;
   border-radius: 20px;
