@@ -1,0 +1,206 @@
+/**OVERRIDES**/
+
+#top-zone .navbar #navbar-header-catalog-collapse {
+    background: #CEE5DC;
+}
+
+/*Prov*/
+.ribbon-green {
+	display: none;
+}
+
+/*Prov*/
+
+/**TAB**/
+
+#uvTab {
+	display: none;
+}
+
+/**TAB**/
+
+#top-zone .navbar .navbar-collapse .navbar-form .form-group .form-control {
+    background-color: #CEE5DC;
+    border: 1px solid #495C4A;
+    color: #495C4A;
+}
+
+#top-zone .navbar .navbar-collapse ul.nav.navbar-nav li a {
+    color: #495C4A;
+}
+
+body {
+	background-image: url(/images/bg-textura.png) !important;
+	background-color: #FEFBF3 !important;
+}
+
+#top-zone .navbar {
+    -webkit-box-shadow: 0 0 17px 1px #AAAAAA ;
+    -moz-box-shadow: 0 0 17px 1px #AAAAAA;
+    box-shadow: 0 0 17px 1px #AAAAAA;
+}
+
+#catalogRecord .container h1.taxonName {
+    color: #CB7233;
+	text-transform: uppercase;
+	font-weight: 300;
+    font-style: italic;
+    margin-top: 0;
+    font-size: 48px !important;
+}
+
+.title-container {
+	text-align: center;
+	padding: 40px 0 0 0;
+}
+
+.author-container {
+	text-align: center;
+}
+
+.author-container h2 {
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete {
+    background-image: none;
+	background-color: #FFFFFF;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    width: 100%;
+}
+
+h1.taxon-title {
+	background-color: #466E70;
+    color: #fff;
+    padding: 13px;
+    font-weight: 300;
+    margin: 10px 0;
+    font-size: 1.5em;
+    line-height: 1em;
+    display: block;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+h1.taxon-title img {
+    padding: 0 15px 0 0;
+    margin: 0;
+    max-height: 35px;
+    max-width: 35px;
+}
+
+#catalogRecord .container .recordContent h1 {
+    background-color: #466E70;
+}
+
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(odd), 
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div:nth-child(even) {
+    margin-left: 0;
+}
+
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div span:after {
+    content: "";
+    display: none;
+}
+
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div {
+    display: block;
+    margin-bottom: 0;
+}
+
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div {
+	padding: 10px 0;
+}
+
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete div strong {
+    margin-right: 3px;
+    width: 80px;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#catalogRecord .container #recordHeader .fullTaxonContainer .taxonComplete span {
+	text-transform: none;
+	font-weight: 700;
+	color: #C86B29;
+	font-style: italic;
+}
+
+#catalogRecord .container .recordContent h2 {
+	color: #C86B29;
+	margin: 1em 0;
+}
+
+#catalogRecord .container .recordContent .basicInfoRecord {
+    background: #CEE5DC;
+	color: #466E70;
+}
+
+#catalogRecord .container .recordContent .basicInfoRecord h1 {
+    color: #466E70;
+}
+
+#catalogRecord .container .recordContent .basicInfoRecord>div:first-child {
+    border-right: 2px #466E70 solid;
+}
+
+#gallery-container {
+    width: 100%;
+}
+
+.padded-cont {
+  		padding: 40px 0;
+  	}
+  	
+.align-center{
+	text-align: center;
+}
+
+.btn-home {
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 24px;
+	padding: 20px 50px;
+	background-color: #466E70;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.btn-home:hover {
+	background-color: #CEE5DC;
+	color: #466E70;
+	text-decoration: none;
+}
+
+.btn-pad {
+	padding: 25px 0 0 10px;
+}
+
+.column-p {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	-moz-column-count: 2; /* Firefox */
+	column-count: 2;
+	-webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+	-moz-column-gap: 40px; /* Firefox */
+	column-gap: 40px;
+}
+
+ .shadow {
+	 background: url(/images/shadow.png) center bottom no-repeat;
+  }
+
+.main-subt {
+	font-size: 36px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #466E70;
+}
+
+.ficha-muro-taxonnombre a {
+	color: #C86B29 !important;
+}

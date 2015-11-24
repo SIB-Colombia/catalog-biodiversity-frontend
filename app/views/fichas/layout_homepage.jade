@@ -1,0 +1,54 @@
+extends ../../layouts/layout
+
+block content
+	section#homePage
+		.container
+			#myCarousel.carousel.slide(data-ride='carousel')
+				// Indicators
+				ol.carousel-indicators
+					li.active(data-target='#myCarousel', data-slide-to='0')
+					li(data-target='#myCarousel', data-slide-to='1')
+					li(data-target='#myCarousel', data-slide-to='2')
+					li(data-target='#myCarousel', data-slide-to='3')
+				// Wrapper for slides
+				.carousel-inner(role='listbox')
+					.item.active
+						img(src='https://placehold.it/1280x460', alt='Chania')
+					.item
+						img(src='https://placehold.it/1280x460', alt='Chania')
+					.item
+						img(src='https://placehold.it/1280x460', alt='Flower')
+					.item
+						img(src='https://placehold.it/1280x460', alt='Flower')
+				// Left and right controls
+				a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+					span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+					span.sr-only Previous
+			 	a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+					span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+					span.sr-only Next
+			.row.shadow.padded-cont
+				h2.main-subt Sobre esta colección
+				p.column-p
+				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sapien urna, convallis at varius in, pretium convallis nisl. Ut eu lorem turpis. Etiam nulla ex, feugiat eu leo faucibus, porttitor feugiat ex. Cras in justo orci. Cras pharetra urna nunc, sed maximus magna lacinia sit amet. Nullam orci tortor, consequat ac erat tincidunt, condimentum elementum nibh. Maecenas ultricies neque quis laoreet volutpat. Vivamus ipsum justo, elementum sed lacus in, interdum ultricies diam. Nulla facilisi. Quisque euismod pharetra aliquam. Vestibulum vestibulum et mi eget sollicitudin. Morbi scelerisque orci at elementum mollis. Integer feugiat ligula sed lorem condimentum hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sapien urna, convallis at varius in, pretium convallis nisl. Ut eu lorem turpis. Etiam nulla ex, feugiat eu leo faucibus, porttitor feugiat ex. Cras in justo orci. Cras pharetra urna nunc, sed maximus magna lacinia sit amet. Nullam orci tortor, consequat ac erat tincidunt, condimentum elementum nibh. Maecenas ultricies neque quis laoreet volutpat. Vivamus ipsum justo, elementum sed lacus in, interdum ultricies diam. Nulla facilisi. Quisque euismod pharetra aliquam. Vestibulum vestibulum et mi eget sollicitudin. Morbi scelerisque orci at elementum mollis. Integer feugiat ligula sed lorem condimentum hendrerit.
+				.row.padded-cont.align-center
+					a.btn-home(href='#') +Ver todo el catálogo
+					p
+			div
+				h2.main-subt Explora a trevés de grupos biológicos
+			.row.padded-cont
+				.col-md-3.align-center
+					img(src='/images/btn-artropodos.png', alt='Artrópodos')
+				.col-md-3.align-center
+					img(src='/images/btn-aves.png', alt='Aves')
+				.col-md-3.align-center
+					img(src='/images/btn-plantas.png', alt='Plantas')
+				.col-md-3.align-center
+					img(src='/images/btn-moluscos.png', alt='Moluscos')
+			.row.padded-cont
+				.col-md-4.align-center
+					img(src='/images/btn-mamiferos.png', alt='Mamíferos')
+				.col-md-4.align-center
+					img(src='/images/btn-reptiles.png', alt='Reptiles')
+				.col-md-4.align-center
+					img(src='/images/btn-anfibios.png', alt='Anfibios')
