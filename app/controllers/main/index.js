@@ -10,7 +10,7 @@ exports.index = function(req, res) {
 		{
 			initialRecordsSpeciesData: function(callback) {
 				request({
-					url: appConfigVars.backendURL+'/index.php/api/fichasresumeninvasoras?page=1&order=scientificname&orderdirection=asc&priorityimages',
+					url: appConfigVars.backendURL+'/index.php/api/fichasresumen?page=1&order=scientificname&orderdirection=asc&priorityimages',
 					method: 'GET',
 					json: true
 				}, function(error, response, body) {
@@ -23,7 +23,7 @@ exports.index = function(req, res) {
 			},
 			initialRecordsSpeciesDataRandomWithImages: function(callback) {
 				request({
-					url: appConfigVars.backendURL+'/index.php/api/fichas/previewrandomspeciesinvasoras',
+					url: appConfigVars.backendURL+'/index.php/api/fichas/previewrandomspecies',
 					method: 'GET',
 					json: true
 				}, function(error, response, body) {
@@ -45,7 +45,7 @@ exports.index = function(req, res) {
 };
 
 exports.redirectAdministrationUrl = function(req, res) {
-	res.redirect('http:/192.168.205.14/catalogo');
+	res.redirect('http://www.biodiversidad.co:3000');
 };
 
 exports.showAllSpecies = function(req, res) {
