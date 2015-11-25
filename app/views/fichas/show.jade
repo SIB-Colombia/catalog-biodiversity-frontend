@@ -8,14 +8,20 @@ block content
 	link(rel="stylesheet" href="../../components/photo.swipe/dist/default-skin/default-skin.css")
 	script.
 		var recordOfSpecie = !{data2};
-	ul.breadcrumb
-		li
-			a(href="/") Principal
-		li.active Ficha de especie Nº #{data.catalogoespecies_id}
+	
 	section#catalogRecord
 		.container
 			.row
-				.col-lg-4.col-md-5.col-sm-6
+				.col-md-12
+					if data.info_taxonomica.taxonnombre
+						.taxonNameContainer(class="hidden-xs title-container")
+							h1.taxonName!= data.info_taxonomica.taxonnombre
+					if data.info_taxonomica.autor
+						.authorContainer(class="hidden-xs author-container")
+							h2.author Autor:
+								!= data.info_taxonomica.autor
+			.row
+				.col-lg-8.col-md-7.col-sm-6
 					h1.taxonName(class="visible-xs")!= data.info_taxonomica.taxonnombre
 					h2.author(class="visible-xs") Autor:
 						!= data.info_taxonomica.autor
@@ -78,17 +84,13 @@ block content
 						#recordPictures
 							div
 								img(src='#{data.currentImage}', class="img-responsive")
-				.col-lg-8.col-md-7.col-sm-6
+				.col-lg-4.col-md-5.col-sm-6
 					#recordHeader
 						#recordTitles
-							if data.info_taxonomica.taxonnombre
-								.taxonNameContainer(class="hidden-xs")
-									h1.taxonName!= data.info_taxonomica.taxonnombre
-							if data.info_taxonomica.autor
-								.authorContainer(class="hidden-xs")
-									h2.author Autor:
-										!= data.info_taxonomica.autor
 							.fullTaxonContainer
+								h1.taxon-title 
+									img(src='/images/ico-arbol.png')
+									Árbol taxonómico
 								.taxonComplete
 									if data.reino
 										div
