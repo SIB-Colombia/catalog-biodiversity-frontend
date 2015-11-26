@@ -3,6 +3,10 @@ define(['jquery', 'angular', 'app'], function ($, angular, app) {
 
   return app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
+      templateUrl: '/partials/homeinvasoras',
+      controller: ''
+    })
+    .when('/listado', {
       templateUrl: '/partials/home',
       controller: 'WallHomeCtrl'
     })

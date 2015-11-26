@@ -64,9 +64,10 @@ define(['jquery', 'angular'], function($, angular) {
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "amphibia") {
 								dataVar.data[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
 							} else {
-								items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
+								dataVar.data[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
 						}
+
 						this.species.push(dataVar.data[i]);
 						this.loadedRegisters += 1;
 					}

@@ -29,6 +29,7 @@ module.exports = function(parent) {
 	} else if(process.env.NODE_ENV == 'production') {
 		require('./production')(parent);
 	} else {
+		process.env.NODE_ENV = 'development';
 		require('./development')(parent);
 	}
 
