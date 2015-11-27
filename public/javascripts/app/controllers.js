@@ -93,5 +93,15 @@ define(['jquery', 'angular', 'controllers/searchOptionsCtrl', 'controllers/wallH
 				// Furthermore we need to pass on the $scope as it's unique to this controller
 				$injector.invoke(wallfungictrl, this, {'$scope': $scope});
 			});
+		}])
+		// Home site moluscos records wall controller
+		.controller('WallMoluscosCtrl', ['$scope', '$injector', function($scope, $injector) {
+			require(['controllers/wallMoluscosCtrl'], function(wallmoluscosctrl) {
+				// injector method takes an array of modules as the first argument
+				// if you want your controller to be able to use components from
+				// any of your other modules, make sure you include it together with 'ng'
+				// Furthermore we need to pass on the $scope as it's unique to this controller
+				$injector.invoke(wallmoluscosctrl, this, {'$scope': $scope});
+			});
 		}]);
 });

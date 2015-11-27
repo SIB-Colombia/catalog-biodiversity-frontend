@@ -7,14 +7,13 @@ block header
 					span.icon-bar
 					span.icon-bar
 					span.icon-bar
-				a(class="brand", title="Catálogo de la Biodiversidad", href="/#/")
+				a(class="brand", title="Catálogo de la Biodiversidad", href="/")
 					img.img-responsive(src="images/logo_catalogo_especies.png")
 			.collapse.navbar-collapse(id="navbar-header-catalog-collapse")
 				.container-center
 					ul.nav.navbar-nav
 						li.dropdown
 							a(class="dropdown-toggle", data-toggle="dropdown") CATEGORÍAS
-								b.caret
 							ul.dropdown-menu
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
 									a(data-ng-click="switchTaxon('all') | trackEvent:'Categorias todas las fichas':'Button clicked'", data-ng-href="/#/{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
@@ -51,26 +50,19 @@ block header
 										a(data-ng-click="switchOrderDirection('asc') | trackEvent:'Mostrar fichas en orden ascendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Ascendente
 									li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
 										a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Descendente
+						li.dropdown
+							a(class="dropdown-toggle", data-toggle="dropdown") ORDENAR
+							ul.dropdown-menu
+								li(data-ng-class="{active: searchOptions.getOrderDirection() == 'asc'}")
+									a(data-ng-click="switchOrderDirection('asc') | trackEvent:'Mostrar fichas en orden ascendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Orden ascendente
+								li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
+									a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Orden descendente
 						.navbar-form.navbar-left
 							form(data-ng-submit="go() | trackEvent:'Búsqueda realizada':'Button clicked':'Condición búsqueda':currentTextSearch")
 								.form-group
 									input.form-control(type="text", name="q", x-webkit-speech, data-ng-model="currentTextSearch", placeholder="Buscar especies")
 								button.visible-large-screen(type="button", data-ng-click="go() | trackEvent:'Búsqueda realizada':'Button clicked':'Condición búsqueda':currentTextSearch")
 				ul.nav.navbar-nav.navbar-right
-					li.dropdown
-							a(class="dropdown-toggle", data-toggle="dropdown")
-								svg(x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" focusable="false")
-										g(fill="#FFFFFF")
-											polygon(points="7,3 10,0 13,3 ")
-											polygon(points="13,17 10,19.875 7,17 ")
-											//- polygon(points="28,9 24,13 20,9 ")
-											path(d="M7.294,12.844h-3.51L3.104,15H1.078L4.519,5h2.054L10,15H7.974L7.294,12.844z M4.279,11.271H6.8L5.563,7.342H5.522   L4.279,11.271z")
-											path(d="M13.875,13.455h4.891V15h-7.314v-1.049l4.752-7.406h-4.746V5h7.191v1.003L13.875,13.455z")
-							ul.dropdown-menu
-								li(data-ng-class="{active: searchOptions.getOrderDirection() == 'asc'}")
-									a(data-ng-click="switchOrderDirection('asc') | trackEvent:'Mostrar fichas en orden ascendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Orden ascendente
-								li(data-ng-class="{active: searchOptions.getOrderDirection() == 'desc'}")
-									a(data-ng-click="switchOrderDirection('desc') | trackEvent:'Mostrar fichas en orden descendente':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Orden descendente
 					li
 						a(class="", title="Ir al portal del SiB Colombia", href="http://www.sibcolombia.net", target="_blank")
 							img.img-responsive(src="images/ico_portal.png")

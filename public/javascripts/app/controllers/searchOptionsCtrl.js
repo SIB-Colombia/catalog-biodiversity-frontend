@@ -23,6 +23,9 @@ define([], function() {
 			} else if(currentTaxon == "fungi") {
 				$scope.searchOptions.setCurrentTaxon("fungi");
 			}
+			else if(currentTaxon == "mollusca") {
+				$scope.searchOptions.setCurrentTaxon("mollusca");
+			}
 		};
 
 		$scope.switchShowRecordsWithPicture = function() {

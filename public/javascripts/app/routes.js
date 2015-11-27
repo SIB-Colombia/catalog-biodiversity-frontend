@@ -6,7 +6,7 @@ define(['jquery', 'angular', 'app'], function ($, angular, app) {
       templateUrl: '/partials/homeinvasoras',
       controller: ''
     })
-    .when('/listado', {
+    .when('/catalogo', {
       templateUrl: '/partials/home',
       controller: 'WallHomeCtrl'
     })
@@ -37,6 +37,10 @@ define(['jquery', 'angular', 'app'], function ($, angular, app) {
     .when('/hongos', {
       templateUrl: '/partials/home',
       controller: 'WallFungiCtrl'
+    })
+    .when('/moluscos', {
+      templateUrl: '/partials/home',
+      controller: 'WallMoluscosCtrl'
     });
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
