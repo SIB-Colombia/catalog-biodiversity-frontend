@@ -8,8 +8,8 @@ define([], function() {
 		$scope.switchTaxon = function(currentTaxon) {
 			if(currentTaxon == "all") {
 				$scope.searchOptions.setCurrentTaxon("all");
-			} else if(currentTaxon == "insecta") {
-				$scope.searchOptions.setCurrentTaxon("insecta");
+			} else if(currentTaxon == "arthropoda") {
+				$scope.searchOptions.setCurrentTaxon("arthropoda");
 			} else if(currentTaxon == "bird") {
 				$scope.searchOptions.setCurrentTaxon("bird");
 			} else if(currentTaxon == "plantae") {

@@ -17,8 +17,8 @@ block header
 							ul.dropdown-menu
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
 									a(data-ng-click="switchTaxon('all') | trackEvent:'Categorias todas las fichas':'Button clicked'", data-ng-href="/#/{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
-								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'insecta'}")
-									a(data-ng-click="switchTaxon('insecta') | trackEvent:'Categoria insectos':'Button clicked'", data-ng-href="/#/insectos{{searchOptions.getCurrentURLWithoutTaxon()}}") Insectos
+								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'arthropoda'}")
+									a(data-ng-click="switchTaxon('arthropoda') | trackEvent:'Categoria Artropodos':'Button clicked'", data-ng-href="/#/artropodos{{searchOptions.getCurrentURLWithoutTaxon()}}") Artrópodos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'aves'}")
 									a(data-ng-click="switchTaxon('aves') | trackEvent:'Categoria aves':'Button clicked'", data-ng-href="/#/aves{{searchOptions.getCurrentURLWithoutTaxon()}}") Aves
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'plantae'}")
@@ -32,9 +32,9 @@ block header
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'fungi'}")
 									a(data-ng-click="switchTaxon('fungi') | trackEvent:'Categoria hongos':'Button clicked'", data-ng-href="/#/hongos{{searchOptions.getCurrentURLWithoutTaxon()}}") Hongos
 								li
-									a(data-ng-href="/paramos") Páramos
+									a(data-ng-href="http://biodiversidad.co/paramos") Páramos
 								li
-									a(data-ng-href="/humedales") Humedales
+									a(data-ng-href="http://biodiversidad.co/humedales") Humedales
 								li.divider
 								li(data-ng-class="{active: searchOptions.getShowRecordsWithPicture()}")
 									a(data-ng-click="switchShowRecordsWithPicture() | trackEvent:'Se eligió mostrar primero fichas con foto':'Button clicked'", data-ng-href="/#{{searchOptions.getCurrentURL()}}") Mostrar primero fichas con foto

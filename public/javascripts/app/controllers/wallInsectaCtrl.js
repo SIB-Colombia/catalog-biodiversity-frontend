@@ -1,7 +1,7 @@
 define([], function() {
 	return ['$scope', '$routeParams', '$location', '$http', 'Catalogue', 'SearchOptions', function($scope, $routeParams, $location, $http, Catalogue, SearchOptions) {
 		// You can access the scope of the controller from here
-		SearchOptions.setCurrentTaxon("insecta");
+		SearchOptions.setCurrentTaxon("arthropoda");
 		SearchOptions.setCurrentLocation($location.$$path);
 		if($routeParams.priorityImages == 'false') {
 			SearchOptions.setShowRecordsWithPicture(false);

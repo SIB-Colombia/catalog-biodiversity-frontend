@@ -49,7 +49,7 @@ define(['jquery', 'photoSwipe', 'photoSwipe_ui_default'], function($, PhotoSwipe
 			}
 		};
 
-
+		/*
 
 		$(".rslides").photoGallery({
 			timeout: 10000,
@@ -259,11 +259,12 @@ define(['jquery', 'photoSwipe', 'photoSwipe_ui_default'], function($, PhotoSwipe
 			}
 			text = text + documento_titulo + " " + lugar_publicacion;
 			return text;
-		};
+		}; */
 
 		// because this has happened asynchroneusly we've missed
 		// Angular's initial call to $apply after the controller has been loaded
 		// hence we need to explicityly call it at the end of our Controller constructor
+		MapData.mapData().success(handleSuccess);
 		$scope.$apply();
 	}];
 });

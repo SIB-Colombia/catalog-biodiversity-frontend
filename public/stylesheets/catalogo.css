@@ -363,8 +363,8 @@ a {
   background-image: linear-gradient(to bottom, #08c, #0077b3);
   background-repeat: repeat-x;
 }
-#content-wrapper{
-  padding-top: 20px
+#content-wrapper {
+  padding-top: 20px;
 }
 #content-wrapper .breadcrumb {
   -webkit-border-radius: 0px;

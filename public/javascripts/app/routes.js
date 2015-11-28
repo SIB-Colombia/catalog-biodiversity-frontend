@@ -10,7 +10,7 @@ define(['jquery', 'angular', 'app'], function ($, angular, app) {
       templateUrl: '/partials/home',
       controller: 'WallHomeCtrl'
     })
-    .when('/insectos', {
+    .when('/artropodos', {
       templateUrl: '/partials/home',
       controller: 'WallInsectaCtrl'
     })

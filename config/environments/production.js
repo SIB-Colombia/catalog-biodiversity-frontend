@@ -17,7 +17,7 @@ module.exports = function(parent) {
 	});
 
 	// New relic software analytics
-	require('newrelic');
+	//require('newrelic');
 
 	/*var redirect = express();
 
