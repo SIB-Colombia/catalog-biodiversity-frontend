@@ -16,7 +16,7 @@ block header
 							a(class="dropdown-toggle", data-toggle="dropdown") CATEGORÍAS
 							ul.dropdown-menu
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'all'}")
-									a(data-ng-click="switchTaxon('all') | trackEvent:'Categorias todas las fichas':'Button clicked'", data-ng-href="/#/{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
+									a(data-ng-click="switchTaxon('all') | trackEvent:'Categorias todas las fichas':'Button clicked'", data-ng-href="/#/catalogo{{searchOptions.getCurrentURLWithoutTaxon()}}") Todos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'arthropoda'}")
 									a(data-ng-click="switchTaxon('arthropoda') | trackEvent:'Categoria Artropodos':'Button clicked'", data-ng-href="/#/artropodos{{searchOptions.getCurrentURLWithoutTaxon()}}") Artrópodos
 								li(data-ng-class="{active: searchOptions.getCurrentTaxon() == 'aves'}")

@@ -99,6 +99,10 @@ exports.show = function(req, res) {
 							result[registerID].currentImages[result[registerID].currentImages.length] = {};
 							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/anfibios.png";
 							//metaTagOgImage = "/images/taxon_icons/anfibios.png";
+						} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].phylum.toLowerCase() == "mollusca") {
+							result[registerID].currentImages[result[registerID].currentImages.length] = {};
+							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/moluscos.png";
+							//metaTagOgImage = "/images/taxon_icons/anfibios.png";
 						} else {
 							result[registerID].currentImages[result[registerID].currentImages.length] = {};
 							result[registerID].currentImages[result[registerID].currentImages.length-1].imageURL = "/images/taxon_icons/vida.png";
@@ -219,6 +223,9 @@ exports.showOld = function(req, res) {
 					//metaTagOgImage = "/images/taxon_icons/hongos.png";
 				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "amphibia") {
           			result[registerID].currentImage = "/images/taxon_icons/anfibios.png";
+					//metaTagOgImage = "/images/taxon_icons/anfibios.png";
+				} else if(result[registerID].reino.toLowerCase() == "animalia" && result[registerID].clase.toLowerCase() == "mollusca") {
+          			result[registerID].currentImage = "/images/taxon_icons/moluscos.png";
 					//metaTagOgImage = "/images/taxon_icons/anfibios.png";
 				} else {
           			result[registerID].currentImage = "/images/taxon_icons/vida.png";

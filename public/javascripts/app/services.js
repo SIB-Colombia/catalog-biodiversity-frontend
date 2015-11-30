@@ -36,6 +36,8 @@ define(['jquery', 'angular'], function($, angular) {
 								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
 							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].clase.toLowerCase() == "amphibia") {
 								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+							} else if(dataVarRandomImages.data[i].reino.toLowerCase() == "animalia" && dataVarRandomImages.data[i].phylum.toLowerCase() == "mollusca") {
+								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/moluscos2.png";
 							} else {
 								dataVarRandomImages.data[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
@@ -63,6 +65,8 @@ define(['jquery', 'angular'], function($, angular) {
 								dataVar.data[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
 							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].clase.toLowerCase() == "amphibia") {
 								dataVar.data[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+							} else if(dataVar.data[i].reino.toLowerCase() == "animalia" && dataVar.data[i].phylum.toLowerCase() == "mollusca") {
+								dataVar.data[i]["currentImage"] = "/images/taxon_icons/moluscos2.png";
 							} else {
 								dataVar.data[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 							}
@@ -125,6 +129,8 @@ define(['jquery', 'angular'], function($, angular) {
 											items[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
 										} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
 											items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+										} else if(items[i].reino.toLowerCase() == "animalia" && items[i].phylum.toLowerCase() == "mollusca") {
+											items[i]["currentImage"] = "/images/taxon_icons/moluscos2.png";
 										} else {
 											items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 										}
@@ -229,6 +235,8 @@ define(['jquery', 'angular'], function($, angular) {
 									items[i]["currentImage"] = "/images/taxon_icons/hongos2.png";
 								} else if(items[i].reino.toLowerCase() == "animalia" && items[i].clase.toLowerCase() == "amphibia") {
 									items[i]["currentImage"] = "/images/taxon_icons/anfibios2.png";
+								} else if(items[i].reino.toLowerCase() == "animalia" && items[i].phylum.toLowerCase() == "mollusca") {
+									items[i]["currentImage"] = "/images/taxon_icons/moluscos2.png";
 								} else {
 									items[i]["currentImage"] = "/images/taxon_icons/vida_s.png";
 								}
@@ -288,6 +296,8 @@ define(['jquery', 'angular'], function($, angular) {
 						this.data.currentImage = "/images/taxon_icons/hongos.png";
 					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.clase.toLowerCase() == "amphibia") {
 						this.data.currentImage = "/images/taxon_icons/anfibios.png";
+					} else if(this.data.reino.toLowerCase() == "animalia" && this.data.phylum.toLowerCase() == "mollusca") {
+						this.data.currentImage = "/images/taxon_icons/moluscos.png";
 					} else {
 						this.data.currentImage = "/images/taxon_icons/vida.png";
 					}
